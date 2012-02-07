@@ -196,7 +196,7 @@ class Document:
 		#self.debug(str([describe(node) for node in self.tags(self.html, "div")]))
 
 		ordered = []
-		for elem in self.tags(self.html, "p", "pre", "td"):
+		for elem in self.tags(self._html(), "p", "pre", "td"):
 			parent_node = elem.getparent()
 			if parent_node is None:
 				continue 
