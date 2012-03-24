@@ -159,7 +159,7 @@ class Document:
 
 				if node_length > 80 and link_density < 0.25:
 					append = True
-				elif node_length < 80 and link_density == 0 and re.search('\.( |$)', node_content):
+				elif node_length <= 80 and link_density == 0 and re.search('\.( |$)', node_content):
 					append = True
 
 			if append:
@@ -280,6 +280,8 @@ class Document:
 	def remove_unlikely_candidates(self):
 		for elem in self.html.iter():
 			s = "%s %s" % (elem.get('class', ''), elem.get('id', ''))
+			if len(s) < 2:
+				continue
 			#self.debug(s)
 			if REGEXES['unlikelyCandidatesRe'].search(s) and (not REGEXES['okMaybeItsACandidateRe'].search(s)) and elem.tag != 'body':
 				self.debug("Removing unlikely candidate - %s" % describe(elem))
@@ -288,6 +290,8 @@ class Document:
 	def transform_misused_divs_into_paragraphs(self):
 		for elem in self.tags(self.html, 'div'):
 			# transform <div>s that do not contain other block elements into <p>s
+			#FIXME: The current implementation ignores all descendants that are not direct children of elem
+			# This results in incorrect results in case there is an <img> buried within an <a> for example
 			if not REGEXES['divToPElementsRe'].search(unicode(''.join(map(tostring, list(elem))))):
 				#self.debug("Altering %s to p" % (describe(elem)))
 				elem.tag = "p"
