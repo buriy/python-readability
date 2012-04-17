@@ -1,4 +1,11 @@
 *.pyc
+*.egg-info
 build
 dist
-readability_lxml.egg-info
+/bin
+/include
+/lib
+/local
+/man
+nosetests.xml
+.coverage
