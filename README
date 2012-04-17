@@ -33,3 +33,12 @@ Usage::
 Command-line usage::
 
     python -m readability.readability -u http://pypi.python.org/pypi/readability-lxml
+
+
+Document() kwarg options:
+
+ - attributes:
+ - debug: output debug messages
+ - min_text_length:
+ - retry_length:
+ - url: will allow adjusting links to be absolute
