@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="readability-lxml",
-    version="0.2.5",
+    version="0.2.5.1",
     author="Yuri Baburov",
     author_email="burchik@gmail.com",
     description="fast python port of arc90's readability tool",
@@ -11,8 +11,7 @@ setup(
     long_description=open("README").read(),
     license="Apache License 2.0",
     url="http://github.com/buriy/python-readability",
-    package_dir={'': 'readability'},
-    packages=find_packages('readability', exclude=["*.tests", "*.tests.*"]),
+    packages=['readability'],
     install_requires=[
         "chardet",
         "lxml"
