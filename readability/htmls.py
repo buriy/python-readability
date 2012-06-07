@@ -43,11 +43,11 @@ def norm_title(title):
     return normalize_entities(normalize_spaces(title))
 
 def get_title(doc):
-    title = doc.find('.//title').text
-    if not title:
+    title = doc.find('.//title')
+    if not title or not title.text:
         return '[no-title]'
-    
-    return norm_title(title)
+
+    return norm_title(title.text)
 
 def add_match(collection, text, orig):
     text = norm_title(text)
@@ -56,11 +56,11 @@ def add_match(collection, text, orig):
             collection.add(text)
 
 def shorten_title(doc):
-    title = doc.find('.//title').text
-    if not title:
+    title = doc.find('.//title')
+    if not title or not title.text:
         return ''
-    
-    title = orig = norm_title(title)
+
+    title = orig = norm_title(title.text)
 
     candidates = set()
 
@@ -77,7 +77,7 @@ def shorten_title(doc):
                 add_match(candidates, e.text, orig)
             if e.text_content():
                 add_match(candidates, e.text_content(), orig)
-                
+
     if candidates:
         title = sorted(candidates, key=len)[-1]
     else:
