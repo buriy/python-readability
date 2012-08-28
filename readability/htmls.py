@@ -57,7 +57,7 @@ def add_match(collection, text, orig):
 
 def shorten_title(doc):
     title = doc.find('.//title')
-    if title is None or len(title.text) == 0:
+    if title is None or title.text is None or len(title.text) == 0:
         return ''
 
     title = orig = norm_title(title.text)
