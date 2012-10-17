@@ -123,6 +123,9 @@ class Document:
     def short_title(self):
         return shorten_title(self._html(True))
 
+    def get_clean_html(self):
+         return clean_attributes(tounicode(self.html))
+
     def summary(self, html_partial=False):
         """Generate the summary of the html docuemnt
 
@@ -530,7 +533,8 @@ class Document:
                 #el.attrib = {} #FIXME:Checkout the effects of disabling this
                 pass
 
-        return clean_attributes(tounicode(node))
+        self.html = node
+        return self.get_clean_html()
 
 
 class HashableElement():
