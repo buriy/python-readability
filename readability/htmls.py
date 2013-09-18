@@ -1,16 +1,21 @@
-from cleaners import normalize_spaces, clean_attributes
-from encoding import get_encoding
+from .cleaners import normalize_spaces, clean_attributes
+from .encoding import get_encoding
 from lxml.html import tostring
 import logging
 import lxml.html
 import re
+
+# Python 2.7 compatibility.
+import sys
+if sys.version < '3':
+    str = unicode
 
 logging.getLogger().setLevel(logging.DEBUG)
 
 utf8_parser = lxml.html.HTMLParser(encoding='utf-8')
 
 def build_doc(page):
-    if isinstance(page, unicode):
+    if isinstance(page, str):
         page_unicode = page
     else:
         enc = get_encoding(page)
@@ -105,7 +110,7 @@ def shorten_title(doc):
 
 def get_body(doc):
     [ elem.drop_tree() for elem in doc.xpath('.//script | .//link | .//style') ]
-    raw_html = unicode(tostring(doc.body or doc))
+    raw_html = str(tostring(doc.body or doc))
     cleaned = clean_attributes(raw_html)
     try:
         #BeautifulSoup(cleaned) #FIXME do we really need to try loading it?

@@ -9,13 +9,16 @@ from lxml.etree import tounicode
 from lxml.html import document_fromstring
 from lxml.html import fragment_fromstring
 
-from cleaners import clean_attributes
-from cleaners import html_cleaner
-from htmls import build_doc
-from htmls import get_body
-from htmls import get_title
-from htmls import shorten_title
+from .cleaners import clean_attributes
+from .cleaners import html_cleaner
+from .htmls import build_doc
+from .htmls import get_body
+from .htmls import get_title
+from .htmls import shorten_title
 
+# Python 2.7 compatibility.
+if sys.version < '3':
+    str = unicode
 
 logging.basicConfig(level=logging.INFO)
 log = logging.getLogger()
@@ -179,9 +182,9 @@ class Document:
                     continue
                 else:
                     return cleaned_article
-        except StandardError, e:
+        except Exception as e:
             log.exception('error getting summary: ')
-            raise Unparseable(str(e)), None, sys.exc_info()[2]
+            raise Unparseable(str(e))
 
     def get_article(self, candidates, best_candidate, html_partial=False):
         # Now that we have the top candidate, look through its siblings for
@@ -231,7 +234,7 @@ class Document:
         return output
 
     def select_best_candidate(self, candidates):
-        sorted_candidates = sorted(candidates.values(), key=lambda x: x['content_score'], reverse=True)
+        sorted_candidates = sorted(list(candidates.values()), key=lambda x: x['content_score'], reverse=True)
         for candidate in sorted_candidates[:5]:
             elem = candidate['elem']
             self.debug("Top 5 : %6.3f %s" % (
@@ -366,7 +369,7 @@ class Document:
             # This results in incorrect results in case there is an <img>
             # buried within an <a> for example
             if not REGEXES['divToPElementsRe'].search(
-                    unicode(''.join(map(tostring, list(elem))))):
+                    str(b''.join(map(tostring, list(elem))))):
                 #self.debug("Altering %s to p" % (describe(elem)))
                 elem.tag = "p"
                 #print "Fixed element "+describe(elem)
@@ -577,15 +580,20 @@ def main():
 
     file = None
     if options.url:
-        import urllib
-        file = urllib.urlopen(options.url)
+        # Python 2.7 compatibility
+        # Python 2.7 support.
+        try:
+            from urllib import request
+        except ImportError:
+            import urllib2 as request
+        file = request.urlopen(options.url)
     else:
         file = open(args[0], 'rt')
     enc = sys.__stdout__.encoding or 'utf-8'
     try:
-        print Document(file.read(),
+        print(Document(file.read(),
             debug=options.verbose,
-            url=options.url).summary().encode(enc, 'replace')
+            url=options.url).summary().encode(enc, 'replace'))
     finally:
         file.close()
 
