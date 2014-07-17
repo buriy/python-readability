@@ -1,5 +1,4 @@
-from cleaners import normalize_spaces, clean_attributes
-from encoding import get_encoding
+from .cleaners import normalize_spaces, clean_attributes
 from lxml.html import tostring
 import logging
 import lxml.html
@@ -8,14 +7,8 @@ import re, sys
 utf8_parser = lxml.html.HTMLParser(encoding='utf-8')
 
 def build_doc(page):
-    if isinstance(page, unicode):
-        enc = None
-        page_unicode = page
-    else:
-        enc = get_encoding(page) or 'utf-8'
-        page_unicode = page.decode(enc, 'replace')
-    doc = lxml.html.document_fromstring(page_unicode.encode('utf-8', 'replace'), parser=utf8_parser)
-    return doc, enc
+    doc = lxml.html.document_fromstring(page, parser=utf8_parser)
+    return doc
 
 def js_re(src, pattern, flags, repl):
     return re.compile(pattern, flags).sub(src, repl.replace('$', '\\'))
@@ -104,7 +97,7 @@ def shorten_title(doc):
 
 def get_body(doc):
     [ elem.drop_tree() for elem in doc.xpath('.//script | .//link | .//style') ]
-    raw_html = unicode(tostring(doc.body or doc))
+    raw_html = tostring(doc.body or doc)
     cleaned = clean_attributes(raw_html)
     try:
         #BeautifulSoup(cleaned) #FIXME do we really need to try loading it?
