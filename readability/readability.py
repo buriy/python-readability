@@ -4,17 +4,16 @@ import re
 import sys
 
 from collections import defaultdict
-from lxml.etree import tostring
-from lxml.etree import tounicode
+from lxml.etree import tostring, tounicode
 from lxml.html import document_fromstring
 from lxml.html import fragment_fromstring
 
-from cleaners import clean_attributes
-from cleaners import html_cleaner
-from htmls import build_doc
-from htmls import get_body
-from htmls import get_title
-from htmls import shorten_title
+from .cleaners import clean_attributes
+from .cleaners import html_cleaner
+from .htmls import build_doc
+from .htmls import get_body
+from .htmls import get_title
+from .htmls import shorten_title
 
 
 logging.basicConfig(level=logging.INFO)
@@ -110,7 +109,6 @@ class Document:
         self.input = input
         self.options = options
         self.html = None
-        self.encoding = None
         self.positive_keywords = compile_pattern(positive_keywords)
         self.negative_keywords = compile_pattern(negative_keywords)
 
@@ -120,7 +118,7 @@ class Document:
         return self.html
 
     def _parse(self, input):
-        doc, self.encoding = build_doc(input)
+        doc = build_doc(input)
         doc = html_cleaner.clean_html(doc)
         base_href = self.options.get('url', None)
         if base_href:
@@ -194,9 +192,9 @@ class Document:
                     continue
                 else:
                     return cleaned_article
-        except StandardError, e:
+        except Exception as e:
             log.exception('error getting summary: ')
-            raise Unparseable(str(e)), None, sys.exc_info()[2]
+            raise Unparseable(str(e))
 
     def get_article(self, candidates, best_candidate, html_partial=False):
         # Now that we have the top candidate, look through its siblings for
@@ -387,7 +385,7 @@ class Document:
             # This results in incorrect results in case there is an <img>
             # buried within an <a> for example
             if not REGEXES['divToPElementsRe'].search(
-                    unicode(''.join(map(tostring, list(elem))))):
+                    ''.join(map(tounicode, list(elem)))):
                 #self.debug("Altering %s to p" % (describe(elem)))
                 elem.tag = "p"
                 #print "Fixed element "+describe(elem)
@@ -599,20 +597,18 @@ def main():
         parser.print_help()
         sys.exit(1)
 
-    file = None
     if options.url:
-        import urllib
-        file = urllib.urlopen(options.url)
+        import requests
+        data = requests.get(options.url).raw_text
     else:
-        file = open(args[0], 'rt')
-    enc = sys.__stdout__.encoding or 'utf-8' # XXX: this hack could not always work, better to set PYTHONIOENCODING
+        data = open(args[0], 'rt').read()
     try:
-        print Document(file.read(),
+        print(Document(data,
             debug=options.verbose,
             url=options.url,
             positive_keywords = options.positive_keywords,
             negative_keywords = options.negative_keywords,
-        ).summary().encode(enc, 'replace')
+        ).summary())
     finally:
         file.close()
 

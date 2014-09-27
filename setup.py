@@ -7,7 +7,7 @@ if sys.platform == 'darwin':
     import platform
     mac_ver = platform.mac_ver()[0]
     if mac_ver < '10.9':
-        print "Using lxml<2.4"
+        print("Using lxml<2.4")
         lxml_requirement = "lxml<2.4"
 
 setup(
