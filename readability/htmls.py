@@ -3,9 +3,11 @@ from encoding import get_encoding
 from lxml.html import tostring
 import logging
 import lxml.html
-import re, sys
+import re
+import sys
 
 utf8_parser = lxml.html.HTMLParser(encoding='utf-8')
+
 
 def build_doc(page):
     if isinstance(page, unicode):
@@ -14,8 +16,10 @@ def build_doc(page):
     else:
         enc = get_encoding(page) or 'utf-8'
         page_unicode = page.decode(enc, 'replace')
-    doc = lxml.html.document_fromstring(page_unicode.encode('utf-8', 'replace'), parser=utf8_parser)
+    doc = lxml.html.document_fromstring(
+        page_unicode.encode('utf-8', 'replace'), parser=utf8_parser)
     return doc, enc
+
 
 def js_re(src, pattern, flags, repl):
     return re.compile(pattern, flags).sub(src, repl.replace('$', '\\'))
@@ -23,8 +27,8 @@ def js_re(src, pattern, flags, repl):
 
 def normalize_entities(cur_title):
     entities = {
-        u'\u2014':'-',
-        u'\u2013':'-',
+        u'\u2014': '-',
+        u'\u2013': '-',
         u'&mdash;': '-',
         u'&ndash;': '-',
         u'\u00A0': ' ',
@@ -38,8 +42,10 @@ def normalize_entities(cur_title):
 
     return cur_title
 
+
 def norm_title(title):
     return normalize_entities(normalize_spaces(title))
+
 
 def get_title(doc):
     title = doc.find('.//title')
@@ -48,11 +54,13 @@ def get_title(doc):
 
     return norm_title(title.text)
 
+
 def add_match(collection, text, orig):
     text = norm_title(text)
     if len(text.split()) >= 2 and len(text) >= 15:
         if text.replace('"', '') in orig.replace('"', ''):
             collection.add(text)
+
 
 def shorten_title(doc):
     title = doc.find('.//title')
@@ -102,13 +110,14 @@ def shorten_title(doc):
 
     return title
 
+
 def get_body(doc):
-    [ elem.drop_tree() for elem in doc.xpath('.//script | .//link | .//style') ]
+    [elem.drop_tree() for elem in doc.xpath('.//script | .//link | .//style')]
     raw_html = unicode(tostring(doc.body or doc))
     cleaned = clean_attributes(raw_html)
     try:
-        #BeautifulSoup(cleaned) #FIXME do we really need to try loading it?
+        # BeautifulSoup(cleaned) #FIXME do we really need to try loading it?
         return cleaned
-    except Exception: #FIXME find the equivalent lxml error
+    except Exception:  # FIXME find the equivalent lxml error
         #logging.error("cleansing broke html content: %s\n---------\n%s" % (raw_html, cleaned))
         return raw_html

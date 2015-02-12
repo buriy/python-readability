@@ -1,0 +1,15 @@
+language: python
+
+python:
+    - "2.7"
+    - "3.4"
+
+install:
+    - pip install pytest-cov --use-mirrors
+    - pip install pytest-pep8 --use-mirrors
+    - pip install coveralls --use-mirrors
+
+script: py.test ./tests/test* --pep8 readability -v --cov readability --cov-report term-missing
+
+after_success:
+    - coveralls
