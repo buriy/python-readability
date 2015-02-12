@@ -7,6 +7,7 @@ from lxml.etree import tostring
 from lxml.etree import tounicode
 from lxml.html import document_fromstring
 from lxml.html import fragment_fromstring
+
 from cleaners import clean_attributes
 from cleaners import html_cleaner
 from htmls import build_doc
@@ -22,15 +23,19 @@ REGEXES = {
     'unlikelyCandidatesRe': re.compile(
         'combx|comment|community|disqus|extra|foot|header|menu|remark|rss|shoutbox|sidebar|sponsor|ad-break|agegate|pagination|pager|popup|tweet|twitter',
         re.I),
-    'okMaybeItsACandidateRe': re.compile('and|article|body|column|main|shadow', re.I),
-    'positiveRe': re.compile('article|body|content|entry|hentry|main|page|pagination|post|text|blog|story', re.I),
+    'okMaybeItsACandidateRe': re.compile('and|article|body|column|main|shadow',
+                                         re.I),
+    'positiveRe': re.compile(
+        'article|body|content|entry|hentry|main|page|pagination|post|text|blog|story',
+        re.I),
     'negativeRe': re.compile(
         'combx|comment|com-|contact|foot|footer|footnote|masthead|media|meta|outbrain|promo|related|scroll|shoutbox|sidebar|sponsor|shopping|tags|tool|widget',
         re.I),
-    'divToPElementsRe': re.compile('<(a|blockquote|dl|div|img|ol|p|pre|table|ul)', re.I),
+    'divToPElementsRe': re.compile(
+        '<(a|blockquote|dl|div|img|ol|p|pre|table|ul)', re.I),
     # 'replaceBrsRe': re.compile('(<br[^>]*>[ \n\r\t]*){2,}',re.I),
-    #'replaceFontsRe': re.compile('<(\/?)font[^>]*>',re.I),
-    #'trimRe': re.compile('^\s+|\s+$/'),
+    # 'replaceFontsRe': re.compile('<(\/?)font[^>]*>',re.I),
+    # 'trimRe': re.compile('^\s+|\s+$/'),
     #'normalizeRe': re.compile('\s{2,}/'),
     #'killBreaksRe': re.compile('(<br\s*\/?>(\s|&nbsp;?)*){1,}/'),
     #'videoRe': re.compile('http:\/\/(www\.)?(youtube|vimeo)\.com', re.I),
@@ -97,7 +102,8 @@ class Document:
     TEXT_LENGTH_THRESHOLD = 25
     RETRY_LENGTH = 250
 
-    def __init__(self, input, positive_keywords=None, negative_keywords=None, **options):
+    def __init__(self, input, positive_keywords=None, negative_keywords=None,
+                 **options):
         """Generate the document
 
         :param input: string of the html content.
@@ -224,7 +230,8 @@ class Document:
                 append = True
             sibling_key = sibling  # HashableElement(sibling)
             if sibling_key in candidates and \
-                            candidates[sibling_key]['content_score'] >= sibling_score_threshold:
+                            candidates[sibling_key][
+                                'content_score'] >= sibling_score_threshold:
                 append = True
 
             if sibling.tag == "p":
@@ -341,16 +348,20 @@ class Document:
                 if REGEXES['positiveRe'].search(feature):
                     weight += 25
 
-                if self.positive_keywords and self.positive_keywords.search(feature):
+                if self.positive_keywords and self.positive_keywords.search(
+                        feature):
                     weight += 25
 
-                if self.negative_keywords and self.negative_keywords.search(feature):
+                if self.negative_keywords and self.negative_keywords.search(
+                        feature):
                     weight -= 25
 
-        if self.positive_keywords and self.positive_keywords.match('tag-' + e.tag):
+        if self.positive_keywords and self.positive_keywords.match(
+                        'tag-' + e.tag):
             weight += 25
 
-        if self.negative_keywords and self.negative_keywords.match('tag-' + e.tag):
+        if self.negative_keywords and self.negative_keywords.match(
+                        'tag-' + e.tag):
             weight -= 25
 
         return weight
@@ -382,7 +393,8 @@ class Document:
                 continue
             # self.debug(s)
             if REGEXES['unlikelyCandidatesRe'].search(s) and (
-            not REGEXES['okMaybeItsACandidateRe'].search(s)) and elem.tag not in ['html', 'body']:
+                    not REGEXES['okMaybeItsACandidateRe'].search(
+                            s)) and elem.tag not in ['html', 'body']:
                 self.debug("Removing unlikely candidate - %s" % describe(elem))
                 elem.drop_tree()
 
@@ -433,7 +445,8 @@ class Document:
         MIN_LEN = self.options.get('min_text_length',
                                    self.TEXT_LENGTH_THRESHOLD)
         for header in self.tags(node, "h1", "h2", "h3", "h4", "h5", "h6"):
-            if self.class_weight(header) < 0 or self.get_link_density(header) > 0.33:
+            if self.class_weight(header) < 0 or self.get_link_density(
+                    header) > 0.33:
                 header.drop_tree()
 
         for elem in self.tags(node, "form", "iframe", "textarea"):
@@ -474,9 +487,9 @@ class Document:
                         content_score = 0
                         # if parent_node is not None:
                         # pweight = self.class_weight(parent_node) + content_score
-                        #pname = describe(parent_node)
+                        # pname = describe(parent_node)
                         # else:
-                        #pweight = 0
+                        # pweight = 0
                         #pname = "no parent"
                 to_remove = False
                 reason = ""
@@ -492,7 +505,8 @@ class Document:
                 elif counts["input"] > (counts["p"] / 3):
                     reason = "less than 3x <p>s than <input>s"
                     to_remove = True
-                elif content_length < (MIN_LEN) and (counts["img"] == 0 or counts["img"] > 2):
+                elif content_length < (MIN_LEN) and (
+                                counts["img"] == 0 or counts["img"] > 2):
                     reason = "too short content length %s without a single image" % content_length
                     to_remove = True
                 elif weight < 25 and link_density > 0.2:
@@ -503,11 +517,12 @@ class Document:
                     reason = "too many links %.3f for its weight %s" % (
                         link_density, weight)
                     to_remove = True
-                elif (counts["embed"] == 1 and content_length < 75) or counts["embed"] > 1:
+                elif (counts["embed"] == 1 and content_length < 75) or counts[
+                    "embed"] > 1:
                     reason = "<embed>s with too short content length, or too many <embed>s"
                     to_remove = True
-                    #                if el.tag == 'div' and counts['img'] >= 1 and to_remove:
-                    #                    imgs = el.findall('.//img')
+                    # if el.tag == 'div' and counts['img'] >= 1 and to_remove:
+                    # imgs = el.findall('.//img')
                     #                    valid_img = False
                     #                    self.debug(tounicode(el))
                     #                    for img in imgs:
@@ -553,10 +568,11 @@ class Document:
                             allowed[desnode] = True
 
                 if to_remove:
-                    self.debug("Cleaned %6.3f %s with weight %s cause it has %s." %
-                               (content_score, describe(el), weight, reason))
+                    self.debug(
+                        "Cleaned %6.3f %s with weight %s cause it has %s." %
+                        (content_score, describe(el), weight, reason))
                     # print tounicode(el)
-                    #self.debug("pname %s pweight %.3f" %(pname, pweight))
+                    # self.debug("pname %s pweight %.3f" %(pname, pweight))
                     el.drop_tree()
 
         for el in ([node] + [n for n in node.iter()]):
@@ -604,9 +620,11 @@ def main():
     parser.add_option(
         '-u', '--url', default=None, help="use URL instead of a local file")
     parser.add_option('-p', '--positive-keywords', default=None,
-                      help="positive keywords (separated with comma)", action='store')
+                      help="positive keywords (separated with comma)",
+                      action='store')
     parser.add_option('-n', '--negative-keywords', default=None,
-                      help="negative keywords (separated with comma)", action='store')
+                      help="negative keywords (separated with comma)",
+                      action='store')
     (options, args) = parser.parse_args()
 
     if not (len(args) == 1 or options.url):

@@ -15,7 +15,8 @@ htmlstrip = re.compile("<"  # open
                        # undesirable attributes
                        "(?:%s) *" % ('|'.join(bad_attrs),) +
                        # value
-                       '= *(?:%s|%s|%s)' % (non_space, single_quoted, double_quoted) +
+                       '= *(?:%s|%s|%s)' % (
+                       non_space, single_quoted, double_quoted) +
                        "([^>]*)"  # postfix
                        ">"  # end
                        , re.I)
@@ -37,6 +38,8 @@ def normalize_spaces(s):
 
 html_cleaner = Cleaner(scripts=True, javascript=True, comments=True,
                        style=True, links=True, meta=False, add_nofollow=False,
-                       page_structure=False, processing_instructions=True, embedded=False,
-                       frames=False, forms=False, annoying_tags=False, remove_tags=None,
+                       page_structure=False, processing_instructions=True,
+                       embedded=False,
+                       frames=False, forms=False, annoying_tags=False,
+                       remove_tags=None,
                        remove_unknown_tags=False, safe_attrs_only=False)

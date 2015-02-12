@@ -1,9 +1,10 @@
 import re
 
-from cleaners import normalize_spaces, clean_attributes
-from encoding import get_encoding
 from lxml.html import tostring
 import lxml.html
+
+from cleaners import normalize_spaces, clean_attributes
+from encoding import get_encoding
 
 
 utf8_parser = lxml.html.HTMLParser(encoding='utf-8')
@@ -78,7 +79,8 @@ def shorten_title(doc):
             if e.text_content():
                 add_match(candidates, e.text_content(), orig)
 
-    for item in ['#title', '#head', '#heading', '.pageTitle', '.news_title', '.title', '.head', '.heading',
+    for item in ['#title', '#head', '#heading', '.pageTitle', '.news_title',
+                 '.title', '.head', '.heading',
                  '.contentheading', '.small_header_red']:
         for e in doc.cssselect(item):
             if e.text:
