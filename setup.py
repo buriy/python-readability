@@ -3,17 +3,6 @@ import sys
 
 from setuptools import setup
 
-
-lxml_requirement = "lxml"
-if sys.platform == 'darwin':
-    import platform
-
-    mac_ver = platform.mac_ver()[0]
-    mac_ver_no = int(mac_ver.split('.')[1])
-    if mac_ver_no < 9:
-        print "Using lxml<2.4"
-        lxml_requirement = "lxml<2.4"
-
 setup(
     name="readability-lxml",
     version="0.3.0.5",
@@ -27,7 +16,7 @@ setup(
     packages=['readability'],
     install_requires=[
         "chardet",
-        lxml_requirement
+        "lxml",
     ],
     classifiers=[
         "Environment :: Web Environment",
