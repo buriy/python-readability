@@ -13,7 +13,6 @@ def load_sample(filename):
 
 
 class TestArticleOnly(unittest.TestCase):
-
     """The option to not get back a full html doc should work
 
     Given a full html document, the call can request just divs of processed

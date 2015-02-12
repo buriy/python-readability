@@ -1,10 +1,10 @@
+import re
+
 from cleaners import normalize_spaces, clean_attributes
 from encoding import get_encoding
 from lxml.html import tostring
-import logging
 import lxml.html
-import re
-import sys
+
 
 utf8_parser = lxml.html.HTMLParser(encoding='utf-8')
 
@@ -78,7 +78,8 @@ def shorten_title(doc):
             if e.text_content():
                 add_match(candidates, e.text_content(), orig)
 
-    for item in ['#title', '#head', '#heading', '.pageTitle', '.news_title', '.title', '.head', '.heading', '.contentheading', '.small_header_red']:
+    for item in ['#title', '#head', '#heading', '.pageTitle', '.news_title', '.title', '.head', '.heading',
+                 '.contentheading', '.small_header_red']:
         for e in doc.cssselect(item):
             if e.text:
                 add_match(candidates, e.text, orig)
@@ -119,5 +120,5 @@ def get_body(doc):
         # BeautifulSoup(cleaned) #FIXME do we really need to try loading it?
         return cleaned
     except Exception:  # FIXME find the equivalent lxml error
-        #logging.error("cleansing broke html content: %s\n---------\n%s" % (raw_html, cleaned))
+        # logging.error("cleansing broke html content: %s\n---------\n%s" % (raw_html, cleaned))
         return raw_html

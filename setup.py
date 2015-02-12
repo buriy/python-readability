@@ -1,10 +1,13 @@
 #!/usr/bin/env python
-from setuptools import setup, find_packages
 import sys
+
+from setuptools import setup
+
 
 lxml_requirement = "lxml"
 if sys.platform == 'darwin':
     import platform
+
     mac_ver = platform.mac_ver()[0]
     mac_ver_no = int(mac_ver.split('.')[1])
     if mac_ver_no < 9:

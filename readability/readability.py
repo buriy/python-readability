@@ -3,12 +3,10 @@ import logging
 import re
 import sys
 
-from collections import defaultdict
 from lxml.etree import tostring
 from lxml.etree import tounicode
 from lxml.html import document_fromstring
 from lxml.html import fragment_fromstring
-
 from cleaners import clean_attributes
 from cleaners import html_cleaner
 from htmls import build_doc
@@ -20,14 +18,17 @@ from htmls import shorten_title
 logging.basicConfig(level=logging.INFO)
 log = logging.getLogger()
 
-
 REGEXES = {
-    'unlikelyCandidatesRe': re.compile('combx|comment|community|disqus|extra|foot|header|menu|remark|rss|shoutbox|sidebar|sponsor|ad-break|agegate|pagination|pager|popup|tweet|twitter', re.I),
+    'unlikelyCandidatesRe': re.compile(
+        'combx|comment|community|disqus|extra|foot|header|menu|remark|rss|shoutbox|sidebar|sponsor|ad-break|agegate|pagination|pager|popup|tweet|twitter',
+        re.I),
     'okMaybeItsACandidateRe': re.compile('and|article|body|column|main|shadow', re.I),
     'positiveRe': re.compile('article|body|content|entry|hentry|main|page|pagination|post|text|blog|story', re.I),
-    'negativeRe': re.compile('combx|comment|com-|contact|foot|footer|footnote|masthead|media|meta|outbrain|promo|related|scroll|shoutbox|sidebar|sponsor|shopping|tags|tool|widget', re.I),
+    'negativeRe': re.compile(
+        'combx|comment|com-|contact|foot|footer|footnote|masthead|media|meta|outbrain|promo|related|scroll|shoutbox|sidebar|sponsor|shopping|tags|tool|widget',
+        re.I),
     'divToPElementsRe': re.compile('<(a|blockquote|dl|div|img|ol|p|pre|table|ul)', re.I),
-    #'replaceBrsRe': re.compile('(<br[^>]*>[ \n\r\t]*){2,}',re.I),
+    # 'replaceBrsRe': re.compile('(<br[^>]*>[ \n\r\t]*){2,}',re.I),
     #'replaceFontsRe': re.compile('<(\/?)font[^>]*>',re.I),
     #'trimRe': re.compile('^\s+|\s+$/'),
     #'normalizeRe': re.compile('\s{2,}/'),
@@ -77,6 +78,7 @@ def clean(text):
 def text_length(i):
     return len(clean(i.text_content() or ""))
 
+
 regexp_type = type(re.compile('hello, world'))
 
 
@@ -91,7 +93,6 @@ def compile_pattern(elements):
 
 
 class Document:
-
     """Class to build a etree document out of html."""
     TEXT_LENGTH_THRESHOLD = 25
     RETRY_LENGTH = 250
@@ -223,7 +224,7 @@ class Document:
                 append = True
             sibling_key = sibling  # HashableElement(sibling)
             if sibling_key in candidates and \
-                    candidates[sibling_key]['content_score'] >= sibling_score_threshold:
+                            candidates[sibling_key]['content_score'] >= sibling_score_threshold:
                 append = True
 
             if sibling.tag == "p":
@@ -246,7 +247,7 @@ class Document:
                 else:
                     output.getchildren()[0].getchildren()[0].append(sibling)
         # if output is not None:
-        #    output.append(best_elem)
+        # output.append(best_elem)
         return output
 
     def select_best_candidate(self, candidates):
@@ -269,7 +270,7 @@ class Document:
         for i in elem.findall(".//a"):
             link_length += text_length(i)
         # if len(elem.findall(".//div") or elem.findall(".//p")):
-        #    link_length = link_length
+        # link_length = link_length
         total_length = text_length(elem)
         return float(link_length) / max(total_length, 1)
 
@@ -306,7 +307,7 @@ class Document:
             content_score += len(inner_text.split(','))
             content_score += min((inner_text_len / 100), 3)
             # if elem not in candidates:
-            #    candidates[elem] = self.score_node(elem)
+            # candidates[elem] = self.score_node(elem)
 
             # WTF? candidates[elem]['content_score'] += content_score
             candidates[parent_node]['content_score'] += content_score
@@ -380,7 +381,8 @@ class Document:
             if len(s) < 2:
                 continue
             # self.debug(s)
-            if REGEXES['unlikelyCandidatesRe'].search(s) and (not REGEXES['okMaybeItsACandidateRe'].search(s)) and elem.tag not in ['html', 'body']:
+            if REGEXES['unlikelyCandidatesRe'].search(s) and (
+            not REGEXES['okMaybeItsACandidateRe'].search(s)) and elem.tag not in ['html', 'body']:
                 self.debug("Removing unlikely candidate - %s" % describe(elem))
                 elem.drop_tree()
 
@@ -394,7 +396,7 @@ class Document:
             # buried within an <a> for example
             if not REGEXES['divToPElementsRe'].search(
                     unicode(''.join(map(tostring, list(elem))))):
-                #self.debug("Altering %s to p" % (describe(elem)))
+                # self.debug("Altering %s to p" % (describe(elem)))
                 elem.tag = "p"
                 # print "Fixed element "+describe(elem)
 
@@ -470,17 +472,17 @@ class Document:
                             parent_node]['content_score']
                     else:
                         content_score = 0
-                # if parent_node is not None:
-                    #pweight = self.class_weight(parent_node) + content_score
-                    #pname = describe(parent_node)
-                # else:
-                    #pweight = 0
-                    #pname = "no parent"
+                        # if parent_node is not None:
+                        # pweight = self.class_weight(parent_node) + content_score
+                        #pname = describe(parent_node)
+                        # else:
+                        #pweight = 0
+                        #pname = "no parent"
                 to_remove = False
                 reason = ""
 
                 # if el.tag == 'div' and counts["img"] >= 1:
-                #    continue
+                # continue
                 if counts["p"] and counts["img"] > counts["p"]:
                     reason = "too many images (%s)" % counts["img"]
                     to_remove = True
@@ -504,24 +506,24 @@ class Document:
                 elif (counts["embed"] == 1 and content_length < 75) or counts["embed"] > 1:
                     reason = "<embed>s with too short content length, or too many <embed>s"
                     to_remove = True
-#                if el.tag == 'div' and counts['img'] >= 1 and to_remove:
-#                    imgs = el.findall('.//img')
-#                    valid_img = False
-#                    self.debug(tounicode(el))
-#                    for img in imgs:
-#
-#                        height = img.get('height')
-#                        text_length = img.get('text_length')
-#                        self.debug ("height %s text_length %s" %(repr(height), repr(text_length)))
-#                        if to_int(height) >= 100 or to_int(text_length) >= 100:
-#                            valid_img = True
-#                            self.debug("valid image" + tounicode(img))
-#                            break
-#                    if valid_img:
-#                        to_remove = False
-#                        self.debug("Allowing %s" %el.text_content())
-#                        for desnode in self.tags(el, "table", "ul", "div"):
-#                            allowed[desnode] = True
+                    #                if el.tag == 'div' and counts['img'] >= 1 and to_remove:
+                    #                    imgs = el.findall('.//img')
+                    #                    valid_img = False
+                    #                    self.debug(tounicode(el))
+                    #                    for img in imgs:
+                    #
+                    #                        height = img.get('height')
+                    #                        text_length = img.get('text_length')
+                    #                        self.debug ("height %s text_length %s" %(repr(height), repr(text_length)))
+                    #                        if to_int(height) >= 100 or to_int(text_length) >= 100:
+                    #                            valid_img = True
+                    #                            self.debug("valid image" + tounicode(img))
+                    #                            break
+                    #                    if valid_img:
+                    #                        to_remove = False
+                    #                        self.debug("Allowing %s" %el.text_content())
+                    #                        for desnode in self.tags(el, "table", "ul", "div"):
+                    #                            allowed[desnode] = True
 
                     # find x non empty preceding and succeeding siblings
                     i, j = 0, 0
@@ -567,7 +569,6 @@ class Document:
 
 
 class HashableElement():
-
     def __init__(self, node):
         self.node = node
         self._path = None
@@ -582,6 +583,7 @@ class HashableElement():
                 node = node.getparent()
             self._path = tuple(reverse_path)
         return self._path
+
     path = property(_get_path)
 
     def __hash__(self):
@@ -596,6 +598,7 @@ class HashableElement():
 
 def main():
     from optparse import OptionParser
+
     parser = OptionParser(usage="%prog: [options] [file]")
     parser.add_option('-v', '--verbose', action='store_true')
     parser.add_option(
@@ -613,6 +616,7 @@ def main():
     file = None
     if options.url:
         import urllib
+
         file = urllib.urlopen(options.url)
     else:
         file = open(args[0], 'rt')
@@ -624,9 +628,10 @@ def main():
                        url=options.url,
                        positive_keywords=options.positive_keywords,
                        negative_keywords=options.negative_keywords,
-                       ).summary().encode(enc, 'replace')
+        ).summary().encode(enc, 'replace')
     finally:
         file.close()
+
 
 if __name__ == '__main__':
     main()
