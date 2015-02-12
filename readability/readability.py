@@ -49,14 +49,6 @@ REGEXES = {
         re.I),
     'divToPElementsRe': re.compile(
         '<(a|blockquote|dl|div|img|ol|p|pre|table|ul)', re.I),
-    # 'replaceBrsRe': re.compile('(<br[^>]*>[ \n\r\t]*){2,}',re.I),
-    # 'replaceFontsRe': re.compile('<(\/?)font[^>]*>',re.I),
-    # 'trimRe': re.compile('^\s+|\s+$/'),
-    #'normalizeRe': re.compile('\s{2,}/'),
-    #'killBreaksRe': re.compile('(<br\s*\/?>(\s|&nbsp;?)*){1,}/'),
-    #'videoRe': re.compile('http:\/\/(www\.)?(youtube|vimeo)\.com', re.I),
-    # skipFootnoteLink:      /^\s*(\[?[a-z0-9]{1,2}\]?|^|edit|citation
-    # needed)\s*$/i,
 }
 
 
@@ -110,10 +102,13 @@ def compile_pattern(elements):
         return elements
     if isinstance(elements, basestring):
         elements = elements.split(',')
-    return re.compile(u'|'.join([re.escape(x.lower()) for x in elements]), re.U)
+    return re.compile(
+        u'|'.join([re.escape(x.lower()) for x in elements]), re.U
+    )
 
 
 class Document:
+
     """Class to build a etree document out of html."""
     TEXT_LENGTH_THRESHOLD = 25
     RETRY_LENGTH = 250
@@ -130,9 +125,10 @@ class Document:
             - min_text_length:
             - retry_length:
             - url: will allow adjusting links to be absolute
-            - positive_keywords: the list of positive search patterns in classes
-                and ids, for example: ["news-item", "block"]
-            - negative_keywords: the list of negative search patterns in classes
+            - positive_keywords: the list of positive search patterns in
+                classes and ids, for example: ["news-item", "block"]
+            - negative_keywords: the list of negative
+                search patterns in classes
                 and ids, for example: ["mysidebar", "related", "ads"]
             Also positive_keywords and negative_keywords could be a regexp.
         """
@@ -248,8 +244,8 @@ class Document:
                 append = True
             sibling_key = sibling  # HashableElement(sibling)
             if sibling_key in candidates and \
-                            candidates[sibling_key][
-                                'content_score'] >= sibling_score_threshold:
+                    candidates[sibling_key]['content_score'] >= \
+                    sibling_score_threshold:
                 append = True
 
             if sibling.tag == "p":
@@ -277,7 +273,11 @@ class Document:
 
     def select_best_candidate(self, candidates):
         sorted_candidates = sorted(
-            candidates.values(), key=lambda x: x['content_score'], reverse=True)
+            candidates.values(),
+            key=lambda x: x['content_score'],
+            reverse=True
+        )
+
         for candidate in sorted_candidates[:5]:
             elem = candidate['elem']
             self.debug("Top 5 : %6.3f %s" % (
@@ -324,7 +324,7 @@ class Document:
                 ordered.append(parent_node)
 
             if grand_parent_node is not None and \
-                            grand_parent_node not in candidates:
+                    grand_parent_node not in candidates:
                 candidates[grand_parent_node] = self.score_node(
                     grand_parent_node)
                 ordered.append(grand_parent_node)
@@ -376,11 +376,11 @@ class Document:
                     weight -= 25
 
         if self.positive_keywords and self.positive_keywords.match(
-                        'tag-' + e.tag):
+                'tag-' + e.tag):
             weight += 25
 
         if self.negative_keywords and self.negative_keywords.match(
-                        'tag-' + e.tag):
+                'tag-' + e.tag):
             weight -= 25
 
         return weight
@@ -413,7 +413,7 @@ class Document:
             # self.debug(s)
             if REGEXES['unlikelyCandidatesRe'].search(s) and (
                     not REGEXES['okMaybeItsACandidateRe'].search(
-                            s)) and elem.tag not in ['html', 'body']:
+                        s)) and elem.tag not in ['html', 'body']:
                 self.debug("Removing unlikely candidate - %s" % describe(elem))
                 elem.drop_tree()
 
@@ -510,7 +510,7 @@ class Document:
                         # pname = describe(parent_node)
                         # else:
                         # pweight = 0
-                        #pname = "no parent"
+                        # pname = "no parent"
                 to_remove = False
                 reason = ""
 
@@ -519,14 +519,15 @@ class Document:
                 if counts["p"] and counts["img"] > counts["p"]:
                     reason = "too many images (%s)" % counts["img"]
                     to_remove = True
-                elif counts["li"] > counts["p"] and tag != "ul" and tag != "ol":
+                elif counts["li"] > counts["p"] \
+                        and tag != "ul" and tag != "ol":
                     reason = "more <li>s than <p>s"
                     to_remove = True
                 elif counts["input"] > (counts["p"] / 3):
                     reason = "less than 3x <p>s than <input>s"
                     to_remove = True
                 elif content_length < (MIN_LEN) and (
-                                counts["img"] == 0 or counts["img"] > 2):
+                        counts["img"] == 0 or counts["img"] > 2):
                     reason = "too short content length %s " \
                              "without a single image" % content_length
                     to_remove = True
@@ -539,7 +540,7 @@ class Document:
                         link_density, weight)
                     to_remove = True
                 elif (counts["embed"] == 1 and content_length < 75) or counts[
-                    "embed"] > 1:
+                        "embed"] > 1:
                     reason = "<embed>s with too short" \
                              " content length, or too many <embed>s"
                     to_remove = True
@@ -588,6 +589,7 @@ class Document:
 
 
 class HashableElement():
+
     def __init__(self, node):
         self.node = node
         self._path = None
@@ -649,7 +651,7 @@ def main():
                        url=options.url,
                        positive_keywords=options.positive_keywords,
                        negative_keywords=options.negative_keywords,
-        ).summary().encode(enc, 'replace')
+                       ).summary().encode(enc, 'replace')
     finally:
         file.close()
 
