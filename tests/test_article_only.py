@@ -1,3 +1,5 @@
+# -*- encoding: utf-8 -*-
+
 import os
 import unittest
 
@@ -26,7 +28,8 @@ class TestArticleOnly(unittest.TestCase):
         sample = load_sample('si-game.sample.html')
         doc = Document(
             sample,
-            url='http://sportsillustrated.cnn.com/baseball/mlb/gameflash/2012/04/16/40630_preview.html')
+            url='http://sportsillustrated.cnn.com/baseball/mlb/'
+                'gameflash/2012/04/16/40630_preview.html')
         res = doc.summary()
         self.assertEqual('<html><body><div><div class', res[0:27])
 
@@ -35,6 +38,7 @@ class TestArticleOnly(unittest.TestCase):
         sample = load_sample('si-game.sample.html')
         doc = Document(
             sample,
-            url='http://sportsillustrated.cnn.com/baseball/mlb/gameflash/2012/04/16/40630_preview.html')
+            url='http://sportsillustrated.cnn.com/baseball/mlb/'
+                'gameflash/2012/04/16/40630_preview.html')
         res = doc.summary(html_partial=True)
         self.assertEqual('<div><div class="', res[0:17])

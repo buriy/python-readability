@@ -1,3 +1,6 @@
+# -*- encoding: utf-8 -*-
+
+
 def save_to_file(text, filename):
     f = open(filename, 'wt')
     f.write(

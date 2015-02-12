@@ -1,3 +1,5 @@
+# -*- encoding: utf-8 -*-
+
 import re
 
 from lxml.html import tostring
