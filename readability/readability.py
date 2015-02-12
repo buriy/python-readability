@@ -21,17 +21,31 @@ from htmls import shorten_title
 logging.basicConfig(level=logging.INFO)
 log = logging.getLogger()
 
+unlikelyCandidatesReList = ['combx', 'comment', 'community', 'disqus', 'extra',
+                            'foot', 'header', 'menu',
+                            'remark', 'rss', 'shoutbox', 'sidebar', 'sponsor',
+                            'ad-break', 'agegate',
+                            'pagination', 'pager', 'popup', 'tweet', 'twitter']
+
+positiveReList = ['article', 'body', 'content', 'entry', 'hentry', 'main',
+                  'page', 'pagination', 'post', 'text', 'blog', 'story']
+
+negativeReList = [
+    'combx', 'comment', 'com-', 'contact', 'foot', 'footer', 'footnote',
+    'masthead', 'media', 'meta', 'outbrain', 'promo', 'related', 'scroll',
+    'shoutbox', 'sidebar', 'sponsor', 'shopping', 'tags', 'tool', 'widget', ]
+
 REGEXES = {
     'unlikelyCandidatesRe': re.compile(
-        'combx|comment|community|disqus|extra|foot|header|menu|remark|rss|shoutbox|sidebar|sponsor|ad-break|agegate|pagination|pager|popup|tweet|twitter',
+        '|'.join(unlikelyCandidatesReList),
         re.I),
     'okMaybeItsACandidateRe': re.compile('and|article|body|column|main|shadow',
                                          re.I),
     'positiveRe': re.compile(
-        'article|body|content|entry|hentry|main|page|pagination|post|text|blog|story',
+        '|'.join(positiveReList),
         re.I),
     'negativeRe': re.compile(
-        'combx|comment|com-|contact|foot|footer|footnote|masthead|media|meta|outbrain|promo|related|scroll|shoutbox|sidebar|sponsor|shopping|tags|tool|widget',
+        '|'.join(negativeReList),
         re.I),
     'divToPElementsRe': re.compile(
         '<(a|blockquote|dl|div|img|ol|p|pre|table|ul)', re.I),
@@ -116,8 +130,10 @@ class Document:
             - min_text_length:
             - retry_length:
             - url: will allow adjusting links to be absolute
-            - positive_keywords: the list of positive search patterns in classes and ids, for example: ["news-item", "block"]
-            - negative_keywords: the list of negative search patterns in classes and ids, for example: ["mysidebar", "related", "ads"]
+            - positive_keywords: the list of positive search patterns in classes
+                and ids, for example: ["news-item", "block"]
+            - negative_keywords: the list of negative search patterns in classes
+                and ids, for example: ["mysidebar", "related", "ads"]
             Also positive_keywords and negative_keywords could be a regexp.
         """
         self.input = input
@@ -307,7 +323,8 @@ class Document:
                 candidates[parent_node] = self.score_node(parent_node)
                 ordered.append(parent_node)
 
-            if grand_parent_node is not None and grand_parent_node not in candidates:
+            if grand_parent_node is not None and \
+                            grand_parent_node not in candidates:
                 candidates[grand_parent_node] = self.score_node(
                     grand_parent_node)
                 ordered.append(grand_parent_node)
@@ -488,7 +505,8 @@ class Document:
                     else:
                         content_score = 0
                         # if parent_node is not None:
-                        # pweight = self.class_weight(parent_node) + content_score
+                        # pweight = self.class_weight(parent_node) +
+                        # + content_score
                         # pname = describe(parent_node)
                         # else:
                         # pweight = 0
@@ -509,7 +527,8 @@ class Document:
                     to_remove = True
                 elif content_length < (MIN_LEN) and (
                                 counts["img"] == 0 or counts["img"] > 2):
-                    reason = "too short content length %s without a single image" % content_length
+                    reason = "too short content length %s " \
+                             "without a single image" % content_length
                     to_remove = True
                 elif weight < 25 and link_density > 0.2:
                     reason = "too many links %.3f for its weight %s" % (
@@ -521,27 +540,9 @@ class Document:
                     to_remove = True
                 elif (counts["embed"] == 1 and content_length < 75) or counts[
                     "embed"] > 1:
-                    reason = "<embed>s with too short content length, or too many <embed>s"
+                    reason = "<embed>s with too short" \
+                             " content length, or too many <embed>s"
                     to_remove = True
-                    # if el.tag == 'div' and counts['img'] >= 1 and to_remove:
-                    # imgs = el.findall('.//img')
-                    #                    valid_img = False
-                    #                    self.debug(tounicode(el))
-                    #                    for img in imgs:
-                    #
-                    #                        height = img.get('height')
-                    #                        text_length = img.get('text_length')
-                    #                        self.debug ("height %s text_length %s" %(repr(height), repr(text_length)))
-                    #                        if to_int(height) >= 100 or to_int(text_length) >= 100:
-                    #                            valid_img = True
-                    #                            self.debug("valid image" + tounicode(img))
-                    #                            break
-                    #                    if valid_img:
-                    #                        to_remove = False
-                    #                        self.debug("Allowing %s" %el.text_content())
-                    #                        for desnode in self.tags(el, "table", "ul", "div"):
-                    #                            allowed[desnode] = True
-
                     # find x non empty preceding and succeeding siblings
                     i, j = 0, 0
                     x = 1

@@ -19,10 +19,10 @@ htmlstrip = re.compile("<"  # open
                        "(?:%s) *" % ('|'.join(bad_attrs),) +
                        # value
                        '= *(?:%s|%s|%s)' % (
-                       non_space, single_quoted, double_quoted) +
+                           non_space, single_quoted, double_quoted) +
                        "([^>]*)"  # postfix
-                       ">"  # end
-                       , re.I)
+                       ">",  # end
+                       re.I)
 
 
 def clean_attributes(html):
