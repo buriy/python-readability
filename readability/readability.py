@@ -10,12 +10,16 @@ from lxml.etree import tounicode
 from lxml.html import document_fromstring
 from lxml.html import fragment_fromstring
 
-from cleaners import clean_attributes
-from cleaners import html_cleaner
-from htmls import build_doc
-from htmls import get_body
-from htmls import get_title
-from htmls import shorten_title
+from .cleaners import clean_attributes
+from .cleaners import html_cleaner
+from .htmls import build_doc
+from .htmls import get_body
+from .htmls import get_title
+from .htmls import shorten_title
+
+
+if sys.version < '3':
+    str = unicode
 
 
 logging.basicConfig(level=logging.INFO)
@@ -100,8 +104,13 @@ def compile_pattern(elements):
         return None
     if isinstance(elements, regexp_type):
         return elements
-    if isinstance(elements, basestring):
-        elements = elements.split(',')
+
+    if sys.version_info.major == 2:
+        if isinstance(elements, basestring):
+            elements = elements.split(',')
+    else:
+        if isinstance(elements, str):
+            elements = elements.split(',')
     return re.compile(
         u'|'.join([re.escape(x.lower()) for x in elements]), re.U
     )
@@ -219,9 +228,9 @@ class Document:
                     continue
                 else:
                     return cleaned_article
-        except StandardError, e:
+        except Exception as e:
             log.exception('error getting summary: ')
-            raise Unparseable(str(e)), None, sys.exc_info()[2]
+            raise Unparseable(str(e))
 
     def get_article(self, candidates, best_candidate, html_partial=False):
         # Now that we have the top candidate, look through its siblings for
@@ -425,8 +434,11 @@ class Document:
             # are not direct children of elem
             # This results in incorrect results in case there is an <img>
             # buried within an <a> for example
+
             if not REGEXES['divToPElementsRe'].search(
-                    unicode(''.join(map(tostring, list(elem))))):
+                    str(''.join(map(str, map(tostring,
+                                             list(elem))
+                                    )))):
                 # self.debug("Altering %s to p" % (describe(elem)))
                 elem.tag = "p"
                 # print "Fixed element "+describe(elem)
@@ -646,12 +658,12 @@ def main():
     # XXX: this hack could not always work, better to set PYTHONIOENCODING
     enc = sys.__stdout__.encoding or 'utf-8'
     try:
-        print Document(file.read(),
+        print(Document(file.read(),
                        debug=options.verbose,
                        url=options.url,
                        positive_keywords=options.positive_keywords,
                        negative_keywords=options.negative_keywords,
-                       ).summary().encode(enc, 'replace')
+                       ).summary().encode(enc, 'replace'))
     finally:
         file.close()
 
