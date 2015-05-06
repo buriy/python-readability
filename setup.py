@@ -24,7 +24,8 @@ setup(
     packages=['readability'],
     install_requires=[
         "chardet",
-        lxml_requirement
+        lxml_requirement,
+        "beautifulsoup4 >= 4.3.2"
         ],
     classifiers=[
         "Environment :: Web Environment",
