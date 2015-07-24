@@ -198,13 +198,19 @@ class Document:
             log.exception('error getting summary: ')
             raise Unparseable(str(e)), None, sys.exc_info()[2]
 
+    MIN_SIBLING_SCORE_THRESHOLD = 10
+    BEST_SCORE_MULTIPLIER_THRESHOLD = 0.2
+
+    LONG_NODE_LINK_DENSITY_THRESHOLD = 0.25
+    LONG_NODE_LENGTH                 = 80
+
     def get_article(self, candidates, best_candidate, html_partial=False):
         # Now that we have the top candidate, look through its siblings for
         # content that might also be related.
         # Things like preambles, content split by ads that we removed, etc.
         sibling_score_threshold = max([
-            10,
-            best_candidate['content_score'] * 0.2])
+            self.MIN_SIBLING_SCORE_THRESHOLD,
+            best_candidate['content_score'] * self.BEST_SCORE_MULTIPLIER_THRESHOLD])
         # create a new html document with a html->body->div
         if html_partial:
             output = fragment_fromstring('<div/>')
@@ -229,9 +235,9 @@ class Document:
                 node_content = sibling.text or ""
                 node_length = len(node_content)
 
-                if node_length > 80 and link_density < 0.25:
+                if node_length > self.LONG_NODE_LENGTH and link_density < self.LONG_NODE_LINK_DENSITY_THRESHOLD:
                     append = True
-                elif node_length <= 80 \
+                elif node_length <=  self.LONG_NODE_LENGTH \
                     and link_density == 0 \
                     and re.search('\.( |$)', node_content):
                     append = True
@@ -248,7 +254,9 @@ class Document:
         return output
 
     def select_best_candidate(self, candidates):
-        sorted_candidates = sorted(candidates.values(), key=lambda x: x['content_score'], reverse=True)
+        sorted_candidates = sorted(candidates.values(), key=lambda x: x['candidate_number'])
+        sorted_candidates.sort( key=lambda x: x['content_score'], reverse=True)
+
         for candidate in sorted_candidates[:5]:
             elem = candidate['elem']
             self.debug("Top 5 : %6.3f %s" % (
@@ -270,6 +278,9 @@ class Document:
         total_length = text_length(elem)
         return float(link_length) / max(total_length, 1)
 
+    CONTENT_SCORE_START = 1
+    CONTENT_SCORE_INNER_TEXT_MIN_BONUS = 3
+    CONTENT_SCORE_GRAND_PARENT_BONUS_FACTOR = 2.0
     def score_paragraphs(self, ):
         MIN_LEN = self.options.get(
             'min_text_length',
@@ -299,20 +310,22 @@ class Document:
                     grand_parent_node)
                 ordered.append(grand_parent_node)
 
-            content_score = 1
+            
+            content_score = self.CONTENT_SCORE_START
             content_score += len(inner_text.split(','))
-            content_score += min((inner_text_len / 100), 3)
+            content_score += min((inner_text_len / 100), self.CONTENT_SCORE_INNER_TEXT_MIN_BONUS)
             #if elem not in candidates:
             #    candidates[elem] = self.score_node(elem)
 
             #WTF? candidates[elem]['content_score'] += content_score
             candidates[parent_node]['content_score'] += content_score
             if grand_parent_node is not None:
-                candidates[grand_parent_node]['content_score'] += content_score / 2.0
+                candidates[grand_parent_node]['content_score'] += content_score / self.CONTENT_SCORE_GRAND_PARENT_BONUS_FACTOR
 
         # Scale the final candidates score based on link density. Good content
         # should have a relatively small link density (5% or less) and be
         # mostly unaffected by this operation.
+        candidate_number = 0
         for elem in ordered:
             candidate = candidates[elem]
             ld = self.get_link_density(elem)
@@ -323,18 +336,23 @@ class Document:
                 ld,
                 score * (1 - ld)))
             candidate['content_score'] *= (1 - ld)
+            candidate['candidate_number'] = candidate_number
+            candidate_number += 1
 
         return candidates
+
+    CLASS_WEIGHT_NEGATIVE_RE_PENALTY = 25
+    CLASS_WEIGHT_POSITVE_RE_BONUS = 25
 
     def class_weight(self, e):
         weight = 0
         for feature in [e.get('class', None), e.get('id', None)]:
             if feature:
                 if REGEXES['negativeRe'].search(feature):
-                    weight -= 25
+                    weight -= self.CLASS_WEIGHT_NEGATIVE_RE_PENALTY
 
                 if REGEXES['positiveRe'].search(feature):
-                    weight += 25
+                    weight += self.CLASS_WEIGHT_POSITVE_RE_BONUS
 
                 if self.positive_keywords and self.positive_keywords.search(feature):
                     weight += 25
@@ -350,17 +368,22 @@ class Document:
 
         return weight
 
+    CONTENT_SCORE_DIV_BONUS = 5
+    CONTENT_SCORE_PRE_TD_BONUS = 3
+    CONTENT_SCORE_ADDRESS_OL_PENALTY = 3
+    CONTENT_SCORE_HEADER_PENALTY = 5
+    
     def score_node(self, elem):
         content_score = self.class_weight(elem)
         name = elem.tag.lower()
         if name == "div":
-            content_score += 5
+            content_score += self.CONTENT_SCORE_DIV_BONUS
         elif name in ["pre", "td", "blockquote"]:
-            content_score += 3
+            content_score += self.CONTENT_SCORE_PRE_TD_BONUS
         elif name in ["address", "ol", "ul", "dl", "dd", "dt", "li", "form"]:
-            content_score -= 3
+            content_score -=  self.CONTENT_SCORE_ADDRESS_OL_PENALTY
         elif name in ["h1", "h2", "h3", "h4", "h5", "h6", "th"]:
-            content_score -= 5
+            content_score -= self.CONTENT_SCORE_HEADER_PENALTY
         return {
             'content_score': content_score,
             'elem': elem
@@ -423,11 +446,20 @@ class Document:
             for e in reversed(node.findall('.//%s' % tag_name)):
                 yield e
 
+    COMMA_COUNT = 10
+    P_TO_INPUT_RATIO = 3
+    HEADER_LINK_DENSITY_THRESHOLD = 0.33
+    LOW_WEIGHT_LINK_DENSITY_THRESHOLD = 0.2
+    HIGH_WEIGHT_LINK_DENSITY_THRESHOLD = 0.5
+    MIN_EMBED_COMMENT_LENGTH = 75
+    SIBLING_CONTENT_LENGTH_SUM = 1000
+    LI_COUNT_REDUCTION = 100
+
     def sanitize(self, node, candidates):
         MIN_LEN = self.options.get('min_text_length',
             self.TEXT_LENGTH_THRESHOLD)
         for header in self.tags(node, "h1", "h2", "h3", "h4", "h5", "h6"):
-            if self.class_weight(header) < 0 or self.get_link_density(header) > 0.33:
+            if self.class_weight(header) < 0 or self.get_link_density(header) > self.HEADER_LINK_DENSITY_THRESHOLD:
                 header.drop_tree()
 
         for elem in self.tags(node, "form", "textarea"):
@@ -456,11 +488,11 @@ class Document:
                 self.debug("Cleaned %s with score %6.3f and weight %-3s" %
                     (describe(el), content_score, weight, ))
                 el.drop_tree()
-            elif el.text_content().count(",") < 10:
+            elif el.text_content().count(",") < self.COMMA_COUNT:
                 counts = {}
                 for kind in ['p', 'img', 'li', 'a', 'embed', 'input']:
                     counts[kind] = len(el.findall('.//%s' % kind))
-                counts["li"] -= 100
+                counts["li"] -=  self.LI_COUNT_REDUCTION
                 counts["input"] -= len(el.findall('.//input[@type="hidden"]'))
 
                 # Count the text length excluding any surrounding whitespace
@@ -489,21 +521,21 @@ class Document:
                 elif counts["li"] > counts["p"] and tag != "ul" and tag != "ol":
                     reason = "more <li>s than <p>s"
                     to_remove = True
-                elif counts["input"] > (counts["p"] / 3):
+                elif self.P_TO_INPUT_RATIO > 0 and counts["input"] > (counts["p"] / self.P_TO_INPUT_RATIO):
                     reason = "less than 3x <p>s than <input>s"
                     to_remove = True
                 elif content_length < (MIN_LEN) and (counts["img"] == 0 or counts["img"] > 2):
                     reason = "too short content length %s without a single image" % content_length
                     to_remove = True
-                elif weight < 25 and link_density > 0.2:
+                elif weight < 25 and link_density > self.LOW_WEIGHT_LINK_DENSITY_THRESHOLD:
                         reason = "too many links %.3f for its weight %s" % (
                             link_density, weight)
                         to_remove = True
-                elif weight >= 25 and link_density > 0.5:
+                elif weight >= 25 and link_density > self.HIGH_WEIGHT_LINK_DENSITY_THRESHOLD:
                     reason = "too many links %.3f for its weight %s" % (
                         link_density, weight)
                     to_remove = True
-                elif (counts["embed"] == 1 and content_length < 75) or counts["embed"] > 1:
+                elif (counts["embed"] == 1 and content_length < self.MIN_EMBED_COMMENT_LENGTH) or counts["embed"] > 1:
                     reason = "<embed>s with too short content length, or too many <embed>s"
                     to_remove = True
 #                if el.tag == 'div' and counts['img'] >= 1 and to_remove:
@@ -546,7 +578,7 @@ class Document:
                             if j == x:
                                 break
                     #self.debug(str(siblings))
-                    if siblings and sum(siblings) > 1000:
+                    if siblings and sum(siblings) > self.SIBLING_CONTENT_LENGTH_SUM:
                         to_remove = False
                         self.debug("Allowing %s" % describe(el))
                         for desnode in self.tags(el, "table", "ul", "div"):
