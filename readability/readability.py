@@ -282,7 +282,7 @@ class Document:
         MIN_LEN = self.min_text_length
         candidates = {}
         ordered = []
-        for elem in self.sorted_tags(self._html(), "p", "pre", "tr"):
+        for elem in self.sorted_tags(self._html(), "p", "pre", "td"):
             parent_node = elem.getparent()
             if parent_node is None:
                 continue
