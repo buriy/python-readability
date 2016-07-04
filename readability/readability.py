@@ -26,7 +26,7 @@ REGEXES = {
     'unlikelyCandidatesRe': re.compile('combx|comment|community|disqus|extra|foot|header|menu|remark|rss|shoutbox|sidebar|sponsor|ad-break|agegate|pagination|pager|popup|tweet|twitter', re.I),
     'okMaybeItsACandidateRe': re.compile('and|article|body|column|main|shadow', re.I),
     'positiveRe': re.compile('article|body|content|entry|hentry|main|page|pagination|post|text|blog|story', re.I),
-    'negativeRe': re.compile('combx|comment|com-|contact|foot|footer|footnote|masthead|media|meta|outbrain|promo|related|scroll|shoutbox|sidebar|sponsor|shopping|tags|tool|widget', re.I),
+    'negativeRe': re.compile('navbar|combx|comment|com-|contact|foot|footer|footnote|masthead|media|meta|outbrain|promo|related|scroll|shoutbox|sidebar|sponsor|shopping|tags|tool|widget', re.I),
     'divToPElementsRe': re.compile('<(a|blockquote|dl|div|img|ol|p|pre|table|ul)', re.I),
     #'replaceBrsRe': re.compile('(<br[^>]*>[ \n\r\t]*){2,}',re.I),
     #'replaceFontsRe': re.compile('<(\/?)font[^>]*>',re.I),
@@ -86,9 +86,9 @@ class Document:
         :param input: string of the html content.
         :param positive_keywords: regex or list of patterns in classes and ids
         :param negative_keywords: regex or list of patterns in classes and ids
-        :param min_text_length: 
+        :param min_text_length:
         :param retry_length:
-        
+
         Example:
             positive_keywords=["news-item", "block"]
             negative_keywords=["mysidebar", "related", "ads"]
@@ -256,7 +256,7 @@ class Document:
             return None
 
         sorted_candidates = sorted(
-            candidates.values(), 
+            candidates.values(),
             key=lambda x: x['content_score'],
             reverse=True
         )
@@ -282,7 +282,7 @@ class Document:
         MIN_LEN = self.min_text_length
         candidates = {}
         ordered = []
-        for elem in self.tags(self._html(), "p", "pre", "td"):
+        for elem in self.sorted_tags(self._html(), "p", "pre", "tr"):
             parent_node = elem.getparent()
             if parent_node is None:
                 continue
@@ -413,6 +413,19 @@ class Document:
                 if child.tag == 'br':
                     #print 'Dropped <br> at '+describe(elem)
                     child.drop_tree()
+
+    def sorted_tags(self, node, *tag_names):
+        root = self.html.getroottree()
+        tags = {}
+        for tag_name in tag_names:
+            for e in node.findall('.//%s' % tag_name):
+                tags[e] = root.getpath(e)
+
+        # from deep to shallow
+        tags = sorted(tags.items(), key=lambda x: len(x[1]), reverse=True)
+
+        for t in tags:
+            yield t[0]
 
     def tags(self, node, *tag_names):
         for tag_name in tag_names:
