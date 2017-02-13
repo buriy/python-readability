@@ -217,12 +217,7 @@ class Document:
                 else:
                     return cleaned_article
         except Exception as e:
-            log.exception('error getting summary: ')
-            if sys.version_info[0] == 2:
-                from .compat.two import raise_with_traceback
-            else:
-                from .compat.three import raise_with_traceback
-            raise_with_traceback(Unparseable, sys.exc_info()[2], str_(e))
+            raise Unparseable(e)
 
     def get_article(self, candidates, best_candidate, html_partial=False):
         # Now that we have the top candidate, look through its siblings for
