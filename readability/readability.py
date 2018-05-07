@@ -73,7 +73,7 @@ def compile_pattern(elements):
         elements = elements.split(u',')
         return re.compile(u'|'.join([re.escape(x.lower()) for x in elements]), re.U)
     elif isinstance(elements, (list, tuple)):
-        return list(elements)
+        return list(re.compile(u'{}'.format(e.lower()),re.U) for e in elements)
     elif isinstance(elements, regexp_type):
         return elements
     else:
@@ -370,16 +370,16 @@ class Document:
                 if REGEXES['positiveRe'].search(feature):
                     weight += 25
 
-                if self.positive_keywords and self.positive_keywords.search(feature):
+                if self.positive_keywords and any(pos_key.search(feature) for pos_key in self.positive_keywords):
                     weight += 25
 
-                if self.negative_keywords and self.negative_keywords.search(feature):
+                if self.negative_keywords and any(neg_key.search(feature) for neg_key in self.negative_keywords):
                     weight -= 25
 
-        if self.positive_keywords and self.positive_keywords.match('tag-'+e.tag):
+        if self.positive_keywords and any(pos_key.match('tag-'+e.tag) for pos_key in self.positive_keywords):
             weight += 25
 
-        if self.negative_keywords and self.negative_keywords.match('tag-'+e.tag):
+        if self.negative_keywords and any(neg_key.match('tag-'+e.tag) for neg_key in self.negative_keywords):
             weight -= 25
 
         return weight
