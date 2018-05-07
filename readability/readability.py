@@ -84,8 +84,8 @@ class Document:
         """Generate the document
 
         :param input: string of the html content.
-        :param positive_keywords: regex or list of patterns in classes and ids
-        :param negative_keywords: regex or list of patterns in classes and ids
+        :param positive_keywords: regex of patterns in classes and ids
+        :param negative_keywords: regex of patterns in classes and ids
         :param min_text_length: Tunable. Set to a higher value for more precise detection of longer texts.
         :param retry_length: Tunable. Set to a lower value for better detection of very small texts.
         :param xpath: If set to True, adds x="..." attribute to each HTML node,
@@ -93,8 +93,8 @@ class Document:
         reconstruct selected summary in original document).
         
         Example:
-            positive_keywords=["news-item", "block"]
-            negative_keywords=["mysidebar", "related", "ads"]
+            positive_keywords="news-item, block"
+            negative_keywords= re.compile(r"mysidebar|related|ads")
 
         The Document class is not re-enterable.
         It is designed to create a new Document() for each HTML file to process it.
