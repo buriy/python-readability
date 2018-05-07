@@ -14,7 +14,7 @@ if sys.platform == 'darwin':
 
 setup(
     name="readability-lxml",
-    version="0.6.2",
+    version="0.6.3",
     author="Yuri Baburov",
     author_email="burchik@gmail.com",
     description="fast html to text parser (article readability tool) with python3 support",

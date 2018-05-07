@@ -1,10 +1,9 @@
 # Makefile to help automate tasks
 WD := $(shell pwd)
-PY := .env/bin/python
-PIP := .env/bin/pip
-PEP8 := .env/bin/pep8
-NOSE := .env/bin/nosetests
-
+PY := .venv/bin/python
+PIP := .venv/bin/pip
+PEP8 := .venv/bin/pep8
+NOSE := .venv/bin/nosetests
 
 # ###########
 # Tests rule!
@@ -24,14 +23,14 @@ all: venv develop
 
 venv: bin/python
 bin/python:
-	virtualenv .env
+	virtualenv .venv
 
 .PHONY: clean_venv
 clean_venv:
-	rm -rf .env
+	rm -rf .venv
 
-develop: .env/lib/python*/site-packages/readability-lxml.egg-link
-.env/lib/python*/site-packages/readability-lxml.egg-link:
+develop: .venv/lib/python*/site-packages/readability-lxml.egg-link
+.venv/lib/python*/site-packages/readability-lxml.egg-link:
 	$(PY) setup.py develop
 
 
