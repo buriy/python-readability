@@ -167,7 +167,7 @@ class Document:
         An internal method, which can be overridden in subclasses, for example,
         to disable or to improve DOM-to-text conversion in .summary() method
         """
-        return clean_attributes(tounicode(self.html))
+        return clean_attributes(tounicode(self._html(True)))
 
     def summary(self, html_partial=False):
         """
