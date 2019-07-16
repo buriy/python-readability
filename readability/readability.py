@@ -227,7 +227,7 @@ class Document:
                     # Loop through and try again.
                     continue
                 else:
-                    return cleaned_article
+                    return cleaned_article, best_candidate['content_score']
         except Exception as e:
             log.exception('error getting summary: ')
             if sys.version_info[0] == 2:
