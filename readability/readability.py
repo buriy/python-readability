@@ -183,6 +183,19 @@ class Document:
         Warning: It mutates internal DOM representation of the HTML document,
         so it is better to call other API methods before this one.
         """
+        article, _ = self.summary_with_score(html_partial)
+        return article
+
+    def summary_with_score(self, html_partial=False):
+        """
+        Given a HTML file, extracts the text of the article with score.
+
+        :param html_partial: return only the div of the document, don't wrap
+        in html and body tags.
+
+        Warning: It mutates internal DOM representation of the HTML document,
+        so it is better to call other API methods before this one.
+        """
         try:
             ruthless = True
             while True:
