@@ -240,7 +240,8 @@ class Document:
                     # Loop through and try again.
                     continue
                 else:
-                    return cleaned_article, best_candidate['content_score']
+                    content_score = 0.0 if best_candidate is None else best_candidate['content_score']
+                    return cleaned_article, content_score
         except Exception as e:
             log.exception('error getting summary: ')
             if sys.version_info[0] == 2:
