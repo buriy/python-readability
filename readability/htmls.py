@@ -1,7 +1,6 @@
 from lxml.html import tostring
-import logging
 import lxml.html
-import re, sys
+import re
 
 from .cleaners import normalize_spaces, clean_attributes
 from .encoding import get_encoding

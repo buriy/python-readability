@@ -4,7 +4,6 @@ import logging
 import re
 import sys
 
-from collections import defaultdict
 from lxml.etree import tostring
 from lxml.etree import tounicode
 from lxml.html import document_fromstring
