@@ -463,8 +463,10 @@ class Document:
             # are not direct children of elem
             # This results in incorrect results in case there is an <img>
             # buried within an <a> for example
+            encoding = self.encoding if self.encoding else 'ascii'
+
             if not REGEXES["divToPElementsRe"].search(
-                str_(b"".join(map(tostring, list(elem))))
+                str_(b"".join([tostring(el, encoding=encoding) for el in list(elem)]))
             ):
                 # log.debug("Altering %s to p" % (describe(elem)))
                 elem.tag = "p"
