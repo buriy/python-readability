@@ -12,8 +12,9 @@ if sys.platform == "darwin":
     import platform
 
     mac_ver = platform.mac_ver()[0]
-    mac_ver_no = int(mac_ver.split(".")[1])
-    if mac_ver_no < 9:
+    [major, minor] = [int(i) for i in mac_ver.split(".")]
+    
+    if major <= 10 and minor < 9:
         print("Using lxml<2.4")
         lxml_requirement = "lxml<2.4"
 
