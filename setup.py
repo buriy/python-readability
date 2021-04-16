@@ -7,16 +7,6 @@ import re
 from setuptools import setup
 import sys
 
-lxml_requirement = "lxml"
-if sys.platform == "darwin":
-    import platform
-
-    mac_ver = platform.mac_ver()[0]
-    mac_major, mac_minor = mac_ver.split('.')[:2]
-    if int(mac_major) == 10 and int(mac_minor) < 9:
-        print("Using lxml<2.4")
-        lxml_requirement = "lxml<2.4"
-
 test_deps = [
     # Test timeouts
     "timeout_decorator",
@@ -55,7 +45,7 @@ setup(
     license="Apache License 2.0",
     url="http://github.com/buriy/python-readability",
     packages=["readability", "readability.compat"],
-    install_requires=["chardet", lxml_requirement, "cssselect"],
+    install_requires=["chardet", "lxml", "cssselect"],
     tests_require=test_deps,
     extras_require=extras,
     classifiers=[
