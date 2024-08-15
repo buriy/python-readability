@@ -1,0 +1,57 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "readability-lxml"
+dynamic = ["version"]
+authors = [
+    { name = "Yuri Baburov", email = "burchik@gmail.com" },
+]
+description = "fast html to text parser (article readability tool) with python 3 support"
+readme = "README.rst"
+license = { text = "Apache License 2.0" }
+classifiers = [
+    "Environment :: Web Environment",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Topic :: Text Processing :: Indexing",
+    "Topic :: Utilities",
+    "Topic :: Internet",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: Implementation :: PyPy",
+]
+dependencies = [
+    "chardet",
+    "cssselect",
+    "lxml[html_clean]",
+    "lxml_html_clean; python_version < '3.11'",
+]
+
+[project.optional-dependencies]
+speed = ["cchardet"]
+test = [
+    "pytest",
+    "wrapt-timeout-decorator"
+]
+doc = [
+    "recommonmark",
+    "sphinx_rtd_theme",
+    "sphinx",
+]
+
+[project.urls]
+repository = "http://github.com/buriy/python-readability"
+
+[tool.setuptools.dynamic]
+version = { attr = "readability.__version__" }
+
+[tool.setuptools.packages.find]
+include = ["readability"]
+

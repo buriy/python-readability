@@ -1,4 +1,4 @@
-lxml
+lxml[html_clean]
 chardet
 nose
 pep8

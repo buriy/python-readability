@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 #
 # readability documentation build configuration file, created by
 # sphinx-quickstart on Thu Mar 23 16:29:38 2017.

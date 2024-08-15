@@ -36,7 +36,7 @@ clean:
 develop: .venv/lib/python*/site-packages/readability-lxml.egg-link
 
 .venv/lib/python*/site-packages/readability-lxml.egg-link:
-	$(PY) setup.py develop
+	$(PY) -m pip install --editable .
 
 
 # ###########
@@ -50,7 +50,7 @@ clean_all: clean_venv
 # ###########
 .PHONY: dist
 dist:
-	$(PY) setup.py sdist bdist_wheel
+	$(PY) -m build
 	$(TWINE) check dist/*
 
 .PHONY: upload
@@ -59,4 +59,4 @@ upload:
 
 .PHONY: version_update
 version_update:
-	$(EDITOR) setup.py
+	$(EDITOR) readability/__init__.py

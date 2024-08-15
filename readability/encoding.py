@@ -38,13 +38,7 @@ def get_encoding(page):
     # Try any declared encodings
     for declared_encoding in declared_encodings:
         try:
-            # Python3 only
-            if sys.version_info[0] == 3:
-                # declared_encoding will actually be bytes but .decode() only
-                # accepts `str` type. Decode blindly with ascii because no one should
-                # ever use non-ascii characters in the name of an encoding.
-                declared_encoding = declared_encoding.decode("ascii", "replace")
-
+            declared_encoding = declared_encoding.decode("ascii", "replace")
             encoding = fix_charset(declared_encoding)
             # Now let's decode the page
             page.decode(encoding)
