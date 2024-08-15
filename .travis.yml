@@ -4,8 +4,6 @@ cache: pip
 
 matrix:
   include:
-    - name: "Python 3.7 on Linux"
-      python: 3.7
     - name: "Python 3.8 on Linux"
       dist: xenial
       python: 3.8
@@ -17,24 +15,6 @@ matrix:
       env: PIP=pip
     - name: "Pypy 3 on Linux"
       python: pypy3
-    - name: "Python 3.7 on older macOS"
-      os: osx
-      osx_image: xcode9.4
-      language: shell
-      env: TOXENV=py37
-      before_install:
-        - sw_vers
-        - python3 --version
-        - pip3 --version
-    - name: "Python 3.7 on macOS"
-      os: osx
-      osx_image: xcode11
-      language: shell
-      env: TOXENV=py37
-      before_install:
-        - sw_vers
-        - python3 --version
-        - pip3 --version
   allow_failures:
     - python: nightly
     - python: pypy
