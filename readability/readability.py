@@ -88,7 +88,7 @@ def compile_pattern(elements):
     if isinstance(elements, (list, tuple)):
         return re.compile("|".join([re.escape(x.strip()) for x in elements]), re.U)
     else:
-        raise Exception("Unknown type for the pattern: {}".format(type(elements)))
+        raise Exception(f"Unknown type for the pattern: {type(elements)}")
         # assume string or string like object
 
 
@@ -241,19 +241,15 @@ class Document:
                         log.info("ruthless removal did not work. ")
                         ruthless = False
                         log.debug(
-                            (
                                 "ended up stripping too much - "
                                 "going for a safer _parse"
-                            )
                         )
                         # try again
                         continue
                     else:
                         log.debug(
-                            (
                                 "Ruthless and lenient parsing did not work. "
                                 "Returning raw html"
-                            )
                         )
                         article = self.html.find("body")
                         if article is None:
@@ -333,7 +329,7 @@ class Document:
         )
         for candidate in sorted_candidates[:5]:
             elem = candidate["elem"]
-            log.debug("Top 5 : %6.3f %s" % (candidate["content_score"], describe(elem)))
+            log.debug("Top 5 : {:6.3f} {}".format(candidate["content_score"], describe(elem)))
 
         best_candidate = sorted_candidates[0]
         return best_candidate
@@ -449,7 +445,7 @@ class Document:
 
     def remove_unlikely_candidates(self):
         for elem in self.html.findall(".//*"):
-            s = "%s %s" % (elem.get("class", ""), elem.get("id", ""))
+            s = "{} {}".format(elem.get("class", ""), elem.get("id", ""))
             if len(s) < 2:
                 continue
             if (
@@ -587,13 +583,13 @@ class Document:
                     )
                     to_remove = True
                 elif weight < 25 and link_density > 0.2:
-                    reason = "too many links %.3f for its weight %s" % (
+                    reason = "too many links {:.3f} for its weight {}".format(
                         link_density,
                         weight,
                     )
                     to_remove = True
                 elif weight >= 25 and link_density > 0.5:
-                    reason = "too many links %.3f for its weight %s" % (
+                    reason = "too many links {:.3f} for its weight {}".format(
                         link_density,
                         weight,
                     )

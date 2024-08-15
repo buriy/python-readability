@@ -4,8 +4,6 @@ cache: pip
 
 matrix:
   include:
-    - name: "Python 3.5 on Linux"
-      python: 3.5
     - name: "Python 3.6 on Linux"
       python: 3.6
     - name: "Python 3.7 on Linux"
