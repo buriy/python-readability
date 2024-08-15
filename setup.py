@@ -21,14 +21,25 @@ speed_deps = [
      "cchardet",
 ]
 
+def _get_html_clean_deps():
+    if lxml_requirement != "lxml":
+        return []
+    if sys.version_info <= (3, 11):
+        return ["lxml", "lxml_html_clean"]
+    return ["lxml[html_clean]"]
+
+
+html_clean_deps = _get_html_clean_deps()
+
 test_deps = [
     # Test timeouts
     "wrapt-timeout-decorator",
-]
+] + html_clean_deps
 
 extras = {
     'speed': speed_deps,
     'test': test_deps,
+    'html_clean': html_clean_deps
 }
 
 # Adapted from https://github.com/pypa/pip/blob/master/setup.py
