@@ -1,11 +1,11 @@
 #!/usr/bin/env python
-from __future__ import print_function
 import logging
 import re
 import sys
 
 from lxml.etree import tounicode
 from lxml.etree import _ElementTree
+from lxml.etree import tostring
 from lxml.html import document_fromstring
 from lxml.html import fragment_fromstring
 from lxml.html import HtmlElement
@@ -17,7 +17,6 @@ from .htmls import get_body
 from .htmls import get_title
 from .htmls import get_author
 from .htmls import shorten_title
-from .compat import str_, bytes_, tostring_, pattern_type
 from .debug import describe, text_content
 
 
@@ -80,14 +79,14 @@ def text_length(i):
 def compile_pattern(elements):
     if not elements:
         return None
-    elif isinstance(elements, pattern_type):
+    elif isinstance(elements, re.Pattern):
         return elements
-    elif isinstance(elements, (str_, bytes_)):
-        if isinstance(elements, bytes_):
-            elements = str_(elements, "utf-8")
-        elements = elements.split(u",")
+    elif isinstance(elements, (str, bytes)):
+        if isinstance(elements, bytes):
+            elements = str(elements, "utf-8")
+        elements = elements.split(",")
     if isinstance(elements, (list, tuple)):
-        return re.compile(u"|".join([re.escape(x.strip()) for x in elements]), re.U)
+        return re.compile("|".join([re.escape(x.strip()) for x in elements]), re.U)
     else:
         raise Exception("Unknown type for the pattern: {}".format(type(elements)))
         # assume string or string like object
@@ -272,11 +271,7 @@ class Document:
                     return cleaned_article
         except Exception as e:
             log.exception("error getting summary: ")
-            if sys.version_info[0] == 2:
-                from .compat.two import raise_with_traceback
-            else:
-                from .compat.three import raise_with_traceback
-            raise_with_traceback(Unparseable, sys.exc_info()[2], str_(e))
+            raise Unparseable(str(e)).with_traceback(sys.exc_info()[2])
 
     def get_article(self, candidates, best_candidate, html_partial=False):
         # Now that we have the top candidate, look through its siblings for
@@ -474,7 +469,7 @@ class Document:
             # This results in incorrect results in case there is an <img>
             # buried within an <a> for example
             if not REGEXES["divToPElementsRe"].search(
-                str_(b"".join(map(tostring_, list(elem))))
+                str(b"".join(tostring(item, encoding="utf-8") for item in list(elem)))
             ):
                 # log.debug("Altering %s to p" % (describe(elem)))
                 elem.tag = "p"
@@ -501,13 +496,11 @@ class Document:
 
     def tags(self, node, *tag_names):
         for tag_name in tag_names:
-            for e in node.findall(".//%s" % tag_name):
-                yield e
+            yield from node.findall(".//%s" % tag_name)
 
     def reverse_tags(self, node, *tag_names):
         for tag_name in tag_names:
-            for e in reversed(node.findall(".//%s" % tag_name)):
-                yield e
+            yield from reversed(node.findall(".//%s" % tag_name))
 
     def sanitize(self, node, candidates):
         MIN_LEN = self.min_text_length
@@ -737,7 +730,7 @@ def main():
             request = urllib2.Request(options.url, None, headers)
             file = urllib2.urlopen(request)
     else:
-        file = open(args[0], "rt")
+        file = open(args[0])
     try:
         doc = Document(
             file.read(),

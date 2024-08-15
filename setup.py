@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 
-from __future__ import print_function
 import codecs
 import os
 import re
@@ -70,7 +69,7 @@ setup(
     long_description_content_type='text/x-rst',
     license="Apache License 2.0",
     url="http://github.com/buriy/python-readability",
-    packages=["readability", "readability.compat"],
+    packages=["readability"],
     install_requires=["chardet", lxml_requirement, "cssselect"],
     tests_require=test_deps,
     extras_require=extras,
@@ -83,8 +82,6 @@ setup(
         "Topic :: Internet",
         "Topic :: Software Development :: Libraries :: Python Modules",
         "Programming Language :: Python",
-        "Programming Language :: Python :: 2",
-        "Programming Language :: Python :: 2.7",
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.5",
         "Programming Language :: Python :: 3.6",

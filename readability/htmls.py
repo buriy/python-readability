@@ -4,13 +4,12 @@ import re
 
 from .cleaners import normalize_spaces, clean_attributes
 from .encoding import get_encoding
-from .compat import str_
 
 utf8_parser = lxml.html.HTMLParser(encoding="utf-8")
 
 
 def build_doc(page):
-    if isinstance(page, str_):
+    if isinstance(page, str):
         encoding = None
         decoded_page = page
     else:
@@ -30,14 +29,14 @@ def js_re(src, pattern, flags, repl):
 
 def normalize_entities(cur_title):
     entities = {
-        u"\u2014": "-",
-        u"\u2013": "-",
-        u"&mdash;": "-",
-        u"&ndash;": "-",
-        u"\u00A0": " ",
-        u"\u00AB": '"',
-        u"\u00BB": '"',
-        u"&quot;": '"',
+        "\u2014": "-",
+        "\u2013": "-",
+        "&mdash;": "-",
+        "&ndash;": "-",
+        "\u00A0": " ",
+        "\u00AB": '"',
+        "\u00BB": '"',
+        "&quot;": '"',
     }
     for c, r in entities.items():
         if c in cur_title:
