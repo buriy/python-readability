@@ -4,9 +4,6 @@ cache: pip
 
 matrix:
   include:
-    - name: "Python 3.8 on Linux"
-      dist: xenial
-      python: 3.8
     - name: "Python 3.9 Nightly on Linux"
       dist: bionic
       python: nightly
