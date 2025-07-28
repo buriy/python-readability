@@ -94,6 +94,17 @@ class TestArticleOnly(unittest.TestCase):
         doc = Document(sample)
         doc.summary()
 
+    def test_html_input_in_bytes(self):
+        sample = (
+            b'<html class="article" id="body">'
+            b"   <body>"
+            b"       <p>1234567890123456789012345</p>"
+            b"   </body>"
+            b"</html>"
+        )
+        doc = Document(sample)
+        doc.summary()
+
     def test_correct_cleanup(self):
         sample = """
         <html>

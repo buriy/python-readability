@@ -5,9 +5,9 @@ except ImportError:
     import chardet
 
 
-RE_CHARSET = re.compile(r'<meta.*?charset=["\']*(.+?)["\'>]', flags=re.I)
-RE_PRAGMA = re.compile(r'<meta.*?content=["\']*;?charset=(.+?)["\'>]', flags=re.I)
-RE_XML = re.compile(r'^<\?xml.*?encoding=["\']*(.+?)["\'>]')
+RE_CHARSET = re.compile(br'<meta.*?charset=["\']*(.+?)["\'>]', flags=re.I)
+RE_PRAGMA = re.compile(br'<meta.*?content=["\']*;?charset=(.+?)["\'>]', flags=re.I)
+RE_XML = re.compile(br'^<\?xml.*?encoding=["\']*(.+?)["\'>]')
 
 CHARSETS = {
     "big5": "big5hkscs",
@@ -53,11 +53,11 @@ def get_encoding(page):
 
     # Fallback to chardet if declared encodings fail
     # Remove all HTML tags, and leave only text for chardet
-    text = re.sub(r'(\s*</?[^>]*>)+\s*', ' ', page).strip()
     enc = 'utf-8'
+    text = re.sub(r'(\s*</?[^>]*>)+\s*', ' ', page.decode(enc, "replace")).strip()
     if len(text) < 10:
         return enc  # can't guess
-    res = chardet.detect(text)
+    res = chardet.detect(page)
     enc = res["encoding"] or "utf-8"
     # print '->', enc, "%.2f" % res['confidence']
     enc = fix_charset(enc)
