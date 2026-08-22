@@ -1,0 +1,17 @@
+{
+  "url": "https://sport.aktualne.cz/fotbal/zahranici/west-ham-hrozi-gigantum-okouzlil-i-linekera-souckovu-praci-j/r~8fa032ba3add11ec8a900cc47ab5f122/",
+  "captured_at": "2026-07-28T21:28:35+07:00",
+  "title": "West Ham hrozí gigantům, okouzlil i Linekera. Součka je snadné přehlédnout",
+  "byline": "Aleš Vávra",
+  "dir": null,
+  "lang": "cs",
+  "excerpt": "Zázrak jedné sezony? West Ham United dává pochybovačům stále pádnější odpovědi.",
+  "siteName": "Aktuálně.cz",
+  "publishedTime": "2021-11-01T10:52:50+0100",
+  "readerable": true,
+  "source_file": "page.html",
+  "actual_summary_file": "actual.html",
+  "ideal_summary_file": "ideal.html",
+  "provenance": "https://github.com/mozilla/readability/tree/ab4027a8b37669745016869a37a504727992b2ba/test/test-pages/aktualne",
+  "upstream_commit": "ab4027a8b37669745016869a37a504727992b2ba"
+}

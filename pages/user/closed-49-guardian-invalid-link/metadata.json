@@ -1,0 +1,15 @@
+{
+  "url": "https://www.theguardian.com/film/2014/apr/24/the-hurricane-rubin-carter-denzel-washington",
+  "captured_at": "2026-08-22",
+  "title": "The Hurricane: the facts of Rubin Carter's life story are beaten to a pulp | Sport films | The Guardian",
+  "source_file": "page.html",
+  "actual_summary_file": "actual.html",
+  "ideal_summary_file": "ideal.html",
+  "provenance": "https://github.com/buriy/python-readability/issues/49",
+  "github_issue": 49,
+  "github_issue_state": "closed",
+  "github_issue_title": "Crash when parsing articles with invalid link \"http://[\"",
+  "ideal_selection": [
+    "//main//article"
+  ]
+}

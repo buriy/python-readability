@@ -1,0 +1,17 @@
+{
+  "title": "Twitter Lite se estrena en México, Venezuela y otros nueve países",
+  "byline": "César Salza",
+  "dir": null,
+  "lang": "es",
+  "excerpt": "Twitter Lite llega a 11 países de América Latina, para ayudar a los usuarios con mala señal de sus redes móviles.",
+  "siteName": "CNET en Español",
+  "publishedTime": null,
+  "readerable": true,
+  "url": "http://fakehost/",
+  "captured_at": "2026-08-22",
+  "source_file": "page.html",
+  "actual_summary_file": "actual.html",
+  "ideal_summary_file": "ideal.html",
+  "provenance": "https://github.com/mozilla/readability/tree/ab4027a8b37669745016869a37a504727992b2ba/test/test-pages/cnet-svg-classes",
+  "upstream_commit": "ab4027a8b37669745016869a37a504727992b2ba"
+}

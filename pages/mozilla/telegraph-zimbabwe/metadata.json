@@ -1,0 +1,17 @@
+{
+  "title": "Zimbabwe coup: Robert Mugabe and wife Grace 'insisting he finishes his term', as priest steps in to mediate",
+  "byline": null,
+  "dir": null,
+  "lang": "en-GB",
+  "excerpt": "Zimbabwe President Robert Mugabe, his wife Grace and two key figures from her G40 political faction are under house arrest at Mugabe's \"Blue House\" compound in Harare and are insisting the 93 year-old finishes his presidential term, a source said.",
+  "siteName": "The Telegraph",
+  "publishedTime": null,
+  "readerable": true,
+  "url": "http://www.telegraph.co.uk/news/2017/11/16/zimbabwes-robert-mugabe-wife-grace-insisting-finishes-term-priest/",
+  "captured_at": "2026-08-03T00:00:00+07:00",
+  "source_file": "page.html",
+  "actual_summary_file": "actual.html",
+  "ideal_summary_file": "ideal.html",
+  "provenance": "https://github.com/mozilla/readability/tree/ab4027a8b37669745016869a37a504727992b2ba/test/test-pages/telegraph",
+  "upstream_commit": "ab4027a8b37669745016869a37a504727992b2ba"
+}

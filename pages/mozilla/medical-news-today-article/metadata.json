@@ -1,0 +1,17 @@
+{
+  "url": "https://www.medicalnewstoday.com/articles/318674.php",
+  "captured_at": "2026-07-28T21:28:35+07:00",
+  "title": "How does the brain turn unconscious information into conscious thought?",
+  "byline": "By Ana Sandoiu",
+  "dir": null,
+  "lang": "en",
+  "excerpt": "New research investigates the neurobiological timing of the so-called a-ha! moment that occurs we have come up with the solution to a complex problem.",
+  "siteName": "Medical News Today",
+  "publishedTime": null,
+  "readerable": true,
+  "source_file": "page.html",
+  "actual_summary_file": "actual.html",
+  "ideal_summary_file": "ideal.html",
+  "provenance": "https://github.com/mozilla/readability/tree/ab4027a8b37669745016869a37a504727992b2ba/test/test-pages/medicalnewstoday",
+  "upstream_commit": "ab4027a8b37669745016869a37a504727992b2ba"
+}

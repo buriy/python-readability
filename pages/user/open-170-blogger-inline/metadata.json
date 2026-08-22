@@ -1,0 +1,16 @@
+{
+  "url": "http://negligeable.blogspot.com/2015/08/vous-etes-mort-mais-vous-ne-le-savez-pas_5.html",
+  "captured_at": "2026-08-22",
+  "title": "Négligeable: Vous êtes mort mais vous ne le savez pas.",
+  "source_file": "page.html",
+  "actual_summary_file": "actual.html",
+  "ideal_summary_file": "ideal.html",
+  "provenance": "https://github.com/buriy/python-readability/issues/170",
+  "github_issue": 170,
+  "github_issue_state": "open",
+  "github_issue_title": "<p> wrongly inserted before <i> or <b>",
+  "ideal_selection": [
+    "//h3[contains(@class, \"post-title\")]",
+    "//div[contains(@class, \"post-body\")]"
+  ]
+}

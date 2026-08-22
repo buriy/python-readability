@@ -1,0 +1,17 @@
+{
+  "title": "Getting LEAN with Digital Ad UX | IAB",
+  "byline": "By\n\t\t\tScott Cunningham",
+  "dir": null,
+  "lang": "en-US",
+  "excerpt": "We messed up. As technologists, tasked with delivering content and services to users, we lost track of the user experience. Twenty years ago we saw an explosion of websites, built by developers around the world, providing all forms of content. This was the beginning of an age of enlightenment, the intersection of content and technology. … Continued",
+  "siteName": "IAB",
+  "publishedTime": "2015-10-15T08:00:26+00:00",
+  "readerable": true,
+  "url": "http://fakehost/",
+  "captured_at": "2026-08-22",
+  "source_file": "page.html",
+  "actual_summary_file": "actual.html",
+  "ideal_summary_file": "ideal.html",
+  "provenance": "https://github.com/mozilla/readability/tree/ab4027a8b37669745016869a37a504727992b2ba/test/test-pages/iab-1",
+  "upstream_commit": "ab4027a8b37669745016869a37a504727992b2ba"
+}

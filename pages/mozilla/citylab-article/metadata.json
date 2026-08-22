@@ -1,0 +1,17 @@
+{
+  "url": "https://www.citylab.com/design/2019/04/neon-signage-20th-century-history/588400/",
+  "captured_at": "2026-07-28T21:28:35+07:00",
+  "title": "The Modern Ambitions Behind Neon",
+  "byline": "Sarah Archer",
+  "dir": null,
+  "lang": "en",
+  "excerpt": "The once-ubiquitous form of lighting was novel when it first emerged in the early 1900s, though it has since come to represent decline.",
+  "siteName": "CityLab",
+  "publishedTime": null,
+  "readerable": true,
+  "source_file": "page.html",
+  "actual_summary_file": "actual.html",
+  "ideal_summary_file": "ideal.html",
+  "provenance": "https://github.com/mozilla/readability/tree/ab4027a8b37669745016869a37a504727992b2ba/test/test-pages/citylab-1",
+  "upstream_commit": "ab4027a8b37669745016869a37a504727992b2ba"
+}

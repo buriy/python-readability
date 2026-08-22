@@ -1,0 +1,16 @@
+{
+  "url": "https://lwn.net/Articles/637393/",
+  "captured_at": "2026-07-28T21:28:35+07:00",
+  "title": "LWN.net Weekly Edition for March 26, 2015 [LWN.net]",
+  "byline": "By Nathan Willis\n                                            March 25, 2015",
+  "dir": null,
+  "excerpt": "The Arduino has been one of the biggest success stories of the open-hardware movement, but that success does not protect it from internal conflict. In recent months, two of the project's founders have come into conflict about the direction of future efforts—and that conflict has turned into a legal dispute about who owns the rights to the Arduino trademark.",
+  "siteName": null,
+  "publishedTime": null,
+  "readerable": true,
+  "source_file": "page.html",
+  "actual_summary_file": "actual.html",
+  "ideal_summary_file": "ideal.html",
+  "provenance": "https://github.com/mozilla/readability/tree/ab4027a8b37669745016869a37a504727992b2ba/test/test-pages/lwn-1",
+  "upstream_commit": "ab4027a8b37669745016869a37a504727992b2ba"
+}

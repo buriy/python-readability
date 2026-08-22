@@ -1,0 +1,9 @@
+python-readability includes test fixtures derived from Mozilla Readability.
+
+Readability
+Copyright (c) 2010 Arc90 Inc
+Copyright (c) 2010-2026 Mozilla and Contributors
+
+Mozilla Readability is licensed under the Apache License, Version 2.0.
+The imported fixture provenance and upstream commit are recorded in each
+pages/*/metadata.json file.

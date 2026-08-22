@@ -1,0 +1,17 @@
+{
+  "url": "https://sre.google/sre-book/monitoring-distributed-systems/",
+  "captured_at": "2026-07-28T21:28:35+07:00",
+  "title": "Google - Site Reliability Engineering",
+  "byline": "Written by Rob Ewaschuk\n                            Edited by Betsy Beyer",
+  "dir": null,
+  "lang": "en",
+  "excerpt": "Google’s SRE teams have some basic principles and best practices for building successful monitoring and alerting systems. This chapter offers guidelines for what issues should interrupt a human via a page, and how to deal with issues that aren’t serious enough to trigger a page.",
+  "siteName": null,
+  "publishedTime": null,
+  "readerable": true,
+  "source_file": "page.html",
+  "actual_summary_file": "actual.html",
+  "ideal_summary_file": "ideal.html",
+  "provenance": "https://github.com/mozilla/readability/tree/ab4027a8b37669745016869a37a504727992b2ba/test/test-pages/google-sre-book-1",
+  "upstream_commit": "ab4027a8b37669745016869a37a504727992b2ba"
+}

@@ -1,0 +1,10 @@
+{
+  "url": "http://www.salon.com/2015/02/01/the_sharing_economy_is_a_lie_uber_ayn_rand_and_the_truth_about_tech_and_libertarians/",
+  "captured_at": "2026-07-28T19:35:04+07:00",
+  "title": "The sharing economy is a lie: Uber, Ayn Rand and the truth about tech and libertarians",
+  "source_file": "page.html",
+  "actual_summary_file": "actual.html",
+  "ideal_summary_file": "ideal.html",
+  "provenance": "https://github.com/mozilla/readability/tree/ab4027a8b37669745016869a37a504727992b2ba/test/test-pages/salon-1",
+  "upstream_commit": "ab4027a8b37669745016869a37a504727992b2ba"
+}

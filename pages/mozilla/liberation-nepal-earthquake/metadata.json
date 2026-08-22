@@ -1,0 +1,10 @@
+{
+  "url": "http://www.liberation.fr/monde/2015/04/30/un-troisieme-francais-mort-dans-le-seisme-au-nepal_1278483",
+  "captured_at": "2026-07-28T19:35:04+07:00",
+  "title": "Un troisième Français mort dans le séisme au Népal",
+  "source_file": "page.html",
+  "actual_summary_file": "actual.html",
+  "ideal_summary_file": "ideal.html",
+  "provenance": "https://github.com/mozilla/readability/tree/ab4027a8b37669745016869a37a504727992b2ba/test/test-pages/liberation-1",
+  "upstream_commit": "ab4027a8b37669745016869a37a504727992b2ba"
+}

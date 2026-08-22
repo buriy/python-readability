@@ -1,0 +1,15 @@
+{
+  "url": "https://www.macrumors.com/2012/10/12/apples-ipad-mini-media-event-reportedly-scheduled-for-october-23/",
+  "captured_at": "2026-08-22",
+  "title": "Apple's 'iPad Mini' Media Event Reportedly Scheduled for October 23 - MacRumors",
+  "source_file": "page.html",
+  "actual_summary_file": "actual.html",
+  "ideal_summary_file": "ideal.html",
+  "provenance": "https://github.com/buriy/python-readability/issues/30",
+  "github_issue": 30,
+  "github_issue_state": "closed",
+  "github_issue_title": "Erratic <p> insertion in Macrumors article",
+  "ideal_selection": [
+    "//article[contains(@class, \"js-article\")]"
+  ]
+}

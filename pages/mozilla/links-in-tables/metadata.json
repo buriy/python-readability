@@ -1,0 +1,16 @@
+{
+  "title": "Saving Data: Reducing the size of App Updates by 65%",
+  "byline": null,
+  "dir": "ltr",
+  "excerpt": "Posted by Andrew Hayden, Software Engineer on Google Play    Android users are downloading tens of billions of apps and games on Google Pla...",
+  "siteName": null,
+  "publishedTime": null,
+  "readerable": true,
+  "url": "http://fakehost/",
+  "captured_at": "2026-08-22",
+  "source_file": "page.html",
+  "actual_summary_file": "actual.html",
+  "ideal_summary_file": "ideal.html",
+  "provenance": "https://github.com/mozilla/readability/tree/ab4027a8b37669745016869a37a504727992b2ba/test/test-pages/links-in-tables",
+  "upstream_commit": "ab4027a8b37669745016869a37a504727992b2ba"
+}

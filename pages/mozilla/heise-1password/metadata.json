@@ -1,0 +1,10 @@
+{
+  "url": "http://www.heise.de/mac-and-i/meldung/1Password-fuer-Mac-generiert-Einmal-Passwoerter-2596987.html",
+  "captured_at": "2026-07-28T19:35:04+07:00",
+  "title": "1Password für Mac generiert Einmal-Passwörter",
+  "source_file": "page.html",
+  "actual_summary_file": "actual.html",
+  "ideal_summary_file": "ideal.html",
+  "provenance": "https://github.com/mozilla/readability/tree/ab4027a8b37669745016869a37a504727992b2ba/test/test-pages/heise",
+  "upstream_commit": "ab4027a8b37669745016869a37a504727992b2ba"
+}

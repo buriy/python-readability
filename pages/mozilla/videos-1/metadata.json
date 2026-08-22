@@ -1,0 +1,16 @@
+{
+  "title": "How to watch the 21 best films of 2017",
+  "byline": "Alissa Wilkinson",
+  "dir": null,
+  "excerpt": "It was an extraordinary year for movies.",
+  "siteName": "Vox",
+  "publishedTime": "2017-12-15T08:50:02-05:00",
+  "readerable": true,
+  "url": "http://fakehost/",
+  "captured_at": "2026-08-22",
+  "source_file": "page.html",
+  "actual_summary_file": "actual.html",
+  "ideal_summary_file": "ideal.html",
+  "provenance": "https://github.com/mozilla/readability/tree/ab4027a8b37669745016869a37a504727992b2ba/test/test-pages/videos-1",
+  "upstream_commit": "ab4027a8b37669745016869a37a504727992b2ba"
+}

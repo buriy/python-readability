@@ -1,0 +1,16 @@
+{
+  "title": "Bartleby the Scrivener Web Study Text",
+  "byline": null,
+  "dir": null,
+  "excerpt": "Ere introducing the scrivener, as he first appeared to me, it is fit \n          I make some mention of myself, my employees, my business, my chambers, \n          and general surroundings; because some such description is indispensable \n          to an adequate understanding of the chief character about to be presented.",
+  "siteName": null,
+  "publishedTime": null,
+  "readerable": true,
+  "url": "http://fakehost/",
+  "captured_at": "2026-08-22",
+  "source_file": "page.html",
+  "actual_summary_file": "actual.html",
+  "ideal_summary_file": "ideal.html",
+  "provenance": "https://github.com/mozilla/readability/tree/ab4027a8b37669745016869a37a504727992b2ba/test/test-pages/clean-links",
+  "upstream_commit": "ab4027a8b37669745016869a37a504727992b2ba"
+}

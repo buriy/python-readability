@@ -1,0 +1,17 @@
+{
+  "title": "The Deck of Cards That Made Tarot A Global Phenomenon",
+  "byline": "Laura June Topolsky",
+  "dir": null,
+  "lang": "en",
+  "excerpt": "Picture a deck of tarot cards. What do you see? Maybe the Magician in his rich red robes, right arm raised high above him. Or the skeleton on horseback for...",
+  "siteName": "Atlas Obscura",
+  "publishedTime": "2015-07-10T09:53:00-04:00",
+  "readerable": true,
+  "url": "http://fakehost/",
+  "captured_at": "2026-08-22",
+  "source_file": "page.html",
+  "actual_summary_file": "actual.html",
+  "ideal_summary_file": "ideal.html",
+  "provenance": "https://github.com/mozilla/readability/tree/ab4027a8b37669745016869a37a504727992b2ba/test/test-pages/article-author-tag",
+  "upstream_commit": "ab4027a8b37669745016869a37a504727992b2ba"
+}

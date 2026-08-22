@@ -1,0 +1,17 @@
+{
+  "url": "https://arstechnica.com/information-technology/2015/04/just-released-minecraft-exploit-makes-it-easy-to-crash-game-servers/",
+  "captured_at": "2026-07-28T21:28:35+07:00",
+  "title": "Just-released Minecraft exploit makes it easy to crash game servers",
+  "byline": "Dan Goodin",
+  "dir": null,
+  "lang": "en-us",
+  "excerpt": "Two-year-old bug exposes thousands of servers to crippling attack.",
+  "siteName": "Ars Technica",
+  "publishedTime": null,
+  "readerable": true,
+  "source_file": "page.html",
+  "actual_summary_file": "actual.html",
+  "ideal_summary_file": "ideal.html",
+  "provenance": "https://github.com/mozilla/readability/tree/ab4027a8b37669745016869a37a504727992b2ba/test/test-pages/ars-1",
+  "upstream_commit": "ab4027a8b37669745016869a37a504727992b2ba"
+}

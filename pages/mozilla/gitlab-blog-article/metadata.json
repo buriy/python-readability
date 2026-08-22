@@ -1,0 +1,17 @@
+{
+  "url": "https://about.gitlab.com/blog/2024/06/25/3-surprising-findings-from-our-2024-global-devsecops-survey/",
+  "captured_at": "2026-07-28T21:28:35+07:00",
+  "title": "3 surprising findings from our 2024 Global DevSecOps Survey",
+  "byline": "Dave Steer",
+  "dir": null,
+  "lang": "en-us",
+  "excerpt": "This year, our survey revealed changes in organizations' investment priorities in the wake of AI — and how AI is shaping the way teams work.",
+  "siteName": "GitLab",
+  "publishedTime": "2024-06-25",
+  "readerable": true,
+  "source_file": "page.html",
+  "actual_summary_file": "actual.html",
+  "ideal_summary_file": "ideal.html",
+  "provenance": "https://github.com/mozilla/readability/tree/ab4027a8b37669745016869a37a504727992b2ba/test/test-pages/gitlab-blog",
+  "upstream_commit": "ab4027a8b37669745016869a37a504727992b2ba"
+}

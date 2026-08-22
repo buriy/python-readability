@@ -1,0 +1,16 @@
+{
+  "title": "Lorem ipsum dolor sit amet",
+  "byline": null,
+  "dir": null,
+  "excerpt": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\n        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\n        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\n        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\n        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\n        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+  "siteName": null,
+  "publishedTime": null,
+  "readerable": true,
+  "url": "http://fakehost/",
+  "captured_at": "2026-08-22",
+  "source_file": "page.html",
+  "actual_summary_file": "actual.html",
+  "ideal_summary_file": "ideal.html",
+  "provenance": "https://github.com/mozilla/readability/tree/ab4027a8b37669745016869a37a504727992b2ba/test/test-pages/title-en-dash",
+  "upstream_commit": "ab4027a8b37669745016869a37a504727992b2ba"
+}

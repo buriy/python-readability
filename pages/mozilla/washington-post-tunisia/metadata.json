@@ -1,0 +1,16 @@
+{
+  "title": "Attack stokes instability fears in North Africa",
+  "byline": "By Erin Cunningham",
+  "dir": null,
+  "excerpt": "The assault on Tunisia’s most renowned museum, in which gunmen killed at least 19 people, could heighten tensions in a nation that has become deeply divided between pro- and anti-Islamist factions.",
+  "siteName": "Washington Post",
+  "publishedTime": null,
+  "readerable": true,
+  "url": "http://www.washingtonpost.com/world/gunmen-storm-museum-in-tunisia-killing-at-least-8/2015/03/18/00202e76-cd73-11e4-8730-4f473416e759_story.html",
+  "captured_at": "2026-08-03T00:00:00+07:00",
+  "source_file": "page.html",
+  "actual_summary_file": "actual.html",
+  "ideal_summary_file": "ideal.html",
+  "provenance": "https://github.com/mozilla/readability/tree/ab4027a8b37669745016869a37a504727992b2ba/test/test-pages/wapo-1",
+  "upstream_commit": "ab4027a8b37669745016869a37a504727992b2ba"
+}

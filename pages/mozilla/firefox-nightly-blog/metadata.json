@@ -1,0 +1,17 @@
+{
+  "url": "https://blog.nightly.mozilla.org/2020/12/18/these-weeks-in-firefox-issue-85/",
+  "captured_at": "2026-07-28T21:28:35+07:00",
+  "title": "These Weeks in Firefox: Issue 85 – Firefox Nightly News",
+  "byline": "Mike Conley",
+  "dir": "ltr",
+  "lang": "en-US",
+  "excerpt": "Highlights Here's our Firefox Year in Review! Here’s our Performance Year in Review! We've just landed Bug 1553982, which aims to prevent starting an update while another Firefox instance ...",
+  "siteName": "Firefox Nightly News",
+  "publishedTime": null,
+  "readerable": true,
+  "source_file": "page.html",
+  "actual_summary_file": "actual.html",
+  "ideal_summary_file": "ideal.html",
+  "provenance": "https://github.com/mozilla/readability/tree/ab4027a8b37669745016869a37a504727992b2ba/test/test-pages/firefox-nightly-blog",
+  "upstream_commit": "ab4027a8b37669745016869a37a504727992b2ba"
+}

@@ -1,0 +1,16 @@
+{
+  "title": "remoteStorage",
+  "byline": "Jong, Michiel de",
+  "dir": null,
+  "lang": "en",
+  "siteName": null,
+  "publishedTime": null,
+  "readerable": true,
+  "url": "https://datatracker.ietf.org/doc/html/draft-dejong-remotestorage-04",
+  "captured_at": "2026-08-03T00:00:00+07:00",
+  "source_file": "page.html",
+  "actual_summary_file": "actual.html",
+  "ideal_summary_file": "ideal.html",
+  "provenance": "https://github.com/mozilla/readability/tree/ab4027a8b37669745016869a37a504727992b2ba/test/test-pages/ietf-1",
+  "upstream_commit": "ab4027a8b37669745016869a37a504727992b2ba"
+}

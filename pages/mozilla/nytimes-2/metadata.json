@@ -1,0 +1,17 @@
+{
+  "title": "Yahoo’s Sale to Verizon Leaves Shareholders With Little Say",
+  "byline": "Steven Davidoff Solomon",
+  "dir": null,
+  "lang": "en",
+  "excerpt": "The internet giant’s decision to sell its business is plagued with challenges that reveal how unusual deal structures can affect shareholders.",
+  "siteName": null,
+  "publishedTime": null,
+  "readerable": true,
+  "url": "http://fakehost/",
+  "captured_at": "2026-08-22",
+  "source_file": "page.html",
+  "actual_summary_file": "actual.html",
+  "ideal_summary_file": "ideal.html",
+  "provenance": "https://github.com/mozilla/readability/tree/ab4027a8b37669745016869a37a504727992b2ba/test/test-pages/nytimes-2",
+  "upstream_commit": "ab4027a8b37669745016869a37a504727992b2ba"
+}

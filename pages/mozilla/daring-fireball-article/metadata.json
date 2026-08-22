@@ -1,0 +1,17 @@
+{
+  "url": "https://daringfireball.net/colophon/",
+  "captured_at": "2026-07-28T21:28:35+07:00",
+  "title": "Daring Fireball: Colophon",
+  "byline": null,
+  "dir": null,
+  "lang": "en",
+  "excerpt": "Daring Fireball is written and produced by John Gruber.",
+  "siteName": null,
+  "publishedTime": null,
+  "readerable": true,
+  "source_file": "page.html",
+  "actual_summary_file": "actual.html",
+  "ideal_summary_file": "ideal.html",
+  "provenance": "https://github.com/mozilla/readability/tree/ab4027a8b37669745016869a37a504727992b2ba/test/test-pages/daringfireball-1",
+  "upstream_commit": "ab4027a8b37669745016869a37a504727992b2ba"
+}

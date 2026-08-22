@@ -1,0 +1,17 @@
+{
+  "title": "The New York Times en Español",
+  "byline": "Tariq Panja",
+  "dir": null,
+  "lang": "es",
+  "excerpt": "Entérate de lo que está pasando en el mundo y de las noticias económicas, de negocios, tecnología, arte, estilos de vida, deporte, ciencia y opiniones. No importa cuáles sean tus intereses: el Times lo cubre con inmejorable calidad, profundidad e independencia.",
+  "siteName": null,
+  "publishedTime": null,
+  "readerable": true,
+  "url": "http://fakehost/",
+  "captured_at": "2026-08-22",
+  "source_file": "page.html",
+  "actual_summary_file": "actual.html",
+  "ideal_summary_file": "ideal.html",
+  "provenance": "https://github.com/mozilla/readability/tree/ab4027a8b37669745016869a37a504727992b2ba/test/test-pages/nytimes-5",
+  "upstream_commit": "ab4027a8b37669745016869a37a504727992b2ba"
+}

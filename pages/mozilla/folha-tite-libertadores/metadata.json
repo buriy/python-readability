@@ -1,0 +1,10 @@
+{
+  "url": "https://www1.folha.uol.com.br/esporte/2018/12/tite-diz-que-errou-ao-levar-taca-da-libertadores-a-lula-em-2012.shtml",
+  "captured_at": "2026-07-28T18:21:56+07:00",
+  "title": "Tite diz que errou ao levar taça da Libertadores a Lula em 2012",
+  "source_file": "page.html",
+  "actual_summary_file": "actual.html",
+  "ideal_summary_file": "ideal.html",
+  "provenance": "https://github.com/mozilla/readability/tree/ab4027a8b37669745016869a37a504727992b2ba/test/test-pages/folha",
+  "upstream_commit": "ab4027a8b37669745016869a37a504727992b2ba"
+}

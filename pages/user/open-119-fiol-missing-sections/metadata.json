@@ -1,0 +1,17 @@
+{
+  "url": "https://www.fiolinjurylaw.com/",
+  "captured_at": "2019-06-25",
+  "title": "Tampa Trial Lawyer | Fiol Law Group",
+  "source_file": "page.html",
+  "actual_summary_file": "actual.html",
+  "ideal_summary_file": "ideal.html",
+  "provenance": "https://github.com/buriy/python-readability/issues/119",
+  "source_attachment": "https://github.com/buriy/python-readability/files/3327387/fiolinjurylaw.curl.html.txt",
+  "github_issue": 119,
+  "github_issue_state": "open",
+  "github_issue_title": "significant portion of content missed by readability",
+  "ideal_selection": [
+    "//section[@id=\"section-2\"]",
+    "//section[@id=\"section-4\"]"
+  ]
+}

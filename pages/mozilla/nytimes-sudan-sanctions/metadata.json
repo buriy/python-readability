@@ -1,0 +1,10 @@
+{
+  "url": "https://www.nytimes.com/2017/01/13/world/africa/sudan-sanctions.html",
+  "captured_at": "2026-07-28T18:12:02+07:00",
+  "title": "United States to Lift Sudan Sanctions",
+  "source_file": "page.html",
+  "actual_summary_file": "actual.html",
+  "ideal_summary_file": "ideal.html",
+  "provenance": "https://github.com/mozilla/readability/tree/ab4027a8b37669745016869a37a504727992b2ba/test/test-pages/nytimes-1",
+  "upstream_commit": "ab4027a8b37669745016869a37a504727992b2ba"
+}

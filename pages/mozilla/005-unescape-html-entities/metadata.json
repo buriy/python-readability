@@ -1,0 +1,16 @@
+{
+  "title": "",
+  "byline": null,
+  "dir": null,
+  "excerpt": "&#xg; 😭 😭 � �",
+  "siteName": null,
+  "publishedTime": null,
+  "readerable": false,
+  "url": "http://fakehost/",
+  "captured_at": "2026-08-22",
+  "source_file": "page.html",
+  "actual_summary_file": "actual.html",
+  "ideal_summary_file": "ideal.html",
+  "provenance": "https://github.com/mozilla/readability/tree/ab4027a8b37669745016869a37a504727992b2ba/test/test-pages/005-unescape-html-entities",
+  "upstream_commit": "ab4027a8b37669745016869a37a504727992b2ba"
+}

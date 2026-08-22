@@ -1,0 +1,17 @@
+{
+  "title": "Welcome to Firefox Developer Edition",
+  "byline": null,
+  "dir": "ltr",
+  "lang": "en",
+  "excerpt": "Built for those who build the Web. Introducing the only browser made for developers.",
+  "siteName": "Mozilla",
+  "publishedTime": null,
+  "readerable": false,
+  "url": "http://fakehost/",
+  "captured_at": "2026-08-22",
+  "source_file": "page.html",
+  "actual_summary_file": "actual.html",
+  "ideal_summary_file": "ideal.html",
+  "provenance": "https://github.com/mozilla/readability/tree/ab4027a8b37669745016869a37a504727992b2ba/test/test-pages/mozilla-2",
+  "upstream_commit": "ab4027a8b37669745016869a37a504727992b2ba"
+}

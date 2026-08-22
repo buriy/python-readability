@@ -1,0 +1,17 @@
+{
+  "title": "'Star Wars' Original Cuts Might Get Released for 40th Anniversary",
+  "byline": "James Akinaka",
+  "dir": null,
+  "lang": "en",
+  "excerpt": "As a 40th birthday present to the Star Wars Saga and its fans, Lucasfilm could re-release the original versions of the original trilogy films.",
+  "siteName": "Fandom powered by Wikia",
+  "publishedTime": "2017-02-23T17:18:13-08:00",
+  "readerable": true,
+  "url": "http://fakehost/",
+  "captured_at": "2026-08-22",
+  "source_file": "page.html",
+  "actual_summary_file": "actual.html",
+  "ideal_summary_file": "ideal.html",
+  "provenance": "https://github.com/mozilla/readability/tree/ab4027a8b37669745016869a37a504727992b2ba/test/test-pages/wikia",
+  "upstream_commit": "ab4027a8b37669745016869a37a504727992b2ba"
+}

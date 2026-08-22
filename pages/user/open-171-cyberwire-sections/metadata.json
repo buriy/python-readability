@@ -1,0 +1,15 @@
+{
+  "url": "https://thecyberwire.com/newsletters/daily-briefing/11/29",
+  "captured_at": "2026-08-22",
+  "title": "Update on Ukraine. ASIO will help private sector. CISA issues ICS advisories; adds to catolog of exploited vulnerabilities.",
+  "source_file": "page.html",
+  "actual_summary_file": "actual.html",
+  "ideal_summary_file": "ideal.html",
+  "provenance": "https://github.com/buriy/python-readability/issues/171",
+  "github_issue": 171,
+  "github_issue_state": "open",
+  "github_issue_title": "Problems with thecyberwire.com",
+  "ideal_selection": [
+    "//div[contains(@class, \"content-item-text\")]"
+  ]
+}

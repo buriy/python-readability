@@ -1,0 +1,10 @@
+{
+  "url": "https://www.cnet.com/news/zuckerberg-offers-peek-at-facebooks-acquisition-strategies/",
+  "captured_at": "2026-07-28T18:21:56+07:00",
+  "title": "Zuckerberg offers peek at Facebook's acquisition strategies",
+  "source_file": "page.html",
+  "actual_summary_file": "actual.html",
+  "ideal_summary_file": "ideal.html",
+  "provenance": "https://github.com/mozilla/readability/tree/ab4027a8b37669745016869a37a504727992b2ba/test/test-pages/cnet",
+  "upstream_commit": "ab4027a8b37669745016869a37a504727992b2ba"
+}

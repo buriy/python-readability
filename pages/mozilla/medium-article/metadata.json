@@ -1,0 +1,16 @@
+{
+  "url": "https://medium.com/@pippinlee/the-open-journalism-project-better-student-journalism-fb39f4f701bb",
+  "captured_at": "2026-07-28T21:28:35+07:00",
+  "title": "The Open Journalism Project: Better Student Journalism",
+  "byline": "Pippin Lee",
+  "dir": null,
+  "excerpt": "We pushed out the first version of the Open Journalism site in January. Here’s what we’ve learned about student journali…",
+  "siteName": "Medium",
+  "publishedTime": "2015-03-17T16:27:40.294Z",
+  "readerable": true,
+  "source_file": "page.html",
+  "actual_summary_file": "actual.html",
+  "ideal_summary_file": "ideal.html",
+  "provenance": "https://github.com/mozilla/readability/tree/ab4027a8b37669745016869a37a504727992b2ba/test/test-pages/medium-1",
+  "upstream_commit": "ab4027a8b37669745016869a37a504727992b2ba"
+}

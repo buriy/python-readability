@@ -1,0 +1,17 @@
+{
+  "title": "Superbugs: What They Are and How You Get Them",
+  "byline": "By Kelli  Miller\n                                                    WebMD Health News",
+  "dir": null,
+  "lang": "en",
+  "excerpt": "Drug-resistant bacteria, dubbed",
+  "siteName": null,
+  "publishedTime": null,
+  "readerable": true,
+  "url": "http://fakehost/",
+  "captured_at": "2026-08-22",
+  "source_file": "page.html",
+  "actual_summary_file": "actual.html",
+  "ideal_summary_file": "ideal.html",
+  "provenance": "https://github.com/mozilla/readability/tree/ab4027a8b37669745016869a37a504727992b2ba/test/test-pages/webmd-2",
+  "upstream_commit": "ab4027a8b37669745016869a37a504727992b2ba"
+}

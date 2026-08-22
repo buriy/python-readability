@@ -1,0 +1,15 @@
+{
+  "url": "https://www.theverge.com/2022/4/8/23016861/youtube-comment-spam-testing-moderation",
+  "captured_at": "2026-08-22",
+  "title": "YouTubers are sick of comment spam, so YouTube is testing a stricter moderation system | The Verge",
+  "source_file": "page.html",
+  "actual_summary_file": "actual.html",
+  "ideal_summary_file": "ideal.html",
+  "provenance": "https://github.com/buriy/python-readability/issues/173",
+  "github_issue": 173,
+  "github_issue_state": "closed",
+  "github_issue_title": "Circular import error for pip install readability-lxml",
+  "ideal_selection": [
+    "//div[@id=\"zephr-anchor\"]"
+  ]
+}

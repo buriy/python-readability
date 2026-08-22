@@ -1,0 +1,17 @@
+{
+  "url": "https://www.aclu.org/blog/privacy-technology/internet-privacy/facebook-tracking-me-even-though-im-not-facebook",
+  "captured_at": "2026-07-28T21:28:35+07:00",
+  "title": "Facebook Is Tracking Me Even Though I’m Not on Facebook",
+  "byline": "Daniel Kahn Gillmor",
+  "dir": "ltr",
+  "lang": "en",
+  "excerpt": "Facebook collects data about people who have never even opted in. But there are ways these non-users can protect themselves.",
+  "siteName": "American Civil Liberties Union",
+  "publishedTime": "2018-04-05T06:00",
+  "readerable": true,
+  "source_file": "page.html",
+  "actual_summary_file": "actual.html",
+  "ideal_summary_file": "ideal.html",
+  "provenance": "https://github.com/mozilla/readability/tree/ab4027a8b37669745016869a37a504727992b2ba/test/test-pages/aclu",
+  "upstream_commit": "ab4027a8b37669745016869a37a504727992b2ba"
+}

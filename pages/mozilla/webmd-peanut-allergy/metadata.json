@@ -1,0 +1,17 @@
+{
+  "title": "Babies Who Eat Peanuts Early May Avoid Allergy",
+  "byline": "By Brenda  Goodman, MA\n                                                WebMD Health News",
+  "dir": null,
+  "lang": "en",
+  "excerpt": "Life-threatening peanut allergies have mysteriously been on the rise in the past decade, with little hope for a cure. But a groundbreaking new study may offer a way to stem that rise, while another may offer some hope for those who are already allergic.",
+  "siteName": null,
+  "publishedTime": null,
+  "readerable": true,
+  "url": "http://www.webmd.com/allergies/news/20150220/child-peanut-allergy-findings",
+  "captured_at": "2026-08-03T00:00:00+07:00",
+  "source_file": "page.html",
+  "actual_summary_file": "actual.html",
+  "ideal_summary_file": "ideal.html",
+  "provenance": "https://github.com/mozilla/readability/tree/ab4027a8b37669745016869a37a504727992b2ba/test/test-pages/webmd-1",
+  "upstream_commit": "ab4027a8b37669745016869a37a504727992b2ba"
+}

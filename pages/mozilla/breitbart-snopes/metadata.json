@@ -1,0 +1,10 @@
+{
+  "url": "http://www.breitbart.com/tech/2016/12/22/neutral-snopes-fact-checker-david-emery-un-angry-trump-supporters/",
+  "captured_at": "2026-07-28T18:21:56+07:00",
+  "title": "'Neutral' Snopes Fact-Checker David Emery: 'Are There Any Un-Angry Trump Supporters?' - Breitbart",
+  "source_file": "page.html",
+  "actual_summary_file": "actual.html",
+  "ideal_summary_file": "ideal.html",
+  "provenance": "https://github.com/mozilla/readability/tree/ab4027a8b37669745016869a37a504727992b2ba/test/test-pages/breitbart",
+  "upstream_commit": "ab4027a8b37669745016869a37a504727992b2ba"
+}

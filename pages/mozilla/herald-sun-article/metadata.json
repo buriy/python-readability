@@ -1,0 +1,17 @@
+{
+  "url": "http://www.heraldsun.com.au/news/opinion/angry-media-wont-buckle-over-new-surveillance-laws/story-fni0fha6-1227261886014",
+  "captured_at": "2026-07-28T21:28:35+07:00",
+  "title": "Angry media won’t buckle over new surveillance laws",
+  "byline": "JOE HILDEBRAND",
+  "dir": null,
+  "lang": "en-au",
+  "excerpt": "A HIGH-powered federal government team has been doing the rounds of media organisations in the past few days in an attempt to allay concerns about the impact of new surveillance legislation on press freedom. It failed.",
+  "siteName": "HeraldSun",
+  "publishedTime": null,
+  "readerable": true,
+  "source_file": "page.html",
+  "actual_summary_file": "actual.html",
+  "ideal_summary_file": "ideal.html",
+  "provenance": "https://github.com/mozilla/readability/tree/ab4027a8b37669745016869a37a504727992b2ba/test/test-pages/herald-sun-1",
+  "upstream_commit": "ab4027a8b37669745016869a37a504727992b2ba"
+}

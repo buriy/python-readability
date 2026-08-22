@@ -1,0 +1,10 @@
+{
+  "url": "http://www.msn.com/en-us/news/technology/nintendos-first-iphone-game-will-launch-in-december-for-dollar10/ar-AAkm7Xj",
+  "captured_at": "2026-07-28T19:35:04+07:00",
+  "title": "Nintendo's first iPhone game will launch in December for $10",
+  "source_file": "page.html",
+  "actual_summary_file": "actual.html",
+  "ideal_summary_file": "ideal.html",
+  "provenance": "https://github.com/mozilla/readability/tree/ab4027a8b37669745016869a37a504727992b2ba/test/test-pages/msn",
+  "upstream_commit": "ab4027a8b37669745016869a37a504727992b2ba"
+}

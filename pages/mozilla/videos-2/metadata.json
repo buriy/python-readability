@@ -1,0 +1,17 @@
+{
+  "title": "Screenshot : «Vape Wave», «6 Days», «Alphonse Président»…",
+  "byline": "Alexandre Hervaud, Jérémy Piette",
+  "dir": null,
+  "lang": "fr",
+  "excerpt": "Séries, documentaires, programmes jeunesse… Retrouvez les recommandations de Libération pour savoir quoi regarder sur vos écrans cette semaine.\nPour dépasser...",
+  "siteName": "Libération",
+  "publishedTime": "2017-11-24T18:42:20.314667",
+  "readerable": true,
+  "url": "http://fakehost/",
+  "captured_at": "2026-08-22",
+  "source_file": "page.html",
+  "actual_summary_file": "actual.html",
+  "ideal_summary_file": "ideal.html",
+  "provenance": "https://github.com/mozilla/readability/tree/ab4027a8b37669745016869a37a504727992b2ba/test/test-pages/videos-2",
+  "upstream_commit": "ab4027a8b37669745016869a37a504727992b2ba"
+}

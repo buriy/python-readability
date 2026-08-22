@@ -1,0 +1,16 @@
+{
+  "title": "On Behalf of “Literally”",
+  "byline": "Courtney Kirchoff",
+  "dir": null,
+  "excerpt": "In defense of the word “literally” and why you or someone you know should stop misusing the word, lest they drive us fig…",
+  "siteName": "Medium",
+  "publishedTime": "2015-02-24T19:56:33.374Z",
+  "readerable": true,
+  "url": "http://fakehost/",
+  "captured_at": "2026-08-22",
+  "source_file": "page.html",
+  "actual_summary_file": "actual.html",
+  "ideal_summary_file": "ideal.html",
+  "provenance": "https://github.com/mozilla/readability/tree/ab4027a8b37669745016869a37a504727992b2ba/test/test-pages/medium-2",
+  "upstream_commit": "ab4027a8b37669745016869a37a504727992b2ba"
+}

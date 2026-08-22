@@ -1,0 +1,16 @@
+{
+  "title": "Open Verilog flow for Silego GreenPak4 programmable logic devices",
+  "byline": null,
+  "dir": "ltr",
+  "excerpt": "I've written a couple of posts in the past few months but they were all for the blog at work  so I figured I'm long overdue for one on Silic...",
+  "siteName": null,
+  "publishedTime": null,
+  "readerable": true,
+  "url": "http://fakehost/",
+  "captured_at": "2026-08-22",
+  "source_file": "page.html",
+  "actual_summary_file": "actual.html",
+  "ideal_summary_file": "ideal.html",
+  "provenance": "https://github.com/mozilla/readability/tree/ab4027a8b37669745016869a37a504727992b2ba/test/test-pages/blogger",
+  "upstream_commit": "ab4027a8b37669745016869a37a504727992b2ba"
+}
