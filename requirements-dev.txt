@@ -1,3 +1,4 @@
-nose
-twine
-flake8
+pytest>=8.3,<9
+build>=1.2,<2
+twine>=5,<7
+flake8>=7,<8

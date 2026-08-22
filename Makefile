@@ -1,19 +1,21 @@
 # Makefile to help automate tasks
-WD := $(shell pwd)
-PY := .venv/bin/python
-PIP := .venv/bin/pip
-PEP8 := .venv/bin/pep8
-NOSE := .venv/bin/nosetests
-TWINE := .venv/bin/twine
+PYTHON_SYSTEM ?= python3
+PY := $(CURDIR)/.venv/bin/python
+BENCHMARK_MIN_SCORE ?= 0.95
+VERSION := $(shell sed -n 's/^__version__ = "\(.*\)"/\1/p' readability/__init__.py)
+DIST_FILES := dist/readability_lxml-$(VERSION)-py3-none-any.whl \
+	dist/readability_lxml-$(VERSION).tar.gz
 
 # ###########
 # Tests rule!
 # ###########
 .PHONY: test
-test: venv develop $(NOSE)
-	$(NOSE) --with-id -s tests
+test: develop
+	$(PY) -m pytest -q
 
-$(NOSE): setup
+.PHONY: benchmark
+benchmark: venv develop
+	$(PY) -m readability.benchmark --min-score $(BENCHMARK_MIN_SCORE)
 
 # #######
 # INSTALL
@@ -24,50 +26,57 @@ all: setup develop
 venv: .venv/bin/python
 
 setup: venv
-	$(PIP) install -r requirements-dev.txt | grep -v "already satisfied" || true
+	$(PY) -m pip install -U pip
+	$(PY) -m pip install -r requirements-dev.txt
 
 .venv/bin/python:
-	test -d .venv || which python3 && python3 -m venv .venv || virtualenv .venv
+	test -x .venv/bin/python || $(PYTHON_SYSTEM) -m venv .venv
 
 .PHONY: clean
 clean:
 	rm -rf .venv
 
-develop: .venv/lib/python*/site-packages/readability-lxml.egg-link
-
-.venv/lib/python*/site-packages/readability-lxml.egg-link:
-	$(PY) setup.py develop
+.PHONY: develop
+develop: setup
+	$(PY) -m pip install -e .
 
 
 # ###########
 # Development
 # ###########
 .PHONY: clean_all
-clean_all: clean_venv
+clean_all: clean
+
+.PHONY: lint
+lint: setup
+	$(PY) -m flake8 readability tests
+
+.PHONY: check-version
+check-version:
+	test "$(VERSION)" = "$$(sed -n 's/^version = "\(.*\)"/\1/p' pyproject.toml | head -n 1)"
 
 .PHONY: build
 build:
-	poetry build
+	$(PY) -m build
+
+.PHONY: check-dist
+check-dist: setup build
+	$(PY) -m twine check $(DIST_FILES)
+
+.PHONY: check pre-release
+check pre-release: develop lint test benchmark check-version check-dist
 
 # ###########
 # Deploy
 # ###########
 .PHONY: dist
-dist:
-	$(PY) -m pip install wheel
-	$(PY) setup.py sdist bdist_wheel
-	$(TWINE) check dist/*
+dist: check-dist
 
 .PHONY: upload
-upload:
-	$(TWINE) upload dist/*
+upload: check-dist
+	$(PY) -m twine upload $(DIST_FILES)
 
 .PHONY: bump
 bump:
-	$(EDITOR) readability/__init__.py
-	$(eval VERSION := $(shell grep "__version__" readability/__init__.py | cut -d'"' -f2))
-	# fix first occurrence of version in pyproject.toml
-	sed -i '0,/version = ".*"/s//version = "$(VERSION)"/' pyproject.toml
-	git commit -m "Bump version to $(VERSION)" pyproject.toml readability/__init__.py
-	git tag $(VERSION)
-	git push --tags
+	test -n "$(NEW_VERSION)"
+	$(PYTHON_SYSTEM) -c 'from pathlib import Path; files = [(Path("readability/__init__.py"), "__version__ = \"$(VERSION)\"", "__version__ = \"$(NEW_VERSION)\""), (Path("pyproject.toml"), "version = \"$(VERSION)\"", "version = \"$(NEW_VERSION)\"")]; contents = [(path, path.read_text(), old, new) for path, old, new in files]; assert all(old in text for path, text, old, new in contents); [path.write_text(text.replace(old, new, 1)) for path, text, old, new in contents]'

@@ -16,3 +16,4 @@ nosetests.xml
 /.noseids
 /.venv
 /poetry.lock
+.DS_Store
