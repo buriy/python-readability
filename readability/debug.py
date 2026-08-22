@@ -7,7 +7,6 @@ uids_document = None
 
 
 def describe_node(node):
-    global uids
     if node is None:
         return ""
     if not hasattr(node, "tag"):

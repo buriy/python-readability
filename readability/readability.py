@@ -40,7 +40,7 @@ REGEXES = {
         re.I,
     ),
     "divToPElementsRe": re.compile(
-        r"<(a|blockquote|dl|div|img|ol|p|pre|table|ul)", re.I
+        r"<(blockquote|dl|div|img|ol|p|pre|table|ul)", re.I
     ),
     # 'replaceBrsRe': re.compile(r'(<br[^>]*>[ \n\r\t]*){2,}',re.I),
     # 'replaceFontsRe': re.compile(r'<(\/?)font[^>]*>',re.I),
@@ -48,6 +48,17 @@ REGEXES = {
     # 'normalizeRe': re.compile(r'\s{2,}/'),
     # 'killBreaksRe': re.compile(r'(<br\s*\/?>(\s|&nbsp;?)*){1,}/'),
     "videoRe": re.compile(r"https?:\/\/(www\.)?(youtube|vimeo)\.com", re.I),
+    "displayNoneRe": re.compile(
+        r"(?:^|;)\s*display\s*:\s*none\s*(?:!important\s*)?(?:;|$)", re.I
+    ),
+    "callToActionRe": re.compile(
+        r"^\s*(?:sign up|subscribe|download|get the latest)\b", re.I
+    ),
+    "editorialLeadRe": re.compile(
+        r"(?:^|[\s_-])(?:subhead|story[\s_-]*lead|standfirst|dek|subtitle)"
+        r"(?:$|[\s_-])",
+        re.I,
+    ),
     # skipFootnoteLink:      /^\s*(\[?[a-z0-9]{1,2}\]?|^|edit|citation needed)\s*$/i,
 }
 
@@ -164,6 +175,9 @@ class Document:
             self.encoding = 'utf-8'
         else:
             doc, self.encoding = build_doc(input)
+        for elem in doc.xpath("//*[@style]"):
+            if REGEXES["displayNoneRe"].search(elem.get("style")):
+                elem.drop_tree()
         doc = html_cleaner.clean_html(doc)
         base_href = self.url
         if base_href:
@@ -208,7 +222,7 @@ class Document:
         An internal method, which can be overridden in subclasses, for example,
         to disable or to improve DOM-to-text conversion in .summary() method
         """
-        return clean_attributes(tounicode(self.html, method="html"))
+        return clean_attributes(tounicode(self._html(), method="html"))
 
     def summary(self, html_partial=False, keep_all_images=False):
         """
@@ -225,7 +239,7 @@ class Document:
             ruthless = True
             while True:
                 self._html(True)
-                for i in self.tags(self.html, "script", "style"):
+                for i in self.tags(self.html, "script", "style", "noscript"):
                     i.drop_tree()
                 for i in self.tags(self.html, "body"):
                     i.set("id", "readabilityBody")
@@ -235,6 +249,10 @@ class Document:
                 candidates = self.score_paragraphs()
 
                 best_candidate = self.select_best_candidate(candidates)
+                if best_candidate:
+                    best_candidate = self.get_semantic_article_candidate(
+                        candidates, best_candidate
+                    )
 
                 if best_candidate:
                     article = self.get_article(
@@ -245,22 +263,25 @@ class Document:
                         log.info("ruthless removal did not work. ")
                         ruthless = False
                         log.debug(
-                                "ended up stripping too much - "
-                                "going for a safer _parse"
+                            "ended up stripping too much - "
+                            "going for a safer _parse"
                         )
                         # try again
                         continue
                     else:
                         log.debug(
-                                "Ruthless and lenient parsing did not work. "
-                                "Returning raw html"
+                            "Ruthless and lenient parsing did not work. "
+                            "Returning raw html"
                         )
                         article = self.html.find("body")
                         if article is None:
                             article = self.html
                 cleaned_article = self.sanitize(article, candidates, keep_all_images)
 
-                article_length = len(cleaned_article or "")
+                article_for_length = cleaned_article or ""
+                if self.xpath:
+                    article_for_length = re.sub(r' x="[^"]*"', "", article_for_length)
+                article_length = len(article_for_length)
                 retry_length = self.retry_length
                 of_acceptable_length = article_length >= retry_length
                 if ruthless and not of_acceptable_length:
@@ -284,12 +305,27 @@ class Document:
         else:
             output = document_fromstring("<div/>")
         best_elem = best_candidate["elem"]
+        self.add_heading_preamble(
+            candidates, best_elem, sibling_score_threshold
+        )
+        self.merge_article_segments(
+            candidates, best_candidate, sibling_score_threshold
+        )
         parent = best_elem.getparent()
         siblings = parent.getchildren() if parent is not None else [best_elem]
+        editorial_leads = self.get_editorial_leads(best_elem)
+        if html_partial:
+            output_root = output
+        else:
+            output_root = output.getchildren()[0].getchildren()[0]
+        for lead in reversed(editorial_leads):
+            best_elem.insert(0, lead)
         for sibling in siblings:
             # in lxml there no concept of simple text
             # if isinstance(sibling, NavigableString): continue
             append = False
+            if sibling in editorial_leads:
+                continue
             if sibling is best_elem:
                 append = True
             sibling_key = sibling  # HashableElement(sibling)
@@ -316,13 +352,181 @@ class Document:
             if append:
                 # We don't want to append directly to output, but the div
                 # in html->body->div
-                if html_partial:
-                    output.append(sibling)
-                else:
-                    output.getchildren()[0].getchildren()[0].append(sibling)
+                output_root.append(sibling)
         # if output is not None:
         #    output.append(best_elem)
         return output
+
+    def add_heading_preamble(self, candidates, best_elem, score_threshold):
+        previous = best_elem.getprevious()
+        if previous is None or previous in candidates:
+            return
+        if previous.tag != "h2" and not previous.findall(".//h2"):
+            return
+        if text_length(previous) < self.min_text_length:
+            return
+        if self.get_link_density(previous) > 0.2:
+            return
+        candidates[previous] = {
+            "content_score": score_threshold,
+            "elem": previous,
+        }
+
+    def merge_article_segments(self, candidates, best_candidate, score_threshold):
+        best_elem = best_candidate["elem"]
+        content_classes = {
+            name
+            for name in (best_elem.get("class") or "").split()
+            if REGEXES["positiveRe"].search(name)
+        }
+        if not content_classes:
+            return
+
+        best_parent = best_elem.getparent()
+        best_ancestors = set(best_elem.iterancestors())
+
+        def is_matching_segment(elem):
+            if elem is best_elem or elem not in candidates:
+                return False
+            if candidates[elem]["content_score"] < score_threshold:
+                return False
+            if elem.getparent() is best_parent or elem.tag != best_elem.tag:
+                return False
+            if not content_classes.intersection((elem.get("class") or "").split()):
+                return False
+            if self.get_link_density(elem) > 0.2:
+                return False
+            elem_ancestors = set(elem.iterancestors())
+            return elem not in best_ancestors and best_elem not in elem_ancestors
+
+        semantic_frame = next(
+            (
+                elem
+                for elem in best_elem.iterancestors()
+                if elem.tag in ("article", "main")
+            ),
+            None,
+        )
+        if semantic_frame is None:
+            semantic_frame = next(
+                (
+                    ancestor
+                    for ancestor in best_elem.iterancestors()
+                    if REGEXES["positiveRe"].search(
+                        "{} {}".format(
+                            ancestor.get("class", ""), ancestor.get("id", "")
+                        )
+                    )
+                    and any(
+                        is_matching_segment(candidate)
+                        and ancestor in candidate.iterancestors()
+                        for candidate in candidates
+                    )
+                ),
+                None,
+            )
+        if semantic_frame is None:
+            return
+
+        selected = set()
+        before = []
+        after = []
+        after_best = False
+        for elem in semantic_frame.iter():
+            if elem is best_elem:
+                after_best = True
+                continue
+            if not is_matching_segment(elem):
+                continue
+            elem_ancestors = set(elem.iterancestors())
+            if selected.intersection(elem_ancestors):
+                continue
+
+            selected.add(elem)
+            if after_best:
+                after.append(elem)
+            else:
+                before.append(elem)
+
+        for elem in reversed(before):
+            best_elem.insert(0, elem)
+        for elem in after:
+            best_elem.append(elem)
+
+    def get_semantic_article_candidate(self, candidates, best_candidate):
+        best_elem = best_candidate["elem"]
+        if not best_elem.xpath(
+            "ancestor-or-self::form | ancestor-or-self::aside | ancestor-or-self::nav"
+        ):
+            return best_candidate
+
+        article_candidates = []
+        for article in self.tags(self.html, "article"):
+            if article.xpath(
+                "ancestor-or-self::form | ancestor-or-self::aside | ancestor-or-self::nav"
+            ):
+                continue
+            link_density = self.get_link_density(article)
+            if link_density > 0.25:
+                continue
+
+            candidate = self.score_node(article)
+            item_count = 0
+            for item in article.xpath(".//li[not(.//li)]"):
+                inner_text = clean(item.text_content() or "")
+                if len(inner_text) < self.min_text_length:
+                    continue
+                if self.get_link_density(item) > 0.25:
+                    continue
+                item_count += 1
+                candidate["content_score"] += 1
+                candidate["content_score"] += len(inner_text.split(","))
+                candidate["content_score"] += min((len(inner_text) / 100), 3)
+
+            if item_count:
+                candidate["content_score"] *= 1 - link_density
+                article_candidates.append(candidate)
+
+        if not article_candidates:
+            return best_candidate
+        semantic_candidate = max(
+            article_candidates, key=lambda candidate: candidate["content_score"]
+        )
+        if semantic_candidate["content_score"] <= best_candidate["content_score"]:
+            return best_candidate
+        candidates[semantic_candidate["elem"]] = semantic_candidate
+        return semantic_candidate
+
+    def get_editorial_leads(self, best_elem):
+        semantic_frame = next(
+            (
+                elem
+                for elem in best_elem.iterancestors()
+                if elem.tag in ("article", "main")
+            ),
+            None,
+        )
+        if semantic_frame is None:
+            return []
+
+        ancestors = set(best_elem.iterancestors())
+        leads = []
+        for elem in semantic_frame.iter():
+            if elem is best_elem:
+                break
+            if elem in ancestors:
+                continue
+            features = "{} {}".format(
+                elem.get("class", ""), elem.get("id", "")
+            )
+            if not REGEXES["editorialLeadRe"].search(features):
+                continue
+            if self.get_link_density(elem) > 0.2:
+                continue
+            if any(ancestor in leads for ancestor in elem.iterancestors()):
+                continue
+            leads.append(elem)
+        return leads
 
     def select_best_candidate(self, candidates):
         if not candidates:
@@ -456,6 +660,8 @@ class Document:
                 REGEXES["unlikelyCandidatesRe"].search(s)
                 and (not REGEXES["okMaybeItsACandidateRe"].search(s))
                 and elem.tag not in ["html", "body"]
+                and not elem.xpath("ancestor-or-self::pre | ancestor-or-self::code")
+                and not elem.xpath("descendant-or-self::main | descendant-or-self::article")
             ):
                 log.debug("Removing unlikely candidate - %s" % describe(elem))
                 elem.drop_tree()
@@ -508,6 +714,13 @@ class Document:
         for header in self.tags(node, "h1", "h2", "h3", "h4", "h5", "h6"):
             if self.class_weight(header) < 0 or self.get_link_density(header) > 0.33:
                 header.drop_tree()
+
+        for elem in self.tags(node, "p"):
+            if (
+                REGEXES["callToActionRe"].search(elem.text_content())
+                and self.get_link_density(elem) > 0.2
+            ):
+                elem.drop_tree()
 
         for elem in self.tags(node, "form", "textarea"):
             elem.drop_tree()

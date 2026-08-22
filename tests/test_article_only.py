@@ -122,8 +122,286 @@ class TestArticleOnly(unittest.TestCase):
         s = doc.summary()
         # print(s)
         assert "punctuation" in s
-        assert not "comment" in s
-        assert not "aside" in s
+        assert "comment" not in s
+        assert "aside" not in s
+
+    def test_preserves_comments_in_code_blocks(self):
+        article_text = "Reliable article sentence with punctuation. " * 20
+        sample = f"""
+        <html><body><article>
+            <pre><code>value = 1
+                <span class="comment"># keep this comment</span>
+                print(value)
+            </code></pre>
+            <p>{article_text}</p>
+        </article></body></html>
+        """
+
+        summary = Document(sample).summary()
+
+        self.assertIn("# keep this comment", summary)
+
+    def test_preserves_inline_links_in_paragraph(self):
+        article_text = "This is ordinary article text with punctuation. " * 8
+        sample = f"""
+        <html><body><div class="article">
+            Games include <a href="/one">MMORPG</a> and
+            <a href="/two">MOBA</a>. {article_text}
+        </div></body></html>
+        """
+
+        summary = Document(sample).summary(html_partial=True)
+
+        self.assertIn('<p class="article">', summary)
+        self.assertIn('<a href="/one">MMORPG</a>', summary)
+        self.assertNotIn("</p><a ", summary)
+
+    def test_removes_inline_display_none(self):
+        article_text = "This is ordinary article text with punctuation. " * 8
+        sample = f"""
+        <html><body><article>
+            <div style="color: red; DISPLAY: none !important">Hidden content</div>
+            <p>{article_text}</p>
+        </article></body></html>
+        """
+
+        summary = Document(sample).summary()
+
+        self.assertNotIn("Hidden content", summary)
+        self.assertIn("ordinary article text", summary)
+
+    def test_removes_noscript_content(self):
+        article_text = "This is ordinary article text with punctuation. " * 8
+        fallback_text = "Encoded advertising fallback content. " * 20
+        sample = f"""
+        <html><body><article>
+            <p>{article_text}</p>
+            <noscript><div><p>{fallback_text}</p></div></noscript>
+        </article></body></html>
+        """
+
+        summary = Document(sample).summary()
+
+        self.assertIn("ordinary article text", summary)
+        self.assertNotIn("advertising fallback", summary)
+
+    def test_preserves_main_inside_sidebar_layout(self):
+        article_text = "This is the primary article with useful information. " * 10
+        sample = f"""
+        <html><body>
+            <div class="container sidebar-right">
+                <header>Site navigation and branding</header>
+                <main><div class="article-content"><p>{article_text}</p></div></main>
+                <aside>Unrelated sidebar</aside>
+            </div>
+        </body></html>
+        """
+
+        summary = Document(sample).summary()
+
+        self.assertIn("primary article", summary)
+        self.assertNotIn("Site navigation and branding", summary)
+
+    def test_preserves_article_inside_unlikely_wrapper(self):
+        article_text = (
+            "This is the primary medical article, with useful details, facts, "
+            "and explanatory context. " * 16
+        )
+        modal_text = "Privacy settings and modal information, " * 12
+        sample = f"""
+        <html><body>
+            <div class="row site_header">
+                <article><div class="article-body"><p>{article_text}</p></div></article>
+            </div>
+            <div class="modal-body container"><p>{modal_text}</p></div>
+        </body></html>
+        """
+
+        summary = Document(sample).summary()
+
+        self.assertIn("primary medical article", summary)
+        self.assertNotIn("Privacy settings", summary)
+
+    def test_recovers_editorial_lead_from_article(self):
+        article_text = (
+            "This is the primary article with useful information. " * 10
+        )
+        sample = f"""
+        <html><body><article>
+            <header>
+                <p class="article__subhead">
+                    A concise introduction that explains the story before
+                    the body.
+                </p>
+            </header>
+            <div class="layout"><div class="article-content">
+                <p>{article_text}</p>
+            </div></div>
+        </article></body></html>
+        """
+
+        summary = Document(sample).summary()
+
+        self.assertIn("concise introduction", summary)
+        self.assertIn("primary article", summary)
+
+    def test_recovers_hyphenated_story_lead(self):
+        article_text = (
+            "This is the primary article with useful information. " * 10
+        )
+        sample = f"""
+        <html><body><main>
+            <div class="views-field-field-news-story-lead">
+                A newsroom lead placed outside the scored body container.
+            </div>
+            <div class="layout"><div class="article-content">
+                <p>{article_text}</p>
+            </div></div>
+        </main></body></html>
+        """
+
+        summary = Document(sample).summary()
+
+        self.assertIn("newsroom lead", summary)
+        self.assertIn("primary article", summary)
+
+    def test_does_not_recover_linked_editorial_promo(self):
+        article_text = (
+            "This is the primary article with useful information. " * 10
+        )
+        sample = f"""
+        <html><body><article>
+            <div class="subtitle">
+                <a href="/newsletter">Subscribe to our daily newsletter</a>
+            </div>
+            <div class="layout"><div class="article-content">
+                <p>{article_text}</p>
+            </div></div>
+        </article></body></html>
+        """
+
+        summary = Document(sample).summary()
+
+        self.assertNotIn("daily newsletter", summary)
+        self.assertIn("primary article", summary)
+
+    def test_merges_segmented_article_containers(self):
+        first_segment = "First segment of the article with useful details. " * 10
+        second_segment = "Second segment continues the same article. " * 8
+        related_links = "Related navigation link. " * 12
+        sample = f"""
+        <html><body><article>
+            <section><div class="article-text">
+                <p>{first_segment}</p>
+            </div></section>
+            <section><div class="article-text">
+                <p>{second_segment}</p>
+            </div></section>
+            <section><div class="article-text">
+                <p><a href="/related">{related_links}</a></p>
+            </div></section>
+        </article></body></html>
+        """
+
+        summary = Document(sample).summary()
+
+        self.assertIn("First segment", summary)
+        self.assertIn("Second segment", summary)
+        self.assertNotIn("Related navigation", summary)
+
+    def test_merges_segments_in_positive_container(self):
+        first_segment = "First independent section with substantial article text. " * 12
+        second_segment = "Second independent section continuing the same story. " * 10
+        sample = f"""
+        <html><body><div class="postBody">
+            <section><div><div class="post__content article-text">
+                <p>{first_segment}</p>
+            </div></div></section>
+            <section><div><div class="post__content article-text">
+                <p>{second_segment}</p>
+            </div></div></section>
+        </div></body></html>
+        """
+
+        summary = Document(sample).summary()
+
+        self.assertIn("First independent section", summary)
+        self.assertIn("Second independent section", summary)
+
+    def test_prefers_list_based_article_to_service_form(self):
+        list_items = "".join(
+            "<li>Article release note number {} with substantial useful "
+            "information and punctuation.</li>".format(index)
+            for index in range(30)
+        )
+        form_text = "Newsletter preferences, subscription options, " * 8
+        sample = f"""
+        <html><body><main>
+            <article><div class="entry-content"><ul>{list_items}</ul></div></article>
+            <aside><form><div class="form-contents">
+                <p>{form_text}</p>
+            </div></form></aside>
+        </main></body></html>
+        """
+
+        summary = Document(sample).summary()
+
+        self.assertIn("Article release note number 29", summary)
+        self.assertNotIn("Newsletter preferences", summary)
+
+    def test_recovers_heading_preamble_sibling(self):
+        article_text = (
+            "This is the primary article with useful information. " * 10
+        )
+        sample = f"""
+        <html><body><article><div class="layout">
+            <div class="hero">
+                <h2>A substantial introductory heading before the article body.</h2>
+            </div>
+            <div class="article-content"><p>{article_text}</p></div>
+        </div></article></body></html>
+        """
+
+        summary = Document(sample).summary()
+
+        self.assertIn("introductory heading", summary)
+        self.assertIn("primary article", summary)
+
+    def test_does_not_recover_linked_heading_preamble(self):
+        article_text = (
+            "This is the primary article with useful information. " * 10
+        )
+        sample = f"""
+        <html><body><article><div class="layout">
+            <div class="hero"><h2><a href="/related">
+                Read more stories selected for you in this related section.
+            </a></h2></div>
+            <div class="article-content"><p>{article_text}</p></div>
+        </div></article></body></html>
+        """
+
+        summary = Document(sample).summary()
+
+        self.assertNotIn("selected for you", summary)
+        self.assertIn("primary article", summary)
+
+    def test_removes_linked_calls_to_action(self):
+        article_text = "This is ordinary article text with punctuation. " * 10
+        sample = f"""
+        <html><body><article>
+            <p>{article_text}</p>
+            <p><a href="/newsletter">Sign up for the weekly newsletter</a>,
+                delivered to your inbox.</p>
+            <div><a href="/app">Get the latest news. Download the app.</a></div>
+            <p><a href="/release">www.python.org/downloads/release/</a></p>
+        </article></body></html>
+        """
+
+        summary = Document(sample).summary()
+
+        self.assertNotIn("weekly newsletter", summary)
+        self.assertNotIn("Download the app", summary)
+        self.assertIn("www.python.org/downloads/release/", summary)
 
     # Many spaces make some regexes run forever
     @timeout(3)
@@ -150,6 +428,51 @@ class TestArticleOnly(unittest.TestCase):
         doc = Document(sample)
         res = doc.summary()
         assert 0 < len(res) < 10000
+
+    def test_bytes_input_issue_194(self):
+        html = b"""
+        <html>
+            <head><title>Bytes input</title></head>
+            <body><article><p>
+                This is article content supplied as bytes, with enough text for
+                encoding detection.
+            </p></article></body>
+        </html>
+        """
+        doc = Document(html)
+
+        self.assertEqual("Bytes input", doc.title())
+        self.assertIn("article content supplied as bytes", doc.summary())
+
+    def test_get_clean_html_parses_document(self):
+        doc = Document("<html><body><p>Clean content</p></body></html>")
+
+        self.assertIn("Clean content", doc.get_clean_html())
+
+    def test_xpath_does_not_change_retry_length(self):
+        main_text = "Main article sentence with enough words and punctuation. " * 3
+        retained_text = "Important retained paragraph from the same article. " * 4
+        html = f"""
+        <html><body><div class="article">
+            <p>{main_text}</p>
+            <p class="comment">{retained_text}</p>
+        </div></body></html>
+        """
+
+        plain_ruthless = Document(html, retry_length=0).summary(html_partial=True)
+        xpath_ruthless = Document(html, retry_length=0, xpath=True).summary(
+            html_partial=True
+        )
+        retry_length = (len(plain_ruthless) + len(xpath_ruthless)) // 2
+
+        plain = Document(html, retry_length=retry_length).summary(html_partial=True)
+        with_xpath = Document(html, retry_length=retry_length, xpath=True).summary(
+            html_partial=True
+        )
+
+        self.assertIn(retained_text, plain)
+        self.assertIn(retained_text, with_xpath)
+        self.assertIn('x="/html/body/div"', with_xpath)
 
     def test_author_present(self):
         sample = load_sample("the-hurricane-rubin-carter-denzel-washington.html")

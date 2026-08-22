@@ -28,18 +28,53 @@ $ conda install -c conda-forge readability-lxml
 
 >>> response = requests.get('http://example.com')
 >>> doc = Document(response.content)
->>> doc.title()
-'Example Domain'
+>>> print(doc.title())
+Example Domain
 
->>> doc.summary()
-"""<html><body><div><body id="readabilityBody">\n<div>\n    <h1>Example Domain</h1>\n
+>>> print(doc.summary())
+<html><body><div><body id="readabilityBody">
+<div>
+    <h1>Example Domain</h1>
 <p>This domain is established to be used for illustrative examples in documents. You may
-use this\n    domain in examples without prior coordination or asking for permission.</p>
-\n    <p><a href="http://www.iana.org/domains/example">More information...</a></p>\n</div>
-\n</body>\n</div></body></html>"""
+use this domain in examples without prior coordination or asking for permission.</p>
+    <p><a href="http://www.iana.org/domains/example">More information...</a></p>
+</div>
+</body>
+</div></body></html>
+```
+
+The command-line interface accepts a local HTML file or a URL:
+
+```bash
+python -m readability -u https://example.com
+```
+
+Run the real-page extraction benchmark with the default minimum F1 of 0.95:
+
+```bash
+make benchmark
+BENCHMARK_MIN_SCORE=0.97 make benchmark
 ```
 
 ## Change Log
+- 0.9
+  - Expanded the declared Python range through 3.14, added `lxml` 6 support, and updated packaging metadata for Markdown documentation and current `cssselect` releases.
+  - Added `python -m readability` execution for local files and URLs.
+  - Fixed bytes input and encoding detection.
+  - Fixed `get_clean_html()` before another API call has initialized the document.
+  - Fixed shortened-title selection and CJK title length handling.
+  - Fixed XPath annotations incorrectly affecting the ruthless-parser retry length.
+  - Preserved inline links when converting misused `<div>` elements into paragraphs.
+  - Removed inline `display: none` content and `<noscript>` fallback content before scoring.
+  - Preserved code blocks and semantic `<main>` or `<article>` containers during unlikely-candidate filtering.
+  - Recovered editorial leads, heading preambles, split article segments, and substantial list-based articles.
+  - Removed trailing linked calls to action without weakening general link-density filtering.
+  - Added 146 reproducible fixtures split into base, GitHub user-issue, and complete 130-page Mozilla Readability corpora, a thresholded `make benchmark` command, and [versioned quality reports](docs/quality/README.md).
+  - Replaced the unmaintained nose test runner with pytest in local, tox, and GitHub Actions workflows.
+  - Updated development and release targets for portable module execution, PEP 517 builds, version synchronization, isolated artifact checks, and current-version uploads.
+  - Improved the 146-page benchmark from precision 0.972, recall 0.881, and F1 0.924 in 0.8.4.1 to precision 0.977, recall 0.936, and F1 0.956.
+  - Corrected the README usage examples.
+  - Fixes GitHub issues [#14](https://github.com/buriy/python-readability/issues/14), [#108](https://github.com/buriy/python-readability/issues/108), [#130](https://github.com/buriy/python-readability/issues/130), [#146](https://github.com/buriy/python-readability/issues/146), [#153](https://github.com/buriy/python-readability/issues/153), [#158](https://github.com/buriy/python-readability/issues/158), [#176](https://github.com/buriy/python-readability/issues/176), [#182](https://github.com/buriy/python-readability/issues/182), and [#194](https://github.com/buriy/python-readability/issues/194). Release tracking issue [#196](https://github.com/buriy/python-readability/issues/196) can be closed after 0.9 is published to PyPI.
 - 0.8.4 Better CJK support, thanks @cdhigh
 - 0.8.3.1 Support for python 3.8 - 3.13
 - 0.8.3 We can now save all images via keep_all_images=True (default is to save 1 main image), thanks @botlabsDev
