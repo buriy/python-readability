@@ -667,6 +667,21 @@ class Document:
                 elem.drop_tree()
 
     def transform_misused_divs_into_paragraphs(self):
+        inline_tags = {
+            "a",
+            "b",
+            "cite",
+            "code",
+            "em",
+            "font",
+            "i",
+            "small",
+            "span",
+            "strong",
+            "sub",
+            "sup",
+            "u",
+        }
         for elem in self.tags(self.html, "div"):
             # transform <div>s that do not contain other block elements into
             # <p>s
@@ -683,12 +698,31 @@ class Document:
                 # print "Fixed element "+describe(elem)
 
         for elem in self.tags(self.html, "div"):
+            children = list(elem)
+            paragraph = None
             if elem.text and elem.text.strip():
                 p = fragment_fromstring("<p/>")
                 p.text = elem.text
                 elem.text = None
                 elem.insert(0, p)
-                # print "Appended "+tounicode(p)+" to "+describe(elem)
+                paragraph = p
+
+            for child in children:
+                if child.tag == "br":
+                    paragraph = None
+                    continue
+                if (
+                    child.tag not in inline_tags
+                    or REGEXES["divToPElementsRe"].search(
+                        tounicode(child, method="html")
+                    )
+                ):
+                    paragraph = None
+                    continue
+                if paragraph is None:
+                    paragraph = fragment_fromstring("<p/>")
+                    child.addprevious(paragraph)
+                paragraph.append(child)
 
             for pos, child in reversed(list(enumerate(elem))):
                 if child.tail and child.tail.strip():

@@ -10,3 +10,5 @@ The user corpus contains saved pages from reproducible GitHub issue reports: thr
 | open-119-fiol-missing-sections | [#119](https://github.com/buriy/python-readability/issues/119) | open | www.fiolinjurylaw.com | 0.941 |
 | open-170-blogger-inline | [#170](https://github.com/buriy/python-readability/issues/170) | open | negligeable.blogspot.com | 0.996 |
 | open-171-cyberwire-sections | [#171](https://github.com/buriy/python-readability/issues/171) | open | thecyberwire.com | 0.942 |
+
+Readability 0.9 preserves the inline `<i>` and `<b>` elements reported in #170 inside their surrounding paragraphs. The issue remains marked open in this table because that is its GitHub state before the release.

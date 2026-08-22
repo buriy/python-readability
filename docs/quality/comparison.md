@@ -8,9 +8,9 @@ All engines were installed in separate Python 3.13 environments next to the sour
 
 | Engine | Pages | Precision | Recall | F1 | Median/page | Failures |
 |---|---:|---:|---:|---:|---:|---:|
-| Readability 0.8.4.1 | 146 | 0.972 | 0.881 | 0.924 | 0.074 s | 0 |
-| Readability 0.9 | 146 | 0.977 | 0.936 | 0.956 | 0.051 s | 0 |
-| Trafilatura 2.2.0 | 146 | 0.962 | 0.957 | 0.959 | 0.044 s | 1 |
+| Readability 0.8.4.1 | 146 | 0.972 | 0.881 | 0.924 | 0.036 s | 0 |
+| Readability 0.9 | 146 | 0.977 | 0.936 | 0.956 | 0.040 s | 0 |
+| Trafilatura 2.2.0 | 146 | 0.962 | 0.957 | 0.959 | 0.033 s | 1 |
 
 ## Results by corpus
 
@@ -140,7 +140,7 @@ Trafilatura returned no content for `user/closed-49-guardian-invalid-link`; the 
 | mozilla/svg-parsing | 1.000 | 1.000 | 1.000 |
 | mozilla/table-style-attributes | 0.999 | 0.999 | 0.926 |
 | mozilla/telegraph-zimbabwe | 0.599 | 1.000 | 0.982 |
-| mozilla/the-verge-vision-pro | 0.998 | 0.983 | 0.937 |
+| mozilla/the-verge-vision-pro | 0.998 | 0.984 | 0.937 |
 | mozilla/title-and-h1-discrepancy | 0.948 | 0.948 | 0.621 |
 | mozilla/title-en-dash | 1.000 | 1.000 | 0.667 |
 | mozilla/tmz-1 | 0.994 | 0.994 | 0.931 |
@@ -151,7 +151,7 @@ Trafilatura returned no content for `user/closed-49-guardian-invalid-link`; the 
 | mozilla/videos-1 | 0.992 | 0.992 | 0.978 |
 | mozilla/videos-2 | 0.998 | 0.996 | 0.998 |
 | mozilla/visibility-hidden | 0.627 | 0.627 | 0.624 |
-| mozilla/wapo-2 | 0.985 | 0.985 | 0.961 |
+| mozilla/wapo-2 | 0.985 | 1.000 | 0.961 |
 | mozilla/washington-post-tunisia | 1.000 | 1.000 | 0.986 |
 | mozilla/webmd-2 | 0.988 | 0.974 | 0.952 |
 | mozilla/webmd-peanut-allergy | 0.990 | 0.974 | 0.950 |

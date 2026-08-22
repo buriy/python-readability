@@ -156,6 +156,21 @@ class TestArticleOnly(unittest.TestCase):
         self.assertIn('<a href="/one">MMORPG</a>', summary)
         self.assertNotIn("</p><a ", summary)
 
+    def test_preserves_inline_elements_in_mixed_div(self):
+        article_text = "This is ordinary article text with punctuation. " * 8
+        sample = f"""
+        <html><body><div class="article">
+            Before <i>important words</i> after them. {article_text}
+            <br><br>Another article paragraph. {article_text}
+            <div class="clear"></div>
+        </div></body></html>
+        """
+
+        summary = Document(sample).summary(html_partial=True)
+
+        self.assertIn("Before <i>important words</i> after them.", summary)
+        self.assertNotIn("</p><i>", summary)
+
     def test_removes_inline_display_none(self):
         article_text = "This is ordinary article text with punctuation. " * 8
         sample = f"""

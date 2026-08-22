@@ -64,7 +64,7 @@ BENCHMARK_MIN_SCORE=0.97 make benchmark
   - Fixed `get_clean_html()` before another API call has initialized the document.
   - Fixed shortened-title selection and CJK title length handling.
   - Fixed XPath annotations incorrectly affecting the ruthless-parser retry length.
-  - Preserved inline links when converting misused `<div>` elements into paragraphs.
+  - Preserved inline links and formatting elements when converting misused `<div>` elements into paragraphs.
   - Removed inline `display: none` content and `<noscript>` fallback content before scoring.
   - Preserved code blocks and semantic `<main>` or `<article>` containers during unlikely-candidate filtering.
   - Recovered editorial leads, heading preambles, split article segments, and substantial list-based articles.
@@ -74,7 +74,7 @@ BENCHMARK_MIN_SCORE=0.97 make benchmark
   - Updated development and release targets for portable module execution, PEP 517 builds, version synchronization, isolated artifact checks, and current-version uploads.
   - Improved the 146-page benchmark from precision 0.972, recall 0.881, and F1 0.924 in 0.8.4.1 to precision 0.977, recall 0.936, and F1 0.956.
   - Corrected the README usage examples.
-  - Fixes GitHub issues [#14](https://github.com/buriy/python-readability/issues/14), [#108](https://github.com/buriy/python-readability/issues/108), [#130](https://github.com/buriy/python-readability/issues/130), [#146](https://github.com/buriy/python-readability/issues/146), [#153](https://github.com/buriy/python-readability/issues/153), [#158](https://github.com/buriy/python-readability/issues/158), [#176](https://github.com/buriy/python-readability/issues/176), [#182](https://github.com/buriy/python-readability/issues/182), and [#194](https://github.com/buriy/python-readability/issues/194). Release tracking issue [#196](https://github.com/buriy/python-readability/issues/196) can be closed after 0.9 is published to PyPI.
+  - Fixes GitHub issues [#14](https://github.com/buriy/python-readability/issues/14), [#108](https://github.com/buriy/python-readability/issues/108), [#130](https://github.com/buriy/python-readability/issues/130), [#146](https://github.com/buriy/python-readability/issues/146), [#153](https://github.com/buriy/python-readability/issues/153), [#158](https://github.com/buriy/python-readability/issues/158), [#170](https://github.com/buriy/python-readability/issues/170), [#176](https://github.com/buriy/python-readability/issues/176), [#182](https://github.com/buriy/python-readability/issues/182), and [#194](https://github.com/buriy/python-readability/issues/194). Release tracking issue [#196](https://github.com/buriy/python-readability/issues/196) can be closed after 0.9 is published to PyPI.
 - 0.8.4 Better CJK support, thanks @cdhigh
 - 0.8.3.1 Support for python 3.8 - 3.13
 - 0.8.3 We can now save all images via keep_all_images=True (default is to save 1 main image), thanks @botlabsDev
