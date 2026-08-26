@@ -1,0 +1,16 @@
+{
+  "url": "http://thecaucus.blogs.nytimes.com/2011/07/12/mcconnell-proposal-gives-obama-power-to-increase-debt-limit/index.html?hp",
+  "title": "McConnell Proposal Gives Obama Power to Increase Debt Limit",
+  "source_file": "page.html",
+  "actual_summary_file": "actual.html",
+  "ideal_summary_file": "ideal.html",
+  "silver_summary_file": "silver.html",
+  "silver_method": "Mozilla Readability 0.6.0 with jsdom 26.1.0",
+  "silver_reference": true,
+  "provenance": "https://github.com/jcharum/lxml-readability/tree/cec2d35c55cc8b94f0f6ff582cf700dab377af8a/regression_test_data/nytimes-000",
+  "upstream_commit": "cec2d35c55cc8b94f0f6ff582cf700dab377af8a",
+  "upstream_case": "nytimes-000",
+  "ideal_method": "manually reviewed from saved page.html and engine outputs",
+  "quality_benchmark": true,
+  "manual_reviewed": "2026-08-23"
+}

@@ -7,3 +7,17 @@ Copyright (c) 2010-2026 Mozilla and Contributors
 Mozilla Readability is licensed under the Apache License, Version 2.0.
 The imported fixture provenance and upstream commit are recorded in each
 pages/*/metadata.json file.
+
+python-readability also includes a fixed sample from dragnet_data.
+
+dragnet_data
+
+The imported Dragnet data is licensed under CC BY 4.0. The full license is
+included at pages/dragnet/LICENSE. Fixture provenance and the pinned upstream
+commit are recorded in each pages/dragnet/*/metadata.json file. Gold text was
+wrapped in HTML paragraphs for the benchmark; source page HTML is unchanged.
+
+python-readability also includes primary saved HTML pages from
+jcharum/lxml-readability commit cec2d35c55cc8b94f0f6ff582cf700dab377af8a.
+The upstream README declares that project under Apache License 2.0. Provenance
+and the generated-baseline method are recorded in pages/jcharum/*/regression.json.

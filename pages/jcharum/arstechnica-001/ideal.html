@@ -1,0 +1,79 @@
+<html><body><div><div id="" class="body">          
+        
+        <p>
+A recent project here at the Laboratoire de Chimie de la Matière Condensée de Paris (LCMCP) wants to make high-performance scientific computing cheaper by finding new ways to squeeze performance from consumer-grade "gamer" hardware. The idea is nothing less than building the equivalent of a $400,000 custom high performance computing setup for only $40,000.</p>
+
+<p>The cluster, known as HPU4Science, is up and running, and the team behind it is tackling difficult scientific problems by developing novel computational methods that make good use of HPUs—Hybrid Processing Units—like CPUs and GPUs. The current cluster is a group of six desktop-type computers powered by Intel i7 or Core 2 Quad processors, together with GPUs that range from the GTX 280 to the GTX 590. </p>
+<p>In two previous article, Ars outlined the <a href="http://arstechnica.com/science/news/2011/03/high-performance-computing-on-gamer-pcs-part-1-hardware.ars">hardware</a> and <a href="http://arstechnica.com/science/news/2011/04/high-performance-computing-on-gamer-pcs-part-2-the-software-choices.ars/2">software</a> used in the cluster. For our last look at HPU4Science, we discuss specific applications running on the HPU4Science cluster, execution speed optimization techniques using Python and Cython, and the neural network algorithm used by the system.
+</p>
+<h3>Electron paramagnetic resonance imaging</h3>
+
+<p>
+To understand the algorithms used by HPU4SCience cluster, we first need to understand its primary use. The LCMCP has expertise in electron paramagnetic resonance (EPR), a non-destructive technique that provides information on the organization of electrons in a material. EPR uses oscillating magnetic fields to probe the electronic structure of a material and obtain details of the local environment of charge carriers (electrons and holes). This provides a view of the intrinsic structure of the material and some types of structural defects. At the LCMCP, EPR imaging is primarily used to examine carbonaceous matter in meteorites and terrestrial rock samples in order to study the origins of life on Earth.</p>
+
+
+<p>Getting an EPR image requires several steps. First, EPR spectra are taken at several different angles and positions through the sample, as researchers look for a specific type of electronic defect. The data obtained in this step is a combination of the density of the electronic defect along each measurement direction and a known background signal (mathematically, it is a merger of the two signals called a convolution).</p>
+<p>
+Due to the complexities of EPR, this background signal cannot simply be subtracted from the spectrum—it must be deconvolved by inverting an integral equation (in other words, the math is complex). Normally, scientists use something called Fourier techniques to perform these types of inversions, but those techniques require heavy manual adjustments that make the results highly subjective. The HPU4Science cluster uses machine learning through neural network algorithms to perform a more systematic, less subjective, deconvolution. In other words, the computers help take human judgement of of the equation. (Still with me? Good.) 
+</p>
+<p>
+After deconvolution, the data is a set of one-dimensional density distributions that describe the specific electronic defect in the material. To obtain actual images, the data points are combined to form two- and three-dimensional maps through a process called backprojection that's based on Radon transforms—the details of which are not important for this article.
+</p>
+<p>
+Bottom line: the HPU4Science cluster is designed to work on data sets and mathematical operations involved at two phases of EPR imaging: deconvolution and backprojection. The cluster uses both neural network algorithms and parallelization to crunch the numbers needed to do this; here's how it works.
+</p>
+
+<h3>Deconvolution and neural network algorithms</h3>
+
+<p>
+As noted above, there's no simple, analytical way to deconvolve the two signals used in EPR imaging. Many different methods offer solutions, but all require manually adjusted parameters that affect the outcome, which leads to highly subjective results. Scientists are therefore faced with a troubling problem: how do we choose the parameters without simply adjusting parameters to achieve the result we'd like to see?</p>
+<p>
+To solve the deconvolution problem, we need a solution that can take into account the specificities of the samples (meteorites, terrestrial rocks, glass, etc.), the basic physics of EPR and the convolution of the signals, and specific examples with known solutions. Importantly, problems must be solved in a way that does <em>not</em> depend on subjective analysis by the researcher. 
+</p>
+<p>
+To handle all of these various inputs and rules, the HPU4Science team chose a neural network/machine learning model because it can maintain a large set of rules for the current problem and make complex computations after learning (modifying connectivity and corresponding parameters through example data sets). Neural networks are conceptually close to what we find in living organisms and their structure is modelled after biological systems.</p>
+
+<h3>Artificial neural networks</h3>
+
+<p>
+Artificial neural networks (ANNs) are based on our understanding of biological brains. In real organisms, neurons are cells that act as the basic processing unit of the brain. They form a highly interconnected mesh and communicate through junctions called synapses. A single neuron receives signals (input) from many other neurons, and it subsequently decides to generate an electrical impulse (output) based on the incoming signals. The incoming signals can either increase or decrease the likelihood that the neuron fires, and each input is individually weighted, ie. not all input is created equal. </p>
+
+<p>In the most basic sense, learning occurs when the individual neurons respond to external stimuli by changing the relative weights assigned to their inputs. Thus, the decision-making power of the brain is largely encompassed by the connectivity between various neurons and the ability to adjust neuronal response to stimuli.
+</p>
+<p>
+Computationally, we can mimic this sort of process with linear algebra. Information comes into the system as a vector (a single column of numbers), and each element of this vector is a "neuron." The connections between the neurons (synapses) are represented by a matrix, called the transformation matrix, that modifies the elements of the original vector. The weight of the various connections are the individual elements of the matrix. When a neural network processes data, it simply takes a large matrix and multiplies it with the input vector. The key to the entire problem is figuring out what the elements of the transformation matrix should be.</p>
+<p>
+There are three types of synapses in a neural network system. Input synapses take the raw data and modify it so it can be computed by the system. They are biologically analogous to the cells in your retinas or ear drums, which translate physical stimuli into electrical impulses.</p>
+
+<p>Hidden synapses take the input and process it. They are analogous to the brain (specifically the cortex) in biological systems.</p>
+
+<p>Finally, output synapses take the processed data from the hidden synapses and modify it so it's useful to the end user—they are essentially a delivery system to the outside world. In biology, these are like the synapses connected to muscle tissue that create a physical response.
+ </p>
+ 
+ <p>
+To train an artificial neural network, data (called the training set) is input and the output is then compared to the known, correct answer (called the target value). The difference between the output and the target value is used to modify the transformation matrices to achieve an answer closer to the training set. That is repeated with the training set until an optimal response is obtained both there and with an additional set of known data called the test set. </p>
+
+<p>Once the algorithm provides an adequate answer to appropriate test sets, it's ready for use with real data. For the HPU4Science cluster, training and test sets are built from both simulated data and specially made samples with known defect distributions.
+</p>
+
+<p>
+Traditional ANNs use long training sessions with an algorithm that updates the matrices (synapses) iteratively. This process, however, is extraordinarily time consuming, computationally expensive, and difficult to parallellize. Also, the more complex the problem, the greater the number of synapses required to solve it—the number of operations (and therefore time) required to train the system can quickly become unmanageable.
+</p><p>
+To train their system, the HPU4Science team has designed a novel approach that combines Reservoir Computing, Swarm Computing, and Genetic Algorithms (if none of those words make any sense to you, don’t worry; we’ll get to them shortly). 
+</p>
+        
+                    <p class="bottom-image-credit">
+                                      Photo illustration by Aurich Lawson                    </p>
+                  
+        
+        
+                
+        </div>
+        
+        
+        
+                            
+        
+    
+
+    </div></body></html>

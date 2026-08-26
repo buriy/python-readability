@@ -1,0 +1,1822 @@
+<!DOCTYPE html>
+<html lang="en-US" class="no-js">
+
+	<head><meta charset="UTF-8">
+<script>(function(){function a(g,h,i){var j=new Date;j.setTime(j.getTime()+1e3*(60*(60*(24*i))));var k="expires="+j.toUTCString(),l=g+"="+h+";"+k+";path=/;";"undefined"!=typeof ezdomain&&(l+="domain="+ezdomain),document.cookie=l}var b=window.addEventListener?"addEventListener":"attachEvent",c=window[b],f="attachEvent"==b?"onmessage":"message";c(f,function(g){"undefined"!=typeof g.data.ezstatus&&(__ez.bit.AddAndFire(_ezaq.page_view_id,[new __ezDotData("dg",g.data.ezstatus)]),a("ezdg",g.data.ezstatus,730))})})();</script>
+<script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>var __ez=__ez||{};__ez.stms=Date.now();__ez.evt={};__ez.script={};__ez.ck={};__ez.template={};__ez.template.isOrig=true;__ez.evt.add=function(e,t,n){e.addEventListener?e.addEventListener(t,n,!1):e.attachEvent?e.attachEvent("on"+t,n):e["on"+t]=n()},__ez.evt.remove=function(e,t,n){e.removeEventListener?e.removeEventListener(t,n,!1):e.detachEvent?e.detachEvent("on"+t,n):delete e["on"+t]};__ez.ck.get=function(cname,did){if(did!==null)cname=cname+"_"+did;var name=cname+"=";var decodedCookie=decodeURIComponent(document.cookie);var ca=decodedCookie.split(';');for(var i=0;i<ca.length;i++){var c=ca[i];while(c.charAt(0)===' '){c=c.substring(1)}
+if(c.indexOf(name)===0){return c.substring(name.length,c.length)}}
+return ""};__ez.ck.setByCat=function(cookie,categoryId){if(location.protocol==='https:'){cookie=cookie+"; Secure; SameSite=Lax;";}
+if(cookie.indexOf('path=')===-1){cookie+='; path=/';}
+if(typeof cmpIsOn==="undefined"){document.cookie=cookie;return;}
+if(typeof categoryId==="undefined"||categoryId===null){return;}
+var cmpCookie=__ez.ck.get("ezCMPCookieConsent",null);cmpCookie=cmpCookie.substring(1,cmpCookie.length);if(cmpCookie.indexOf(categoryId+"=1")!==-1){document.cookie=cookie;}else if(cmpCookie===""){if(typeof cmpCookies!=="undefined"){if(typeof cmpCookies[categoryId]==="undefined"){cmpCookies[categoryId]=[];}
+cmpCookies[categoryId].push(cookie);}}};__ez.queue=(function(){var count=0,incr=0,items=[],timeDelayFired=false,hpItems=[],lpItems=[],allowLoad=true;var obj={func:function(name,funcName,parameters,isBlock,blockedBy,deleteWhenComplete,proceedIfError){var self=this;this.name=name;this.funcName=funcName;this.parameters=parameters===null?null:(parameters instanceof Array)?parameters:[parameters];this.isBlock=isBlock;this.blockedBy=blockedBy;this.deleteWhenComplete=deleteWhenComplete;this.isError=false;this.isComplete=false;this.isInitialized=false;this.proceedIfError=proceedIfError;this.isTimeDelay=false;this.process=function(){log("... func = "+name);self.isInitialized=true;self.isComplete=true;log("... func.apply: "+name);var funcs=self.funcName.split('.');var func=null;if(funcs.length>3){}else if(funcs.length===3){func=window[funcs[0]][funcs[1]][funcs[2]];}else if(funcs.length===2){func=window[funcs[0]][funcs[1]];}else{func=window[self.funcName];}
+if(typeof func!=='undefined'&&func!==null){func.apply(null,this.parameters);}
+if(self.deleteWhenComplete===true)delete items[name];if(self.isBlock===true){log("----- F'D: "+self.name);processAll();}}},file:function(name,path,isBlock,blockedBy,async,defer,proceedIfError){var self=this;this.name=name;this.path=path;this.async=async;this.defer=defer;this.isBlock=isBlock;this.blockedBy=blockedBy;this.isInitialized=false;this.isError=false;this.isComplete=false;this.proceedIfError=proceedIfError;this.isTimeDelay=false;this.process=function(){self.isInitialized=true;log("... file = "+name);var scr=document.createElement('script');scr.src=path;if(async===true)scr.async=true;else if(defer===true)scr.defer=true;scr.onerror=function(){log("----- ERR'D: "+self.name);self.isError=true;if(self.isBlock===true){processAll();}};scr.onreadystatechange=scr.onload=function(){var state=scr.readyState;log("----- F'D: "+self.name);if((!state||/loaded|complete/.test(state))){self.isComplete=true;if(self.isBlock===true){processAll();}}};document.getElementsByTagName('head')[0].appendChild(scr);}}};function init(){window.addEventListener("load",function(){setTimeout(function(){timeDelayFired=true;log('TDELAY -----');processAll();},5000);},false);}
+function addFile(name,path,isBlock,blockedBy,async,defer,proceedIfError,priority){var item=new obj.file(name,path,isBlock,blockedBy,async,defer,proceedIfError);if(priority===true){hpItems[name]=item}else{lpItems[name]=item}
+items[name]=item;checkIfBlocked(item);}
+function setallowLoad(settobool){allowLoad=settobool}
+function addFunc(name,func,parameters,isBlock,blockedBy,autoInc,deleteWhenComplete,proceedIfError,priority){if(autoInc===true)name=name+"_"+incr++;var item=new obj.func(name,func,parameters,isBlock,blockedBy,deleteWhenComplete,proceedIfError);if(priority===true){hpItems[name]=item}else{lpItems[name]=item}
+items[name]=item;checkIfBlocked(item);}
+function addTimeDelayFile(name,path){var item=new obj.file(name,path,false,[],false,false,true);item.isTimeDelay=true;log(name+' ... '+' FILE! TDELAY');lpItems[name]=item;items[name]=item;checkIfBlocked(item);}
+function addTimeDelayFunc(name,func,parameters){var item=new obj.func(name,func,parameters,false,[],true,true);item.isTimeDelay=true;log(name+' ... '+' FUNCTION! TDELAY');lpItems[name]=item;items[name]=item;checkIfBlocked(item);}
+function checkIfBlocked(item){if(isBlocked(item)===true||allowLoad==false)return;item.process();}
+function isBlocked(item){if(item.isTimeDelay===true&&timeDelayFired===false){log(item.name+" blocked = TIME DELAY!");return true;}
+if(item.blockedBy instanceof Array){for(var i=0;i<item.blockedBy.length;i++){var block=item.blockedBy[i];if(items.hasOwnProperty(block)===false){log(item.name+" blocked = "+block);return true;}else if(item.proceedIfError===true&&items[block].isError===true){return false;}else if(items[block].isComplete===false){log(item.name+" blocked = "+block);return true;}}}
+return false;}
+function log(msg){var href=window.location.href;var reg=new RegExp('[?&]ezq=([^&#]*)','i');var string=reg.exec(href);var res=string?string[1]:null;if(res==="1")console.debug(msg);}
+function processAll(){count++;if(count>200)return;log("let's go");processItems(hpItems);processItems(lpItems);}
+function processItems(list){for(var i in list){if(list.hasOwnProperty(i)===false)continue;var item=list[i];if(item.isComplete===true||isBlocked(item)||item.isInitialized===true||item.isError===true){if(item.isError===true){log(item.name+': error')}else if(item.isComplete===true){log(item.name+': complete already')}else if(item.isInitialized===true){log(item.name+': initialized already')}}else{item.process();}}}
+init();return{addFile:addFile,addDelayFile:addTimeDelayFile,addFunc:addFunc,addDelayFunc:addTimeDelayFunc,items:items,processAll:processAll,setallowLoad:setallowLoad};})();__ez.script.add=function(e){var t=document.createElement("script");t.src=e,t.async=!0,t.type="text/javascript",document.getElementsByTagName("head")[0].appendChild(t)};__ez.dot={};var __ezDotData=function(name,val){if(typeof(name)!='string'&&name.length==2){val=name[1];name=name[0];}
+this.name=name;this.val=val;};__ez.dot.b64={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",encode:function(e){var t="";var n,r,i,s,o,u,a;var f=0;e=Base64._utf8_encode(e);while(f<e.length){n=e.charCodeAt(f++);r=e.charCodeAt(f++);i=e.charCodeAt(f++);s=n>>2;o=(n&3)<<4|r>>4;u=(r&15)<<2|i>>6;a=i&63;if(isNaN(r)){u=a=64}else if(isNaN(i)){a=64}t=t+this._keyStr.charAt(s)+this._keyStr.charAt(o)+this._keyStr.charAt(u)+this._keyStr.charAt(a)}return t},decode:function(e){var t="";var n,r,i;var s,o,u,a;var f=0;e=e.replace(/[^A-Za-z0-9+/=]/g,"");while(f<e.length){s=this._keyStr.indexOf(e.charAt(f++));o=this._keyStr.indexOf(e.charAt(f++));u=this._keyStr.indexOf(e.charAt(f++));a=this._keyStr.indexOf(e.charAt(f++));n=s<<2|o>>4;r=(o&15)<<4|u>>2;i=(u&3)<<6|a;t=t+String.fromCharCode(n);if(u!=64){t=t+String.fromCharCode(r)}if(a!=64){t=t+String.fromCharCode(i)}}t=Base64._utf8_decode(t);return t},_utf8_encode:function(e){e=e.replace(/rn/g,"n");var t="";for(var n=0;n<e.length;n++){var r=e.charCodeAt(n);if(r<128){t+=String.fromCharCode(r)}else if(r>127&&r<2048){t+=String.fromCharCode(r>>6|192);t+=String.fromCharCode(r&63|128)}else{t+=String.fromCharCode(r>>12|224);t+=String.fromCharCode(r>>6&63|128);t+=String.fromCharCode(r&63|128)}}return t},_utf8_decode:function(e){var t="";var n=0;var r=c1=c2=0;while(n<e.length){r=e.charCodeAt(n);if(r<128){t+=String.fromCharCode(r);n++}else if(r>191&&r<224){c2=e.charCodeAt(n+1);t+=String.fromCharCode((r&31)<<6|c2&63);n+=2}else{c2=e.charCodeAt(n+1);c3=e.charCodeAt(n+2);t+=String.fromCharCode((r&15)<<12|(c2&63)<<6|c3&63);n+=3}}return t}};__ez.dot.dataToStr=function(pixelData){if(typeof pixelData==="undefined"){return[]}
+try{for(var i in pixelData){pixelData[i].val=pixelData[i].val+'';}}catch(e){}
+return pixelData};__ez.dot.getCC=function(){var countryCode="XX";if(typeof _ezaq!=="undefined"&&_ezaq.hasOwnProperty("country")){countryCode=_ezaq.country;}
+return countryCode;};__ez.dot.getDID=function(){var domainId="0";if(typeof _ezaq!=="undefined"&&_ezaq.hasOwnProperty("domain_id")){domainId=_ezaq.domain_id.toString();}
+return domainId;};__ez.dot.getEpoch=function(tEpoch){if(typeof _ezaq!=="undefined"&&_ezaq.hasOwnProperty("t_epoch")){tEpoch=_ezaq.t_epoch;}
+return tEpoch};__ez.dot.getPageviewId=function(){var pageviewId="";if(typeof _ezaq!=="undefined"&&_ezaq.hasOwnProperty("page_view_id")){pageviewId=_ezaq.page_view_id;}
+return pageviewId;};__ez.dot.getURL=function(pxURL){if((typeof ezJsu!=="undefined"&&ezJsu==true)||(typeof _ez_sa!=="undefined"&&_ez_sa==true)||(typeof isAmp!=='undefined'&&isAmp===true)||(typeof ezWp!=='undefined'&&ezWp===true)){pxURL="//g.ezoic.net"+pxURL;}
+return pxURL;};__ez.dot.isValid=function(pixelData){for(var i=0;i<pixelData.length;i++){if(pixelData[i]instanceof __ezDotData===false){console.error("Invalid data. ",pixelData[i]);return false}}
+return true};__ez.dot.isDefined=function(){for(var i=0;i<arguments.length;i++){if(typeof arguments[i]==='undefined'||arguments[i]===null){console.error("Argument not defined. ",arguments);return false}}
+return true};__ez.dot.isAnyDefined=function(){var result=false;for(var i=0;i<arguments.length;i++){if(typeof arguments[i]!=='undefined'&&arguments[i]!==null){result=true}}
+if(result==false){console.error("isAnyDefined Arguments not defined. ",arguments);}
+return result};__ez.dot.getSlotIID=function(slot){var iid="0";try{var map=__ez.dot.getTargetingMap(slot),dvid=__ez.dot.getElementId(slot);if(dvid.indexOf("div-gpt-ad")===-1){return iid;}
+if(typeof map!=="undefined"){for(var key in map){if(key.indexOf('iid')!==-1&&typeof map[key][0]!=="undefined"){iid=map[key][0];break;}}}}catch(e){}
+return iid;};__ez.dot.getElementId=function(slot){if(typeof(slot.ElementId)!='undefined'){return slot.ElementId;}else{return slot.getSlotElementId()}};__ez.dot.getAdUnitPath=function(slot){if(typeof(slot.AdUnitPath)!='undefined'){return slot.AdUnitPath;}else{return slot.getAdUnitPath()}};__ez.dot.getSizes=function(slot){if(typeof(slot.Sizes)!='undefined'){return slot.Sizes;}else{return slot.getSizes();}};__ez.dot.getTargeting=function(slot,key){if(typeof(slot.Targeting)!='undefined'){return slot.Targeting[key];}else{return slot.getTargeting(key)[0];}};__ez.dot.getTargetingMap=function(slot){if(typeof(slot.Targeting)!='undefined'){return slot.Targeting;}else{return slot.getTargetingMap();}};__ez.dot.getAdUnit=function(adSlot){if(__ez.template.isOrig===true){return __ez.dot.getAdUnitPath(adSlot).split("/").pop()+"|~ez~|"+__ez.dot.getElementId(adSlot);}
+return __ez.dot.getElementId(adSlot);};__ez.bit=(function(){var pixels=[],pxURL="/detroitchicago/greenoaks.gif";function AddAndFirePixel(pvId,pixelData){AddPixel(pvId,pixelData);Fire();}
+function AddPixel(pvId,pixelData){if(__ez.dot.isDefined(pvId)&&__ez.dot.isValid(pixelData)){pixels.push({type:"pageview",pageview_id:pvId,domain_id:__ez.dot.getDID(),t_epoch:__ez.dot.getEpoch(0),data:__ez.dot.dataToStr(pixelData)})}}
+function Fire(){if(typeof document.visibilityState!=='undefined'&&document.visibilityState==="prerender")return;if(__ez.dot.isDefined(pixels)&&pixels.length>0){(new Image()).src=__ez.dot.getURL(pxURL)+"?orig="+(__ez.template.isOrig===true?1:0)+"&ds="+btoa(JSON.stringify(pixels));}
+pixels=[]}
+return{Add:AddPixel,AddAndFire:AddAndFirePixel,Fire:Fire}})();</script><script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>__ez.pel=(function(){var pixels=[],pxURL="/porpoiseant/army.gif";function AddAndFirePixel(adSlot,pixelData){AddPixel(adSlot,pixelData,0,0,0,0,0);Fire();}
+function GetCurrentPixels(){return pixels;}
+function AddPixel(adSlot,pixelData,revenue,est_revenue,bid_floor_filled,bid_floor_prev,stat_source_id){if(!__ez.dot.isDefined(adSlot)||__ez.dot.isAnyDefined(adSlot.getSlotElementId,adSlot.ElementId)==false){return;}
+var ad_position_id=parseInt(__ez.dot.getTargeting(adSlot,'ap'));var impId=__ez.dot.getSlotIID(adSlot),adUnit=__ez.dot.getAdUnit(adSlot);var compId=parseInt(__ez.dot.getTargeting(adSlot,"compid"));var lineItemId=0;var creativeId=0;var ezimData=getEzimData(adSlot);if(typeof ezimData=='object'){if(ezimData.creative_id!==undefined){creativeId=ezimData.creative_id;}
+if(ezimData.line_item_id!==undefined){lineItemId=ezimData.line_item_id;}}
+if(__ez.dot.isDefined(impId,adUnit)&&__ez.dot.isValid(pixelData)){pixels.push({type:"impression",impression_id:impId,domain_id:__ez.dot.getDID(),unit:adUnit,t_epoch:__ez.dot.getEpoch(0),revenue:revenue,est_revenue:est_revenue,ad_position:ad_position_id,ad_size:"",bid_floor_filled:bid_floor_filled,bid_floor_prev:bid_floor_prev,stat_source_id:stat_source_id,country_code:__ez.dot.getCC(),pageview_id:__ez.dot.getPageviewId(),comp_id:compId,line_item_id:lineItemId,creative_id:creativeId,data:__ez.dot.dataToStr(pixelData)});}}
+function AddPixelById(impFullId,pixelData){var vals=impFullId.split('/');if(__ez.dot.isDefined(impFullId)&&vals.length===3&&__ez.dot.isValid(pixelData)){var adUnit=vals[0],impId=vals[2];pixels.push({type:"impression",impression_id:impId,domain_id:__ez.dot.getDID(),unit:adUnit,t_epoch:__ez.dot.getEpoch(0),pageview_id:__ez.dot.getPageviewId(),data:__ez.dot.dataToStr(pixelData)});}}
+function Fire(){if(typeof document.visibilityState!=='undefined'&&document.visibilityState==="prerender")return;if(__ez.dot.isDefined(pixels)&&pixels.length>0){var pixelURL=__ez.dot.getURL(pxURL)+"?orig="+(__ez.template.isOrig===true?1:0)+"&sts="+btoa(JSON.stringify(pixels));if(typeof window.isAmp!=='undefined'&&isAmp&&typeof window._ezaq!=='undefined'&&_ezaq.hasOwnProperty("domain_id")){pixelURL+="&visit_uuid="+_ezaq['visit_uuid'];}
+(new Image()).src=pixelURL;}
+pixels=[];}
+function getEzimData(adSlot){if(typeof _ezim_d=="undefined"){return false}
+var adUnitName=__ez.dot.getAdUnitPath(adSlot).split('/').pop();if(typeof _ezim_d==='object'&&_ezim_d.hasOwnProperty(adUnitName)){return _ezim_d[adUnitName];}
+for(var ezimKey in _ezim_d){if(ezimKey.split('/').pop()===adUnitName){return _ezim_d[ezimKey];}}
+return false;}
+return{Add:AddPixel,AddAndFire:AddAndFirePixel,AddById:AddPixelById,Fire:Fire,GetPixels:GetCurrentPixels,};})();var EzoicPixel=function(){this.pixels=[];this.pixelUrl="/ezoic/e.gif";if((typeof ezJsu!=="undefined"&&ezJsu===true)||(typeof _ez_sa!=="undefined"&&_ez_sa===true)||((typeof window.isAmp!='undefined')&&isAmp===true)||((typeof ezWp!=='undefined')&&ezWp===true)){this.pixelUrl="//g.ezoic.net"+this.pixelUrl}
+this.tEpoch=0;if(typeof _ezaq!=="undefined"&&_ezaq.hasOwnProperty("t_epoch")){this.tEpoch=_ezaq.t_epoch}};var EzoicPixelData=function(name,val){this.name=name;this.val=val;};EzoicPixel.prototype={constructor:EzoicPixel,AddAndFireImpPixel:function(adSlot,pixelData){this.AddImpPixel(adSlot,pixelData,0,0,0,0,0);this.FirePixels()},AddAndFirePVPixel:function(pvId,pixelData){this.AddPVPixel(pvId,pixelData);this.FirePixels()},AddImpPixel:function(adSlot,pixelData,revenue,est_revenue,bid_floor_filled,bid_floor_prev,stat_source_id){if(__ez.dot.isDefined(adSlot)==false||__ez.dot.isAnyDefined(adSlot.getSlotElementId,adSlot.ElementId)==false){return}
+var ad_position_id=parseInt(__ez.dot.getTargeting(adSlot,'ap'));var ad_size_array=__ez.dot.getSizes(adSlot)[0];var ad_size=ad_size_array.l.toString()+"x"+ad_size_array.j.toString();var domainId="0";var countryCode="XX";if(typeof _ezaq!=="undefined"&&_ezaq.hasOwnProperty("domain_id")){domainId=_ezaq.domain_id.toString()}
+if(typeof _ezaq!=="undefined"&&_ezaq.hasOwnProperty("country")){countryCode=_ezaq.country}
+var impId=__ez.dot.getSlotIID(adSlot),adUnit=__ez.dot.getSlotElementId(adSlot);if(__ez.dot.isDefined(impId,adUnit)&&this.validateData(pixelData)){pixelData=this.convertDataToStr(pixelData);this.pixels.push({type:"impression",impression_id:impId,domain_id:domainId,unit:adUnit,t_epoch:this.tEpoch,revenue:revenue,est_revenue:est_revenue,ad_position:ad_position_id,ad_size:ad_size,bid_floor_filled:bid_floor_filled,bid_floor_prev:bid_floor_prev,stat_source_id:stat_source_id,country_code:countryCode,data:pixelData})}},AddImpPixelById:function(impFullId,pixelData){var domainId="0";if(typeof _ezaq!=="undefined"&&_ezaq.hasOwnProperty("domain_id")){domainId=_ezaq.domain_id.toString()}
+var vals=impFullId.split('/');if(__ez.dot.isDefined(impFullId)&&vals.length===3&&this.validateData(pixelData)){var adUnit=vals[0];var impId=vals[2];pixelData=this.convertDataToStr(pixelData);this.pixels.push({type:"impression",impression_id:impId,domain_id:domainId,unit:adUnit,t_epoch:this.tEpoch,data:pixelData})}},AddPVPixel:function(pvId,pixelData){var domainId="0";if(typeof _ezaq!=="undefined"&&_ezaq.hasOwnProperty("domain_id")){domainId=_ezaq.domain_id.toString()}
+if(__ez.dot.isDefined(pvId)&&this.validateData(pixelData)){pixelData=this.convertDataToStr(pixelData);this.pixels.push({type:"pageview",pageview_id:pvId,domain_id:domainId,t_epoch:this.tEpoch,data:pixelData})}},FirePixels:function(){if(typeof document.visibilityState!=='undefined'&&document.visibilityState==="prerender"){return}
+if(__ez.dot.isDefined(this.pixels)&&this.pixels.length>0){(new Image()).src=this.pixelUrl+"?orig="+(__ez.template.isOrig===true?1:0)+"&pixels="+encodeURIComponent(JSON.stringify(this.pixels))}
+this.pixels=[]},NewData:function(name,val){return new EzoicPixelData(name,val)},convertDataToStr:function(pixelData){if(typeof pixelData==="undefined"){return[]}
+try{for(var i in pixelData){pixelData[i].val=pixelData[i].val+''}}catch(e){}
+return pixelData},validateData:function(pixelData){for(var i=0;i<pixelData.length;i++){if(pixelData[i]instanceof EzoicPixelData===false){console.error("Invalid pixelData. ",pixelData[i]);return false}}
+return true}};</script>
+<script data-ezscrex="false" data-cfasync="false">(function(){if("function"===typeof window.CustomEvent)return!1;window.CustomEvent=function(c,a){a=a||{bubbles:!1,cancelable:!1,detail:null};var b=document.createEvent("CustomEvent");b.initCustomEvent(c,a.bubbles,a.cancelable,a.detail);return b}})();</script><script data-ezscrex="false" data-cfasync="false">window.requestIdleCallback=window.requestIdleCallback||function(b){var a=Date.now();return setTimeout(function(){b({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-a))}})},1)};
+	(function(){function b(a,b){for(var c=[],f=0;f<a;f++){for(var d=f*b*Math.random(),l=!0,k=2;k<=Math.sqrt(d);++k)if(0===d%k){l=!1;break}l&&c.push(d)}return c}function a(){var a=this;a.age=0;setInterval(function(){a.age++},1E3)}if("1"==window.ihajsdjhsadhjk){var d=new a;b(6,d);window.ihajsdjhsadhjk=null;window.doezifk="1"}"1"==window.doezifk&&(b(50,1E9),pointlessComputationsButton.disabled=!1,window.doezifk=null,window.ihajsdjhsadhjk="1");if("function"===typeof window.EzoIvent)return!1;window.EzoIvent=
+	function(a,b){b=b||{bubbles:!1,cancelable:!1,detail:null};var c=document.createEvent("EzoIvent");c.initCustomEvent(a,b.bubbles,b.cancelable,b.detail);return c}})();__ez.nap=[];__ez.nap[0]=0;__ez.nap[1]=45;__ez.nap[2]=[];__ez.nap[3]=0;__ez.nap[4]=1;__ez.nap[5]=[];
+	var ezocfol=function(b){b=_findNetworkQuietPeriods(__ez.nap[2],window.ezodomstart,b);b=_findOverlappingQuietPeriods(b,__ez.nap[5]);if("undefined"!=typeof b){var a=0,d=Math.max(b[b.length-1].cpuQuietPeriod.end,b[b.length-1].cpuQuietPeriod.end);b.forEach(function(b){a+=Math.floor(b.quietPeriodLength/55)});(a>=__ez.sswp&&1<a||10<=a||d<Date.now()-5E3)&&clearInterval(window.ezoIint);__ez.nap[0]=a;window.dispatchEvent(new CustomEvent("EzoIvent",{detail:[__ez.nap[0],50]}))}};
+	_findOverlappingQuietPeriods=function(b,a){var d=a.slice(),c=b.slice();d.shift();c.shift();var f=[];d.forEach(function(e){c.forEach(function(c){e.start>=c.start?c.end>=e.start+55&&f.push({cpuQuietPeriod:e,networkQuietPeriod:c,cpuQuietPeriods:a,networkQuietPeriods:b,quietPeriodLength:Math.min(e.duration,c.duration)}):e.end>=c.start+55&&f.push({cpuQuietPeriod:e,networkQuietPeriod:c,cpuQuietPeriods:a,networkQuietPeriods:b,quietPeriodLength:Math.min(e.duration,c.duration)})})});if(0<f.length)return f};
+	var netStartTime=0;_findNetworkQuietPeriods=function(b,a,d){0==netStartTime&&(netStartTime=a-1);a=[];for(var c in b){var f=b[c];0>f.end&&(f.end=99);a.push({time:f.start,isStart:!0});0<f.end&&a.push({time:f.end,isStart:!1})}a.sort(function(a,b){return a.time-b.time});var e=0,g=netStartTime,h=[];a.forEach(function(a){a.isStart?(e===__ez.nap[4]&&h.push({start:g,end:a.time,duration:a.time-g}),e++):(e--,e===__ez.nap[4]&&(g=a.time))});e<=__ez.nap[4]&&h.push({start:g,end:d,duration:d-g});return h};
+	function hashCode(b){for(var a,d=0;d<b.length;d++)a=Math.imul(31,a)+b.charCodeAt(d)|0;return a}
+	var ezogetrqbykey=function(b){for(var a=0,d=__ez.nap[2].length;a<d;a++)if(__ez.nap[2][a].id==b)return a},ezorqs=function(b,a){indexKey=window.ezogetrqbykey(a);"undefined"==typeof indexKey&&(__ez.nap[2].push({start:Date.now(),end:-1,id:a}),__ez.nap[3]++,setTimeout(function(){window.ezorqe(b,a)},2E3))},ezorqe=function(b,a,d){indexKey=window.ezogetrqbykey(a);"undefined"!=typeof indexKey&&-1==__ez.nap[2][indexKey].end?(__ez.nap[2][indexKey].end=Date.now(),__ez.nap[3]--):1==d&&__ez.nap[3]--};
+	(function(){if("undefined"!=typeof window.__ez.ssaf&&-1<window.__ez.ssaf.indexOf(19)){var b=window.setInterval;window.setInterval=function(a,d){var c=d;90>c&&56!=c&&(c=90);if(3>arguments.length)return b(a,c);var f=Array.prototype.slice.call(arguments).slice(2);return b(a.bind(window,f),c)}}})();
+	(function(){if("undefined"!=typeof window.__ez.ssaf&&-1<window.__ez.ssaf.indexOf(19)){var b=window.setTimeout;window.setTimeout=function(a,d){var c=d;90>c&&(c=90);if(3>arguments.length)return b(a,c);var f=this,e=Array.prototype.slice.call(arguments,2);return b(a instanceof Function?function(){a.apply(f,e)}:a,c)}}})();
+	(function(){var b=window.XMLHttpRequest,a=function(){var a=new b;"undefined"!=typeof this.open?a.open=this.open:this.open=b.open;"undefined"!=typeof this.abort?a.abort=this.abort:this.open=b.open;"undefined"!=typeof this.getAllResponseHeaders?a.getAllResponseHeaders=this.getAllResponseHeaders:this.getAllResponseHeaders=b.getAllResponseHeaders;"undefined"!=typeof this.getResponseHeader?a.getResponseHeader=this.getResponseHeader:this.getResponseHeader=b.getResponseHeader;"undefined"!=typeof this.overrideMimeType?
+	a.overrideMimeType=this.overrideMimeType:this.overrideMimeType=b.overrideMimeType;"undefined"!=typeof this.setRequestHeader?a.setRequestHeader=this.setRequestHeader:this.setRequestHeader=b.setRequestHeader;var d=Math.random();a.addEventListener("loadstart",function(a){window.ezorqs(a,d)});a.addEventListener("loadend",function(a){window.ezorqe(a,d)});a.addEventListener("error",function(a){window.ezorqe(a,d)});a.addEventListener("abort",function(a){window.ezorqe(a,d)});return a};a.prototype=b.prototype;
+	for(var d in b)a[d]=b[d];window.XMLHttpRequest=a})();window.ezoFetchConst=window.fetch;window.fetch=function(b){var a=arguments,d=this,c=Math.random();window.ezorqs(b,c);return new Promise(function(b,e){window.ezoFetchConst.apply(d,a).then(function(a){window.ezorqe(a,c);b(a)})["catch"](function(a){window.ezorqe(a,c);e(a)})})};var _fEzDt=function(){return Date.now()};
+	document.addEventListener("DOMContentLoaded",function(){window.ezodomstart=Date.now();if("requestIdleCallback"in window){var b=0;window.ezoIint=setInterval(function(){window.requestIdleCallback(function(a){var d=Date.now();a=a.timeRemaining();var c=_fEzDt();a<c&&(a>__ez.nap[1]?0==b&&(b=d):0!=b&&(a={start:b,end:d-(50-a)},a.duration=a.end-a.start,55<=a.duration&&(__ez.nap[5].push(a),window.ezocfol(d)),b=0))})},56)}else window.dispatchEvent(new CustomEvent("EzoIvent",{detail:[-1,-1]})),clearInterval(window.ezoIint)});
+	"undefined"!=typeof window.__ez.ssaf&&-1<window.__ez.ssaf.indexOf(16)&&(window.addEventListener("load",function(){window.__ez__w_load=!0}),window.addEventListener("DOMContentLoaded",function(){window.__ez__w_dom=!0}),"undefined"!==typeof window.__ez.sshsdef&&!1===window.__ez.sshsdef&&function(){if(Element.prototype.addEventListener){window.__ez__ael=window.addEventListener;window.__ez__ael__proto=window.__ez__ael.prototype;var b=function(){"domcontentloaded"==arguments[0].toLowerCase()?arguments[0]=
+	"EzoicDOMContentLoaded":"load"==arguments[0].toLowerCase()&&(arguments[0]="Ezoicload");window.__ez__ael.apply(window,arguments)};window.__ez__ael.prototype=window.__ez__ael__proto;window.addEventListener=b;document.addEventListener=b}}());window.ezorqs=ezorqs;window.ezorqe=ezorqe;window.ezocfol=ezocfol;window.ezogetrqbykey=ezogetrqbykey;__ez.nap=__ez.nap;</script>
+		<!-- JS detection -->
+		<script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+
+		
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="ir-site-verification-token" value="1588896957" />
+
+		<link rel="apple-touch-icon" sizes="180x180" href="https://www.mensjournal.com/wp-content/themes/mens-journal/assets/img/favicos/apple-touch-icon-180x180.png">
+		<link rel="icon" type="image/png" href="https://www.mensjournal.com/wp-content/themes/mens-journal/assets/img/favicon/favicon-32x32.png" sizes="32x32">
+		<link rel="icon" type="image/png" href="https://www.mensjournal.com/wp-content/themes/mens-journal/assets/img/favicon/favicon-16x16.png" sizes="16x16">
+		<link rel="mask-icon" href="https://www.mensjournal.com/wp-content/themes/mens-journal/assets/img/favicon/safari-pinned-tab.svg" color="#eb212e">
+		<link rel="shortcut icon" href="https://www.mensjournal.com/wp-content/themes/mens-journal/assets/img/favicon/favicon-16x16.png">
+		<meta name="theme-color" content="#eb212e">
+
+		
+	<!-- OneTrust Cookies Consent Notice start -->
+	<script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js"  type="text/javascript" charset="UTF-8" data-domain-script="d4715ad9-059f-4464-a1bf-f7a2ca061fe4"></script>
+	<script type="text/javascript">
+		function OptanonWrapper() {
+			var allIframes = document.querySelectorAll( 'iframe[class*="optanon-category"]' );
+			allIframes.forEach (function( iframe ) {
+		  	var thisIframeCategories = iframe.classList.value.match(/C000\d+/g);
+
+				// Check if user allowed every category assigned to this iframe
+				var shouldBeLoaded = thisIframeCategories.every( function( item ) {
+					return OptanonActiveGroups.match( item );
+				});
+
+				// Load iframe if every category is allowed
+				if ( shouldBeLoaded ) {
+					loadIframe( iframe );
+				}
+			});
+
+			// load iframe element
+			function loadIframe( element ) {
+				element.tagName == "IFRAME" ? element.setAttribute("src", element.dataset.src) : -1;
+			}
+		}
+	</script>
+	<!-- OneTrust Cookies Consent Notice end -->
+
+	
+		<script type="text/plain" class="optanon-category-C0004" src="//d17tqr44y57o31.cloudfront.net/script.js"></script>
+<!-- 		<script type="text/plain" class="optanon-category-C0004">
+		 var hbDFPdim='7';
+		 var hbFRAMEdim='8';
+		var _0x4fb0=["\x44\x46\x50","\x6C\x6F\x63\x61\x74\x69\x6F\x6E","\x70\x61\x72\x65\x6E\x74","\x72\x65\x66\x65\x72\x72\x65\x72","\x68\x72\x65\x66","\x75\x6E\x64\x65\x66\x69\x6E\x65\x64","\x34","\x35","\x61\x64\x73","\x44\x46\x50\x20\x53\x74\x61\x72\x74","\x6C\x65\x6E\x67\x74\x68","\x64\x69\x6D\x65\x6E\x73\x69\x6F\x6E","\x2C","\x6A\x6F\x69\x6E","\x70\x75\x73\x68","\x73\x74\x61\x72\x74","\x65\x6E\x64","\x6C\x6F\x61\x64\x5F\x74\x69\x6D\x65","\x20\x6C\x6F\x61\x64\x20\x74\x69\x6D\x65","\x48\x42\x20\x73\x65\x6E\x64\x69\x6E\x67\x20\x74\x6F\x20\x47\x41\x3A","\x6C\x6F\x67","\x68\x62\x2E\x73\x65\x6E\x64","\x74\x69\x6D\x69\x6E\x67","\x66\x6F\x72\x45\x61\x63\x68","\x74\x72\x61\x63\x6B\x69\x6E\x67\x49\x64","\x67\x65\x74","\x67\x65\x74\x41\x6C\x6C","\x63\x72\x65\x61\x74\x65","\x61\x75\x74\x6F","\x68\x62","\x67\x65\x74\x54\x69\x6D\x65","\x72\x65\x73\x70\x6F\x6E\x73\x65\x53\x74\x61\x72\x74","\x70\x65\x72\x66\x6F\x72\x6D\x61\x6E\x63\x65","\x6D\x69\x6E","\x73\x6F\x72\x74","","\x73\x65\x6C\x66","\x74\x6F\x70","\x7C","\x20\x65\x72\x72\x6F\x72\x3A\x20","\x6D\x65\x73\x73\x61\x67\x65","\x49\x4E\x44\x58\x57","\x4F\x50\x45\x4E\x58","\x59\x4C\x44\x42\x54","\x50\x42\x4D\x54\x43","\x52\x55\x42\x49","\x41\x4F\x4C","\x53\x56\x52\x4E","\x49\x4E\x44\x58","\x46\x42","\x53\x48\x54\x48","\x33\x4C\x49\x46\x54","\x59\x49\x45\x4C\x44","\x53\x4F\x56\x52","\x69\x6E\x64\x65\x78\x4F\x66","\x2E\x2A","\x74\x65\x73\x74","\x6F\x70\x65\x6E","\x70\x72\x6F\x74\x6F\x74\x79\x70\x65","\x73\x65\x6E\x64","\x74\x69\x6D\x65\x6F\x75\x74","\x68\x62\x54\x69\x6D\x65\x6F\x75\x74\x44\x65\x62\x75\x67","\x4F\x76\x65\x72\x72\x69\x64\x69\x6E\x67\x20\x58\x48\x52\x20\x74\x69\x6D\x65\x6F\x75\x74\x20\x66\x72\x6F\x6D\x20","\x20\x74\x6F\x20","\x20\x66\x6F\x72\x20","\x66\x61\x69\x6C\x65\x64\x20\x74\x6F\x20\x6F\x76\x65\x72\x72\x69\x64\x65\x20\x74\x69\x6D\x65\x6F\x75\x74\x20\x66\x6F\x72\x20","\x61\x70\x70\x6C\x79","\x45\x72\x72\x6F\x72\x20\x72\x75\x6E\x6E\x69\x6E\x67\x20\x48\x42\x20\x6F\x70\x65\x6E","\x6F\x6E\x72\x65\x61\x64\x79\x73\x74\x61\x74\x65\x63\x68\x61\x6E\x67\x65","\x72\x65\x61\x64\x79\x53\x74\x61\x74\x65","\x73\x74\x61\x74\x75\x73","\x72\x65\x73\x70\x6F\x6E\x73\x65\x55\x52\x4C","\x48\x42\x20\x44\x46\x50\x20\x73\x65\x6E\x64\x69\x6E\x67\x20\x74\x69\x6D\x69\x6E\x67\x73\x20\x66\x72\x6F\x6D\x20\x6D\x75\x74\x61\x69\x6F\x6E\x20\x6F\x62\x6A\x65\x63\x74","\x48\x42\x20\x53\x54\x41\x54\x45\x3A\x20","\x20\x63\x6F\x64\x65\x3A","\x20","\x20\x62\x69\x64\x64\x65\x72\x3A","\x45\x72\x72\x6F\x72\x20\x72\x75\x6E\x6E\x69\x6E\x67\x20\x48\x42\x20\x73\x65\x6E\x64","\x61\x64\x64\x65\x64\x4E\x6F\x64\x65\x73","\x73\x72\x63","\x6F\x6E\x6C\x6F\x61\x64","\x48\x42\x20","\x20\x73\x63\x72\x69\x70\x74\x20\x6C\x6F\x61\x64\x65\x64\x20","\x68\x65\x61\x64","\x6F\x62\x73\x65\x72\x76\x65","\x66\x75\x6E\x63\x74\x69\x6F\x6E","\x45\x72\x72\x6F\x72\x20\x67\x61\x74\x68\x65\x72\x69\x6E\x67\x20\x68\x65\x61\x64\x65\x72\x20\x62\x69\x64\x64\x65\x72\x20\x73\x74\x61\x74\x73"];try{var DEBUG=false;var DFP_ID=_0x4fb0[0];var bidders={};var hb_timings_sent=false;var hb_onload_run=false;var MAX_MILLIS=20000;var MAX_XHR_MILLIS=2000;var getIFrameURL=function(){return (window[_0x4fb0[1]]!= window[_0x4fb0[2]][_0x4fb0[1]])?document[_0x4fb0[3]]:document[_0x4fb0[1]][_0x4fb0[4]]};var hb_track_hb=function(_0x9d4axa,_0x9d4axb,_0x9d4axc,_0x9d4axd){var _0x9d4axe=bidders[_0x9d4axa][_0x9d4axb];if(_0x9d4axe&& _0x9d4axe> 0&& _0x9d4axe<= MAX_MILLIS){if( typeof hbDFPdim=== _0x4fb0[5]){hbDFPdim= _0x4fb0[6]};if( typeof hbFRAMEdim=== _0x4fb0[5]){hbFRAMEdim= _0x4fb0[7]};var _0x9d4axf={timingCategory:_0x4fb0[8],timingVar:_0x4fb0[0],timingValue:_0x9d4axe,timingLabel:_0x4fb0[9]};if(_0x9d4axc[_0x4fb0[10]]> 0){_0x9d4axf[_0x4fb0[11]+ hbDFPdim]= _0x9d4axc[_0x4fb0[13]](_0x4fb0[12])};if(_0x9d4axd){_0x9d4axf[_0x4fb0[11]+ hbFRAMEdim]= _0x9d4axd};var _0x9d4ax10=[];_0x9d4ax10[_0x4fb0[14]](_0x9d4axf);for(i= 0;i< toMonitor[_0x4fb0[10]];i++){var _0x9d4ax11=toMonitor[i];var _0x9d4ax12=bidders[_0x9d4ax11][_0x4fb0[15]];var _0x9d4ax13=bidders[_0x9d4ax11][_0x4fb0[16]];if(_0x9d4ax12&& _0x9d4ax13&& _0x9d4ax12> 0&& _0x9d4ax13> 0){var _0x9d4ax14=_0x9d4ax13- _0x9d4ax12;if(_0x9d4ax14<= MAX_MILLIS){_0x9d4axf= {timingCategory:_0x4fb0[17],timingVar:_0x9d4ax11,timingValue:_0x9d4ax14,timingLabel:_0x9d4ax11+ _0x4fb0[18]};_0x9d4ax10[_0x4fb0[14]](_0x9d4axf)}}};if(DEBUG){console[_0x4fb0[20]](_0x4fb0[19]);console[_0x4fb0[20]](_0x9d4ax10)}else {_0x9d4ax10[_0x4fb0[23]](function(_0x9d4axf){ga(_0x4fb0[21],_0x4fb0[22],_0x9d4axf)})};return true};return false};var hb_log_timings=function(){if(hb_timings_sent){return};hb_timings_sent= true;var _0x9d4ax16=ga[_0x4fb0[26]]()[0][_0x4fb0[25]](_0x4fb0[24]);ga(_0x4fb0[27],{trackingId:_0x9d4ax16,cookieDomain:_0x4fb0[28],name:_0x4fb0[29],siteSpeedSampleRate:1});var _0x9d4axc=[];for(bidder in bidders){if(bidder== DFP_ID){continue};if(!bidders[bidder][_0x4fb0[16]]){bidders[bidder][_0x4fb0[16]]= Math[_0x4fb0[33]](( new Date())[_0x4fb0[30]]()- window[_0x4fb0[32]][_0x4fb0[22]][_0x4fb0[31]],MAX_MILLIS)};if(bidders[bidder][_0x4fb0[16]]- bidders[DFP_ID][_0x4fb0[15]]> 0){_0x9d4axc[_0x4fb0[14]](bidder)}};_0x9d4axc[_0x4fb0[34]]();var _0x9d4axd=_0x4fb0[35];try{if(window[_0x4fb0[36]]!== window[_0x4fb0[37]]){var _0x9d4ax17=null;if(window[_0x4fb0[36]]&& window[_0x4fb0[36]][_0x4fb0[1]]){_0x9d4ax17= window[_0x4fb0[36]][_0x4fb0[1]][_0x4fb0[4]]};var _0x9d4ax18=null;if(window[_0x4fb0[37]]&& window[_0x4fb0[37]][_0x4fb0[1]]){_0x9d4ax18= window[_0x4fb0[37]][_0x4fb0[1]][_0x4fb0[4]]};if(_0x9d4ax17!= _0x9d4ax18){_0x9d4axd= getIFrameURL();_0x9d4axd= _0x9d4axd+ _0x4fb0[38]+ _0x9d4ax17+ _0x4fb0[38]+ _0x9d4ax18}}}catch(err){_0x9d4axd= getIFrameURL()+ _0x4fb0[39]+ err[_0x4fb0[40]]};hb_track_hb(DFP_ID,_0x4fb0[15],_0x9d4axc,_0x9d4axd)};var toMonitor=[_0x4fb0[41]];var jsRegexp={"\x2E\x64\x6F\x75\x62\x6C\x65\x63\x6C\x69\x63\x6B\x2E\x6E\x65\x74\x2F\x67\x61\x6D\x70\x61\x64\x2F\x61\x64\x73":_0x4fb0[0],"\x2E\x6F\x70\x65\x6E\x78\x2E\x6E\x65\x74\x2F\x77\x2F\x31\x2E\x30\x2F\x61\x63\x6A":_0x4fb0[42],"\x2E\x79\x6C\x64\x62\x74\x2E\x63\x6F\x6D\x2F\x6D\x2F\x2E\x2A\x69\x6E\x69\x74":_0x4fb0[43],"\x2E\x79\x6C\x64\x62\x74\x2E\x63\x6F\x6D\x2F\x6D\x2F\x2E\x2A\x69\x6E\x69\x74":_0x4fb0[43],"\x2F\x70\x62\x2E\x6A\x73":_0x4fb0[41]};var xhrRegexp={"\x2E\x70\x75\x62\x6D\x61\x74\x69\x63\x2E\x63\x6F\x6D\x2F\x41\x64\x53\x65\x72\x76\x65\x72\x2F\x41\x64\x43\x61\x6C\x6C\x41\x67\x67\x72\x65\x67\x61\x74\x6F\x72":_0x4fb0[44],"\x2E\x70\x75\x62\x6D\x61\x74\x69\x63\x2E\x63\x6F\x6D\x2F\x41\x64\x53\x65\x72\x76\x65\x72\x2F\x41\x64\x53\x65\x72\x76\x65\x72\x53\x65\x72\x76\x6C\x65\x74":_0x4fb0[44],"\x2E\x72\x75\x62\x69\x63\x6F\x6E\x70\x72\x6F\x6A\x65\x63\x74\x2E\x63\x6F\x6D\x2F\x61\x2F\x61\x70\x69\x2F\x66\x61\x73\x74\x6C\x61\x6E\x65\x2E\x6A\x73\x6F\x6E":_0x4fb0[45],"\x2E\x61\x64\x74\x65\x63\x68\x2E\x2A\x2E\x61\x64\x76\x65\x72\x74\x69\x73\x69\x6E\x67\x2E\x63\x6F\x6D\x2F\x70\x75\x62\x61\x70\x69\x2E\x2A\x63\x6D\x64\x3D\x62\x69\x64":_0x4fb0[46],"\x2E\x6C\x69\x6A\x69\x74\x2E\x63\x6F\x6D\x2F\x72\x74\x62\x2F\x62\x69\x64":_0x4fb0[47],"\x2E\x63\x61\x73\x61\x6C\x65\x6D\x65\x64\x69\x61\x2E\x63\x6F\x6D\x2F\x63\x79\x67\x6E\x75\x73":_0x4fb0[48],"\x66\x61\x63\x65\x62\x6F\x6F\x6B\x2E\x63\x6F\x6D\x2E\x2A\x70\x6C\x61\x63\x65\x6D\x65\x6E\x74\x62\x69\x64\x2E\x6A\x73\x6F\x6E":_0x4fb0[49],"\x62\x74\x6C\x72\x2E\x73\x68\x61\x72\x65\x74\x68\x72\x6F\x75\x67\x68\x2E\x2A\x68\x65\x61\x64\x65\x72\x2D\x62\x69\x64\x2F":_0x4fb0[50],"\x74\x6C\x78\x2E\x33\x6C\x69\x66\x74\x2E\x63\x6F\x6D\x2E\x2A\x61\x75\x63\x74\x69\x6F\x6E":_0x4fb0[51],"\x61\x64\x73\x2E\x2A\x79\x6C\x64\x62\x74\x2E\x63\x6F\x6D\x2F\x6D\x2F":_0x4fb0[52],"\x2E\x6C\x69\x6A\x69\x74\x2E\x63\x6F\x6D\x2F\x72\x74\x62\x2E\x2A\x2F\x62\x69\x64":_0x4fb0[53]};function url2bidder(_0x9d4ax1d,_0x9d4ax1e){if(!_0x9d4ax1d){return};for(var _0x9d4ax1f in _0x9d4ax1e?xhrRegexp:jsRegexp){if(_0x9d4ax1d[_0x4fb0[54]](_0x9d4ax1f)!=  -1){return _0x9d4ax1e?xhrRegexp[_0x9d4ax1f]:jsRegexp[_0x9d4ax1f]};if(_0x9d4ax1f[_0x4fb0[54]](_0x4fb0[55])!=  -1){var _0x9d4ax20= new RegExp(_0x9d4ax1f);if(_0x9d4ax20[_0x4fb0[56]](_0x9d4ax1d)){return _0x9d4ax1e?xhrRegexp[_0x9d4ax1f]:jsRegexp[_0x9d4ax1f]}}}}var open_original=XMLHttpRequest[_0x4fb0[58]][_0x4fb0[57]];var send_original=XMLHttpRequest[_0x4fb0[58]][_0x4fb0[59]];XMLHttpRequest[_0x4fb0[58]][_0x4fb0[57]]= function(_0x9d4ax23,_0x9d4ax1d,_0x9d4ax24,_0x9d4ax25,_0x9d4ax26){try{if( typeof hbTimeout!== _0x4fb0[5]&& hbTimeout){try{if( typeof this[_0x4fb0[60]]== _0x4fb0[5]||  !this[_0x4fb0[60]]|| this[_0x4fb0[60]]> MAX_XHR_MILLIS){if(window[_0x4fb0[1]][_0x4fb0[4]]&& window[_0x4fb0[1]][_0x4fb0[4]][_0x4fb0[54]](_0x4fb0[61])!==  -1){console[_0x4fb0[20]](_0x4fb0[62]+ this[_0x4fb0[60]]+ _0x4fb0[63]+ MAX_XHR_MILLIS+ _0x4fb0[64]+ _0x9d4ax1d)};this[_0x4fb0[60]]= MAX_XHR_MILLIS}}catch(te){console[_0x4fb0[20]](_0x4fb0[65]+ _0x9d4ax1d);console[_0x4fb0[20]](te)}};var _0x9d4axa=url2bidder(_0x9d4ax1d,true);if(!_0x9d4axa|| bidders[_0x9d4axa]){return open_original[_0x4fb0[66]](this,arguments)};bidders[_0x9d4axa]= {start:( new Date())[_0x4fb0[30]]()- window[_0x4fb0[32]][_0x4fb0[22]][_0x4fb0[31]]}}catch(e_open){console[_0x4fb0[20]](_0x4fb0[67]);console[_0x4fb0[20]](e_open)}finally{return open_original[_0x4fb0[66]](this,arguments)}};XMLHttpRequest[_0x4fb0[58]][_0x4fb0[59]]= function(_0x9d4ax27){try{var _0x9d4ax28=this[_0x4fb0[68]];this[_0x4fb0[68]]= function(){if(this[_0x4fb0[69]]!= 4|| this[_0x4fb0[70]]!= 200){if(_0x9d4ax28){return _0x9d4ax28[_0x4fb0[66]](this,arguments)}else {return}};var _0x9d4ax1d=this[_0x4fb0[71]];var _0x9d4axa=url2bidder(_0x9d4ax1d,true);if(!_0x9d4axa||  !bidders[_0x9d4axa][_0x4fb0[15]] || bidders[_0x9d4axa][_0x4fb0[16]]){if(_0x9d4ax28){return _0x9d4ax28[_0x4fb0[66]](this,arguments)}else {return}};bidders[_0x9d4axa][_0x4fb0[16]]= ( new Date())[_0x4fb0[30]]()- window[_0x4fb0[32]][_0x4fb0[22]][_0x4fb0[31]];if(_0x9d4axa== DFP_ID){if(hb_onload_run&&  !hb_timings_sent){if(DEBUG){console[_0x4fb0[20]](_0x4fb0[72])};hb_log_timings()}};if(DEBUG){console[_0x4fb0[20]](_0x4fb0[73]+ this[_0x4fb0[69]]+ _0x4fb0[74]+ this[_0x4fb0[70]]+ _0x4fb0[75]+ _0x9d4ax1d+ _0x4fb0[76]+ _0x9d4axa+ _0x4fb0[75]+ bidders[_0x9d4axa][_0x4fb0[15]]+ _0x4fb0[75]+ bidders[_0x9d4axa][_0x4fb0[16]])};if(_0x9d4ax28){return _0x9d4ax28[_0x4fb0[66]](this,arguments)}else {return}}}catch(e_send){console[_0x4fb0[20]](_0x4fb0[77]);console[_0x4fb0[20]](e_send)}finally{return send_original[_0x4fb0[66]](this,arguments)}};var observer= new MutationObserver(function(_0x9d4ax2a){_0x9d4ax2a[_0x4fb0[23]](function(_0x9d4ax2b){for(var _0x9d4ax2c=0;_0x9d4ax2c< _0x9d4ax2b[_0x4fb0[78]][_0x4fb0[10]];_0x9d4ax2c++){if(_0x9d4ax2b[_0x4fb0[78]][_0x9d4ax2c] instanceof  HTMLScriptElement){var _0x9d4ax1d=_0x9d4ax2b[_0x4fb0[78]][_0x9d4ax2c][_0x4fb0[79]];var _0x9d4axa=url2bidder(_0x9d4ax1d,false);if(!_0x9d4axa&& _0x9d4axa!= DFP_ID){continue};if(bidders[_0x9d4axa]&& bidders[_0x9d4axa][_0x4fb0[15]]){continue};bidders[_0x9d4axa]= {start:( new Date())[_0x4fb0[30]]()- window[_0x4fb0[32]][_0x4fb0[22]][_0x4fb0[31]]};_0x9d4ax2b[_0x4fb0[78]][_0x9d4ax2c][_0x4fb0[80]]= function(){bidders[_0x9d4axa][_0x4fb0[16]]= ( new Date())[_0x4fb0[30]]()- window[_0x4fb0[32]][_0x4fb0[22]][_0x4fb0[31]];if(_0x9d4axa== DFP_ID){if(hb_onload_run&&  !hb_timings_sent){if(DEBUG){console[_0x4fb0[20]](_0x4fb0[72])};hb_log_timings()}};if(DEBUG){console[_0x4fb0[20]](_0x4fb0[81]+ _0x9d4axa+ _0x4fb0[82]+ _0x9d4ax1d+ _0x4fb0[75]+ bidders[_0x9d4axa][_0x4fb0[15]]+ _0x4fb0[75]+ bidders[_0x9d4axa][_0x4fb0[16]])}}}}})});observer[_0x4fb0[84]](document[_0x4fb0[83]],{childList:true});var oldonload=window[_0x4fb0[80]];window[_0x4fb0[80]]= function(){hb_onload_run= true;if( typeof oldonload== _0x4fb0[85]){oldonload()};if(!bidders[DFP_ID]||  !bidders[DFP_ID][_0x4fb0[16]]){return};hb_log_timings()}}catch(e){console[_0x4fb0[20]](_0x4fb0[86]);console[_0x4fb0[20]](e)}
+		</script> -->
+
+	<title>Being Honest With P.K. Subban: Trade Reaction, Lindsey Vonn, and More</title>
+<!-- Jetpack Site Verification Tags -->
+<meta name="msvalidate.01" content="097DBAAF43A9B61E9E4259AA7D75B069" />
+<script>window.amiEzoic = (typeof ezoicTestActive !== "undefined") ? true : false;</script><script type="text/plain" class="optanon-category-C0004">
+    var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+		window.pb_host = "mensjournal";
+        pbjs = window.pbjs || { que: [] }; // if prebid is not already defined, define it
+
+			function getCookie(name) {
+			  var matches = document.cookie.match(new RegExp(
+			    "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\/\+^])/g, '\$1') + "=([^;]*)"
+			  ));
+			  return matches ? decodeURIComponent(matches[1]) : undefined;
+			}
+			function setCookie(name, value, options) {
+			  options = options || {};
+
+			  var expires = options.expires;
+
+			  if (typeof expires == "number" && expires) {
+			    var d = new Date();
+			    d.setTime(d.getTime() + expires * 1000);
+			    expires = options.expires = d;
+			  }
+			  if (expires && expires.toUTCString) {
+			    options.expires = expires.toUTCString();
+			  }
+
+			  value = encodeURIComponent(value);
+
+			  var updatedCookie = name + "=" + value;
+
+			  for (var propName in options) {
+			    updatedCookie += "; " + propName;
+			    var propValue = options[propName];
+			    if (propValue !== true) {
+			      updatedCookie += "=" + propValue;
+			    }
+			  }
+
+			  document.cookie = updatedCookie;
+			}
+          (function() { var gads = document.createElement("script");
+            gads.async = true;
+            gads.type = "text/javascript";
+            var useSSL = "https:" == document.location.protocol;
+            gads.src = (useSSL ? "https:" : "http:") + "//www.googletagservices.com/tag/js/gpt.js";
+            var node =document.getElementsByTagName("script")[0];
+            node.parentNode.insertBefore(gads, node);
+            })();
+			<!-- EZOIC_REMOVE_BEGIN -->
+            !function(a9,a,p,s,t,A,g){if(a[a9])return;function q(c,r){a[a9]._Q.push([c,r])}a[a9]={init:function(){q("i",arguments)},fetchBids:function(){q("f",arguments)},setDisplayBids:function(){},targetingKeys:function(){return[]},_Q:[]};A=p.createElement(s);A.async=!0;A.src=t;g=p.getElementsByTagName(s)[0];g.parentNode.insertBefore(A,g)}("apstag",window,document,"script","//c.amazon-adsystem.com/aax2/apstag.js");
+			apstag.init({
+				pubID: '3144',
+				adServer: 'googletag',
+				bidTimeout: 2e3,
+                videoAdServer: 'DFP'
+			});
+			<!-- EZOIC_REMOVE_END -->
+			window.gptAdsWindowWidth = function() {
+				var w = window,
+					d = document,
+					e = d.documentElement,
+					x = Math.max(e.scrollWidth,e.offsetWidth,e.clientWidth);
+				return x;
+			}
+    </script>
+<!-- Include the pet.js script in the header of your page or early in the body --> <script type='text/plain' class='optanon-category-C0004' async='async' src='//cdn.adsafeprotected.com/iasPET.1.js'></script>
+	<script>
+		var iasDataHandler, __iasPET = __iasPET || {};
+		__iasPET.queue = __iasPET.queue || [];
+		__iasPET.pubId = '928572'; // your account manager will provide this ID
+	</script>
+			<script>
+			function parseUrlParams( val ) {
+				var result = "none",
+					tmp = [];
+				var items = location.search.substr( 1 ).split( "&" );
+				for ( var index = 0; index < items.length; index++ ) {
+					tmp = items[index].split( "=" );
+					if ( tmp[0] === val ) {
+						result = decodeURIComponent( tmp[1] );
+					}
+				}
+				return result;
+			}
+
+			dataLayer = [{"canonical_url":"\/sports\/interview-p-k-subban-talks-trade-reaction-lindsey-vonn\/","pageCategory":"post","env":"prod","from_mf":"off","nodeId":485226,"contentType":"video","nodeCategory":["Sports"],"nodeTags":["coronavirus","COVID-19","hockey","Lindsey Vonn","nhl","P.K. Subban"],"contentUpdatedDate":"2020\/05\/19","contentPublishDate":"2020\/05\/19","pageTitle":"Being Honest With P.K. Subban: Trade Reaction, Lindsey Vonn, and More","sponsorshipName":"","comments":"on","author":"Men's Journal editors","sponsored":"off","featured":"off","vupulse":"off","skimlinks":"on","narrativ":"on","zergnet":"on","audience_cat":["Lifestyle"],"audience_subcat":["Sports"],"retailers":"off","advertorial":"off","tragedy":"off","distroscale":"on"}];
+
+			var site_display_format = 'desktop';
+
+			if ( window.innerWidth < 768 ) {
+				site_display_format = 'mobile';
+			} else if ( window.innerWidth >= 768 && window.innerWidth <= 1024 ) {
+				site_display_format = 'tablet';
+			}
+
+			dataLayer.push( { site_display_format : site_display_format } );
+
+			var name = 'setAgeInfo';
+			var matches = document.cookie.match(new RegExp(
+				"(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+			));
+
+			dataLayer.push( { user_age : matches ? decodeURIComponent( matches[1] ) : '14' } );
+		</script>
+		
+<!-- This site is optimized with the Yoast SEO plugin v13.2 - https://yoast.com/wordpress/plugins/seo/ -->
+<meta name="description" content="Subban gives us his candid take on the trade that sent him to New Jersey, how he broke the ice with Lindsey Vonn, when he hopes to have kids, and more."/>
+<meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
+<link rel="canonical" href="https://www.mensjournal.com/sports/interview-p-k-subban-talks-trade-reaction-lindsey-vonn/" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Being Honest With P.K. Subban: Trade Reaction, Lindsey Vonn, and More" />
+<meta property="og:description" content="&nbsp;" />
+<meta property="og:url" content="https://www.mensjournal.com/sports/interview-p-k-subban-talks-trade-reaction-lindsey-vonn/" />
+<meta property="og:site_name" content="Men&#039;s Journal" />
+<meta property="article:publisher" content="https://www.facebook.com/MensJournal/" />
+<meta property="article:tag" content="coronavirus" />
+<meta property="article:tag" content="COVID-19" />
+<meta property="article:tag" content="hockey" />
+<meta property="article:tag" content="Lindsey Vonn" />
+<meta property="article:tag" content="nhl" />
+<meta property="article:tag" content="P.K. Subban" />
+<meta property="article:section" content="Sports" />
+<meta property="article:published_time" content="2020-05-19T23:29:37+00:00" />
+<meta property="fb:app_id" content="1680151055560550" />
+<meta property="og:image" content="https://www.mensjournal.com/wp-content/uploads/2020/05/shutterstock_editorial_10480171r.jpg?w=1200&#038;h=630&#038;crop=1" />
+<meta property="og:image:secure_url" content="https://www.mensjournal.com/wp-content/uploads/2020/05/shutterstock_editorial_10480171r.jpg?w=1200&#038;h=630&#038;crop=1" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="Subban gives us his candid take on the trade that sent him to New Jersey, how he broke the ice with Lindsey Vonn, when he hopes to have kids, and more." />
+<meta name="twitter:title" content="Being Honest With P.K. Subban: Trade Reaction, Lindsey Vonn, and More" />
+<meta name="twitter:site" content="@MensJournal" />
+<meta name="twitter:image" content="https://www.mensjournal.com/wp-content/uploads/2020/05/shutterstock_editorial_10480171r.jpg?w=1200&#038;h=630&#038;crop=1" />
+<meta name="twitter:creator" content="@MensJournal" />
+<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://www.mensjournal.com/#website","url":"https://www.mensjournal.com/","name":"Men&#039;s Journal","inLanguage":"en-US","description":"Health, Adventure, Gear, Style"},{"@type":"ImageObject","@id":"https://www.mensjournal.com/sports/interview-p-k-subban-talks-trade-reaction-lindsey-vonn/#primaryimage","inLanguage":"en-US","url":"https://www.mensjournal.com/wp-content/uploads/2020/05/shutterstock_editorial_10480171r.jpg","width":1920,"height":1080,"caption":"pk subban"},{"@type":"WebPage","@id":"https://www.mensjournal.com/sports/interview-p-k-subban-talks-trade-reaction-lindsey-vonn/#webpage","url":"https://www.mensjournal.com/sports/interview-p-k-subban-talks-trade-reaction-lindsey-vonn/","name":"Being Honest With P.K. Subban: Trade Reaction, Lindsey Vonn, and More","isPartOf":{"@id":"https://www.mensjournal.com/#website"},"inLanguage":"en-US","primaryImageOfPage":{"@id":"https://www.mensjournal.com/sports/interview-p-k-subban-talks-trade-reaction-lindsey-vonn/#primaryimage"},"datePublished":"2020-05-19T23:29:37+00:00","dateModified":"2020-05-19T23:29:37+00:00","author":{"@id":"https://www.mensjournal.com/#/schema/person/45aa405156495acb008630a0c92b80e4"},"description":"Subban gives us his candid take on the trade that sent him to New Jersey, how he broke the ice with Lindsey Vonn, when he hopes to have kids, and more."},{"@type":["Person"],"@id":"https://www.mensjournal.com/#/schema/person/45aa405156495acb008630a0c92b80e4","name":"Men's Journal editors","image":{"@type":"ImageObject","@id":"https://www.mensjournal.com/#authorlogo","inLanguage":"en-US","url":"https://secure.gravatar.com/avatar/693c15eb4167bb8e6cb314deba2891b8?s=96&d=mm&r=g","caption":"Men's Journal editors"},"sameAs":[]}]}</script>
+<script type="application/ld+json">{"@context":"http:\/\/schema.org","@type":"Organization","name":"Men&#039;s Journal","url":"https:\/\/www.mensjournal.com","parentOrganization":"American Media Inc","logo":{"@type":"ImageObject","url":"https:\/\/www.mensjournal.com\/wp-content\/themes\/mens-journal\/assets\/img\/mj-logo.svg","width":150},"address":{"@type":"PostalAddress","streetAddress":"4 New York Plaza","addresslocality":"New York, NY","postalCode":"10004"},"telephone":"212-545-4800","sameAs":["https:\/\/www.facebook.com\/MensJournal","https:\/\/twitter.com\/MensJournal","https:\/\/www.instagram.com\/MensJournal"]}</script>
+<script type="application/ld+json">{"@context":"http:\/\/schema.org","@type":"WebPage","@id":"https:\/\/www.mensjournal.com\/sports\/interview-p-k-subban-talks-trade-reaction-lindsey-vonn\/#webpage","publisher":{"@id":"https:\/\/www.mensjournal.com\/#organization"},"isPartOf":{"@id":"https:\/\/www.mensjournal.com\/sports\/interview-p-k-subban-talks-trade-reaction-lindsey-vonn\/#website"}}</script>
+<script type="application/ld+json">{"@context":"http:\/\/schema.org","@type":"Article","@id":"https:\/\/www.mensjournal.com\/sports\/interview-p-k-subban-talks-trade-reaction-lindsey-vonn\/#article","mainEntityOfPage":"https:\/\/www.mensjournal.com\/sports\/interview-p-k-subban-talks-trade-reaction-lindsey-vonn\/","publisher":{"@id":"https:\/\/www.mensjournal.com\/#organization"},"headline":"Being Honest With P.K. Subban: Trade Reaction, Lindsey Vonn, and More","datePublished":"2020-05-19T19:29:37-04:00","dateModified":"2020-05-19T19:29:37-04:00","author":[{"@type":"Person","name":"Men's Journal editors"}],"description":"&nbsp;","articleBody":"NHL star P.K. Subban sits down and gets honest with Men's Journal from the comfort of his own home. The New Jersey Devils' defenseman gives us his candid take on the trade that sent him to New Jersey, how he originally broke the ice with skiing superstar Lindsey Vonn (his now fiance), when he hopes to have kids, and much more.\r\n\r\n[ami-related id=\"484873\" url=\"https:\/\/www.mensjournal.com\/sports\/patrick-kane-on-shootouts-favorite-teammates-and-the-best-player-in-the-nhl\/\" title=\"Patrick Kane on Shootouts, Favorite Teammates, and the Best Player in the NHL\" target=\"_blank\" thumb=\"false\" imgsrc=\"https:\/\/www.mensjournal.com\/wp-content\/uploads\/2020\/05\/shutterstock_editorial_10580565l.jpg?w=200&h=113&crop=1\" inset=\"true\" format=\"video\" subtitle=\"\"]\r\n\r\n\r\n\r\nFor some much-needed, midweek relief from everything going on right now, we suggest that you kick up your feet and tune in to the video above to catch a glimpse inside Subban's quarantined world right now.\r\n\r\n[ami-related id=\"469857\" url=\"https:\/\/www.mensjournal.com\/sports\/nhl-star-alexander-ovechkin-on-his-favorite-athlete-steak-joint-more\/\" title=\"Alexander Ovechkin on His Favorite Athlete, Steak Joint, and More\" target=\"_blank\" thumb=\"false\" imgsrc=\"https:\/\/www.mensjournal.com\/wp-content\/uploads\/2020\/03\/Alexander-Ovechkin-main.jpg?w=200&h=113&crop=1\" inset=\"true\" format=\"standard\" subtitle=\"\"]","isPartOf":{"@id":"https:\/\/www.mensjournal.com\/sports\/interview-p-k-subban-talks-trade-reaction-lindsey-vonn\/#webpage"},"image":["https:\/\/www.mensjournal.com\/wp-content\/uploads\/2020\/05\/shutterstock_editorial_10480171r.jpg?w=1200&h=1080&crop=1","https:\/\/www.mensjournal.com\/wp-content\/uploads\/2020\/05\/shutterstock_editorial_10480171r.jpg?w=1200&h=675&crop=1"],"video":{"@context":"http:\/\/schema.org","@type":"VideoObject","name":"Being Honest With P.K. Subban","description":"NHL star P.K. Subban gives his candid take on the trade that sent him to the New Jersey Devils, his original icebreaker to Lindsey Vonn, when he hopes to have kids and much more.","thumbnailUrl":"https:\/\/content.jwplatform.com\/thumbs\/Hzbouv7A-500.jpg","contentURL":"https:\/\/content.jwplatform.com\/videos\/Hzbouv7A.mp4","uploadDate":"2020-05-19T19:29:37-04:00","publisher":{"@id":"https:\/\/www.mensjournal.com\/#organization"},"duration":"PT3M30S"}}</script>
+<script type="application/ld+json">{"@context":"http:\/\/schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/www.mensjournal.com\/sports","name":"Sports"}}]}</script>
+<!-- / Yoast SEO plugin. -->
+
+<link rel='dns-prefetch' href='//acdn.adnxs.com' />
+<link rel='dns-prefetch' href='//static.adsafeprotected.com' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="text/xml" title="Men&#039;s Journal &raquo; Feed" href="https://www.mensjournal.com/feed/" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/www.mensjournal.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.4.1"}};
+			/*! This file is auto-generated */
+			!function(e,a,t){var r,n,o,i,p=a.createElement("canvas"),s=p.getContext&&p.getContext("2d");function c(e,t){var a=String.fromCharCode;s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,e),0,0);var r=p.toDataURL();return s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,t),0,0),r===p.toDataURL()}function l(e){if(!s||!s.fillText)return!1;switch(s.textBaseline="top",s.font="600 32px Arial",e){case"flag":return!c([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])&&(!c([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!c([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]));case"emoji":return!c([55357,56424,55356,57342,8205,55358,56605,8205,55357,56424,55356,57340],[55357,56424,55356,57342,8203,55358,56605,8203,55357,56424,55356,57340])}return!1}function d(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(i=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},o=0;o<i.length;o++)t.supports[i[o]]=l(i[o]),t.supports.everything=t.supports.everything&&t.supports[i[o]],"flag"!==i[o]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[i[o]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(r=t.source||{}).concatemoji?d(r.concatemoji):r.wpemoji&&r.twemoji&&(d(r.twemoji),d(r.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='all-css-0' href='https://www.mensjournal.com/_static/??-eJydzEESgjAMQNELWaLMIGwcz9KWDETTxGnCILe37ly7/+/D/gokmbcZDbIZzGQOiTU/A1OqsR5gfjB2haRrwQmayCqO4uArluYKioWHblUiQzRD/3ktrCnyX5RpWT3pu//qe7ldhmkax/46nD/Tj0Nx' type='text/css' media='all' />
+<style id='wp-block-library-inline-css'>
+.has-text-align-justify{text-align:justify;}
+</style>
+<link rel='stylesheet' id='mj-google-fonts-css'  href='https://fonts.googleapis.com/css?family=Montserrat%3A400%2C400i%2C500%2C500i%2C700%2C700i%2C900%2C900i%7CNunito%3A300%2C300i%2C400%2C400i%2C600%2C600i%2C700%2C700i&#038;ver=5.4.1' media='all' />
+<link rel='stylesheet' id='all-css-2' href='https://www.mensjournal.com/_static/??-eJyNjsEKAjEMRH/IbhDdpRfxU6Q0pRtNk2JaxL+3K1687W1meMMMvKojidwxGUQzwGArRRWbCsk0kgMMZAQtSYPSXeWeSQzuqdUQH1AUO4+yreGZMCC+v5Ik72nfxjiYRgrsWLPan9n7YTv+0xt+LZfj7L1flvl0/gDoUVPA' type='text/css' media='all' />
+<!-- EZOIC_REMOVE_BEGIN --><script class="optanon-category-C0004" type="text/plain" src="//acdn.adnxs.com/prebid/c/1287.mensjournal.new/pb_2020_05_19_18_53_02.js" ></script><!-- EZOIC_REMOVE_END -->
+<script type='text/javascript' src='https://www.mensjournal.com/_static/??-eJx9jEEKwjAQRS9kMlRsyUY8S9oMbUJmopkJ1dsbpN0KH/7mvQf700RecgsokPpeDevnOJvkAv8AQ3GtXtFS5BNeCiuygm5IXSFkMam0yj6DF0H9ZUIUhRzXTefyvtq5ccjYEw+6D6Nzg5um25i+jB46CQ=='></script>
+<link rel='https://api.w.org/' href='https://www.mensjournal.com/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.mensjournal.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.mensjournal.com/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 5.4.1" />
+<link rel='shortlink' href='https://www.mensjournal.com/?p=485226' />
+<link rel="alternate" type="application/json+oembed" href="https://www.mensjournal.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.mensjournal.com%2Fsports%2Finterview-p-k-subban-talks-trade-reaction-lindsey-vonn%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://www.mensjournal.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.mensjournal.com%2Fsports%2Finterview-p-k-subban-talks-trade-reaction-lindsey-vonn%2F&#038;format=xml" />
+<style type='text/css'>img#wpstats{display:none}</style>	<!-- BEGIN ControlTag for "Men's Journal" -->
+	<script data-id="r19ukdn53" data-timing="async" data-version="3.0" type="text/plain" class="kxct optanon-category-C0004">
+		window.Krux || ( ( Krux = function() {
+			Krux.q.push( arguments )
+		} ).q = [] );
+		( function() {
+			var k = document.createElement( 'script' );
+			k.type = 'text/javascript';
+			k.async = true;
+			k.src = ( location.protocol === 'https:' ? 'https:' : 'http:' ) + '//cdn.krxd.net/controltag/r19ukdn53.js';
+			var s = document.getElementsByTagName( 'script' )[0];
+			s.parentNode.insertBefore( k, s );
+		}() );
+	</script>	<!-- END ControlTag -->
+	<script data-namespace="ami" type="text/plain" class="kxint optanon-category-C0004">
+		window.Krux || ( ( Krux = function() {
+			Krux.q.push( arguments );
+		} ).q = [] );
+		( function() {
+			function retrieve( n ) {
+				var k = 'kx' + 'ami_' + n, ls = ( function() {
+					try {
+						return window.localStorage;
+					} catch ( e ) {
+						return null;
+					}
+				} )();
+				if ( ls ) {
+					return ls[k] || '';
+				} else if ( navigator.cookieEnabled ) {
+					var m = document.cookie.match( k + '=([^;]*)' );
+					return ( m && unescape( m[1] ) ) || '';
+				} else {
+					return '';
+				}
+			}
+
+			Krux.user = retrieve( 'user' );
+			Krux.segments = retrieve( 'segs' ) ? retrieve( 'segs' ).split( ',' ) : [];
+		} )();
+	</script>
+		<script>
+		window.refresh = false;
+		window.adsRefresh = {};
+		window.adsRefresh.time = 30000;
+		window.adsRefresh.impr = [];
+		window.adsRefresh.ads = [];
+		window.adsRefresh.not = [];
+		window.packageCorrelator = true;
+	</script>
+	
+	<!-- DFP Slots -->
+	<script>
+	var dfpSlots   = {},
+		gpt   = gpt || {},
+		mapping    = [];
+	gpt.slotsFired = [];
+	gpt.initialLoadSlots = [];
+	gpt.lazyLoadSlots = [];
+	infSlots = [];
+	window.iasPETSlots = [];
+	window.mobile_box = 0;
+	window.inject = true;
+	var amazonSlots = amazonSlots || [];
+	var amazonSlotsRef = amazonSlotsRef || [];
+	var amazonOff = amazonOff || [];
+			infSlots["leader"] = "leader1";
+			infSlots["rr"] = "rr1";
+			infSlots["sh-hub"] = "sh-hub1";
+			infSlots["mb"] = "mb1";
+			infSlots["inf"] = "inf1";
+			infSlots["sh-inf"] = "sh-inf1";
+			infSlots["sh-gal"] = "sh-gal1";
+			infSlots["inline-box"] = "inline-box1";
+			window.adsRefresh.not.push("interstitial");
+			window.adsRefresh.not.push("teads");
+			window.adsRefresh.not.push("teads-inline");
+			window.adsRefresh.not.push("yieldmo");
+			window.adsRefresh.not.push("skin");
+			amazonOff.push("interstitial");
+			amazonOff.push("teads");
+			amazonOff.push("teads-inline");
+			amazonOff.push("yieldmo");
+			amazonOff.push("skin");
+			amazonOff.push("sponsor");
+	window.gptIsMobile = function() {
+		if ( window.gptAdsWindowWidth() < 768 ) {
+			return true;
+		}
+		return false;
+	};
+
+	window.gptIsTablet = function() {
+		if ( window.gptAdsWindowWidth() >= 768 && window.gptAdsWindowWidth() < 1024 ) {
+			return true;
+		}
+		return false;
+	};
+
+	function adsParseUrlParams( val ) {
+		var result = false,
+			tmp = [];
+		var items = location.search.substr( 1 ).split( "&" );
+		for ( var index = 0; index < items.length; index++ ) {
+			tmp = items[ index ].split( "=" );
+			if ( tmp[ 0 ] === val ) {
+				result = decodeURIComponent( tmp[ 1 ] );
+			}
+		}
+		return result;
+	};
+	</script>
+
+	<script type="text/plain" class="optanon-category-C0004">
+	googletag.cmd.push( function() {
+		mapping["leaderMapping"] = googletag.sizeMapping().addSize([0, 0], []).addSize([768, 200], [[728, 90]]).addSize([1024, 200], [[728, 90], [970, 250], [970, 90], [970, 66], [970, 125]]).build();
+		
+		mapping["leaderGalleryMapping"] = googletag.sizeMapping().addSize([0, 0], []).addSize([768, 200], [[300, 250]]).addSize([1024, 200], [[728, 90], [970, 250], [970, 90], [970, 66], [970, 125]]).build();
+		
+		mapping["leaderMappingInline"] = googletag.sizeMapping().addSize([0, 0], []).addSize([768, 200], [[300, 250], [320, 50], [320, 100], [320, 150]]).build();
+		
+		mapping["bottomLeaderMapping"] = googletag.sizeMapping().addSize([0, 0], [[300, 250], [320, 50], [320, 100], [320, 150]]).addSize([768, 200], [[728, 90]]).addSize([1024, 200], [[728, 90], [970, 250], [970, 90], [970, 66], [970, 125]]).build();
+		
+		mapping["stickyLeaderMapping"] = googletag.sizeMapping().addSize([0, 0], [[320, 50], [320, 100]]).addSize([768, 200], []).build();
+		
+		mapping["boxMapping"] = googletag.sizeMapping().addSize([0, 0], []).addSize([768, 200], [[300, 250]]).addSize([1024, 200], [[300, 250], [300, 600]]).build();
+		
+		mapping["boxWidgetMapping"] = googletag.sizeMapping().addSize([0, 0], []).addSize([1024, 200], [[300, 250], [300, 600]]).build();
+		
+		mapping["boxGalleryMapping"] = googletag.sizeMapping().addSize([0, 0], []).addSize([1024, 200], [[300, 250], [300, 600], [300, 1050]]).build();
+		
+		mapping["postBoxMapping"] = googletag.sizeMapping().addSize([0, 0], []).addSize([768, 200], [[300, 250], [300, 600]]).addSize([1024, 200], [[300, 250], [300, 600], [300, 1050]]).build();
+		
+		mapping["mbMapping"] = googletag.sizeMapping().addSize([0, 0], [[300, 250], [320, 50], [320, 100], [320, 150]]).addSize([768, 200], []).build();
+		
+		mapping["infBox"] = googletag.sizeMapping().addSize([0, 0], [[320, 50], [320, 100], [320, 150], [300, 250]]).addSize([768, 200], [[300, 250]]).addSize([1280, 200], [[728, 90]]).build();
+		
+		mapping["leftBoxMapping"] = googletag.sizeMapping().addSize([1440, 0], [[300, 250]]).addSize([1024, 0], []).addSize([0, 0], []).build();
+		if ( ! window.gptIsMobile() ) {
+			dfpSlots["leader1"] = googletag.defineSlot("/4216/mensj.channels/leader1", [[970, 250], [970, 125], [970, 90], [970, 66], [728, 90]], "leader1").defineSizeMapping(mapping["leaderMapping"]).setTargeting( "pos", "leader1" ).addService(googletag.pubads());
+			googletag.display("leader1");
+			gpt.slotsFired["leader1"] = dfpSlots["leader1"];
+			gpt.initialLoadSlots.push("leader1");
+			amazonSlots.push({'slotID' :'leader1', 'slotName' :'leader', 'sizes' : [[970, 250], [970, 125], [970, 90], [970, 66], [728, 90]] });amazonSlotsRef['leader1'] = {'slotID' :'leader1', 'slotName' :'leader', 'sizes' : [[970, 250], [970, 125], [970, 90], [970, 66], [728, 90]] };
+			}
+			if ( false === window.amiEzoic ) {
+			if (  window.gptIsMobile() ) {
+			dfpSlots["mb-sticky"] = googletag.defineSlot("/4216/mensj.channels/mb-sticky", [[320, 50], [320, 100]], "mb-sticky").defineSizeMapping(mapping["stickyLeaderMapping"]).setTargeting( "pos", "mb-sticky" ).addService(googletag.pubads());
+			googletag.display("mb-sticky");
+			gpt.slotsFired["mb-sticky"] = dfpSlots["mb-sticky"];
+			gpt.initialLoadSlots.push("mb-sticky");
+			amazonSlots.push({'slotID' :'mb-sticky', 'slotName' :'mb-sticky', 'sizes' : [[320, 50], [320, 100]] });amazonSlotsRef['mb-sticky'] = {'slotID' :'mb-sticky', 'slotName' :'mb-sticky', 'sizes' : [[320, 50], [320, 100]] };
+			}
+			}
+			if ( ! window.gptIsMobile() ) {
+			dfpSlots["rr1"] = googletag.defineSlot("/4216/mensj.channels/rr1", [[300, 1050], [300, 600], [300, 250]], "rr1").defineSizeMapping(mapping["boxWidgetMapping"]).setTargeting( "pos", "rr1" ).addService(googletag.pubads());
+			googletag.display("rr1");
+			gpt.slotsFired["rr1"] = dfpSlots["rr1"];
+			gpt.initialLoadSlots.push("rr1");
+			amazonSlots.push({'slotID' :'rr1', 'slotName' :'rr', 'sizes' : [[300, 1050], [300, 600], [300, 250]] });amazonSlotsRef['rr1'] = {'slotID' :'rr1', 'slotName' :'rr', 'sizes' : [[300, 1050], [300, 600], [300, 250]] };
+			}
+			if (  window.gptIsMobile() ) {
+			gpt.lazyLoadSlots["mb1"] = {
+			ad_unit: "mb1",
+			name: "mb",
+			ad_sizes: [[320, 50], [320, 100], [320, 150], [300, 250]],
+			id: "mb1",
+			mappingData: "",
+			targeting: {"pos":"mb1"},
+			device: "mobile"};
+			
+			}
+			if ( ! window.gptIsMobile() ) {
+			dfpSlots["interstitial"] = googletag.defineOutOfPageSlot("/4216/mensj.channels/interstitial", "interstitial").setTargeting( "pos", "interstitial" ).addService(googletag.pubads());
+			googletag.display("interstitial");
+			gpt.slotsFired["interstitial"] = dfpSlots["interstitial"];
+			gpt.initialLoadSlots.push("interstitial");
+			
+			}
+			dfpSlots["teads"] = googletag.defineSlot("/4216/mensj.channels/teads", [1, 1], "teads").setTargeting( "pos", "teads" ).addService(googletag.pubads());
+			googletag.display("teads");
+			gpt.slotsFired["teads"] = dfpSlots["teads"];
+			gpt.initialLoadSlots.push("teads");
+			if ( ! window.gptIsMobile() ) {
+			dfpSlots["skin"] = googletag.defineOutOfPageSlot("/4216/mensj.channels/skin", "skin").setTargeting( "pos", "skin" ).addService(googletag.pubads());
+			googletag.display("skin");
+			gpt.slotsFired["skin"] = dfpSlots["skin"];
+			gpt.initialLoadSlots.push("skin");
+			
+			}
+			if ( ! window.gptIsMobile() ) {
+			gpt.lazyLoadSlots["rr3"] = {
+			ad_unit: "rr3",
+			name: "rr",
+			ad_sizes: [[300, 1050], [300, 600], [300, 250]],
+			id: "rr3",
+			mappingData: "boxGalleryMapping",
+			targeting: {"pos":"rr3"},
+			device: "desktop"};
+			
+			}
+			if ( ! window.gptIsMobile() ) {
+			dfpSlots["rr2"] = googletag.defineSlot("/4216/mensj.channels/rr2", [[300, 1050], [300, 600], [300, 250]], "rr2").defineSizeMapping(mapping["boxGalleryMapping"]).setTargeting( "pos", "rr2" ).addService(googletag.pubads());
+			googletag.display("rr2");
+			gpt.slotsFired["rr2"] = dfpSlots["rr2"];
+			gpt.initialLoadSlots.push("rr2");
+			amazonSlots.push({'slotID' :'rr2', 'slotName' :'rr', 'sizes' : [[300, 1050], [300, 600], [300, 250]] });amazonSlotsRef['rr2'] = {'slotID' :'rr2', 'slotName' :'rr', 'sizes' : [[300, 1050], [300, 600], [300, 250]] };
+			}
+			gpt.lazyLoadSlots["sh-post-bottom"] = {
+			ad_unit: "sh-post-bottom",
+			name: "sh-post-bottom",
+			ad_sizes: [[2, 1]],
+			id: "sh-post-bottom",
+			mappingData: "",
+			targeting: {"strnativekey":"g4v6tbATR3vphB4n5EFW6dEM","pos":"sh-post-bottom"},
+			device: "page"};
+			gpt.lazyLoadSlots["leader-bottom"] = {
+			ad_unit: "leader-bottom",
+			name: "leader-bottom",
+			ad_sizes: [[970, 250], [970, 125], [970, 90], [970, 66], [728, 90], [300, 250], [320, 50], [320, 100], [320, 150]],
+			id: "leader-bottom",
+			mappingData: "bottomLeaderMapping",
+			targeting: {"pos":"leader-bottom"},
+			device: "page"};
+			dfpSlots["sponsor"] = googletag.defineSlot("/4216/mensj.channels/sponsor", [[80, 40], [140,40], [40,40]], "sponsor").setTargeting( "sponsor", "sports" ).addService(googletag.pubads());
+			googletag.display("sponsor");
+			gpt.slotsFired["sponsor"] = dfpSlots["sponsor"];
+			gpt.initialLoadSlots.push("sponsor");
+			
+			googletag.pubads().setTargeting( "category", "sports" );
+			googletag.pubads().setTargeting( "ctype", "video" );
+			googletag.pubads().setTargeting( "topic", "coronavirus, COVID-19, hockey, Lindsey Vonn, nhl, P.K. Subban" );
+			googletag.pubads().setTargeting( "pid", "485226" );
+			googletag.pubads().setTargeting( "channel", "sports" );
+			googletag.pubads().setTargeting( "env", "production" );
+				googletag.pubads().setTargeting( "ksg", Krux.segments );
+				googletag.pubads().setTargeting( "kuid", Krux.user );
+				if ( document.referrer ) {
+					var parser = document.createElement( 'a' );
+					parser.href = document.referrer;
+					googletag.pubads().setTargeting( "referrer", parser.hostname.replace( /\./g, '_' ) );
+				}
+				if ( adsParseUrlParams( "utm_source" ) || getCookie("utm_source") !== undefined ) {
+					if(adsParseUrlParams( "utm_source" )){
+						window.utm_source = adsParseUrlParams( "utm_source" );
+						setCookie("utm_source", window.utm_source, {expires:1800, path: "/"});
+					} else {
+						window.utm_source = getCookie("utm_source");
+					}
+					googletag.pubads().setTargeting( "utm_source", window.utm_source );
+				}
+				if ( adsParseUrlParams( "utm_medium" ) || getCookie("utm_medium") !== undefined ) {
+					if(adsParseUrlParams( "utm_medium" )){
+						window.utm_medium = adsParseUrlParams( "utm_medium" );
+						setCookie("utm_medium", window.utm_medium, {expires:1800, path: "/"});
+					} else {
+						window.utm_medium = getCookie("utm_medium");
+					}
+					googletag.pubads().setTargeting( "utm_medium", window.utm_medium );
+				}
+				if ( adsParseUrlParams( "utm_campaign" ) || getCookie("utm_campaign") !== undefined ) {
+					if(adsParseUrlParams( "utm_campaign" )){
+						window.utm_campaign = adsParseUrlParams( "utm_campaign" );
+						setCookie("utm_campaign", window.utm_campaign, {expires:1800, path: "/"});
+					} else {
+						window.utm_campaign = getCookie("utm_campaign");
+					}
+					googletag.pubads().setTargeting( "utm_campaign", window.utm_campaign );
+				}
+				if ( window.test_param = adsParseUrlParams( "test" ) ) {
+					googletag.pubads().setTargeting( "test", window.test_param );
+				}
+
+				if (typeof Storage !== "undefined") {
+					var targetingParamStr = localStorage.getItem("bcDFPTargetingParams");
+
+					if (targetingParamStr) {
+					    var targetingParameters = JSON.parse(targetingParamStr);
+
+					    // set page-level targeting parameters
+					    targetingParameters.forEach(function(el, index){
+							googletag.pubads().setTargeting(el.key, el.value);
+						});
+					}
+				}
+	
+				// read the currently defined
+				// all GPT ad slots should be
+				var gptSlots = googletag.pubads().getSlots();
+				for ( var i = 0; i < gptSlots.length; i++ ) {
+					//GPT ad slots for sending to the PET endpoint defined before calling PET
+					var sizes = gptSlots[i].getSizes().map( function( size ) {
+						if ( size.getWidth && size.getHeight ) {
+							return [size.getWidth(), size.getHeight()];
+						} else {
+							return [1, 1];
+						}
+					} );
+					window.iasPETSlots.push( {
+						adSlotId: gptSlots[i].getSlotElementId(),
+						//size: can either be a single size (e.g., [728, 90])
+						// or an array of sizes (e.g., [[728, 90], [970, 90]])
+						size: sizes,
+						adUnitPath: gptSlots[i].getAdUnitPath()
+					} );
+				}
+		googletag.pubads().enableSingleRequest();
+		googletag.pubads().disableInitialLoad();
+		googletag.pubads().enableAsyncRendering();
+		googletag.pubads().collapseEmptyDivs();
+		googletag.enableServices();
+		} );
+	</script>	<script type="text/plain" class="optanon-category-C0004">
+		//whenever you want header bids call this function
+		function fetchHeaderBids( amazonSlots, pbSlots, iasSlots ) {
+			var opt = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
+
+			var bidTimeout = (window.gptIsMobile()) ? 2400 : 1400;
+
+			var bidders = ['a9', 'prebid', 'ias'];
+
+			// create a requestManager to keep track of bidder state to determine when to send ad server
+			// request and what amazonSlots to request from the ad server
+			var requestManager = {
+				adserverRequestSent: false,
+			};
+
+			//loop through bidder array and add the bidders to the request manager:
+			bidders.forEach( function( bidder ) {
+				requestManager[bidder] = false;
+			} );
+
+			// a helper function that returns googletag objects corresponding to the slotIDs in the slot objects
+			function _getGPTSlots( amazonSlots ) {
+				// get all of the slot IDs that were requested
+				var slotIDs = amazonSlots.map( function( slot ) {
+					return slot.slotID;
+				} );
+
+				// return the slot objects corresponding to the slotIDs
+				return googletag.pubads().getSlots().filter( function( slot ) {
+					// return true if the ID of the slot object is in the slotIDs array
+					return slotIDs.indexOf( slot.getSlotElementId() ) > -1;
+				} );
+
+			}
+
+			// return true if all bidders have returned
+			function allBiddersBack() {
+				var allBiddersBack = bidders
+				// get the booleans from the object
+					.map( function( bidder ) {
+						return requestManager[bidder];
+					} )
+					// get rid of false values - indicates that the bidder has responded
+					.filter( Boolean )
+					// if length is equal to bidders, all bidders are back
+					.length === bidders.length;
+
+				return allBiddersBack;
+			}
+
+			// handler for header bidder responses
+			function headerBidderBack( bidder ) {
+				<!-- EZOIC_REMOVE_BEGIN -->
+				// return early if request to adserver is already sent
+				if ( requestManager.adserverRequestSent === true ) {
+					return;
+				}
+				// flip bidder back flag
+				if ( bidder === 'a9' ) {
+					requestManager.a9 = true;
+				} else if ( bidder === 'prebid' ) {
+					requestManager.prebid = true;
+				} else if ( bidder === 'ias' ) {
+					requestManager.ias = true;
+				}
+
+				// if all bidders are back, send the request to the ad server
+				if ( allBiddersBack() ) {
+				<!-- EZOIC_REMOVE_END -->
+					sendAdserverRequest();
+				<!-- EZOIC_REMOVE_BEGIN -->
+				}
+				<!-- EZOIC_REMOVE_END -->
+			}
+
+			// actually get ads from DFP
+			function sendAdserverRequest() {
+				<!-- EZOIC_REMOVE_BEGIN -->
+				// return early if request already sent
+				if ( requestManager.adserverRequestSent === true ) {
+					return;
+				}
+
+				// flip the boolean that keeps track of whether the adserver request was sent
+				requestManager.adserverRequestSent = true;
+				// flip pbjs boolean to signal to pbjs the ad server has already been called
+				pbjs.adserverRequestSent = true;
+
+				//flip boolean for adserver request to avoid duplicate requests
+				requestManager.sendAdserverRequest = true;
+				<!-- EZOIC_REMOVE_END -->
+				// make ad request to DFP
+				googletag.cmd.push( function() {
+					<!-- EZOIC_REMOVE_BEGIN -->
+					apstag.setDisplayBids();
+					pbjs.setTargetingForGPTAsync();
+					<!-- EZOIC_REMOVE_END -->
+					__iasPET.setTargetingForGPT();
+					window.googletag.pubads().refresh( filterAdSlots( pbSlots ), {changeCorrelator: opt} );
+				} );
+			}
+
+			function contains( arr, obj ) {
+				return ( arr.indexOf( obj ) !== -1 );
+			}
+
+			function filterAdSlots( slotIdArray ) {
+				return window.googletag.pubads().getSlots()
+					.filter( function( slot ) {
+						return contains( slotIdArray, slot.getAdUnitPath() ) || contains( slotIdArray, slot.getSlotElementId() );
+					} );
+			}
+
+			function requestBids( pbSlots ) {
+				// request bids from prebid
+				pbjs.que.push( function() {
+					pbjs.initAdserverSet = true;
+					pbjs.requestBids( {
+						adUnitCodes: pbSlots,
+						bidsBackHandler: function bidsBackHandler() {
+							headerBidderBack( 'prebid' );
+						}
+					} );
+				} );
+			}
+			<!-- EZOIC_REMOVE_BEGIN -->
+			if ( amazonSlots.length ) {
+				apstag.fetchBids( {
+					slots: amazonSlots,
+					timeout: bidTimeout
+				}, function( bids ) {
+					headerBidderBack( 'a9' );
+				} );
+			}
+
+			//requestBids
+			pbjs.que.push( function() {
+				requestBids( pbSlots )
+			} );
+			<!-- EZOIC_REMOVE_END -->
+			// make the request to PET. if your page makes multiple ad requests to DFP // (e.g., lazily loaded ads, infinite scrolling pages, etc.), you should make // a request to PET before every request to DFP
+			__iasPET.queue.push( {
+				adSlots: iasSlots,
+				dataHandler: headerBidderBack( 'ias' )
+			} );
+
+			// set timeout to send request to call sendAdserverRequest() after timeout
+			// if all bidders haven't returned before then
+			var bidding = setTimeout( function() {
+				sendAdserverRequest();
+			}, bidTimeout + 100 );
+		};
+
+		function customInfiniteScroll( mapping, slotID, aSlot, opt, iasSlots ) {
+			var codes = [];
+			<!-- EZOIC_REMOVE_BEGIN -->
+			var configAdUnits = window.adUnits;
+			var infiniteScrollMap = {};
+			if ( mapping.length > 0 ) {
+				for ( var i = 0; i < mapping.length; i++ ) {
+					infiniteScrollMap[mapping[i].targetAdUnitCode] = mapping[i].newAdUnitCode;
+					codes.push( mapping[i].newAdUnitCode );
+				}
+				for ( var i = 0; i < configAdUnits.length; i++ ) {
+					var val = infiniteScrollMap[configAdUnits[i].code];
+					if ( typeof val !== "undefined" ) {
+						var oldSlot = configAdUnits[i];
+						oldSlot.code = infiniteScrollMap[configAdUnits[i].code];
+						pbjs.removeAdUnit( configAdUnits[i].code );
+						configAdUnits[i] = oldSlot;
+					}
+				}
+				pbjs.addAdUnits( configAdUnits );
+			}
+			<!-- EZOIC_REMOVE_END -->
+			fetchHeaderBids( aSlot, [slotID], iasSlots, opt );
+		}
+
+		googletag.cmd.push( function() {
+			console.log( amazonSlots, gpt.initialLoadSlots, window.iasPETSlots );
+			fetchHeaderBids( amazonSlots, gpt.initialLoadSlots, window.iasPETSlots );
+		} );
+
+	</script>
+	<script type="text/plain" class="optanon-category-C0004">
+		googletag.cmd.push(function() {
+			googletag.pubads().setTargeting( 'sponsor', "sports" );
+		});
+		</script>
+	<script>
+		window.jwVastTag = {};
+		window.prerollTag = {};
+		window.jwpDef = {};
+	</script>
+				<!-- Google Tag Manager -->
+			<script>( function( w, d, s, l, i ) {
+					w[l] = w[l] || [];
+					w[l].push( {
+						'gtm.start':
+							new Date().getTime(), event: 'gtm.js'
+					} );
+					var f = d.getElementsByTagName( s )[0],
+						j = d.createElement( s ), dl = l != 'dataLayer' ? '&l=' + l : '';
+					j.async = true;
+					j.src =
+						'https://www.googletagmanager.com/gtm.js?id=' + i + dl + "";
+					f.parentNode.insertBefore( j, f );
+				} )( window, document, 'script', 'dataLayer',"GTM-5WS597H");</script>		<!-- End Google Tag Manager -->
+					<style type="text/css" id="wp-custom-css">
+			/* Remove header gradient for Uncompromised lands post. 
+ * Requested by Nicole on 21.03.19 */
+.postid-558 .hub-header-img:after {
+	background: transparent;
+}
+.postid-558 .hub-header #page-name {
+	visibility: hidden;
+}
+
+
+/* Remove header gradient for postid-351486 hub. 
+	* Requested by Nicole on 10.08.2019
+ */
+.postid-351486 .hub-header-img:after {
+	display: none;
+}
+
+
+/* Hardcoded thumbnails for 'More' menu subnav items
+ * Added 19.08.2019
+ * Shouldn't be removed
+ */
+.header-nav-primary .sub-menu .menu-item-360173 .item-tag__placeholder {
+	    background-image: url(https://www.mensjournal.com/wp-content/uploads/2019/08/Subscribe.jpg);
+}
+.header-nav-primary .sub-menu .menu-item-360182 .item-tag__placeholder {
+	    background-image: url(https://www.mensjournal.com/wp-content/uploads/2019/08/Give-a-gift1-1.jpg);
+}
+.header-nav-primary .sub-menu .menu-item-360183 .item-tag__placeholder {
+	    background-image: url(https://www.mensjournal.com/wp-content/uploads/2019/08/Subscriber-Service.jpg);
+}
+.header-nav-primary .sub-menu .menu-item-360184 .item-tag__placeholder {
+	    background-image: url(https://www.mensjournal.com/wp-content/uploads/2019/08/Shop-Special-Issues.jpg);
+}
+.header-nav-primary .sub-menu .menu-item-360185 .item-tag__placeholder {
+	    background-image: url(https://www.mensjournal.com/wp-content/uploads/2019/08/Accessibility-Statement.jpg);
+}
+.header-nav-primary .sub-menu .menu-item-360186 .item-tag__placeholder {
+	    background-image: url(https://www.mensjournal.com/wp-content/uploads/2019/08/Newsletter.jpg);
+}
+/* // */
+		</style>
+			<script type="text/javascript">var ezouid = "1";</script><base href="https://www.mensjournal.com/sports/interview-p-k-subban-talks-trade-reaction-lindsey-vonn/"><script type='text/javascript'>
+var ezoTemplate = 'old_site_noads';
+if(typeof ezouid == 'undefined')
+{
+    var ezouid = 'none';
+}
+var ezoFormfactor = '1';
+var ezo_elements_to_check = Array();
+</script><!-- START EZHEAD -->
+<script data-ezscrex="false" type='text/javascript'>
+var soc_app_id = '0';
+var did = 185389;
+var ezdomain = 'mensjournal.com';
+var ezoicSearchable = 1;
+</script>
+<!--{jquery}-->
+<!-- END EZHEAD -->
+<script data-ezscrex="false" type="text/javascript" data-cfasync="false">var _ezaq = {"ad_cache_level":0,"ad_lazyload_version":0,"city":"Chicago","country":"US","days_since_last_visit":-1,"domain_id":185389,"engaged_time_visit":0,"ezcache_level":0,"forensiq_score":-1,"form_factor_id":1,"framework_id":1,"is_return_visitor":false,"is_sitespeed":0,"last_page_load":"","last_pageview_id":"","lt_cache_level":0,"metro_code":602,"page_ad_positions":"","page_view_count":13,"page_view_id":"d38e9288-edbf-4e83-6f7e-554ca1d0e69f","position_selection_id":0,"postal_code":"60640","pv_event_count":0,"response_time_orig":9,"serverid":"52.90.72.38:31663","state":"IL","t_epoch":1590114999,"template_id":120,"time_on_site_visit":0,"url":"https://www.mensjournal.com/sports/interview-p-k-subban-talks-trade-reaction-lindsey-vonn/","user_id":0,"word_count":628,"worst_bad_word_level":0};var _ezExtraQueries = "&ez_orig=1";</script><script data-ezscrex='false' data-cfasync='false' type="text/javascript" src="/detroitchicago/rochester.js?cb=188-0&v=8" async></script>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" type="text/javascript"></script>
+<script data-ezscrex='false' data-pagespeed-no-defer data-cfasync='false'>
+function create_ezolpl() {
+    var d = new Date();
+    d.setTime(d.getTime() + (365*24*60*60*1000));
+    var expires = "expires="+d.toUTCString();
+    __ez.ck.setByCat("ezux_lpl_185389=" + new Date().getTime() + "|d38e9288-edbf-4e83-6f7e-554ca1d0e69f|false; " + expires, 3);
+}
+function attach_ezolpl() {
+    if(window.attachEvent) {
+        window.attachEvent('onload', create_ezolpl);
+    } else {
+        if(window.onload) {
+            var curronload = window.onload;
+            var newonload = function(evt) {
+                curronload(evt);
+                create_ezolpl();
+            };
+            window.onload = newonload;
+        } else {
+            window.onload = create_ezolpl;
+        }
+    }
+}
+attach_ezolpl();
+</script></head>
+
+	<body class="post-template-default single single-post postid-485226 single-format-video active-content article" >
+		<nav role="navigation" class="visuallyhidden">
+			<ul>
+				<li><a href="#main">Skip to content</a></li>
+				<li><a href="#footer">Skip to footer</a></li>
+			</ul>
+		</nav><!--/.visuallyhidden-->
+
+	<svg class="svg-defs" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<defs><svg id="logo-primary" viewBox="5 5 552 128" enable-background="new 0 0 552 128" xml:space="preserve">
+	<path class="color-theme-logo" d="M294.9,107h-3.6c-2.3,0-3.3-1-3.3-3.4V24.9c0-2.2,1-3.3,3.3-3.3h3.6c2.2,0,3.4,0.9,3.4,3.3v78.8 C298.3,106.2,297.2,107,294.9,107 M314.9,21.8c0-11-4.4-15.4-15.4-15.4h-12.8c-10.4,0-15.4,4.3-15.4,15.4v84.7 c0,10.6,5.5,15.5,15.4,15.5h12.8c10.2,0,15.4-5,15.4-15.4V21.8z M390.6,55.7h-7.1V21.6h7.1c2.3,0,3.3,1,3.3,3.3v27.5 C393.8,54.6,392.7,55.7,390.6,55.7 M401.5,69.2c6.4-1.5,8.9-5.7,8.9-13.5V21.7c0-11.7-4.7-15.3-15.4-15.3h-28.2V122h16.6V70.6h1.7 l10.5,51.4h17L401.5,69.2z M480,85.7l5-54.4h0.4l4.9,54.4H480z M496.9,6.6h-22.1L461.2,122h15.5l2.1-21.4H492l1.7,21.4h15.8 L496.9,6.6z M61.7,6.5H48.2L32.9,46.3L17.5,6.5H4V122h16.6V54.3l10.8,28.9h3.1l10.7-28.8V122h16.6V6.5z M101.6,107H82.5V70.5h14.8 V55.6H82.5v-34h19.1V6.5H65.8V122h35.8V107z M150.4,6.5h-15.8v51.4L120.9,6.5h-15.1V122h15.7V60l16,62h12.8V6.5z M205.7,82.2 c0-5.5-1.5-8.1-5.5-12.6l-18.7-21.2c-1.8-2-2.8-4.2-2.8-7V24.9c0-2.1,0.9-3.3,3.3-3.3h3.9c2.1,0,3.1,1.2,3.1,3.4v14.6h16.6V21.7 c0-11-4.8-15.3-15.3-15.3h-12.8c-9.2,0-15.4,4.3-15.4,14.8V48c0,5.7,2,8,5.1,11.5l19.1,21.8c1.6,1.8,2.7,3.4,2.7,6.9v15.4 c0,2.4-1,3.3-3.3,3.3h-3.7c-2.2,0-3.3-1-3.3-3.3V89.3h-16.6v17.4c0,10.5,5,15.4,15.4,15.4h12.8c10.4,0,15.4-5.5,15.4-15.4V82.2z M153,6.5v26h4.3l4.9-26H153z M266.9,6.5h-16.8v97.3c0,2.2-1,3.2-3.3,3.2h-3.7c-2.1,0-3.3-1-3.3-3.3V89.4h-16.7v17.1 c0,10.7,5.1,15.5,15.4,15.5h13c10.4,0,15.4-4.8,15.4-15.5V6.5z M362.7,6.5h-16.6v97.2c0,2.3-0.9,3.3-3.3,3.3h-3.6 c-2.3,0-3.3-1-3.3-3.2V6.5h-16.6v100.1c0,10.7,4.9,15.5,15.4,15.5h12.8c10.6,0,15.3-4.4,15.3-15.4V6.5z M459.3,6.5h-15.8v51.4 L429.9,6.5h-15.1V122h15.7V60l16,62h12.8V6.5z M546.8,122h-35.4V6.5h16.7V107h18.8V122z"/>
+</svg>
+<symbol id="svg-icon-facebook">
+	<path d="M19.7,26.2v-7h2.4l0.4-2.7h-2.7v-1.7c0-0.8,0.2-1.3,1.4-1.3l1.5,0v-2.4c-0.3,0-1.1-0.1-2.1-0.1	c-2.1,0-3.5,1.3-3.5,3.6v2h-2.4v2.7h2.4v7H19.7z"/>
+</symbol><symbol id="svg-icon-twitter">
+	<path d="M26.9,13.3c-0.6,0.3-1.3,0.5-2,0.5c0.7-0.4,1.3-1.1,1.5-1.9c-0.7,0.4-1.4,0.7-2.2,0.8 c-0.6-0.7-1.5-1.1-2.5-1.1c-1.9,0-3.5,1.5-3.5,3.5c0,0.3,0,0.5,0.1,0.8c-2.9-0.1-5.4-1.5-7.1-3.6c-0.3,0.5-0.5,1.1-0.5,1.7 c0,1.2,0.6,2.3,1.5,2.9c-0.6,0-1.1-0.2-1.6-0.4c0,0,0,0,0,0c0,1.7,1.2,3.1,2.8,3.4C13.2,20,12.9,20,12.6,20c-0.2,0-0.4,0-0.7-0.1 c0.4,1.4,1.7,2.4,3.2,2.4c-1.2,0.9-2.7,1.5-4.3,1.5c-0.3,0-0.6,0-0.8,0c1.5,1,3.4,1.6,5.3,1.6c6.4,0,9.8-5.3,9.8-9.8 c0-0.2,0-0.3,0-0.4C25.9,14.6,26.5,14,26.9,13.3z"/>
+</symbol><symbol id="svg-icon-email">
+	<path fill="#ffffff" d="M10,14.9v10.3l6.3-5.1L10,14.9z"/>
+	<path fill="#ffffff" d="M23.7,20.1l6.3,5.1V14.9L23.7,20.1z"/>
+	<path fill="#ffffff" d="M10.6,13.3L20,21l9.4-7.7H10.6z"/>
+	<path fill="#ffffff" d="M10.6,26.7h18.8l-6.9-5.6L20,23.2L19.8,23l-2.4-2L10.6,26.7z"/>
+</symbol><symbol id="svg-icon-comments">
+	<path class="icon-symbol" d="M28,19c0-3.9-3.6-7-8-7s-8,3.1-8,7s3.6,7,8,7c0.5,0,1,0,1.5-0.1l0,0L25,28v-3.5l0,0C26.8,23.2,28,21.2,28,19z"/>
+</symbol><symbol id="icon-facebook-alt">
+	<path fill-rule="evenodd" d="M105.8 198H10.9c-6 0-10.9-4.9-10.9-10.9V10.9C0 4.9 4.9 0 10.9 0H187c6 0 10.9 4.9 10.9 10.9V187c0 6-4.9 10.9-10.9 10.9h-50.5v-76.7h25.7l3.9-29.9h-29.6V72.4c0-8.7 2.4-14.5 14.8-14.5h15.8V31.1c-2.7-.4-12.1-1.2-23.1-1.2-22.8 0-38.4 13.9-38.4 39.5v22H80v29.9h25.8V198z"/>
+</symbol><symbol id="icon-twitter-alt">
+	<path fill-rule="evenodd" d="M198 19.6c-7.3 3.2-15.1 5.4-23.3 6.4 8.4-5 14.8-13 17.9-22.5-7.8 4.7-16.5 8-25.8 9.9-7.4-7.9-18-12.8-29.6-12.8-22.4 0-40.6 18.2-40.6 40.6 0 3.2.4 6.3 1.1 9.3C63.8 48.7 33.8 32.6 13.8 8c-3.5 6-5.5 13-5.5 20.4 0 14.1 7.2 26.5 18.1 33.8-6.7-.2-12.9-2-18.4-5.1v.5c0 19.7 14 36.1 32.6 39.8-3.4.9-7 1.4-10.7 1.4-2.6 0-5.2-.3-7.6-.7 5.2 16.1 20.2 27.9 37.9 28.2-13.9 10.9-31.4 17.4-50.4 17.4-3.3 0-6.5-.2-9.7-.6 18 11.5 39.3 18.3 62.3 18.3 74.7 0 115.6-61.9 115.6-115.6 0-1.8 0-3.5-.1-5.3 7.8-5.6 14.7-12.8 20.1-20.9"/>
+</symbol>
+<symbol id="icon-instagram-alt">
+	<g fill-rule="evenodd"><path d="M99 17.8c26.4 0 29.6.1 40 .6 9.7.4 14.9 2.1 18.4 3.4 4.6 1.8 7.9 3.9 11.4 7.4 3.5 3.5 5.6 6.8 7.4 11.4 1.4 3.5 3 8.7 3.4 18.4.5 10.4.6 13.6.6 40s-.1 29.6-.6 40c-.4 9.7-2.1 14.9-3.4 18.4-1.8 4.6-3.9 7.9-7.4 11.4-3.5 3.5-6.8 5.6-11.4 7.4-3.5 1.4-8.7 3-18.4 3.4-10.4.5-13.6.6-40 .6s-29.6-.1-40-.6c-9.7-.4-14.9-2.1-18.4-3.4-4.6-1.8-7.9-3.9-11.4-7.4-3.5-3.5-5.6-6.8-7.4-11.4-1.4-3.5-3-8.7-3.4-18.4-.5-10.4-.6-13.6-.6-40s.1-29.6.6-40c.4-9.7 2.1-14.9 3.4-18.4 1.8-4.6 3.9-7.9 7.4-11.4 3.5-3.5 6.8-5.6 11.4-7.4 3.5-1.4 8.7-3 18.4-3.4 10.4-.5 13.6-.6 40-.6zM99 0C72.1 0 68.7.1 58.2.6c-10.5.5-17.7 2.2-24 4.6-6.5 2.5-12 5.9-17.5 11.4s-8.9 11-11.4 17.5c-2.4 6.3-4.1 13.5-4.6 24C.1 68.7 0 72.1 0 99s.1 30.3.6 40.8c.5 10.5 2.2 17.7 4.6 24 2.5 6.5 5.9 12 11.4 17.5s11 8.9 17.5 11.4c6.3 2.4 13.5 4.1 24 4.6 10.6.5 13.9.6 40.8.6s30.3-.1 40.8-.6c10.5-.5 17.7-2.2 24-4.6 6.5-2.5 12-5.9 17.5-11.4s8.9-11 11.4-17.5c2.4-6.3 4.1-13.5 4.6-24 .5-10.6.6-13.9.6-40.8s-.1-30.3-.6-40.8c-.5-10.5-2.2-17.7-4.6-24-2.5-6.5-5.9-12-11.4-17.5s-11-8.9-17.5-11.4c-6.3-2.4-13.5-4.1-24-4.6C129.3.1 125.9 0 99 0z"/><path d="M99 48.2C70.9 48.2 48.2 71 48.2 99c0 28 22.8 50.8 50.8 50.8 28 0 50.8-22.8 50.8-50.8 0-28-22.7-50.8-50.8-50.8zm0 83.8c-18.2 0-33-14.8-33-33s14.8-33 33-33 33 14.8 33 33-14.8 33-33 33z"/><circle cx="151.8" cy="46.2" r="11.9"/></g>
+</symbol><symbol id="icon-comment-alt">
+	<path fill-rule="evenodd" d="M99 .3C44.4.3 0 36.8 0 81.7c0 20.7 10.4 41.2 28.7 56.7L6.9 178.9c-.7 1.3-.5 2.8.5 3.8.6.7 1.5 1 2.4 1 .5 0 1-.1 1.4-.3l55-25.9c8.8 2.6 20.3 5.5 32.9 5.5 54.6 0 99-36.5 99-81.4C198.1 36.7 153.6.3 99 .3"/>
+</symbol>
+	<symbol id="icon-rss">
+			<path fill="#ffffff" d="M54.8,292.4c-15.2,0-28.2,5.3-38.8,16C5.3,319,0,332,0,347.2c0,15.2,5.3,28.2,16,38.8
+	c10.7,10.7,23.6,16,38.8,16c15.2,0,28.2-5.3,38.8-16c10.7-10.7,16-23.6,16-38.8c0-15.2-5.3-28.2-16-38.8
+	C83,297.7,70,292.4,54.8,292.4z"/>
+			<path fill="#ffffff" d="M181,221c-21.5-21.7-46.2-39-73.9-51.8c-27.8-12.9-56.9-20.5-87.4-23h-1.4c-4.9,0-9,1.6-12.3,4.9
+	c-4,3.4-6,7.9-6,13.4V203c0,4.8,1.6,8.9,4.7,12.3c3.1,3.4,7.1,5.3,11.8,5.7c43.6,4.2,80.8,21.8,111.8,52.7
+	c30.9,30.9,48.5,68.2,52.7,111.8c0.4,4.8,2.3,8.7,5.7,11.8c3.4,3.1,7.5,4.7,12.3,4.7h38.5c5.5,0,10-2,13.4-6
+	c3.6-3.8,5.2-8.4,4.9-13.7c-2.5-30.4-10.1-59.6-23-87.4C220,267.2,202.7,242.5,181,221z"/>
+			<path fill="#ffffff" d="M367.7,239.7c-20.4-45.6-48.3-86.1-83.9-121.5c-35.4-35.6-75.9-63.6-121.5-83.9C116.7,13.9,69,2.5,19.1,0
+	h-0.9C13.3,0,9.1,1.7,5.7,5.2C1.9,8.6,0,13,0,18.3v40.8c0,4.8,1.7,8.9,5,12.4c3.3,3.5,7.4,5.4,12.1,5.6
+	c40.9,2.5,79.8,12.2,116.6,29.1c36.8,16.9,68.8,39,95.9,66.1c27.1,27.1,49.1,59.1,66.1,95.9c16.9,36.8,26.6,75.7,28.8,116.6
+	c0.2,4.8,2,8.8,5.6,12.1c3.5,3.3,7.8,5,12.7,5h40.8c5.3,0,9.7-1.9,13.1-5.7c3.8-3.8,5.5-8.3,5.1-13.4
+	C399.5,333,388.1,285.3,367.7,239.7z"/>
+</symbol>
+	</defs>
+</svg>
+	
+	<header id="header" class="header" role="banner">
+
+		<div class="container-full">
+
+			<button type="button" id="header-hamburger" class="header-hamburger" aria-controls="header-nav-primary-list" aria-expanded="false">
+				<div class="header-hamburger-bar" aria-hidden="true"></div>
+				<div class="header-hamburger-bar" aria-hidden="true"></div>
+				<div class="header-hamburger-bar" aria-hidden="true"></div>
+				<span class="visuallyhidden">Toggle Navigation</span>
+			</button>
+
+								<a href="https://www.mensjournal.com/" class="header-logo">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1076 418" role="image" aria-label="Men&#039;s Journal">
+						<use class="header-logo-img" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#logo-primary"></use>
+					</svg>
+					<span class="visuallyhidden">Men&#039;s Journal</span>
+				</a>
+				
+			<nav class="header-nav-primary enable-scroll" role="navigation">
+				<ul id="header-nav-primary-list" class="nav"><li id="menu-item-147640" class="menu-item menu-item-type-post_type menu-item-object-hub menu-item-has-children menu-item-147640"><a  href="https://www.mensjournal.com/gear/">Gear</a>
+<ul class="sub-menu">
+	<li id="menu-item-360096" class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-360096"><a  href="https://www.mensjournal.com/tag/drive/" class="sub-nav__item-tag-link"><div class="item-tag__image"><img width="200" height="200" src="https://www.mensjournal.com/wp-content/uploads/2019/08/Autos.jpg?w=200&amp;h=200&amp;crop=1" class="attachment-square-200x200 size-square-200x200" alt="Cars"  /></div>Autos</a></li>
+	<li id="menu-item-360098" class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-360098"><a  href="https://www.mensjournal.com/tag/technology/" class="sub-nav__item-tag-link"><div class="item-tag__image"><img width="200" height="200" src="https://www.mensjournal.com/wp-content/uploads/2019/08/Tech.jpg?w=200&amp;h=200&amp;crop=1" class="attachment-square-200x200 size-square-200x200" alt="Technology"  /></div>Tech</a></li>
+	<li id="menu-item-360099" class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-360099"><a  href="https://www.mensjournal.com/tag/home-lifestyle/" class="sub-nav__item-tag-link"><div class="item-tag__image"><img width="200" height="200" src="https://www.mensjournal.com/wp-content/uploads/2019/08/Home-Lifestyle.jpg?w=200&amp;h=200&amp;crop=1" class="attachment-square-200x200 size-square-200x200" alt="Home &amp; Lifestyle"  /></div>Home &#038; Lifestyle</a></li>
+	<li id="menu-item-360101" class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-360101"><a  href="https://www.mensjournal.com/tag/fitness-gear/" class="sub-nav__item-tag-link"><div class="item-tag__image"><img width="200" height="200" src="https://www.mensjournal.com/wp-content/uploads/2019/08/Fitness.jpg?w=200&amp;h=200&amp;crop=1" class="attachment-square-200x200 size-square-200x200" alt="Fitness Gear"  /></div>Fitness</a></li>
+	<li id="menu-item-360102" class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-360102"><a  href="https://www.mensjournal.com/tag/outdoor-gear/" class="sub-nav__item-tag-link"><div class="item-tag__image"><img width="200" height="200" src="https://www.mensjournal.com/wp-content/uploads/2019/08/Outdoor.jpg?w=200&amp;h=200&amp;crop=1" class="attachment-square-200x200 size-square-200x200" alt="Outdoor Gear"  /></div>Outdoor</a></li>
+	<li id="menu-item-360100" class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-360100"><a  href="https://www.mensjournal.com/tag/gear-of-the-week/" class="sub-nav__item-tag-link"><div class="item-tag__image"><img width="200" height="200" src="https://www.mensjournal.com/wp-content/uploads/2019/08/Reviews.jpg?w=200&amp;h=200&amp;crop=1" class="attachment-square-200x200 size-square-200x200" alt="Reviews"  /></div>Reviews</a></li>
+</ul>
+</li>
+<li id="menu-item-147641" class="menu-item menu-item-type-post_type menu-item-object-hub menu-item-has-children menu-item-147641"><a  href="https://www.mensjournal.com/health-fitness/">Health &#038; Fitness</a>
+<ul class="sub-menu">
+	<li id="menu-item-360110" class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-360110"><a  href="https://www.mensjournal.com/tag/health/" class="sub-nav__item-tag-link"><div class="item-tag__image"><img width="200" height="200" src="https://www.mensjournal.com/wp-content/uploads/2019/08/Wellness.jpg?w=200&amp;h=200&amp;crop=1" class="attachment-square-200x200 size-square-200x200" alt="Wellness"  /></div>Wellness</a></li>
+	<li id="menu-item-360111" class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-360111"><a  href="https://www.mensjournal.com/tag/workouts/" class="sub-nav__item-tag-link"><div class="item-tag__image"><img width="200" height="200" src="https://www.mensjournal.com/wp-content/uploads/2019/08/Workouts.jpg?w=200&amp;h=200&amp;crop=1" class="attachment-square-200x200 size-square-200x200" alt="Workouts"  /></div>Workouts</a></li>
+	<li id="menu-item-360112" class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-360112"><a  href="https://www.mensjournal.com/tag/celebrity-workouts/" class="sub-nav__item-tag-link"><div class="item-tag__image"><img width="200" height="200" src="https://www.mensjournal.com/wp-content/uploads/2019/08/Celebrity-Workouts.jpg?w=200&amp;h=200&amp;crop=1" class="attachment-square-200x200 size-square-200x200" alt="Celebrity-Workouts"  /></div>Celebrity workouts</a></li>
+	<li id="menu-item-360113" class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-360113"><a  href="https://www.mensjournal.com/tag/abs-workouts/" class="sub-nav__item-tag-link"><div class="item-tag__image"><img width="200" height="200" src="https://www.mensjournal.com/wp-content/uploads/2019/08/Ab-workouts.jpg?w=200&amp;h=200&amp;crop=1" class="attachment-square-200x200 size-square-200x200" alt="Ab workouts"  /></div>Ab workouts</a></li>
+	<li id="menu-item-360114" class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-360114"><a  href="https://www.mensjournal.com/tag/legs-workouts/" class="sub-nav__item-tag-link"><div class="item-tag__image"><img width="200" height="200" src="https://www.mensjournal.com/wp-content/uploads/2019/08/Leg-workouts.jpg?w=200&amp;h=200&amp;crop=1" class="attachment-square-200x200 size-square-200x200" alt="Leg-workouts"  /></div>Leg workouts</a></li>
+	<li id="menu-item-360117" class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-360117"><a  href="https://www.mensjournal.com/tag/total-body-workouts/" class="sub-nav__item-tag-link"><div class="item-tag__image"><img width="200" height="200" src="https://www.mensjournal.com/wp-content/uploads/2019/08/Full-Body-Workouts.jpg?w=200&amp;h=200&amp;crop=1" class="attachment-square-200x200 size-square-200x200" alt="Full-Body-Workouts"  /></div>Total-body workouts</a></li>
+	<li id="menu-item-360118" class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-360118"><a  href="https://www.mensjournal.com/tag/arms-workouts/" class="sub-nav__item-tag-link"><div class="item-tag__image"><img width="200" height="200" src="https://www.mensjournal.com/wp-content/uploads/2019/08/Arm-workouts.jpg?w=200&amp;h=200&amp;crop=1" class="attachment-square-200x200 size-square-200x200" alt="Arm-workouts"  /></div>arms workouts</a></li>
+	<li id="menu-item-360119" class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-360119"><a  href="https://www.mensjournal.com/tag/chest-workouts/" class="sub-nav__item-tag-link"><div class="item-tag__image"><img width="200" height="200" src="https://www.mensjournal.com/wp-content/uploads/2019/08/Chest-workouts.jpg?w=200&amp;h=200&amp;crop=1" class="attachment-square-200x200 size-square-200x200" alt="Chest-workouts"  /></div>Chest workouts</a></li>
+	<li id="menu-item-360120" class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-360120"><a  href="https://www.mensjournal.com/tag/weight-loss/" class="sub-nav__item-tag-link"><div class="item-tag__image"><img width="200" height="200" src="https://www.mensjournal.com/wp-content/uploads/2019/08/Weight-Loss.jpg?w=200&amp;h=200&amp;crop=1" class="attachment-square-200x200 size-square-200x200" alt="Weight-Loss"  /></div>Weight Loss</a></li>
+</ul>
+</li>
+<li id="menu-item-147639" class="menu-item menu-item-type-post_type menu-item-object-hub menu-item-has-children menu-item-147639"><a  href="https://www.mensjournal.com/adventure/">Adventure</a>
+<ul class="sub-menu">
+	<li id="menu-item-360131" class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-360131"><a  href="https://www.mensjournal.com/tag/from-the-magazine/" class="sub-nav__item-tag-link"><div class="item-tag__image"><img width="200" height="200" src="https://www.mensjournal.com/wp-content/uploads/2019/08/Features.jpg?w=200&amp;h=200&amp;crop=1" class="attachment-square-200x200 size-square-200x200" alt="Features"  /></div>Features</a></li>
+	<li id="menu-item-360132" class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-360132"><a  href="https://www.mensjournal.com/tag/fit-travel/" class="sub-nav__item-tag-link"><div class="item-tag__image"><img width="200" height="200" src="https://www.mensjournal.com/wp-content/uploads/2019/08/Trips.jpg?w=200&amp;h=200&amp;crop=1" class="attachment-square-200x200 size-square-200x200" alt="Trips"  /></div>Trips</a></li>
+	<li id="menu-item-360136" class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-360136"><a  href="https://www.mensjournal.com/tag/adventure-guides/" class="sub-nav__item-tag-link"><div class="item-tag__image"><img width="200" height="200" src="https://www.mensjournal.com/wp-content/uploads/2019/08/Guides.jpg?w=200&amp;h=200&amp;crop=1" class="attachment-square-200x200 size-square-200x200" alt="Guides"  /></div>Guides</a></li>
+	<li id="menu-item-361465" class="menu-item menu-item-type-post_type menu-item-object-hub menu-item-361465"><a  href="https://www.mensjournal.com/public-lands/" class="sub-nav__item-tag-link"><div class="item-tag__image"><img width="200" height="200" src="https://www.mensjournal.com/wp-content/uploads/2019/08/Public-Lands.jpg?w=200&amp;h=200&amp;crop=1" class="attachment-square-200x200 size-square-200x200" alt="Public-Lands"  /></div>Lands Uncompromised</a></li>
+	<li id="menu-item-360135" class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-360135"><a  href="https://www.mensjournal.com/tag/outdoor-adventure/" class="sub-nav__item-tag-link"><div class="item-tag__image"><img width="200" height="200" src="https://www.mensjournal.com/wp-content/uploads/2019/08/Outdoors.jpg?w=200&amp;h=200&amp;crop=1" class="attachment-square-200x200 size-square-200x200" alt="Outdoors"  /></div>Outdoors</a></li>
+</ul>
+</li>
+<li id="menu-item-147642" class="menu-item menu-item-type-post_type menu-item-object-hub menu-item-has-children menu-item-147642"><a  href="https://www.mensjournal.com/food-drink/">Food &#038; Drink</a>
+<ul class="sub-menu">
+	<li id="menu-item-360142" class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-360142"><a  href="https://www.mensjournal.com/tag/whiskey/" class="sub-nav__item-tag-link"><div class="item-tag__image"><img width="200" height="200" src="https://www.mensjournal.com/wp-content/uploads/2019/08/Whiskey.jpg?w=200&amp;h=200&amp;crop=1" class="attachment-square-200x200 size-square-200x200" alt="Whiskey"  /></div>Whiskey</a></li>
+	<li id="menu-item-360143" class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-360143"><a  href="https://www.mensjournal.com/tag/beer/" class="sub-nav__item-tag-link"><div class="item-tag__image"><img width="200" height="200" src="https://www.mensjournal.com/wp-content/uploads/2019/08/Beer.jpg?w=200&amp;h=200&amp;crop=1" class="attachment-square-200x200 size-square-200x200" alt="Beer"  /></div>Beer</a></li>
+	<li id="menu-item-360144" class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-360144"><a  href="https://www.mensjournal.com/tag/recipes/" class="sub-nav__item-tag-link"><div class="item-tag__image"><img width="200" height="200" src="https://www.mensjournal.com/wp-content/uploads/2019/08/Recipes.jpg?w=200&amp;h=200&amp;crop=1" class="attachment-square-200x200 size-square-200x200" alt="Recipes"  /></div>Recipes</a></li>
+	<li id="menu-item-360145" class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-360145"><a  href="https://www.mensjournal.com/tag/liquor/" class="sub-nav__item-tag-link"><div class="item-tag__image"><img width="200" height="200" src="https://www.mensjournal.com/wp-content/uploads/2019/08/CocktailsSpirits.jpg?w=200&amp;h=200&amp;crop=1" class="attachment-square-200x200 size-square-200x200" alt="Cocktails&amp;Spirits"  /></div>Cocktails &#038; Spirits</a></li>
+	<li id="menu-item-360146" class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-360146"><a  href="https://www.mensjournal.com/tag/healthy-food/" class="sub-nav__item-tag-link"><div class="item-tag__image"><img width="200" height="200" src="https://www.mensjournal.com/wp-content/uploads/2019/08/Healthy-Food.jpg?w=200&amp;h=200&amp;crop=1" class="attachment-square-200x200 size-square-200x200" alt="Healthy-Food"  /></div>Healthy Food</a></li>
+</ul>
+</li>
+<li id="menu-item-153634" class="menu-item menu-item-type-post_type menu-item-object-hub menu-item-has-children menu-item-153634"><a  href="https://www.mensjournal.com/style/">Style</a>
+<ul class="sub-menu">
+	<li id="menu-item-360152" class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-360152"><a  href="https://www.mensjournal.com/tag/grooming/" class="sub-nav__item-tag-link"><div class="item-tag__image"><img width="200" height="200" src="https://www.mensjournal.com/wp-content/uploads/2019/08/Grooming.jpg?w=200&amp;h=200&amp;crop=1" class="attachment-square-200x200 size-square-200x200" alt="Grooming"  /></div>Grooming</a></li>
+	<li id="menu-item-360153" class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-360153"><a  href="https://www.mensjournal.com/tag/fashion/" class="sub-nav__item-tag-link"><div class="item-tag__image"><img width="200" height="200" src="https://www.mensjournal.com/wp-content/uploads/2019/08/Fashion.jpg?w=200&amp;h=200&amp;crop=1" class="attachment-square-200x200 size-square-200x200" alt="Fashion"  /></div>fashion</a></li>
+	<li id="menu-item-360154" class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-360154"><a  href="https://www.mensjournal.com/tag/watches/" class="sub-nav__item-tag-link"><div class="item-tag__image"><img width="200" height="200" src="https://www.mensjournal.com/wp-content/uploads/2019/08/Watches.jpg?w=200&amp;h=200&amp;crop=1" class="attachment-square-200x200 size-square-200x200" alt="Watches"  /></div>Watches</a></li>
+	<li id="menu-item-360155" class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-360155"><a  href="https://www.mensjournal.com/tag/shoes/" class="sub-nav__item-tag-link"><div class="item-tag__image"><img width="200" height="200" src="https://www.mensjournal.com/wp-content/uploads/2019/08/Shoes.jpg?w=200&amp;h=200&amp;crop=1" class="attachment-square-200x200 size-square-200x200" alt="shoes"  /></div>shoes</a></li>
+</ul>
+</li>
+<li id="menu-item-153635" class="menu-item menu-item-type-post_type menu-item-object-hub menu-item-has-children menu-item-153635"><a  href="https://www.mensjournal.com/travel/">Travel</a>
+<ul class="sub-menu">
+	<li id="menu-item-360162" class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-360162"><a  href="https://www.mensjournal.com/tag/travel-guide/" class="sub-nav__item-tag-link"><div class="item-tag__image"><img width="200" height="200" src="https://www.mensjournal.com/wp-content/uploads/2019/08/Travel-Guides.jpg?w=200&amp;h=200&amp;crop=1" class="attachment-square-200x200 size-square-200x200" alt="Travel-Guides"  /></div>travel guides</a></li>
+	<li id="menu-item-360166" class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-360166"><a  href="https://www.mensjournal.com/tag/four-day-weekends/" class="sub-nav__item-tag-link"><div class="item-tag__image"><img width="200" height="200" src="https://www.mensjournal.com/wp-content/uploads/2019/08/4-day-weekend.jpg?w=200&amp;h=200&amp;crop=1" class="attachment-square-200x200 size-square-200x200" alt="Four Day Weekend"  /></div>4-Day Weekends</a></li>
+	<li id="menu-item-360164" class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-360164"><a  href="https://www.mensjournal.com/tag/national-parks/" class="sub-nav__item-tag-link"><div class="item-tag__image"><img width="200" height="200" src="https://www.mensjournal.com/wp-content/uploads/2019/08/National-Parks.jpg?w=200&amp;h=200&amp;crop=1" class="attachment-square-200x200 size-square-200x200" alt="National-Parks"  /></div>National Parks</a></li>
+	<li id="menu-item-360165" class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-360165"><a  href="https://www.mensjournal.com/tag/travel-tips/" class="sub-nav__item-tag-link"><div class="item-tag__image"><img width="200" height="200" src="https://www.mensjournal.com/wp-content/uploads/2019/08/Travel-Tips.jpg?w=200&amp;h=200&amp;crop=1" class="attachment-square-200x200 size-square-200x200" alt="travel tips"  /></div>travel tips</a></li>
+</ul>
+</li>
+<li id="menu-item-360172" class="nav-primary-more mobile-opened menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-360172"><span class="nav-more-trigger" href="http://#">More</span>
+<ul class="sub-menu">
+	<li id="menu-item-360173" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-360173"><a  href="https://w1.buysub.com/pubs/SR/DMT/print_digital_premium2.jsp?cds_page_id=203594&#038;cds_mag_code=DMT&#038;id=1512169446705&#038;lsid=73351704066044452&#038;vid=1" class="sub-nav__item-tag-link"><div class="item-tag__placeholder"></div>Subscribe</a></li>
+	<li id="menu-item-360182" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-360182"><a  href="https://w1.buysub.com/servlet/GiftsGateway?cds_mag_code=MTS" class="sub-nav__item-tag-link"><div class="item-tag__placeholder"></div>Give a Gift</a></li>
+	<li id="menu-item-360183" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-360183"><a  href="/ecare" class="sub-nav__item-tag-link"><div class="item-tag__placeholder"></div>Subscriber Service</a></li>
+	<li id="menu-item-360184" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-360184"><a  href="https://shop.getspecialissues.com/" class="sub-nav__item-tag-link"><div class="item-tag__placeholder"></div>Shop Special Issues</a></li>
+	<li id="menu-item-360186" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-360186"><a  href="https://www.mensjournal.com/newsletter/" class="sub-nav__item-tag-link"><div class="item-tag__placeholder"></div>Newsletter</a></li>
+	<li id="menu-item-360185" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-360185"><a  href="https://www.mensjournal.com/accessibility-statement/" class="sub-nav__item-tag-link"><div class="item-tag__placeholder"></div>Accessibility Statement</a></li>
+</ul>
+</li>
+</ul>
+				<div class="header-content-title" role="heading" aria-level="1">
+											Being Honest With P.K. Subban: Trade Reaction, Lindsey Vonn, and More									</div><!--/.header-content-title-->
+			</nav><!--/.header-nav-primary-->
+
+			<ul class="header-nav-social nav">
+
+				<li class="header-nav-social-facebook">
+					<a target="_blank" href="https://www.facebook.com/MensJournal" rel="noopener noreferrer me">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 198 198">
+							<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-facebook-alt"></use>
+						</svg>
+						<span class="visuallyhidden">This link opens in a new window</span>
+					</a>
+				</li>
+
+				<li class="header-nav-social-twitter">
+					<a target="_blank" href="https://twitter.com/MensJournal" rel="noopener noreferrer me">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 198 162">
+							<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-twitter-alt"></use>
+						</svg>
+						<span class="visuallyhidden">This link opens in a new window</span>
+					</a>
+				</li>
+
+				<li class="header-nav-social-instagram">
+					<a target="_blank" href="https://instagram.com/MensJournal/" rel="noopener noreferrer me">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 198 198">
+							<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-instagram-alt"></use>
+						</svg>
+						<span class="visuallyhidden">This link opens in a new window</span>
+					</a>
+				</li>
+
+				<li class="header-nav-social-rss">
+					<a target="_blank" href="/rss-feeds/" rel="noopener noreferrer me">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 402 402">
+							<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-rss"></use>
+						</svg>
+						<span class="visuallyhidden">This link opens in a new window</span>
+					</a>
+				</li>
+
+											<li id="icon-comment" class="header-nav-social-comment">
+					<a href="#" role="button" aria-controls="lightbox-comments" data-lightbox-comments="lightbox-comments">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 199 184">
+							<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-comment-alt"></use>
+						</svg>
+						<span class="visuallyhidden">Open Comments</span>
+					</a>
+
+				</li>
+							
+			</ul>
+
+		</div><!--/.container-full-->
+
+	</header><!--/.header-->
+
+	<main id="main" class="main" role="main">
+			<div id="sticky-leaderboard">
+			<div class="ad-slot banner top-banner has-stuck">
+
+				<div class="ad-container" id="top-ad-slot-0">
+					
+			<div id="ezoic-pub-ad-placeholder-102"><div id="leader1" class="advertisement"></div></div>				</div>
+
+			</div>
+		</div>
+
+		
+<article
+	class="article-main"
+	data-category-slug="sports"
+	data-ctype="video"
+	data-tags="coronavirus,COVID-19,hockey,Lindsey Vonn,nhl,P.K. Subban"
+	data-post-id="485226"
+>
+
+	<header class="content-head site-container article-head">
+
+		<p class="content-type">
+
+							<span class="content-label">
+					Sports				</span>
+			
+		</p>
+
+		<h1 class="content-title">Being Honest With P.K. Subban: Trade Reaction, Lindsey Vonn, and More</h1>		
+		<!-- /4216/usweekly/sponsor -->
+		<div id="sponsor" class="ad-sponsor">
+		</div>		
+	</header>
+
+	
+	<div class="grid content set-min lead">
+
+		<section class="content-rail">
+
+			
+				<div class="lead-container">
+					<div class="lead">
+						<script type='text/plain' class='optanon-category-C0002-C0004' src='https://content.jwplatform.com/libraries/eEkK759I.js'></script><div id='jwplayer_Hzbouv7A_eEkK759I_div'></div>
+		<script type='text/plain' class='optanon-category-C0002-C0004'>
+		(function() {
+					var checkJWReady = setInterval( function() {
+						if ("undefined" !== typeof jwplayer) {
+							if(typeof(jQuery)=="function"){(function($){$.fn.fitVids=function(){}})(jQuery)};
+								var el = decodeURIComponent( 'jwplayer_Hzbouv7A_eEkK759I_div' );
+								var mHash = 'ami' + decodeURIComponent( 'Hzbouv7A' );
+								window.jwpDef[mHash] = JSON.parse( decodeURIComponent( '%7B%22advertising%22%3A%7B%22admessage%22%3A%22This%20video%20will%20resume%20in%20xx%20seconds%22%2C%22adscheduleid%22%3A%22CHQMmOtW%22%2C%22autoplayadsmuted%22%3Atrue%2C%22bids%22%3A%7B%22bidders%22%3A%5B%7B%22id%22%3A%22264049%22%2C%22name%22%3A%22SpotX%22%7D%5D%2C%22settings%22%3A%7B%22buckets%22%3A%5B%7B%22increment%22%3A0.25%2C%22max%22%3A60%2C%22min%22%3A5%7D%5D%2C%22floorPriceCents%22%3A500%2C%22mediationLayerAdServer%22%3A%22dfp%22%7D%7D%2C%22client%22%3A%22googima%22%2C%22cuetext%22%3A%22Advertisement%22%2C%22preloadAds%22%3Afalse%2C%22rules%22%3A%7B%22startOnSeek%22%3A%22pre%22%2C%22timeBetweenAds%22%3A0%7D%2C%22schedule%22%3A%5B%7B%22offset%22%3A%22pre%22%2C%22tag%22%3A%22https%3A%5C%2F%5C%2Fpubads.g.doubleclick.net%5C%2Fgampad%5C%2Fads%3Fsz%3D320x240%26iu%3D%5C%2F4216%5C%2Fmensj.channels%5C%2Fpreroll%26impl%3Ds%26gdfp_req%3D1%26env%3Dvp%26output%3Dvast%26unviewed_position_start%3D1%26url%3D%5Breferrer_url%5D%26description_url%3D%5Bdescription_url%5D%26correlator%3D%5Btimestamp%5D%26cust_params%3Dad%253D__item-tags__%2526playerwidth%3D__player-width__%2526playerheight%253D__player-height__%26mediaID%3D__item-mediaid__%26mediaTitle%3D__item-title__%26mediaURL%3D__item-file__%22%2C%22type%22%3A%22linear%22%7D%5D%2C%22skipmessage%22%3A%22Skip%20ad%20in%20xx%20seconds%22%2C%22vpaidcontrols%22%3Afalse%2C%22vpaidmode%22%3A%22enabled%22%7D%2C%22aspectratio%22%3A%2216%3A9%22%2C%22autoPause%22%3A%5B%5D%2C%22autostart%22%3A%22viewable%22%2C%22controls%22%3Atrue%2C%22displaydescription%22%3Afalse%2C%22displaytitle%22%3Afalse%2C%22flashplayer%22%3A%22%5C%2F%5C%2Fssl.p.jwpcdn.com%5C%2Fplayer%5C%2Fv%5C%2F8.14.0%5C%2Fjwplayer.flash.swf%22%2C%22floating%22%3A%5B%5D%2C%22height%22%3A270%2C%22key%22%3A%22vl64P1qWERYhWPOSQL%2BYWCQ%5C%2FDaDG3FMziPA1HI90UKHnKP4Taii2Tw%3D%3D%22%2C%22mute%22%3Atrue%2C%22ph%22%3A2%2C%22pid%22%3A%22eEkK759I%22%2C%22playbackRateControls%22%3Atrue%2C%22preload%22%3A%22metadata%22%2C%22repeat%22%3Afalse%2C%22skin%22%3A%7B%22controlbar%22%3A%7B%22background%22%3A%22rgba%280%2C0%2C0%2C0%29%22%2C%22icons%22%3A%22%23ffffff%22%2C%22iconsActive%22%3A%22%23eb212e%22%2C%22text%22%3A%22%23ffffff%22%7D%2C%22menus%22%3A%7B%22background%22%3A%22%23333333%22%2C%22text%22%3A%22%23ffffff%22%2C%22textActive%22%3A%22%23eb212e%22%7D%2C%22name%22%3A%22five%22%2C%22timeslider%22%3A%7B%22progress%22%3A%22%23eb212e%22%7D%2C%22tooltips%22%3A%7B%22background%22%3A%22%23FFFFFF%22%2C%22text%22%3A%22%23ffffff%22%7D%7D%2C%22stagevideo%22%3Afalse%2C%22stretching%22%3A%22uniform%22%2C%22visualplaylist%22%3Atrue%2C%22width%22%3A%22100%25%22%2C%22setTimeEvents%22%3Atrue%2C%22playlist%22%3A%22https%3A%5C%2F%5C%2Fcontent.jwplatform.com%5C%2Ffeeds%5C%2FHzbouv7A.json%22%2C%22plugins%22%3A%7B%22https%3A%5C%2F%5C%2Fsb.scorecardresearch.com%5C%2Fc2%5C%2Fplugins%5C%2Fstreamingtag_plugin_jwplayer.js%22%3A%5B%5D%2C%22https%3A%5C%2F%5C%2Fovp.iris.tv%5C%2Fplugins%5C%2Fjwplayer%5C%2Fv2%5C%2Firis-jwplayer8.adaptive.min.js%22%3A%7B%22settings%22%3A%7B%22client_token%22%3A%225KRCGIZC9EUT4VN%22%2C%22platform_id%22%3A%22Hzbouv7A%22%2C%22player_id%22%3A%22jwplayer_Hzbouv7A_eEkK759I_div%22%2C%22end_up_next%22%3Atrue%2C%22ssl%22%3Atrue%2C%22campaign_tracking%22%3Atrue%2C%22disable_mobile_upnext%22%3Afalse%7D%2C%22iris_buttons%22%3A%7B%22thumbs_up%22%3Afalse%2C%22thumbs_down%22%3Afalse%2C%22skip_forward%22%3Afalse%2C%22skip_back%22%3Afalse%2C%22skip_on_thumbs_down%22%3Afalse%7D%2C%22global%22%3A%22iris%22%2C%22jwCMS%22%3Atrue%7D%7D%2C%22nextUpDisplay%22%3Afalse%7D' ) );
+								var videoParams   = JSON.parse( decodeURIComponent( '%7B%22advertising%22%3A%7B%22admessage%22%3A%22This%20video%20will%20resume%20in%20xx%20seconds%22%2C%22adscheduleid%22%3A%22CHQMmOtW%22%2C%22autoplayadsmuted%22%3Atrue%2C%22bids%22%3A%7B%22bidders%22%3A%5B%7B%22id%22%3A%22264049%22%2C%22name%22%3A%22SpotX%22%7D%5D%2C%22settings%22%3A%7B%22buckets%22%3A%5B%7B%22increment%22%3A0.25%2C%22max%22%3A60%2C%22min%22%3A5%7D%5D%2C%22floorPriceCents%22%3A500%2C%22mediationLayerAdServer%22%3A%22dfp%22%7D%7D%2C%22client%22%3A%22googima%22%2C%22cuetext%22%3A%22Advertisement%22%2C%22preloadAds%22%3Afalse%2C%22rules%22%3A%7B%22startOnSeek%22%3A%22pre%22%2C%22timeBetweenAds%22%3A0%7D%2C%22schedule%22%3A%5B%5D%2C%22skipmessage%22%3A%22Skip%20ad%20in%20xx%20seconds%22%2C%22vpaidcontrols%22%3Afalse%2C%22vpaidmode%22%3A%22enabled%22%7D%2C%22aspectratio%22%3A%2216%3A9%22%2C%22autoPause%22%3A%5B%5D%2C%22autostart%22%3A%22viewable%22%2C%22controls%22%3Atrue%2C%22displaydescription%22%3Afalse%2C%22displaytitle%22%3Afalse%2C%22flashplayer%22%3A%22%5C%2F%5C%2Fssl.p.jwpcdn.com%5C%2Fplayer%5C%2Fv%5C%2F8.14.0%5C%2Fjwplayer.flash.swf%22%2C%22floating%22%3A%5B%5D%2C%22height%22%3A270%2C%22key%22%3A%22vl64P1qWERYhWPOSQL%2BYWCQ%5C%2FDaDG3FMziPA1HI90UKHnKP4Taii2Tw%3D%3D%22%2C%22mute%22%3Atrue%2C%22ph%22%3A2%2C%22pid%22%3A%22eEkK759I%22%2C%22playbackRateControls%22%3Atrue%2C%22preload%22%3A%22metadata%22%2C%22repeat%22%3Afalse%2C%22skin%22%3A%7B%22controlbar%22%3A%7B%22background%22%3A%22rgba%280%2C0%2C0%2C0%29%22%2C%22icons%22%3A%22%23ffffff%22%2C%22iconsActive%22%3A%22%23eb212e%22%2C%22text%22%3A%22%23ffffff%22%7D%2C%22menus%22%3A%7B%22background%22%3A%22%23333333%22%2C%22text%22%3A%22%23ffffff%22%2C%22textActive%22%3A%22%23eb212e%22%7D%2C%22name%22%3A%22five%22%2C%22timeslider%22%3A%7B%22progress%22%3A%22%23eb212e%22%7D%2C%22tooltips%22%3A%7B%22background%22%3A%22%23FFFFFF%22%2C%22text%22%3A%22%23ffffff%22%7D%7D%2C%22stagevideo%22%3Afalse%2C%22stretching%22%3A%22uniform%22%2C%22visualplaylist%22%3Atrue%2C%22width%22%3A%22100%25%22%2C%22setTimeEvents%22%3Atrue%2C%22playlist%22%3A%22https%3A%5C%2F%5C%2Fcontent.jwplatform.com%5C%2Ffeeds%5C%2FHzbouv7A.json%22%2C%22plugins%22%3A%7B%22https%3A%5C%2F%5C%2Fsb.scorecardresearch.com%5C%2Fc2%5C%2Fplugins%5C%2Fstreamingtag_plugin_jwplayer.js%22%3A%5B%5D%2C%22https%3A%5C%2F%5C%2Fovp.iris.tv%5C%2Fplugins%5C%2Fjwplayer%5C%2Fv2%5C%2Firis-jwplayer8.adaptive.min.js%22%3A%7B%22settings%22%3A%7B%22client_token%22%3A%225KRCGIZC9EUT4VN%22%2C%22platform_id%22%3A%22Hzbouv7A%22%2C%22player_id%22%3A%22jwplayer_Hzbouv7A_eEkK759I_div%22%2C%22end_up_next%22%3Atrue%2C%22ssl%22%3Atrue%2C%22campaign_tracking%22%3Atrue%2C%22disable_mobile_upnext%22%3Afalse%7D%2C%22iris_buttons%22%3A%7B%22thumbs_up%22%3Afalse%2C%22thumbs_down%22%3Afalse%2C%22skip_forward%22%3Afalse%2C%22skip_back%22%3Afalse%2C%22skip_on_thumbs_down%22%3Afalse%7D%2C%22global%22%3A%22iris%22%2C%22jwCMS%22%3Atrue%7D%7D%2C%22nextUpDisplay%22%3Afalse%7D' ) );
+								jwplayer(el).setup(videoParams).on('ready', (e) => {
+				var vHash = "ami" + decodeURIComponent( "Hzbouv7A" );
+				if ( window.jwpDef[vHash].advertising ) {
+					if ( window.jwpDef[vHash].advertising.schedule ) {
+						if ( window.jwpDef[vHash].advertising.schedule[0].tag ) {
+							if ( typeof window.jwVastTag[vHash] === "undefined" ){
+								window.jwVastTag[vHash] = window.jwpDef[vHash].advertising.schedule[0].tag;
+								var vastURL = new URL( window.jwVastTag[vHash] );
+							    var vastParams = new URLSearchParams( vastURL.search );
+							    var ui = vastParams.get( "iu" ).split( '/' );
+							    window.prerollTag[vHash] = vastParams.get( "iu" );
+							    console.log("AMI bid", window.prerollTag[vHash]);
+							    console.log("AMI bid", window.jwVastTag[vHash]);
+							}
+						}
+					}
+				}
+			}).on('beforePlay', (e) => {
+				var el = decodeURIComponent( "jwplayer_Hzbouv7A_eEkK759I_div" );
+				var vHash = "ami" + decodeURIComponent( "Hzbouv7A" );
+				// skip if the video was paused and trying to resume
+				if (jwplayer(el).getState() !== 'idle' && jwplayer(el).getState() !== 'complete') {
+				    return;
+				}
+				if ( window.jwpDef[vHash].advertising ) {
+					if ( window.jwpDef[vHash].advertising.schedule ) {
+						var utms = {};
+					    if ( adsParseUrlParams( "utm_source" ) || typeof getCookie("utm_source") !== "undefined" ) {
+					        var utm_source;
+					        if(adsParseUrlParams( "utm_source" )){
+					            utm_source = adsParseUrlParams( "utm_source" );
+					            setCookie("utm_source", utm_source, {expires:1800, path: "/"});
+					        } else {
+					            utm_source = getCookie("utm_source");
+					        }
+					        utms.utm_source = utm_source;
+					    }
+
+					    if ( adsParseUrlParams( "utm_medium" ) || typeof getCookie("utm_medium") !== "undefined" ) {
+					        var utm_medium;
+					        if( adsParseUrlParams( "utm_medium" ) ){
+					            utm_medium = adsParseUrlParams( "utm_medium" );
+					            setCookie("utm_medium", utm_medium, {expires:1800, path: "/"});
+					        } else {
+					            utm_medium = getCookie("utm_medium");
+					        }
+					        utms.utm_medium = utm_medium;
+					    }
+
+					    if ( adsParseUrlParams( "utm_campaign" ) || typeof getCookie("utm_campaign") !== "undefined" ) {
+					        var utm_campaign;
+					        if(adsParseUrlParams( "utm_campaign" )){
+					            utm_campaign = adsParseUrlParams( "utm_campaign" );
+					            setCookie("utm_campaign", utm_campaign, {expires:1800, path: "/"});
+					        } else {
+					            utm_campaign = getCookie("utm_campaign");
+					        }
+					        utms.utm_campaign = utm_campaign ;
+					    }
+
+					    if ( typeof utms.utm_source !== "undefined" || typeof utms.utm_medium !== "undefined" || typeof utms.utm_campaign !== "undefined" ) {
+					        var vastURL = new URL( window.jwVastTag[vHash] );
+					        var vastParams = new URLSearchParams( vastURL.search );
+					        var keys = Object.keys( utms );
+					        if ( vastParams.has( "cust_params" ) ) {
+					            var custParams = new URLSearchParams( vastParams.get( "cust_params" ) );
+					        } else {
+					            var custParams = new URLSearchParams();
+					        }
+				            for ( var key of keys ) {
+				                custParams.set( key, utms[key]);
+					        }
+					        vastParams.set( "cust_params", custParams.toString() );
+					        vastURL.search = vastParams.toString();
+					        window.jwVastTag[vHash] = vastURL.toString();
+					    }
+
+					    console.log( "AMI bid", window.jwVastTag );
+					}
+				}
+			}).on("ready", function(){
+						var el = decodeURIComponent( "jwplayer_Hzbouv7A_eEkK759I_div" );
+						var playerInstance = jwplayer(el);
+						ns_.StreamingAnalytics.JWPlayer( playerInstance, {
+							publisherId: "6036076",
+							labelmapping: "ns_st_pu=\"AMI\", c3=" + decodeURIComponent( "Men%26%23039%3Bs%20Journal" ) + ", ns_st_ge=" + decodeURIComponent( "%2Anull" ) + ", ns_st_ia=" + decodeURIComponent( "%2Anull" ) + ", ns_st_ce=" + decodeURIComponent( "1" ) + ", ns_st_ddt=" + decodeURIComponent( "%2Anull" ) + ", ns_st_tdt=" + decodeURIComponent( "%2Anull" ),
+						});
+					}).on('adsManager', (e) => {
+				var vHash = 'ami' + decodeURIComponent( 'Hzbouv7A' );
+				const { adsManager, videoElement } = e;
+				const iasConfig = {
+				  anId: '928572',
+				  campId: `${jwplayer().getWidth()}x${jwplayer().getHeight()}`, // This is dynamic based on player dimensions, but can be hard coded
+				  chanId: window.prerollTag[vHash],
+				  placementId: 'Open Auction',
+				  pubOrder: 'Video',
+				  pubId: 'Direct'
+				};
+				if (googleImaVansAdapter) {
+				  googleImaVansAdapter.init(window.google, adsManager, videoElement, iasConfig);
+				}
+			}).on('beforePlay', (e) => {
+				var el = decodeURIComponent( "jwplayer_Hzbouv7A_eEkK759I_div" );
+				var vHash = "ami" + decodeURIComponent( "Hzbouv7A" );
+				// skip if the video was paused and trying to resume
+				if (jwplayer(el).getState() !== 'idle' && jwplayer(el).getState() !== 'complete') {
+				    return;
+				}
+				if ( window.jwpDef[vHash].advertising ) {
+					if ( window.jwpDef[vHash].advertising.schedule ) {
+						apstag.fetchBids({
+							slots: [{
+								slotID: window.prerollTag[vHash],
+								mediaType: 'video'
+							}]
+						}, function( bids ) {
+							console.log( "AMI bid callback", bids );
+							if ( bids.length > 0 ) { //If we have received any bids back
+								try {
+									jwplayer(el).playAd(window.jwVastTag[vHash] + "&scp=" + bids[0].encodedQsParams);
+									console.log("AMI bid request ad", window.jwVastTag[vHash] + "&scp=" + bids[0].encodedQsParams);
+								} catch ( e ) {
+									console.log(e);
+								}
+							} else {
+								console.log("AMI bid ad request", window.jwVastTag[vHash]);
+								jwplayer(el).playAd(window.jwVastTag[vHash]);
+							}
+						});
+					}
+				}
+			}).once("play", function(){
+			var el = decodeURIComponent( "jwplayer_Hzbouv7A_eEkK759I_div" );
+			var playerInstance = jwplayer(el);
+			loadIrisPlugin(playerInstance, playerInstance.getConfig().plugins["https://ovp.iris.tv/plugins/jwplayer/v2/iris-jwplayer8.adaptive.min.js"])
+			});
+								clearInterval(checkJWReady);
+							}
+					}, 500);
+				})();
+	</script>					</div>
+				</div>
+
+			
+			<div class="content-column">
+
+				<aside class="left-rail" id="js-left-rail" role="complementary">
+
+					<div class="content-info">
+
+													<div class="content-byline">
+								<span>by</span> <a href="https://www.mensjournal.com/contributor/ami_producer/" title="Posts by Men&#039;s Journal editors" class="author url fn" rel="author">Men&#039;s Journal editors</a>							</div>
+						
+						
+						<aside class="module-social-sharing">
+
+							<div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon sd-sharing"><div class="sd-content"><ul><li class="share-facebook"><a rel="nofollow noopener noreferrer" data-shared="sharing-facebook-485226" class="share-facebook sd-button share-icon no-text" href="https://www.mensjournal.com/sports/interview-p-k-subban-talks-trade-reaction-lindsey-vonn/?share=facebook" target="_blank" title="Click to share on Facebook"><span></span><span class="sharing-screen-reader-text">Click to share on Facebook (Opens in new window)</span></a></li><li class="share-twitter"><a rel="nofollow noopener noreferrer" data-shared="sharing-twitter-485226" class="share-twitter sd-button share-icon no-text" href="https://www.mensjournal.com/sports/interview-p-k-subban-talks-trade-reaction-lindsey-vonn/?share=twitter" target="_blank" title="Click to share on Twitter"><span></span><span class="sharing-screen-reader-text">Click to share on Twitter (Opens in new window)</span></a></li><li class="share-linkedin"><a rel="nofollow noopener noreferrer" data-shared="sharing-linkedin-485226" class="share-linkedin sd-button share-icon no-text" href="https://www.mensjournal.com/sports/interview-p-k-subban-talks-trade-reaction-lindsey-vonn/?share=linkedin" target="_blank" title="Click to share on LinkedIn"><span></span><span class="sharing-screen-reader-text">Click to share on LinkedIn (Opens in new window)</span></a></li><li class="share-reddit"><a rel="nofollow noopener noreferrer" data-shared="" class="share-reddit sd-button share-icon no-text" href="https://www.mensjournal.com/sports/interview-p-k-subban-talks-trade-reaction-lindsey-vonn/?share=reddit" target="_blank" title="Click to share on Reddit"><span></span><span class="sharing-screen-reader-text">Click to share on Reddit (Opens in new window)</span></a></li><li class="share-pinterest"><a rel="nofollow noopener noreferrer" data-shared="sharing-pinterest-485226" class="share-pinterest sd-button share-icon no-text" href="https://www.mensjournal.com/sports/interview-p-k-subban-talks-trade-reaction-lindsey-vonn/?share=pinterest" target="_blank" title="Click to share on Pinterest"><span></span><span class="sharing-screen-reader-text">Click to share on Pinterest (Opens in new window)</span></a></li><li class="share-end"></li></ul></div></div></div>
+							
+								<a class="social-comments" href="#" role="button" aria-label="Open comments" data-lightbox-comments="lightbox-comments">
+									<svg x="0px" y="0px" enable-background="new 12 12 16 16" xml:space="preserve" aria-label="Comment bubble icon">
+										<use class="icon-comments" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-icon-comments">
+											<svg id="svg-icon-comments" width="100%" height="100%">
+												<path class="icon-symbol" d="M28,19c0-3.9-3.6-7-8-7s-8,3.1-8,7s3.6,7,8,7c0.5,0,1,0,1.5-0.1l0,0L25,28v-3.5l0,0C26.8,23.2,28,21.2,28,19z"></path>
+											</svg>
+										</use>
+									</svg>
+								</a>
+
+							
+						</aside><!--/.module-social-sharing-->
+
+					</div><!--/.content-info-->
+
+				</aside><!--/.left-rail-->
+
+				<div class="center-rail">
+
+					<div class="article-content">
+                        
+						<p>NHL star P.K. Subban sits down and gets honest with Men’s Journal from the comfort of his own home. The New Jersey Devils’ defenseman gives us his candid take on the trade that sent him to New Jersey, how he originally broke the ice with skiing superstar Lindsey Vonn (his now fiance), when he hopes to have kids, and much more.</p>
+		<aside class="inset-related-content"><a href="https://www.mensjournal.com/sports/patrick-kane-on-shootouts-favorite-teammates-and-the-best-player-in-the-nhl/" target="_blank" data-track-category="Article Page" data-track-action="Tap Interstitial Link" data-track-label="https://www.mensjournal.com/sports/patrick-kane-on-shootouts-favorite-teammates-and-the-best-player-in-the-nhl/">
+			Patrick Kane on Shootouts, Favorite Teammates, and the Best Player in the NHL			</a>
+		</aside><figure class="wp-caption aligncenter"><img class="aligncenter size-large wp-image-485228" src="https://www.mensjournal.com/wp-content/uploads/2020/05/shutterstock_editorial_10480171r.jpg?w=900" alt="pk subban" width="900" height="506" srcset="https://www.mensjournal.com/wp-content/uploads/2020/05/shutterstock_editorial_10480171r.jpg?w=660 1x, https://www.mensjournal.com/wp-content/uploads/2020/05/shutterstock_editorial_10480171r.jpg?w=1320 2x" sizes="100vw"><figcaption class="wp-caption-text"><span class="credit">Photo Credit: Kathy Willens/AP/Shutterstock</span></figcaption></figure><p>For some much-needed, midweek relief from everything going on right now, we suggest that you kick up your feet and tune in to the video above to catch a glimpse inside Subban’s quarantined world right now.</p>
+		<aside class="inset-related-content"><a href="https://www.mensjournal.com/sports/nhl-star-alexander-ovechkin-on-his-favorite-athlete-steak-joint-more/" target="_blank" data-track-category="Article Page" data-track-action="Tap Interstitial Link" data-track-label="https://www.mensjournal.com/sports/nhl-star-alexander-ovechkin-on-his-favorite-athlete-steak-joint-more/">
+			Alexander Ovechkin on His Favorite Athlete, Steak Joint, and More			</a>
+		</aside>
+						
+						<p>
+	<strong>
+		<em>For access to exclusive gear videos, celebrity interviews, and more, <a href="https://www.youtube.com/channel/UCNeLFVqmsz1ykGWxIzapHHw" target="_blank">subscribe on YouTube!</a></em>
+	</strong>
+</p>
+						<!-- Table with cooking time details -->
+						
+						<div id="ds_article_btm"></div>
+
+						<div class="module-more-news-center">
+							
+
+	<div id="module-more-news">
+
+				<h3 class="module-header">More News</h3>
+		<div class="article-list">
+							<article class="more-news-article">
+					<a
+						href="https://www.mensjournal.com/gear/home-gear-thatll-make-sheltering-in-place-more-pleasant/"
+						data-track-category="Article Page"
+						data-track-action="Tap More Module"
+						data-track-label="0 - /sports/interview-p-k-subban-talks-trade-reaction-lindsey-vonn/"
+					>
+						10 Home Goods That Ease Shelter-in-Place Orders					</a>
+				</article>
+							<article class="more-news-article">
+					<a
+						href="https://www.mensjournal.com/features/italy-france-and-other-european-countries-begin-re-opening-beaches/"
+						data-track-category="Article Page"
+						data-track-action="Tap More Module"
+						data-track-label="0 - /sports/interview-p-k-subban-talks-trade-reaction-lindsey-vonn/"
+					>
+						Italy, France, and Other European Countries Begin Re-Opening Beaches					</a>
+				</article>
+							<article class="more-news-article">
+					<a
+						href="https://www.mensjournal.com/adventure/u-s-national-parks-begin-opening-with-public-divided-on-safety/"
+						data-track-category="Article Page"
+						data-track-action="Tap More Module"
+						data-track-label="0 - /sports/interview-p-k-subban-talks-trade-reaction-lindsey-vonn/"
+					>
+						National Parks Begin Opening Amid Divisions on Safety					</a>
+				</article>
+							<article class="more-news-article">
+					<a
+						href="https://www.mensjournal.com/sports/travis-rice-on-the-freeride-world-tour-natural-selection-and-more/"
+						data-track-category="Article Page"
+						data-track-action="Tap More Module"
+						data-track-label="0 - /sports/interview-p-k-subban-talks-trade-reaction-lindsey-vonn/"
+					>
+						Travis Rice on the Freeride World Tour, Natural Selection, and More					</a>
+				</article>
+							<article class="more-news-article">
+					<a
+						href="https://www.mensjournal.com/adventure/a-virtual-escape-to-some-of-the-most-beautiful-beaches-on-the-planet/"
+						data-track-category="Article Page"
+						data-track-action="Tap More Module"
+						data-track-label="0 - /sports/interview-p-k-subban-talks-trade-reaction-lindsey-vonn/"
+					>
+						A Virtual Escape to Earth&#039;s Most Beautiful Beaches					</a>
+				</article>
+						<a class="more-link" href="/news">
+				All Stories			</a>
+		</div>
+		
+					<div id="more_videos-2" class="widget more-videos-widget">			<div id="module-more-news">
+				<h3 class="module-header">More Videos</h3>
+				<div class="article-list">
+											<article class="more-news-article">
+							<a href="https://www.mensjournal.com/sports/the-mj5-tony-hawk-on-his-favorite-gear-why-he-always-carries-his-board-and-more/">
+								<div class="img-fit__image-contain"><picture class="article-list-item__img"><img src="https://www.mensjournal.com/wp-content/uploads/2019/06/tony-hawk-main-1.jpg?w=200&#038;h=113&#038;crop=1" srcset="https://www.mensjournal.com/wp-content/uploads/2019/06/tony-hawk-main-1.jpg?w=200&amp;h=113&amp;crop=1 200w, https://www.mensjournal.com/wp-content/uploads/2019/06/tony-hawk-main-1.jpg?w=300&amp;h=169&amp;crop=1 300w, https://www.mensjournal.com/wp-content/uploads/2019/06/tony-hawk-main-1.jpg?w=400&amp;h=225&amp;crop=1 400w, https://www.mensjournal.com/wp-content/uploads/2019/06/tony-hawk-main-1.jpg?w=600&amp;h=338&amp;crop=1 600w, https://www.mensjournal.com/wp-content/uploads/2019/06/tony-hawk-main-1.jpg?w=800&amp;h=450&amp;crop=1 800w, https://www.mensjournal.com/wp-content/uploads/2019/06/tony-hawk-main-1.jpg?w=1000&amp;h=563&amp;crop=1 1000w" sizes="300px" alt="Tony Hawk skates during an exhibition before the Skateboard Vert competition at the X Games Austin on June 5, 2014 at the State Capitol in Austin, Texas. (Photo by Suzanne Cordeiro/Corbis via Getty Images)" data-fallback-img="https://www.mensjournal.com/wp-content/uploads/2019/06/tony-hawk-main-1.jpg?w=300&#038;h=169&#038;crop=1"></picture></div>								The MJ5: Tony Hawk on His Favorite Gear, Why He Always Carries His Board, and More							</a>
+						</article>
+											<article class="more-news-article">
+							<a href="https://www.mensjournal.com/food-drink/what-exactly-is-the-difference-between-bourbon-and-whiskey-20140905/">
+								<div class="img-fit__image-contain"><picture class="article-list-item__img"><img src="https://www.mensjournal.com/wp-content/uploads/2014/09/difference-between-bourbon-and-whiskey.jpg?w=200&#038;h=113&#038;crop=1" srcset="https://www.mensjournal.com/wp-content/uploads/2014/09/difference-between-bourbon-and-whiskey.jpg?w=200&amp;h=113&amp;crop=1 200w, https://www.mensjournal.com/wp-content/uploads/2014/09/difference-between-bourbon-and-whiskey.jpg?w=300&amp;h=169&amp;crop=1 300w, https://www.mensjournal.com/wp-content/uploads/2014/09/difference-between-bourbon-and-whiskey.jpg?w=400&amp;h=225&amp;crop=1 400w, https://www.mensjournal.com/wp-content/uploads/2014/09/difference-between-bourbon-and-whiskey.jpg?w=600&amp;h=338&amp;crop=1 600w, https://www.mensjournal.com/wp-content/uploads/2014/09/difference-between-bourbon-and-whiskey.jpg?w=800&amp;h=450&amp;crop=1 800w, https://www.mensjournal.com/wp-content/uploads/2014/09/difference-between-bourbon-and-whiskey.jpg?w=1000&amp;h=563&amp;crop=1 1000w, https://www.mensjournal.com/wp-content/uploads/2014/09/difference-between-bourbon-and-whiskey.jpg?w=1200&amp;h=675&amp;crop=1 1200w, https://www.mensjournal.com/wp-content/uploads/2014/09/difference-between-bourbon-and-whiskey.jpg?w=1600&amp;h=900&amp;crop=1 1600w, https://www.mensjournal.com/wp-content/uploads/2014/09/difference-between-bourbon-and-whiskey.jpg?w=2400&amp;h=1350&amp;crop=1 2400w, https://www.mensjournal.com/wp-content/uploads/2014/09/difference-between-bourbon-and-whiskey.jpg?w=3200&amp;h=1800&amp;crop=1 3200w, https://www.mensjournal.com/wp-content/uploads/2014/09/difference-between-bourbon-and-whiskey.jpg?w=4000&amp;h=2250&amp;crop=1 4000w" sizes="300px" alt="Bourbon vs Whiskey: The difference between bourbon and whiskey" data-fallback-img="https://www.mensjournal.com/wp-content/uploads/2014/09/difference-between-bourbon-and-whiskey.jpg?w=300&#038;h=169&#038;crop=1"></picture></div>								Here&#039;s the Difference Between Bourbon and Whiskey							</a>
+						</article>
+											<article class="more-news-article">
+							<a href="https://www.mensjournal.com/health-fitness/mens-journal-x-u-s-sailgp-team-strength-conditioning-workout/">
+								<div class="img-fit__image-contain"><picture class="article-list-item__img"><img src="https://www.mensjournal.com/wp-content/uploads/2019/06/Sailgp.jpg?w=200&#038;h=113&#038;crop=1" srcset="https://www.mensjournal.com/wp-content/uploads/2019/06/Sailgp.jpg?w=200&amp;h=113&amp;crop=1 200w, https://www.mensjournal.com/wp-content/uploads/2019/06/Sailgp.jpg?w=300&amp;h=169&amp;crop=1 300w, https://www.mensjournal.com/wp-content/uploads/2019/06/Sailgp.jpg?w=400&amp;h=225&amp;crop=1 400w, https://www.mensjournal.com/wp-content/uploads/2019/06/Sailgp.jpg?w=600&amp;h=338&amp;crop=1 600w, https://www.mensjournal.com/wp-content/uploads/2019/06/Sailgp.jpg?w=800&amp;h=450&amp;crop=1 800w, https://www.mensjournal.com/wp-content/uploads/2019/06/Sailgp.jpg?w=1000&amp;h=563&amp;crop=1 1000w, https://www.mensjournal.com/wp-content/uploads/2019/06/Sailgp.jpg?w=1200&amp;h=675&amp;crop=1 1200w, https://www.mensjournal.com/wp-content/uploads/2019/06/Sailgp.jpg?w=1600&amp;h=900&amp;crop=1 1600w" sizes="300px" alt="U.S. SailGP Team" data-fallback-img="https://www.mensjournal.com/wp-content/uploads/2019/06/Sailgp.jpg?w=300&#038;h=169&#038;crop=1"></picture></div>								Young Guns and a Supercharged Catamaran: U.S. SailGP Team Takes on New York City							</a>
+						</article>
+									</div>
+			</div>
+			</div>
+		
+	</div>
+
+						</div><!--/.module-more-news-center-->
+
+					</div><!--/.article-content-->
+
+					<footer class="content-foot">
+						
+						<div class="content-topics">
+
+														
+							<span class="content-topics-header">Topics: </span>
+
+															<a href="https://www.mensjournal.com/tag/coronavirus/"
+								   class="content-tags">coronavirus</a>
+															<a href="https://www.mensjournal.com/tag/covid-19/"
+								   class="content-tags">COVID-19</a>
+															<a href="https://www.mensjournal.com/tag/hockey/"
+								   class="content-tags">hockey</a>
+															<a href="https://www.mensjournal.com/tag/lindsey-vonn/"
+								   class="content-tags">Lindsey Vonn</a>
+															<a href="https://www.mensjournal.com/tag/nhl/"
+								   class="content-tags">nhl</a>
+															<a href="https://www.mensjournal.com/tag/p-k-subban/"
+								   class="content-tags">P.K. Subban</a>
+													
+						</div><!--/.content-topics-->
+					</footer><!--/.content-foot-->
+
+				</div><!--/.center-rail-->
+
+			</div><!--/.content-column-->
+
+
+		</section><!--/.content-rail-->
+
+		<aside class="right-rail" role="complementary" data-sticky-container>
+
+			<div id="nativeAdArticle">
+				
+			<div id="ezoic-pub-ad-placeholder-112"><div id="sh-post-bottom" class="advertisement js-sharethrough-box"></div></div>			</div>
+
+			<div class="non-sticky-rail">
+				<div class="ad-container" id="right-rail-ad-slot-content-top">
+					
+			<div class="ad-container" id="ezoic-pub-ad-placeholder-104"><div id="rr1" class="advertisement ad-slot rail"></div></div>						<div id="ds_rr_anchor"></div>
+					<div id="zergnet-3" class="widget "><div class="widget-zergnet"><div id="zergnet-widget-61748"></div></div></div>
+				</div>
+			</div>
+
+			<div class="ad-slot sticky-rail rail sticky-bottom">
+				<div class="ad-container" id="right-rail-ad-slot-tall-0">
+					
+			<div class="ad-container" id="ezoic-pub-ad-placeholder-105"><div id="rr2" class="advertisement js-box-inline"></div></div>				</div>
+
+			</div>
+
+		</aside>
+
+	</div>
+
+	
+	<div class="module-featured-carousel__wrapper featured-template__carousel">
+		<div class="featured-template__carousel-container">
+			<div class="module-featured__header">
+									<span class="module-featured__header-title">More from Sports</span>
+							</div>
+			<div class="module-featured-carousel__inner">
+				<ul class="module-featured-carousel__list">
+																	<li class="module-featured-carousel__item">
+							<article>
+								<a href="https://www.mensjournal.com/sports/soil-searching-building-epic-mountain-bike-trails-in-tasmania/">
+																			<span class="play-button"></span>
+																		<img src="https://www.mensjournal.com/wp-content/uploads/2020/05/p5pb18711362.jpg?w=100&#038;h=100&#038;crop=1" srcset="https://www.mensjournal.com/wp-content/uploads/2020/05/p5pb18711362.jpg?w=100&amp;h=100&amp;crop=1 100w, https://www.mensjournal.com/wp-content/uploads/2020/05/p5pb18711362.jpg?w=200&amp;h=200&amp;crop=1 200w, https://www.mensjournal.com/wp-content/uploads/2020/05/p5pb18711362.jpg?w=300&amp;h=300&amp;crop=1 300w, https://www.mensjournal.com/wp-content/uploads/2020/05/p5pb18711362.jpg?w=400&amp;h=400&amp;crop=1 400w, https://www.mensjournal.com/wp-content/uploads/2020/05/p5pb18711362.jpg?w=600&amp;h=600&amp;crop=1 600w" sizes="(min-width: 600px) 300px, 300px" alt="soil searching" data-fallback-img="https://www.mensjournal.com/wp-content/uploads/2020/05/p5pb18711362.jpg">
+									<span class="carousel-item__title">'Soil Searching': Building Epic MTB Trails in Tasmania</span>
+								</a>
+							</article>
+						</li>
+																	<li class="module-featured-carousel__item">
+							<article>
+								<a href="https://www.mensjournal.com/sports/interview-with-thomas-campbell-about-his-latest-film-ye-olde-destruction/">
+																		<img src="https://www.mensjournal.com/wp-content/uploads/2020/05/YOD_THUMB.jpg?w=100&#038;h=100&#038;crop=1" srcset="https://www.mensjournal.com/wp-content/uploads/2020/05/YOD_THUMB.jpg?w=100&amp;h=100&amp;crop=1 100w, https://www.mensjournal.com/wp-content/uploads/2020/05/YOD_THUMB.jpg?w=200&amp;h=200&amp;crop=1 200w, https://www.mensjournal.com/wp-content/uploads/2020/05/YOD_THUMB.jpg?w=300&amp;h=300&amp;crop=1 300w, https://www.mensjournal.com/wp-content/uploads/2020/05/YOD_THUMB.jpg?w=400&amp;h=400&amp;crop=1 400w, https://www.mensjournal.com/wp-content/uploads/2020/05/YOD_THUMB.jpg?w=600&amp;h=600&amp;crop=1 600w, https://www.mensjournal.com/wp-content/uploads/2020/05/YOD_THUMB.jpg?w=800&amp;h=800&amp;crop=1 800w, https://www.mensjournal.com/wp-content/uploads/2020/05/YOD_THUMB.jpg?w=1000&amp;h=1000&amp;crop=1 1000w" sizes="(min-width: 600px) 300px, 300px" alt="thomas campbell" data-fallback-img="https://www.mensjournal.com/wp-content/uploads/2020/05/YOD_THUMB.jpg">
+									<span class="carousel-item__title">Interview With Thomas Campbell About His Latest Film 'Ye Olde Destruction'</span>
+								</a>
+							</article>
+						</li>
+																	<li class="module-featured-carousel__item">
+							<article>
+								<a href="https://www.mensjournal.com/sports/behind-the-scenes-of-fabio-wibmers-home-office/">
+																			<span class="play-button"></span>
+																		<img src="https://www.mensjournal.com/wp-content/uploads/2020/05/fabio1.jpg?w=100&#038;h=100&#038;crop=1" srcset="https://www.mensjournal.com/wp-content/uploads/2020/05/fabio1.jpg?w=100&amp;h=100&amp;crop=1 100w, https://www.mensjournal.com/wp-content/uploads/2020/05/fabio1.jpg?w=200&amp;h=200&amp;crop=1 200w, https://www.mensjournal.com/wp-content/uploads/2020/05/fabio1.jpg?w=300&amp;h=300&amp;crop=1 300w, https://www.mensjournal.com/wp-content/uploads/2020/05/fabio1.jpg?w=400&amp;h=400&amp;crop=1 400w, https://www.mensjournal.com/wp-content/uploads/2020/05/fabio1.jpg?w=600&amp;h=600&amp;crop=1 600w" sizes="(min-width: 600px) 300px, 300px" alt="fabio wibmer" data-fallback-img="https://www.mensjournal.com/wp-content/uploads/2020/05/fabio1.jpg">
+									<span class="carousel-item__title">Behind the Scenes of Fabio Wibmer’s 'Home Office': How Many Tries Did It Take?</span>
+								</a>
+							</article>
+						</li>
+																							<li class="module-featured-carousel__item">
+							<article>
+								<a href="https://www.mensjournal.com/sports/jamie-foy-reveals-details-as-skate-ambassador-to-u-s-olympic-committee/">
+																		<img src="https://www.mensjournal.com/wp-content/uploads/2020/05/jamie-foy-1200x675-1.jpg?w=100&#038;h=100&#038;crop=1" srcset="https://www.mensjournal.com/wp-content/uploads/2020/05/jamie-foy-1200x675-1.jpg?w=100&amp;h=100&amp;crop=1 100w, https://www.mensjournal.com/wp-content/uploads/2020/05/jamie-foy-1200x675-1.jpg?w=200&amp;h=200&amp;crop=1 200w, https://www.mensjournal.com/wp-content/uploads/2020/05/jamie-foy-1200x675-1.jpg?w=300&amp;h=300&amp;crop=1 300w, https://www.mensjournal.com/wp-content/uploads/2020/05/jamie-foy-1200x675-1.jpg?w=400&amp;h=400&amp;crop=1 400w, https://www.mensjournal.com/wp-content/uploads/2020/05/jamie-foy-1200x675-1.jpg?w=600&amp;h=600&amp;crop=1 600w, https://www.mensjournal.com/wp-content/uploads/2020/05/jamie-foy-1200x675-1.jpg?w=800&amp;h=800&amp;crop=1 800w, https://www.mensjournal.com/wp-content/uploads/2020/05/jamie-foy-1200x675-1.jpg?w=1000&amp;h=1000&amp;crop=1 1000w" sizes="(min-width: 600px) 300px, 300px" alt="jamie-foy-1200x675-1" data-fallback-img="https://www.mensjournal.com/wp-content/uploads/2020/05/jamie-foy-1200x675-1.jpg">
+									<span class="carousel-item__title">Jamie Foy Reveals Details as Skate Ambassador to U.S. Olympic Committee</span>
+								</a>
+							</article>
+						</li>
+																	<li class="module-featured-carousel__item">
+							<article>
+								<a href="https://www.mensjournal.com/sports/watch-being-a-pro-skier-is-mostly-about-mastering-rr/">
+																			<span class="play-button"></span>
+																		<img src="https://www.mensjournal.com/wp-content/uploads/2020/05/bromance-poster-option-2-scaled-1.jpg?w=100&#038;h=100&#038;crop=1" srcset="https://www.mensjournal.com/wp-content/uploads/2020/05/bromance-poster-option-2-scaled-1.jpg?w=100&amp;h=100&amp;crop=1 100w, https://www.mensjournal.com/wp-content/uploads/2020/05/bromance-poster-option-2-scaled-1.jpg?w=200&amp;h=200&amp;crop=1 200w, https://www.mensjournal.com/wp-content/uploads/2020/05/bromance-poster-option-2-scaled-1.jpg?w=300&amp;h=300&amp;crop=1 300w, https://www.mensjournal.com/wp-content/uploads/2020/05/bromance-poster-option-2-scaled-1.jpg?w=400&amp;h=400&amp;crop=1 400w, https://www.mensjournal.com/wp-content/uploads/2020/05/bromance-poster-option-2-scaled-1.jpg?w=600&amp;h=600&amp;crop=1 600w" sizes="(min-width: 600px) 300px, 300px" alt="bromance" data-fallback-img="https://www.mensjournal.com/wp-content/uploads/2020/05/bromance-poster-option-2-scaled-1.jpg">
+									<span class="carousel-item__title">Watch: Being a Pro Skier Is Mostly About Mastering R&R</span>
+								</a>
+							</article>
+						</li>
+																	<li class="module-featured-carousel__item">
+							<article>
+								<a href="https://www.mensjournal.com/sports/travis-rice-on-the-freeride-world-tour-natural-selection-and-more/">
+																			<span class="play-button"></span>
+																		<img src="https://www.mensjournal.com/wp-content/uploads/2020/05/rice.jpg?w=100&#038;h=100&#038;crop=1" srcset="https://www.mensjournal.com/wp-content/uploads/2020/05/rice.jpg?w=100&amp;h=100&amp;crop=1 100w, https://www.mensjournal.com/wp-content/uploads/2020/05/rice.jpg?w=200&amp;h=200&amp;crop=1 200w, https://www.mensjournal.com/wp-content/uploads/2020/05/rice.jpg?w=300&amp;h=300&amp;crop=1 300w, https://www.mensjournal.com/wp-content/uploads/2020/05/rice.jpg?w=400&amp;h=400&amp;crop=1 400w, https://www.mensjournal.com/wp-content/uploads/2020/05/rice.jpg?w=600&amp;h=600&amp;crop=1 600w" sizes="(min-width: 600px) 300px, 300px" alt="travis rice" data-fallback-img="https://www.mensjournal.com/wp-content/uploads/2020/05/rice.jpg">
+									<span class="carousel-item__title">Travis Rice on the Freeride World Tour, Natural Selection, and More</span>
+								</a>
+							</article>
+						</li>
+																	<li class="module-featured-carousel__item">
+							<article>
+								<a href="https://www.mensjournal.com/sports/pro-surfer-dane-reynolds-answers-fans-burning-questions-from-his-garage/">
+																			<span class="play-button"></span>
+																		<img src="https://www.mensjournal.com/wp-content/uploads/2020/05/dane1.jpg?w=100&#038;h=100&#038;crop=1" srcset="https://www.mensjournal.com/wp-content/uploads/2020/05/dane1.jpg?w=100&amp;h=100&amp;crop=1 100w, https://www.mensjournal.com/wp-content/uploads/2020/05/dane1.jpg?w=200&amp;h=200&amp;crop=1 200w, https://www.mensjournal.com/wp-content/uploads/2020/05/dane1.jpg?w=300&amp;h=300&amp;crop=1 300w, https://www.mensjournal.com/wp-content/uploads/2020/05/dane1.jpg?w=400&amp;h=400&amp;crop=1 400w, https://www.mensjournal.com/wp-content/uploads/2020/05/dane1.jpg?w=600&amp;h=600&amp;crop=1 600w" sizes="(min-width: 600px) 300px, 300px" alt="dane reynolds" data-fallback-img="https://www.mensjournal.com/wp-content/uploads/2020/05/dane1.jpg">
+									<span class="carousel-item__title">Pro Surfer Dane Reynolds Answers Fans' Burning Questions From His Garage</span>
+								</a>
+							</article>
+						</li>
+																	<li class="module-featured-carousel__item">
+							<article>
+								<a href="https://www.mensjournal.com/sports/skiers-return-to-mount-hood-after-59-day-closure/">
+																		<img src="https://www.mensjournal.com/wp-content/uploads/2020/05/shutterstock_52381744.jpg?w=100&#038;h=100&#038;crop=1" srcset="https://www.mensjournal.com/wp-content/uploads/2020/05/shutterstock_52381744.jpg?w=100&amp;h=100&amp;crop=1 100w, https://www.mensjournal.com/wp-content/uploads/2020/05/shutterstock_52381744.jpg?w=200&amp;h=200&amp;crop=1 200w, https://www.mensjournal.com/wp-content/uploads/2020/05/shutterstock_52381744.jpg?w=300&amp;h=300&amp;crop=1 300w, https://www.mensjournal.com/wp-content/uploads/2020/05/shutterstock_52381744.jpg?w=400&amp;h=400&amp;crop=1 400w, https://www.mensjournal.com/wp-content/uploads/2020/05/shutterstock_52381744.jpg?w=600&amp;h=600&amp;crop=1 600w, https://www.mensjournal.com/wp-content/uploads/2020/05/shutterstock_52381744.jpg?w=800&amp;h=800&amp;crop=1 800w, https://www.mensjournal.com/wp-content/uploads/2020/05/shutterstock_52381744.jpg?w=1000&amp;h=1000&amp;crop=1 1000w" sizes="(min-width: 600px) 300px, 300px" alt="mount hood" data-fallback-img="https://www.mensjournal.com/wp-content/uploads/2020/05/shutterstock_52381744.jpg">
+									<span class="carousel-item__title">Skiers Return to Mount Hood After 59-Day Closure</span>
+								</a>
+							</article>
+						</li>
+									</ul>
+			</div>
+		</div>
+	</div>
+
+	<footer class="content-foot">
+		
+<aside class="module-newsletter">
+
+	<h2 class="module-newsletter-title">Want more?</h2>
+
+	<p id="module-newsletter-text" class="module-newsletter-text">Sign up for our newsletter to get the latest adventures, workouts, destinations, and more.</p>
+
+	<form id="js-newsletter-signup" class="module-newsletter-form" action="">
+
+		<label for="email" class="visuallyhidden">Email</label>
+		<input class="form-text" id="email" name="email" placeholder="Enter your email address" type="email" required>
+		<input type="hidden" id="subscriber_source" name="subscriber_source" value="footer_module">
+		<input type="hidden" id="mj_newsletter_list" name="formList[mensjournal]" value="19">
+		<input class="form-submit" id="newsletter-submit" value="Sign Up" type="submit">
+		<div class="module-newsletter-legal tooltip-wrapper">
+			<span class="tooltip">
+				We may use your e-mail address to send you the newsletter and offers that may interest you, on behalf of Men&#039;s Journal and its partners. For more information please read our <a href="/services/privacypolicy">Privacy Policy</a>			</span>
+			<p>How we use your email address</p>
+		</div>
+
+	</form>
+
+	<p id="newsletter-success-message" class="module-newsletter-text">You have successfully signed up.</p>
+
+</aside>
+	</footer><!--/.content-foot-->
+
+	<div class="ad-slot banner">
+
+		<div class="ad-container" id="bottom-ad-slot-0">
+			
+			<div id="ezoic-pub-ad-placeholder-103"><div id="leader-bottom" class="advertisement js-leader-bottom"></div></div>		</div>
+
+	</div><!--/.ad-slot-->
+
+	<div class="zergnet-widget-61747 zergnet-widget"></div>
+
+</article>
+
+<script type="text/html" id="tmpl-comments">
+	<section class="module-comments">
+		<div data-spotim-module="conversation"
+			data-spot-id="sp_zIZ3i7C9"
+			data-post-id="485226"
+		></div>
+	</section>
+</script>
+
+<div id="spotImCommentsDiv"
+	 data-spot-id="sp_zIZ3i7C9"
+	 data-post-id="485226"
+	 data-post-url="http://www.mensjournal.com/sports/interview-p-k-subban-talks-trade-reaction-lindsey-vonn"
+	 data-article-tags="[coronavirus, COVID-19, hockey, Lindsey Vonn, nhl, P.K. Subban]"
+></div>
+		</main>
+
+	<footer class="footer" role="contentinfo" id="footer">
+		<div class="footer-wrapper">
+			<p>Men’s Journal has affiliate partnerships so we may receive compensation for some links to products and services.</p>
+
+			<div class="menu-footer__wrapper">
+				<nav class="menu-footer-container"><ul id="menu-footer" class="nav"><li id="menu-item-147612" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-147612"><a rel="nofollow" href="https://www.americanmediainc.com/privacy-policy">Privacy Policy</a></li>
+<li id="menu-item-295011" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-295011"><a rel="nofollow" href="https://www.mensjournal.com/accessibility-statement/">Accessibility Statement</a></li>
+<li id="menu-item-147613" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-147613"><a rel="nofollow" href="https://www.mensjournal.com/adchoices/">Your Ad Choices</a></li>
+<li id="menu-item-147614" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-147614"><a rel="nofollow" href="https://www.mensjournal.com/datapolicy/">Data Policy</a></li>
+<li id="menu-item-147615" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-147615"><a rel="nofollow" href="https://www.americanmediainc.com/terms-and-conditions">Terms of Use</a></li>
+<li id="menu-item-147617" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-147617"><a rel="nofollow" href="/ecare">Customer Service</a></li>
+<li id="menu-item-147618" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-147618"><a rel="nofollow" href="https://www.americanmediainc.com/brands/mens-journal">Media Kit</a></li>
+<li id="menu-item-147619" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-147619"><a href="https://www.mensjournal.com/sitemap/">Sitemap</a></li>
+<li id="menu-item-359365" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-359365"><a href="/about-team/">Our Team</a></li>
+</ul></nav>
+								<!-- OneTrust Cookies Settings button start -->
+				<a class="optanon-toggle-display" name="Manage Cookies">Manage Cookies</a>
+				<!-- OneTrust Cookies Settings button end -->
+							</div>
+
+			<p class="ami-lifestyle-copyright">American Media Active Lifestyle Group</p>
+			<p class="ami-copyright-year">© American Media, Inc. 2020</p>
+
+			<div class="footer-copy-tag">
+				<p>Powered by <a href="https://wpvip.com/?utm_source=vip_powered_wpcom&#038;utm_medium=web&#038;utm_campaign=VIP%20Footer%20Credit&#038;utm_term=www.mensjournal.com" rel="generator nofollow" class="powered-by-wpcom">WordPress.com VIP</a></p>
+				<div class="tag-registered-logo">
+					<img src="https://www.mensjournal.com/wp-content/themes/mens-journal/assets/img/logo-tag-registered.svg" alt="TAG Trustworthy Accountability Group" title="TAG Trustworthy Accountability Group">
+					<img src="https://www.mensjournal.com/wp-content/themes/mens-journal/assets/img/logo-tag-registered-green.svg" alt="TAG Trustworthy Accountability Group" title="TAG Trustworthy Accountability Group">
+				</div>
+			</div>
+		</div>
+	</footer>
+	<div id="lightbox-comments" class="lightbox-comments">
+		<div class="lightbox-close"></div>
+	</div>
+	<div class="mobile_sticky mobile-advertisement ad-container" id="js-mobile_sticky">
+		
+			<div id="mb-sticky" class="mobile_sticky-ad"></div>	</div><!--/.mobile_sticky-->
+	
+			<div id="interstitial" class="1x1"></div>
+			<div id="teads" class="teads"></div>
+			<div id="skin" class="skin"></div>	<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
+		<script type="text/html" id="tmpl-trending-article">
+		<article class="module-trending-bar-article">
+			<a
+				href="{{ data.link }}"
+				class="article-link tracked-offpage"
+				data-track-category="Article Page"
+				data-track-label="{{ data.count + 1 }} - https://www.mensjournal.com/sports/interview-p-k-subban-talks-trade-reaction-lindsey-vonn/"
+				data-track-action="Tap Trending"
+			>
+				<!-- @todo include video srcset in image url -->
+				<span class="article-image">
+					<figure class="article-image--trending img-fit" itemprop="image" itemscope="" itemtype="http://schema.org/ImageObject">
+					<# if ( data.image ) { #>
+						<img src="{{ data.image.square.fallback }}" srcset="{{ data.image.square.srcset }}" alt="" sizes="100px">
+					<# } #>
+					</figure>
+				</span>
+				<div class="article-title">
+					<!-- @todo include single category name in rest response -->
+					<p class="article-title-label">
+						<# if ( data.category_name ) { #>
+							{{ data.category_name }}
+						<# } #>
+					</p>
+					<p class="article-title-text">
+						{{{ data.title_truncated_top5 }}}
+					</p>
+				</div>
+			</a>
+		</article>
+	</script>
+		<script type="text/html" id="tmpl-content-card">
+		<article class="content-card card-container">
+			<a href="{{ data.link }}" class="content-card-link">
+				<# if ( 'video' === data.format && data.video['jwp-id'] ) { #>
+					<span
+						class="content-card-image content-card-video"
+						data-video-id="{{ data.video['jwp-id'] }}"
+						data-video-player="{{ data.video['jwp-player'] }}"
+					>
+						<span class="play-button large"></span>
+				<# } else { #>
+					<span class="content-card-image">
+				<# } #>
+
+                <# if ( data.image && data.image.landscape.fallback ) { #>
+                    <img src="{{ data.image.landscape.fallback }}" alt=src="{{ data.video.title }}">
+                <# } else if( 'video' === data.format && data.video['jwp-id'] ) { #>
+                    <img src="{{ data.video.thumbnail }}" alt="{{ data.video.title }}">
+                <# } #>
+
+				</span>
+				<div class="content-card-body">
+					<h2 class="content-card-title">{{{ data.title.rendered }}}</h2>
+					<# if ( data.sponsors && data.sponsors.length ) { #>
+						<div class="ad-sponsor" id="{{ data.sponsorDivID }}"></div>
+					<# } #>
+					</div>
+				</div>
+			</a>
+		</article>
+	</script>
+			<script>
+var _wpUtilSettings = {"ajax":{"url":"\/wp-admin\/admin-ajax.php"}};
+</script>
+<script>
+var mjl10n = {"rest_endpoint":"https:\/\/www.mensjournal.com\/wp-json\/wp\/v2\/","category":"9","limit_recirculation":null,"text_Top5":"Top 5","text_Stories":"Stories","current_post_id":"485226","server_timezone":"-4","time_increments":{"second":"second","minute":"minute","hour":"hour","day":"day","week":"week","month":"month","year":"year","pluralizer":"s"}};
+var ajaxurl = "https:\/\/www.mensjournal.com\/wp-admin\/admin-ajax.php";
+var gptNetwork = {"ID":"\/4216\/mensj.channels\/"};
+var recirculationSettings = {"zergnet_id":"61747","zergnet_repeat":"9","zergnet_wrap":"1","has_ads":"1","sharethrough":"1","sharethrough_repeat":"1","box_inline":"1","mobile_only_ads":"1","teads":"1"};
+var iframeURL = "https:\/\/www.mensjournal.com\/iframe\/";
+var rest = {"url":"https:\/\/www.mensjournal.com\/wp-json\/ami\/v1\/"};
+var mjNewsletterStrings = {"userEndpoint":"https:\/\/www.mensjournal.com\/wp-json\/mj\/v1\/newsletter\/user","listEndpoint":"https:\/\/www.mensjournal.com\/wp-json\/mj\/v1\/newsletter\/list","processMessage":"Sending your request...","defaultError":"There was an error with your request.","invalidEmailError":"Please enter a valid email and try again."};
+</script>
+<script type='text/javascript' src='https://www.mensjournal.com/_static/??/wp-includes/js/underscore.min.js,/wp-includes/js/wp-util.min.js,/wp-content/themes/mens-journal/assets/js/dist/global.bundle.js?m=1590070417j'></script>
+<script class="optanon-category-C0004" type="text/plain" src='https://www.mensjournal.com/wp-content/themes/mens-journal/assets/js/dist/gpt.bundle.js?ver=1.1'></script>
+<script class="optanon-category-C0004" type="text/plain" src='https://static.adsafeprotected.com/vans-adapter-google-ima.js'></script>
+<script>
+var recircl10n = {"rest_endpoint":"https:\/\/www.mensjournal.com\/wp-json\/wp\/v2\/","category":"9","limit_recirculation":"","text_Top5":"Top 5","text_Stories":"Stories","current_post_id":"485226","tags":"6631,6637,1493,2748,1491,6725"};
+</script>
+<script type='text/javascript' src='https://www.mensjournal.com/_static/??/wp-content/client-mu-plugins/shared/assets/js/dist/recirculation.bundle.js,/wp-includes/js/wp-embed.min.js?m=1589973000j'></script>
+<script>
+var sharing_js_options = {"lang":"en","counts":"","is_stats_active":"1"};
+</script>
+<script src='https://www.mensjournal.com/wp-content/mu-plugins/jetpack/_inc/build/sharedaddy/sharing.min.js?ver=8.5'></script>
+<script>
+var windowOpen;
+			jQuery( document.body ).on( 'click', 'a.share-facebook', function() {
+				// If there's another sharing window open, close it.
+				if ( 'undefined' !== typeof windowOpen ) {
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery( this ).attr( 'href' ), 'wpcomfacebook', 'menubar=1,resizable=1,width=600,height=400' );
+				return false;
+			});
+var windowOpen;
+			jQuery( document.body ).on( 'click', 'a.share-twitter', function() {
+				// If there's another sharing window open, close it.
+				if ( 'undefined' !== typeof windowOpen ) {
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery( this ).attr( 'href' ), 'wpcomtwitter', 'menubar=1,resizable=1,width=600,height=350' );
+				return false;
+			});
+var windowOpen;
+			jQuery( document.body ).on( 'click', 'a.share-linkedin', function() {
+				// If there's another sharing window open, close it.
+				if ( 'undefined' !== typeof windowOpen ) {
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery( this ).attr( 'href' ), 'wpcomlinkedin', 'menubar=1,resizable=1,width=580,height=450' );
+				return false;
+			});
+</script>
+<script type='text/javascript' src='https://stats.wp.com/e-202021.js' async='async' defer='defer'></script>
+<script type='text/javascript'>
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:8.5',blog:'141642939',post:'485226',tz:'-4',srv:'www.mensjournal.com'} ]);
+	_stq.push([ 'clickTrackerInit', '141642939', '485226' ]);
+</script>
+	<script type='text/javascript' style='display:none;' async>
+__ez.queue.addFile('edmonton.php', '/detroitchicago/edmonton.webp?a=a&cb=0&shcb=32', true, [], true, false, false, false);
+__ez.queue.addFile('jellyfish.php', '/porpoiseant/jellyfish.webp?a=a&cb=0&shcb=32', false, [], true, false, false, false);
+</script>
+
+<script>var _audins_dom="mensjournal_com",_audins_did=185389;__ez.queue.addDelayFunc("audins.js","__ez.script.add", "//go.ezoic.net/detroitchicago/audins.js?cb=188-0");</script><noscript><div style="display:none;"><img src="//pixel.quantserve.com/pixel/p-31iz6hfFutd16.gif?labels=Domain.mensjournal_com,DomainId.185389" border="0" height="1" width="1" alt="Quantcast"/></div></noscript><noscript><img src="https://sb.scorecardresearch.com/p?c1=2&c2=20015427&cv=2.0&cj=1"/></noscript>
+<script type='text/javascript' data-cfasync='false'></script></body>
+</html>

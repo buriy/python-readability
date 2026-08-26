@@ -1,0 +1,5 @@
+Source: https://github.com/jcharum/lxml-readability
+Commit: cec2d35c55cc8b94f0f6ff582cf700dab377af8a
+The upstream README declares the project under Apache License 2.0.
+Only primary saved HTML pages are included. ideal.html and actual.html
+were generated with readability-lxml 0.9 for regression testing.

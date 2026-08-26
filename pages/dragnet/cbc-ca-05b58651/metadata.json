@@ -1,0 +1,13 @@
+{
+  "url": "https://www.cbc.ca/news/business/westjet-exemption-airlines-covid19-coronavirus-1.5578719",
+  "title": "WestJet seeks exemption to section of Canada Labour Code covering group terminations",
+  "captured_at": "2020",
+  "source_file": "page.html",
+  "actual_summary_file": "actual.html",
+  "ideal_summary_file": "ideal.html",
+  "provenance": "https://github.com/dragnet-org/dragnet_data/blob/5d97da4c3c5cf775fa02794b84d31786b8d51d3a/data/meta/05b58651-8995-38f1-a1d3-46d7b1dff4c5.toml",
+  "upstream_commit": "5d97da4c3c5cf775fa02794b84d31786b8d51d3a",
+  "upstream_id": "05b58651-8995-38f1-a1d3-46d7b1dff4c5",
+  "data_license": "CC-BY-4.0",
+  "sample": "first 20 IDs in data/page_uuids.txt"
+}

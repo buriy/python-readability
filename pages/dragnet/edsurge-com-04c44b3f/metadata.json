@@ -1,0 +1,13 @@
+{
+  "url": "https://www.edsurge.com/news/2020-05-18-what-homeschooling-during-covid-19-taught-me-about-my-college-teaching",
+  "title": "What Homeschooling During COVID-19 Taught Me About My College Teaching",
+  "captured_at": "2020",
+  "source_file": "page.html",
+  "actual_summary_file": "actual.html",
+  "ideal_summary_file": "ideal.html",
+  "provenance": "https://github.com/dragnet-org/dragnet_data/blob/5d97da4c3c5cf775fa02794b84d31786b8d51d3a/data/meta/04c44b3f-db93-3382-8f59-afd56af0b763.toml",
+  "upstream_commit": "5d97da4c3c5cf775fa02794b84d31786b8d51d3a",
+  "upstream_id": "04c44b3f-db93-3382-8f59-afd56af0b763",
+  "data_license": "CC-BY-4.0",
+  "sample": "first 20 IDs in data/page_uuids.txt"
+}

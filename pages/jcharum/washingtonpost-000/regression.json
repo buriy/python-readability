@@ -1,0 +1,16 @@
+{
+  "url": "http://www.washingtonpost.com/opinions/dont-blame-both-sides-for-debt-impasse/2011/07/11/gIQA0XDg9H_story.html?hpid=z1",
+  "title": "Don\u2019t blame \u2018both sides\u2019 for debt impasse",
+  "source_file": "page.html",
+  "actual_summary_file": "actual.html",
+  "ideal_summary_file": "ideal.html",
+  "silver_summary_file": "silver.html",
+  "silver_method": "Mozilla Readability 0.6.0 with jsdom 26.1.0",
+  "silver_reference": true,
+  "provenance": "https://github.com/jcharum/lxml-readability/tree/cec2d35c55cc8b94f0f6ff582cf700dab377af8a/regression_test_data/washingtonpost-000",
+  "upstream_commit": "cec2d35c55cc8b94f0f6ff582cf700dab377af8a",
+  "upstream_case": "washingtonpost-000",
+  "ideal_method": "manually reviewed from saved page.html and engine outputs",
+  "quality_benchmark": true,
+  "manual_reviewed": "2026-08-23"
+}

@@ -1,0 +1,13 @@
+{
+  "url": "https://www.thisiscolossal.com/2020/05/mitch-rouse-aerial-photographs/",
+  "title": "Stunning Aerial Photographs by Mitch Rouse Capture the Precise Patterns of Farmland",
+  "captured_at": "2020",
+  "source_file": "page.html",
+  "actual_summary_file": "actual.html",
+  "ideal_summary_file": "ideal.html",
+  "provenance": "https://github.com/dragnet-org/dragnet_data/blob/5d97da4c3c5cf775fa02794b84d31786b8d51d3a/data/meta/06bfa65e-6919-3b60-8318-b957fa30acfd.toml",
+  "upstream_commit": "5d97da4c3c5cf775fa02794b84d31786b8d51d3a",
+  "upstream_id": "06bfa65e-6919-3b60-8318-b957fa30acfd",
+  "data_license": "CC-BY-4.0",
+  "sample": "first 20 IDs in data/page_uuids.txt"
+}

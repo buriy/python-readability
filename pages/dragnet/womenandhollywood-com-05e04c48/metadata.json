@@ -1,0 +1,13 @@
+{
+  "url": "https://womenandhollywood.com/trailer-watch-jeffrey-epstein-docuseries-filthy-rich-highlights-a-broken-system/",
+  "title": "Trailer Watch: Jeffrey Epstein Docuseries “Filthy Rich” Highlights a Broken System",
+  "captured_at": "2020",
+  "source_file": "page.html",
+  "actual_summary_file": "actual.html",
+  "ideal_summary_file": "ideal.html",
+  "provenance": "https://github.com/dragnet-org/dragnet_data/blob/5d97da4c3c5cf775fa02794b84d31786b8d51d3a/data/meta/05e04c48-69f3-3470-8a13-3da7171ab1fd.toml",
+  "upstream_commit": "5d97da4c3c5cf775fa02794b84d31786b8d51d3a",
+  "upstream_id": "05e04c48-69f3-3470-8a13-3da7171ab1fd",
+  "data_license": "CC-BY-4.0",
+  "sample": "first 20 IDs in data/page_uuids.txt"
+}

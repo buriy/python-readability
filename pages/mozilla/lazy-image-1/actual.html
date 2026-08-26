@@ -5,7 +5,7 @@
                                                 Node.js and CPU profiling on production (in real-time without downtime)
                                             </h1>
                                         </p>
-                                        
+
                                     </div>
                                     <h1 id="0231" class="gc gd dg ay ax ge di gf dk gg gh gi gj gk gl gm gn">
                                         Why CPU monitoring is important?
@@ -26,7 +26,7 @@
                                         For memory, constant monitoring is the best practice to track the worst developer nightmare a.k.a memory leak.
                                     </p>
                                     <figure class="hm hn ho hp hq hr cp cq paragraph-image">
-                                        
+
                                         <figcaption class="bc ek ii ij ik cr cp cq il im ax ej">
                                             Memory leak in action
                                         </figcaption>
@@ -38,13 +38,13 @@
                                         (for more details about V8 and its garbage collector you can read my previous article <a class="eq fo hc hd he hf" target="_blank" rel="noopener" href="http://fakehost/voodoo-engineering/nodejs-internals-v8-garbage-collector-a6eca82540ec">here</a>)
                                     </p>
                                     <blockquote class="in">
-                                        
+
                                     </blockquote>
                                     <p id="40e6" class="go gp dg ay gq b gr iz gt ja gv jb gx jc gz jd hb cy">
                                         Most of the time we monitor this resource with a simple solution allowing us to get a graph representing CPU consumption over time. If we want to be reactive we add an alarm, based on a threshold, to warn us when CPU usage is too high.
                                     </p>
                                     <figure class="hm hn ho hp hq hr cp cq paragraph-image">
-                                        
+
                                         <figcaption class="bc ek ii ij ik cr cp cq il im ax ej">
                                             Basic CPU monitoring
                                         </figcaption>
@@ -82,7 +82,7 @@
                                     </p>
                                     <pre class="hm hn ho hp hq jx jy cf"><span id="16bd" class="jl gd dg ay jz b ek ka kb r kc">node --prof app.js</span></pre>
                                     <figure class="hm hn ho hp hq hr cp cq paragraph-image">
-                                        
+
                                         <figcaption class="bc ek ii ij ik cr cp cq il im ax ej">
                                             Output of — prof
                                         </figcaption>
@@ -95,7 +95,7 @@
                                     </p>
                                     <pre class="hm hn ho hp hq jx jy cf"><span id="061c" class="jl gd dg ay jz b ek ka kb r kc">node --prof-process isolate-0xnnnnn-v8.log &gt; processed.txt</span></pre>
                                     <figure class="hm hn ho hp hq hr cp cq paragraph-image">
-                                        
+
                                         <figcaption class="bc ek ii ij ik cr cp cq il im ax ej">
                                             The output of — prof-process
                                         </figcaption>
@@ -110,7 +110,7 @@
                                         ClinicJs is a set of tools that allow you to collect data and display performance charts. With “clinic flame” you can generate a flame graph based on CPU consumption.
                                     </p>
                                     <figure class="hm hn ho hp hq hr cp cq paragraph-image">
-                                        
+
                                         <figcaption class="bc ek ii ij ik cr cp cq il im ax ej">
                                             Flame chart
                                         </figcaption>
@@ -161,7 +161,7 @@
                                         And here is how to make a CPU profiling with this module:
                                     </p>
                                     <figure class="hm hn ho hp hq hr">
-                                        
+
                                     </figure>
                                     <p id="79d1" class="go gp dg ay gq b gr hg gt hh gv hi gx hj gz hk hb cy">
                                         As you can see, all the data is returned in variable “profile”. Basically, it’s a simple JSON object representing all the call stack and the CPU consumption for each function. And if you want to use an Async/await syntax you can install the module “inspector-api”.
@@ -171,13 +171,13 @@
                                         It also comes with a built-in exporter to send data to S3, with this method <strong class="gq kj">you don’t write anything on the disk</strong>!
                                     </p>
                                     <figure class="hm hn ho hp hq hr">
-                                        
+
                                     </figure>
                                     <p id="964f" class="go gp dg ay gq b gr hg gt hh gv hi gx hj gz hk hb cy">
                                         If you use another storage system you can just collect the data and export it by yourself.
                                     </p>
                                     <figure class="hm hn ho hp hq hr">
-                                        
+
                                     </figure>
                                     <h1 id="848b" class="gc gd dg ay ax ge di gf dk gg gh gi gj gk gl gm gn">
                                         And now, CPU profiling on-demand!
@@ -186,7 +186,7 @@
                                         We have an API that we want to test with autocannon tool. At this step, our project is able to serve around 200 requests in 20 seconds. There is probably a mistake somewhere in the code which slows down our application.
                                     </p>
                                     <figure class="hm hn ho hp hq hr cp cq paragraph-image">
-                                        
+
                                     </figure>
                                     <p id="fb78" class="go gp dg ay gq b gr hg gt hh gv hi gx hj gz hk hb cy">
                                         But now, what if we want to trigger a CPU profiling remotely (without ssh connection to the server)? It’s possible using Websocket, SSE or any other technology to send a message to your instance.
@@ -195,7 +195,7 @@
                                         Here is a simple example of a server using the “ws” module to send a message to a unique instance.
                                     </p>
                                     <figure class="hm hn ho hp hq hr">
-                                        
+
                                     </figure>
                                     <p id="2206" class="go gp dg ay gq b gr hg gt hh gv hi gx hj gz hk hb cy">
                                         Of course, it only works with one instance, but it’s a fake project to demonstrate the principle ;)
@@ -204,7 +204,7 @@
                                         Now we can request our server to ask it to send a message to our instance and start/stop a CPU profiling. In your instance, you can handle the CPU profiling like this:
                                     </p>
                                     <figure class="hm hn ho hp hq hr">
-                                        
+
                                     </figure>
                                     <p id="c3d0" class="go gp dg ay gq b gr hg gt hh gv hi gx hj gz hk hb cy">
                                         <strong class="gq kj">To sum up</strong>: we are able to trigger a CPU profiling, on-demand, in real-time, without interruption or connection to the server. Data can be collected on the disk (and extracted later) or can be sent to S3 (or any other system, PR are welcomed on the <a href="https://github.com/wallet77/v8-inspector-api" class="eq fo hc hd he hf" target="_blank" rel="noopener nofollow">inspector-api project</a>).
@@ -214,5 +214,99 @@
                                             And because the profiler is a part of V8 itself, the format of the generated JSON file is compatible with the Chrome dev tools.
                                         </p>
                                     </blockquote>
+                                <div class="z ab ac ae af dd ah ai">
+                                    <p id="2cda" class="go gp dg ay gq b gr hg gt hh gv hi gx hj gz hk hb cy">
+                                        <strong class="gq kj">How can we identify an issue?</strong>
+                                    </p>
+                                    <p id="e0d2" class="go gp dg ay gq b gr hg gt hh gv hi gx hj gz hk hb cy">
+                                        A CPU profiling should be read like this:
+                                    </p>
+                                    <ul class="">
+                                        <li id="27e6" class="go gp dg ay gq b gr hg gt hh gv hi gx hj gz hk hb kk kl km">the x-axis shows the stack profile population
+                                        </li>
+                                        <li id="194a" class="go gp dg ay gq b gr kn gt ko gv kp gx kq gz kr hb kk kl km">the y-axis shows stack depth
+                                        </li>
+                                    </ul>
+                                    <p id="e950" class="go gp dg ay gq b gr hg gt hh gv hi gx hj gz hk hb cy">
+                                        <strong class="gq kj">What does it mean?</strong>
+                                    </p>
+                                    <p id="174c" class="go gp dg ay gq b gr hg gt hh gv hi gx hj gz hk hb cy">
+                                        The larger is a box (a function call) the more it consumed CPU. So a good CPU profiling should look like a “flame” graph where each stack is the finest possible.
+                                    </p>
+                                    <p id="48d9" class="go gp dg ay gq b gr hg gt hh gv hi gx hj gz hk hb cy">
+                                        In our example, every request try to generate a token. For this purpose, it calls the function pbkdf2 which is CPU consuming. Our CPU profile looks like a sequence of big blocks of time, like if the last function in the call stack takes 99% of the total time.
+                                    </p>
+                                    <p id="d62c" class="go gp dg ay gq b gr hg gt hh gv hi gx hj gz hk hb cy">
+                                        The CPU profiling after optimizations, with the same time range.
+                                    </p>
+                                    <figure class="hm hn ho hp hq hr cp cq paragraph-image">
+
+                                        <figcaption class="bc ek ii ij ik cr cp cq il im ax ej">
+                                            CPU profiling after optimizations
+                                        </figcaption>
+                                    </figure>
+                                    <p id="10ee" class="go gp dg ay gq b gr hg gt hh gv hi gx hj gz hk hb cy">
+                                        As you can notice, we have to zoom to the profile if we want to see the call stack, because after optimizations the API was able to take a lot more traffic. Now every function in the call stack looks like a microtask.
+                                    </p>
                                 </div>
+                            <div class="z ab ac ae af dd ah ai">
+                                    <p id="10f1" class="go gp dg ay gq b gr hg gt hh gv hi gx hj gz hk hb cy">
+                                        And now our application is able to serve more than 200,000 requests in 20 seconds; <strong class="gq kj">we increased the performance by a factor of 100k</strong>!
+                                    </p>
+                                    <figure class="hm hn ho hp hq hr cp cq paragraph-image">
+
+                                    </figure>
+                                    <h1 id="98b9" class="gc gd dg ay ax ge di gf dk gg gh gi gj gk gl gm gn">
+                                        More than just CPU profiling
+                                    </h1>
+                                    <p id="e1ad" class="go gp dg ay gq b gr gs gt gu gv gw gx gy gz ha hb cy">
+                                        With the inspector module, you can do much more than just CPU profiling, here is a non-exhaustive list:
+                                    </p>
+                                    <ul class="">
+                                        <li id="eb04" class="go gp dg ay gq b gr hg gt hh gv hi gx hj gz hk hb kk kl km">memory dump &amp; memory sampling
+                                        </li>
+                                        <li id="a9ea" class="go gp dg ay gq b gr kn gt ko gv kp gx kq gz kr hb kk kl km">code coverage
+                                        </li>
+                                        <li id="b896" class="go gp dg ay gq b gr kn gt ko gv kp gx kq gz kr hb kk kl km">use the debugger in real-time
+                                        </li>
+                                    </ul>
+                                    <h1 id="06d2" class="gc gd dg ay ax ge di gf dk gg gh gi gj gk gl gm gn">
+                                        Warnings
+                                    </h1>
+                                    <p id="731b" class="go gp dg ay gq b gr gs gt gu gv gw gx gy gz ha hb cy">
+                                        Every tool, even the most powerful, comes with its own disadvantages. If you enable the profiler and/or the debugger on your production you have to keep an eye on two things:
+                                    </p>
+                                    <p id="e485" class="go gp dg ay gq b gr hg gt hh gv hi gx hj gz hk hb cy">
+                                        <strong class="gq kj">1) performance overhead</strong>
+                                    </p>
+                                    <p id="0513" class="go gp dg ay gq b gr hg gt hh gv hi gx hj gz hk hb cy">
+                                        A profiler needs to use CPU to work and it collects data into memory. The longer you let it run and the more CPU / memory it will need. This is why you should begin with very short CPU profiling, no more than a few seconds between the start and stop command. And never forget to monitor the impact of the profiler on your own infrastructure. If everything is fine you can increase the time and the frequency of CPU profiling.
+                                    </p>
+                                    <p id="049c" class="go gp dg ay gq b gr hg gt hh gv hi gx hj gz hk hb cy">
+                                        One more very important thing: <strong class="gq kj">never forget to always stop a started CPU profiling</strong>. You can add a timer to automatically call the stop function after a while.
+                                    </p>
+                                    <p id="0656" class="go gp dg ay gq b gr hg gt hh gv hi gx hj gz hk hb cy">
+                                        <strong class="gq kj">2) security</strong>
+                                    </p>
+                                    <p id="7999" class="go gp dg ay gq b gr hg gt hh gv hi gx hj gz hk hb cy">
+                                        Using the inspector in Node.js it’s like opening the door of the core of your application. You should be very careful about who can use features like CPU profiling and/or the debugger. Never make the inspector “public” as being able to launch a feature from an unsafe route (not protected with an authentification mechanism). Even the collected data can be seen as critical, never send it to a system you do not trust.
+                                    </p>
+                                    <h1 id="5618" class="gc gd dg ay ax ge di gf dk gg gh gi gj gk gl gm gn">
+                                        Conclusion
+                                    </h1>
+                                    <p id="ae1a" class="go gp dg ay gq b gr gs gt gu gv gw gx gy gz ha hb cy">
+                                        CPU profiling is really a must-have tool for every developer. And now, with some precautions, we can run it on production thanks to the amazing work done by the V8 and Node.js team.
+                                    </p>
+                                    <p id="1eab" class="go gp dg ay gq b gr hg gt hh gv hi gx hj gz hk hb cy">
+                                        The inspector module offers a lot more features than you can use to debug your application.
+                                    </p>
+                                    <p id="0aba" class="go gp dg ay gq b gr hg gt hh gv hi gx hj gz hk hb cy">
+                                        I will write another article about using CPU profiling and the inspector on production on a high traffic project.
+                                    </p>
+                                    <h1 id="3c5b" class="gc gd dg ay ax ge di gf dk gg gh gi gj gk gl gm gn">
+                                        Sources &amp; links
+                                    </h1>
+
+                                </div>
+                            </div>
                             </div></body></html>

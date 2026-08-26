@@ -1,0 +1,13 @@
+{
+  "url": "https://www.sciencedaily.com/releases/2020/05/200520125006.htm",
+  "title": "Attosecond physics: Quantum brakes in molecules",
+  "captured_at": "2020",
+  "source_file": "page.html",
+  "actual_summary_file": "actual.html",
+  "ideal_summary_file": "ideal.html",
+  "provenance": "https://github.com/dragnet-org/dragnet_data/blob/5d97da4c3c5cf775fa02794b84d31786b8d51d3a/data/meta/03d6e790-89af-39c9-9a3a-8b97be64b8ec.toml",
+  "upstream_commit": "5d97da4c3c5cf775fa02794b84d31786b8d51d3a",
+  "upstream_id": "03d6e790-89af-39c9-9a3a-8b97be64b8ec",
+  "data_license": "CC-BY-4.0",
+  "sample": "first 20 IDs in data/page_uuids.txt"
+}

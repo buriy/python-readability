@@ -1,0 +1,13 @@
+{
+  "url": "https://www.telegraph.co.uk/technology/2020/05/21/twitter-users-limit-can-reply-tweets",
+  "title": "Twitter lets users limit who can reply to their tweets",
+  "captured_at": "2020",
+  "source_file": "page.html",
+  "actual_summary_file": "actual.html",
+  "ideal_summary_file": "ideal.html",
+  "provenance": "https://github.com/dragnet-org/dragnet_data/blob/5d97da4c3c5cf775fa02794b84d31786b8d51d3a/data/meta/05f1c7b6-afd8-319c-8a8d-0e53cf32e8ad.toml",
+  "upstream_commit": "5d97da4c3c5cf775fa02794b84d31786b8d51d3a",
+  "upstream_id": "05f1c7b6-afd8-319c-8a8d-0e53cf32e8ad",
+  "data_license": "CC-BY-4.0",
+  "sample": "first 20 IDs in data/page_uuids.txt"
+}
