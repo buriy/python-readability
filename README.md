@@ -56,6 +56,17 @@ make benchmark
 BENCHMARK_MIN_SCORE=0.97 make benchmark
 ```
 
+The corpus methodology, version reports, and ten-engine comparison are
+documented in
+[`docs/quality/`](https://github.com/buriy/python-readability/blob/master/docs/quality/README.md).
+
+## Security
+
+`Document.summary()` removes common active content while extracting an article,
+but readability-lxml is not a security boundary or a general-purpose HTML
+sanitizer. Applications that render untrusted output must apply a dedicated
+allowlist sanitizer and an appropriate Content Security Policy.
+
 ## Change Log
 - 0.9
   - Expanded the declared Python range through 3.14, added `lxml` 6 support, and updated packaging metadata for Markdown documentation and current `cssselect` releases.
@@ -65,16 +76,18 @@ BENCHMARK_MIN_SCORE=0.97 make benchmark
   - Fixed shortened-title selection and CJK title length handling.
   - Fixed XPath annotations incorrectly affecting the ruthless-parser retry length.
   - Preserved inline links and formatting elements when converting misused `<div>` elements into paragraphs.
-  - Removed inline `display: none` content and `<noscript>` fallback content before scoring.
+  - Removed inline `display: none`, `visibility: hidden`, HTML `hidden`, and `<noscript>` fallback content before scoring.
+  - Preserved content containers whose class or ID also contains an unlikely-candidate term such as `sidebar`.
   - Preserved code blocks and semantic `<main>` or `<article>` containers during unlikely-candidate filtering.
   - Recovered editorial leads, heading preambles, split article segments, and substantial list-based articles.
   - Removed trailing linked calls to action without weakening general link-density filtering.
-  - Added 146 reproducible fixtures split into base, GitHub user-issue, and complete 130-page Mozilla Readability corpora, a thresholded `make benchmark` command, and [versioned quality reports](docs/quality/README.md).
+  - Restricted retained video iframes to exact HTTP(S) YouTube and Vimeo hosts, preventing lookalike-host and userinfo URL bypasses, and removed active `srcdoc` content.
+  - Added 181 reproducible fixtures: 166 quality fixtures split into base, Dragnet, GitHub user-issue, and complete 130-page Mozilla Readability corpora, plus 15 manually curated real-page regression fixtures from `jcharum/lxml-readability`.
   - Replaced the unmaintained nose test runner with pytest in local, tox, and GitHub Actions workflows.
   - Updated development and release targets for portable module execution, PEP 517 builds, version synchronization, isolated artifact checks, and current-version uploads.
-  - Improved the 146-page benchmark from precision 0.972, recall 0.881, and F1 0.924 in 0.8.4.1 to precision 0.977, recall 0.936, and F1 0.956.
+  - Improved the 166-page benchmark from precision 0.971, recall 0.884, and F1 0.926 in 0.8.4.1 to precision 0.991, recall 0.956, and F1 0.973.
   - Corrected the README usage examples.
-  - Fixes GitHub issues [#14](https://github.com/buriy/python-readability/issues/14), [#108](https://github.com/buriy/python-readability/issues/108), [#130](https://github.com/buriy/python-readability/issues/130), [#146](https://github.com/buriy/python-readability/issues/146), [#153](https://github.com/buriy/python-readability/issues/153), [#158](https://github.com/buriy/python-readability/issues/158), [#170](https://github.com/buriy/python-readability/issues/170), [#176](https://github.com/buriy/python-readability/issues/176), [#182](https://github.com/buriy/python-readability/issues/182), and [#194](https://github.com/buriy/python-readability/issues/194). Release tracking issue [#196](https://github.com/buriy/python-readability/issues/196) can be closed after 0.9 is published to PyPI.
+  - Fixes GitHub issues [#14](https://github.com/buriy/python-readability/issues/14), [#108](https://github.com/buriy/python-readability/issues/108), [#119](https://github.com/buriy/python-readability/issues/119), [#130](https://github.com/buriy/python-readability/issues/130), [#143](https://github.com/buriy/python-readability/issues/143), [#146](https://github.com/buriy/python-readability/issues/146), [#153](https://github.com/buriy/python-readability/issues/153), [#158](https://github.com/buriy/python-readability/issues/158), [#159](https://github.com/buriy/python-readability/issues/159), [#163](https://github.com/buriy/python-readability/issues/163), [#170](https://github.com/buriy/python-readability/issues/170), [#176](https://github.com/buriy/python-readability/issues/176), [#182](https://github.com/buriy/python-readability/issues/182), and [#194](https://github.com/buriy/python-readability/issues/194). Release tracking issue [#196](https://github.com/buriy/python-readability/issues/196) can be closed after 0.9 is published to PyPI.
 - 0.8.4 Better CJK support, thanks @cdhigh
 - 0.8.3.1 Support for python 3.8 - 3.13
 - 0.8.3 We can now save all images via keep_all_images=True (default is to save 1 main image), thanks @botlabsDev
