@@ -1,0 +1,191 @@
+{
+  "engine": "readability",
+  "version": "0.9",
+  "rows": [
+    {
+      "name": "jcharum/arstechnica-000",
+      "group": "jcharum",
+      "overlap": 1219,
+      "actual": 1219,
+      "ideal": 1221,
+      "precision": 1.0,
+      "recall": 0.9983619983619983,
+      "f1": 0.9991803278688524,
+      "seconds": 0.018632046994753182
+    },
+    {
+      "name": "jcharum/arstechnica-001",
+      "group": "jcharum",
+      "overlap": 1337,
+      "actual": 1337,
+      "ideal": 1337,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "seconds": 0.014962301938794553
+    },
+    {
+      "name": "jcharum/arstechnica-002",
+      "group": "jcharum",
+      "overlap": 674,
+      "actual": 674,
+      "ideal": 674,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "seconds": 0.020182792097330093
+    },
+    {
+      "name": "jcharum/businessinsider-000",
+      "group": "jcharum",
+      "overlap": 156,
+      "actual": 159,
+      "ideal": 2334,
+      "precision": 0.9811320754716981,
+      "recall": 0.06683804627249357,
+      "f1": 0.12515042117930206,
+      "seconds": 0.06647511699702591
+    },
+    {
+      "name": "jcharum/cnet-000",
+      "group": "jcharum",
+      "overlap": 1461,
+      "actual": 1461,
+      "ideal": 1461,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "seconds": 0.056071616942062974
+    },
+    {
+      "name": "jcharum/cnet-001",
+      "group": "jcharum",
+      "overlap": 999,
+      "actual": 999,
+      "ideal": 999,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "seconds": 0.06799451191909611
+    },
+    {
+      "name": "jcharum/deadspin-000",
+      "group": "jcharum",
+      "overlap": 4117,
+      "actual": 4117,
+      "ideal": 4117,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "seconds": 0.031563593074679375
+    },
+    {
+      "name": "jcharum/espn-000",
+      "group": "jcharum",
+      "overlap": 1145,
+      "actual": 1145,
+      "ideal": 1152,
+      "precision": 1.0,
+      "recall": 0.9939236111111112,
+      "f1": 0.9969525468001742,
+      "seconds": 0.05321996891871095
+    },
+    {
+      "name": "jcharum/mit-000",
+      "group": "jcharum",
+      "overlap": 880,
+      "actual": 883,
+      "ideal": 880,
+      "precision": 0.9966024915062288,
+      "recall": 1.0,
+      "f1": 0.998298355076574,
+      "seconds": 0.015028087073005736
+    },
+    {
+      "name": "jcharum/nytimes-000",
+      "group": "jcharum",
+      "overlap": 770,
+      "actual": 770,
+      "ideal": 770,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "seconds": 0.03588034911081195
+    },
+    {
+      "name": "jcharum/nytimes-001",
+      "group": "jcharum",
+      "overlap": 925,
+      "actual": 925,
+      "ideal": 925,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "seconds": 0.025690749986097217
+    },
+    {
+      "name": "jcharum/slate-000",
+      "group": "jcharum",
+      "overlap": 457,
+      "actual": 471,
+      "ideal": 463,
+      "precision": 0.970276008492569,
+      "recall": 0.9870410367170627,
+      "f1": 0.9785867237687366,
+      "seconds": 0.02069367910735309
+    },
+    {
+      "name": "jcharum/slate-001",
+      "group": "jcharum",
+      "overlap": 110,
+      "actual": 110,
+      "ideal": 110,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "seconds": 0.01879085402470082
+    },
+    {
+      "name": "jcharum/washingtonpost-000",
+      "group": "jcharum",
+      "overlap": 734,
+      "actual": 734,
+      "ideal": 800,
+      "precision": 1.0,
+      "recall": 0.9175,
+      "f1": 0.9569752281616688,
+      "seconds": 0.03796074504498392
+    },
+    {
+      "name": "jcharum/washingtonpost-001",
+      "group": "jcharum",
+      "overlap": 516,
+      "actual": 516,
+      "ideal": 641,
+      "precision": 1.0,
+      "recall": 0.8049921996879875,
+      "f1": 0.891961970613656,
+      "seconds": 0.03673603502102196
+    }
+  ],
+  "failures": [],
+  "groups": {
+    "jcharum": {
+      "pages": 15,
+      "precision": 0.9987113402061856,
+      "recall": 0.8666964884813241,
+      "f1": 0.928032570949587
+    }
+  },
+  "totals": {
+    "pages": 15,
+    "overlap": 15500,
+    "actual": 15520,
+    "ideal": 17884,
+    "precision": 0.9987113402061856,
+    "recall": 0.8666964884813241,
+    "f1": 0.928032570949587,
+    "median_seconds": 0.031563593074679375,
+    "total_seconds": 0.5198824482504278
+  }
+}

@@ -1,0 +1,2091 @@
+{
+  "engine": "justext",
+  "version": "3.0.2",
+  "rows": [
+    {
+      "name": "base/africanews-ghana-repatriation",
+      "group": "base",
+      "overlap": 0,
+      "actual": 0,
+      "ideal": 158,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "seconds": 0.023958856938406825
+    },
+    {
+      "name": "base/aljazeera-west-bank",
+      "group": "base",
+      "overlap": 932,
+      "actual": 964,
+      "ideal": 948,
+      "precision": 0.966804979253112,
+      "recall": 0.9831223628691983,
+      "f1": 0.9748953974895398,
+      "seconds": 0.017618592944927514
+    },
+    {
+      "name": "base/django-speaker-lineup",
+      "group": "base",
+      "overlap": 136,
+      "actual": 139,
+      "ideal": 199,
+      "precision": 0.9784172661870504,
+      "recall": 0.6834170854271356,
+      "f1": 0.8047337278106509,
+      "seconds": 0.020170644973404706
+    },
+    {
+      "name": "base/guardian-army-kenya",
+      "group": "base",
+      "overlap": 499,
+      "actual": 499,
+      "ideal": 514,
+      "precision": 1.0,
+      "recall": 0.9708171206225681,
+      "f1": 0.9851924975320828,
+      "seconds": 0.026420149952173233
+    },
+    {
+      "name": "base/nasa-astronaut-return",
+      "group": "base",
+      "overlap": 87,
+      "actual": 118,
+      "ideal": 89,
+      "precision": 0.7372881355932204,
+      "recall": 0.9775280898876404,
+      "f1": 0.8405797101449275,
+      "seconds": 0.03480518702417612
+    },
+    {
+      "name": "base/python-315-alpha-6",
+      "group": "base",
+      "overlap": 275,
+      "actual": 275,
+      "ideal": 447,
+      "precision": 1.0,
+      "recall": 0.6152125279642058,
+      "f1": 0.7617728531855955,
+      "seconds": 0.008539693080820143
+    },
+    {
+      "name": "base/rnz-parental-leave",
+      "group": "base",
+      "overlap": 840,
+      "actual": 848,
+      "ideal": 883,
+      "precision": 0.9905660377358491,
+      "recall": 0.9513023782559457,
+      "f1": 0.9705372616984402,
+      "seconds": 0.034228108008392155
+    },
+    {
+      "name": "base/times-india-parliament",
+      "group": "base",
+      "overlap": 2188,
+      "actual": 2289,
+      "ideal": 2188,
+      "precision": 0.9558759283529926,
+      "recall": 1.0,
+      "f1": 0.977440250167523,
+      "seconds": 0.052523108082823455
+    },
+    {
+      "name": "base/un-news-global",
+      "group": "base",
+      "overlap": 702,
+      "actual": 702,
+      "ideal": 702,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "seconds": 0.021038186037912965
+    },
+    {
+      "name": "base/wikipedia-kanom-piakpoon",
+      "group": "base",
+      "overlap": 358,
+      "actual": 361,
+      "ideal": 714,
+      "precision": 0.9916897506925207,
+      "recall": 0.5014005602240896,
+      "f1": 0.6660465116279071,
+      "seconds": 0.03726836899295449
+    },
+    {
+      "name": "dragnet/abcnews-go-com-054b1328",
+      "group": "dragnet",
+      "overlap": 858,
+      "actual": 910,
+      "ideal": 858,
+      "precision": 0.9428571428571428,
+      "recall": 1.0,
+      "f1": 0.9705882352941176,
+      "seconds": 0.016953215934336185
+    },
+    {
+      "name": "dragnet/bbc-co-uk-06f23d19",
+      "group": "dragnet",
+      "overlap": 816,
+      "actual": 847,
+      "ideal": 1093,
+      "precision": 0.9634002361275088,
+      "recall": 0.7465690759377859,
+      "f1": 0.8412371134020619,
+      "seconds": 0.030514408950693905
+    },
+    {
+      "name": "dragnet/buzzfeed-com-02c0f2ea",
+      "group": "dragnet",
+      "overlap": 591,
+      "actual": 591,
+      "ideal": 642,
+      "precision": 1.0,
+      "recall": 0.9205607476635514,
+      "f1": 0.9586374695863746,
+      "seconds": 0.01638408994767815
+    },
+    {
+      "name": "dragnet/cbc-ca-05b58651",
+      "group": "dragnet",
+      "overlap": 894,
+      "actual": 1010,
+      "ideal": 894,
+      "precision": 0.8851485148514852,
+      "recall": 1.0,
+      "f1": 0.939075630252101,
+      "seconds": 0.023578374995850027
+    },
+    {
+      "name": "dragnet/designyoutrust-com-0401ed26",
+      "group": "dragnet",
+      "overlap": 143,
+      "actual": 153,
+      "ideal": 226,
+      "precision": 0.934640522875817,
+      "recall": 0.6327433628318584,
+      "f1": 0.7546174142480211,
+      "seconds": 0.01013182895258069
+    },
+    {
+      "name": "dragnet/dw-com-00f16132",
+      "group": "dragnet",
+      "overlap": 798,
+      "actual": 813,
+      "ideal": 865,
+      "precision": 0.981549815498155,
+      "recall": 0.922543352601156,
+      "f1": 0.9511323003575686,
+      "seconds": 0.02480997797101736
+    },
+    {
+      "name": "dragnet/edsurge-com-04c44b3f",
+      "group": "dragnet",
+      "overlap": 2032,
+      "actual": 2071,
+      "ideal": 2032,
+      "precision": 0.9811685176243361,
+      "recall": 1.0,
+      "f1": 0.9904947599317573,
+      "seconds": 0.024049979052506387
+    },
+    {
+      "name": "dragnet/foxnews-com-0577765a",
+      "group": "dragnet",
+      "overlap": 316,
+      "actual": 342,
+      "ideal": 448,
+      "precision": 0.9239766081871345,
+      "recall": 0.7053571428571429,
+      "f1": 0.8,
+      "seconds": 0.02104879601392895
+    },
+    {
+      "name": "dragnet/globalnews-ca-05d3f23b",
+      "group": "dragnet",
+      "overlap": 337,
+      "actual": 337,
+      "ideal": 550,
+      "precision": 1.0,
+      "recall": 0.6127272727272727,
+      "f1": 0.7598647125140924,
+      "seconds": 0.034063003957271576
+    },
+    {
+      "name": "dragnet/goodmenproject-com-005cdad0",
+      "group": "dragnet",
+      "overlap": 333,
+      "actual": 361,
+      "ideal": 833,
+      "precision": 0.9224376731301939,
+      "recall": 0.3997599039615846,
+      "f1": 0.5577889447236182,
+      "seconds": 0.03067504393402487
+    },
+    {
+      "name": "dragnet/mensjournal-com-06b9d2a9",
+      "group": "dragnet",
+      "overlap": 99,
+      "actual": 99,
+      "ideal": 99,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "seconds": 0.013693167013116181
+    },
+    {
+      "name": "dragnet/sciencedaily-com-03d6e790",
+      "group": "dragnet",
+      "overlap": 608,
+      "actual": 784,
+      "ideal": 693,
+      "precision": 0.7755102040816326,
+      "recall": 0.8773448773448773,
+      "f1": 0.8232904536222071,
+      "seconds": 0.026137004955671728
+    },
+    {
+      "name": "dragnet/smallbiztrends-com-06b7f020",
+      "group": "dragnet",
+      "overlap": 400,
+      "actual": 518,
+      "ideal": 460,
+      "precision": 0.7722007722007722,
+      "recall": 0.8695652173913043,
+      "f1": 0.8179959100204498,
+      "seconds": 0.016613928019069135
+    },
+    {
+      "name": "dragnet/telegraph-co-uk-05f1c7b6",
+      "group": "dragnet",
+      "overlap": 209,
+      "actual": 214,
+      "ideal": 308,
+      "precision": 0.9766355140186916,
+      "recall": 0.6785714285714286,
+      "f1": 0.8007662835249043,
+      "seconds": 0.017994889058172703
+    },
+    {
+      "name": "dragnet/telegraph-co-uk-061dafdf",
+      "group": "dragnet",
+      "overlap": 135,
+      "actual": 135,
+      "ideal": 420,
+      "precision": 1.0,
+      "recall": 0.32142857142857145,
+      "f1": 0.4864864864864865,
+      "seconds": 0.01689440489280969
+    },
+    {
+      "name": "dragnet/theguardian-com-007ce512",
+      "group": "dragnet",
+      "overlap": 855,
+      "actual": 876,
+      "ideal": 899,
+      "precision": 0.976027397260274,
+      "recall": 0.9510567296996663,
+      "f1": 0.9633802816901409,
+      "seconds": 0.021234584972262383
+    },
+    {
+      "name": "dragnet/thisiscolossal-com-06bfa65e",
+      "group": "dragnet",
+      "overlap": 333,
+      "actual": 382,
+      "ideal": 335,
+      "precision": 0.8717277486910995,
+      "recall": 0.9940298507462687,
+      "f1": 0.9288702928870294,
+      "seconds": 0.015188568038865924
+    },
+    {
+      "name": "dragnet/thisiscolossal-com-078e4f7d",
+      "group": "dragnet",
+      "overlap": 124,
+      "actual": 173,
+      "ideal": 124,
+      "precision": 0.7167630057803468,
+      "recall": 1.0,
+      "f1": 0.8350168350168351,
+      "seconds": 0.013314009993337095
+    },
+    {
+      "name": "dragnet/womenandhollywood-com-05e04c48",
+      "group": "dragnet",
+      "overlap": 251,
+      "actual": 251,
+      "ideal": 260,
+      "precision": 1.0,
+      "recall": 0.9653846153846154,
+      "f1": 0.9823874755381604,
+      "seconds": 0.012158908997662365
+    },
+    {
+      "name": "dragnet/zdnet-com-02c50335",
+      "group": "dragnet",
+      "overlap": 120,
+      "actual": 200,
+      "ideal": 172,
+      "precision": 0.6,
+      "recall": 0.6976744186046512,
+      "f1": 0.6451612903225806,
+      "seconds": 0.024397426052019
+    },
+    {
+      "name": "mozilla/001",
+      "group": "mozilla",
+      "overlap": 286,
+      "actual": 286,
+      "ideal": 624,
+      "precision": 1.0,
+      "recall": 0.4583333333333333,
+      "f1": 0.6285714285714286,
+      "seconds": 0.005953285959549248
+    },
+    {
+      "name": "mozilla/002",
+      "group": "mozilla",
+      "overlap": 1363,
+      "actual": 1365,
+      "ideal": 2335,
+      "precision": 0.9985347985347985,
+      "recall": 0.5837259100642398,
+      "f1": 0.7367567567567568,
+      "seconds": 0.03291301103308797
+    },
+    {
+      "name": "mozilla/003-metadata-preferred",
+      "group": "mozilla",
+      "overlap": 0,
+      "actual": 0,
+      "ideal": 141,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "seconds": 0.0014081749832257628
+    },
+    {
+      "name": "mozilla/004-metadata-space-separated-properties",
+      "group": "mozilla",
+      "overlap": 0,
+      "actual": 0,
+      "ideal": 141,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "seconds": 0.0011984359007328749
+    },
+    {
+      "name": "mozilla/005-unescape-html-entities",
+      "group": "mozilla",
+      "overlap": 0,
+      "actual": 0,
+      "ideal": 1,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "seconds": 0.0002667080843821168
+    },
+    {
+      "name": "mozilla/aclu-surveillance",
+      "group": "mozilla",
+      "overlap": 1862,
+      "actual": 2698,
+      "ideal": 1884,
+      "precision": 0.6901408450704225,
+      "recall": 0.9883227176220807,
+      "f1": 0.8127455259711917,
+      "seconds": 0.038323068991303444
+    },
+    {
+      "name": "mozilla/aktualne-news",
+      "group": "mozilla",
+      "overlap": 0,
+      "actual": 0,
+      "ideal": 696,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "seconds": 0.022616161033511162
+    },
+    {
+      "name": "mozilla/archive-of-our-own",
+      "group": "mozilla",
+      "overlap": 3890,
+      "actual": 3891,
+      "ideal": 3900,
+      "precision": 0.9997429966589566,
+      "recall": 0.9974358974358974,
+      "f1": 0.9985881144910795,
+      "seconds": 0.10409563593566418
+    },
+    {
+      "name": "mozilla/ars-technica-article",
+      "group": "mozilla",
+      "overlap": 554,
+      "actual": 556,
+      "ideal": 598,
+      "precision": 0.9964028776978417,
+      "recall": 0.9264214046822743,
+      "f1": 0.9601386481802427,
+      "seconds": 0.013882511993870139
+    },
+    {
+      "name": "mozilla/article-author-tag",
+      "group": "mozilla",
+      "overlap": 2529,
+      "actual": 2537,
+      "ideal": 2561,
+      "precision": 0.9968466692944422,
+      "recall": 0.9875048809058962,
+      "f1": 0.9921537857983523,
+      "seconds": 0.046019577072001994
+    },
+    {
+      "name": "mozilla/base-url",
+      "group": "mozilla",
+      "overlap": 0,
+      "actual": 0,
+      "ideal": 139,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "seconds": 0.0016777350101619959
+    },
+    {
+      "name": "mozilla/base-url-base-element",
+      "group": "mozilla",
+      "overlap": 0,
+      "actual": 0,
+      "ideal": 139,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "seconds": 0.0015725429402664304
+    },
+    {
+      "name": "mozilla/base-url-base-element-relative",
+      "group": "mozilla",
+      "overlap": 0,
+      "actual": 0,
+      "ideal": 139,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "seconds": 0.0016384579939767718
+    },
+    {
+      "name": "mozilla/basic-tags-cleaning",
+      "group": "mozilla",
+      "overlap": 0,
+      "actual": 0,
+      "ideal": 127,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "seconds": 0.00135473208501935
+    },
+    {
+      "name": "mozilla/bbc-obama-gun-laws",
+      "group": "mozilla",
+      "overlap": 172,
+      "actual": 172,
+      "ideal": 859,
+      "precision": 1.0,
+      "recall": 0.20023282887077998,
+      "f1": 0.33365664403491757,
+      "seconds": 0.035994922975078225
+    },
+    {
+      "name": "mozilla/blogger",
+      "group": "mozilla",
+      "overlap": 2422,
+      "actual": 2435,
+      "ideal": 2434,
+      "precision": 0.9946611909650924,
+      "recall": 0.9950698438783895,
+      "f1": 0.9948654754569728,
+      "seconds": 0.03353912499733269
+    },
+    {
+      "name": "mozilla/breitbart-snopes",
+      "group": "mozilla",
+      "overlap": 257,
+      "actual": 257,
+      "ideal": 303,
+      "precision": 1.0,
+      "recall": 0.8481848184818482,
+      "f1": 0.9178571428571428,
+      "seconds": 0.038756006048060954
+    },
+    {
+      "name": "mozilla/bug-1255978",
+      "group": "mozilla",
+      "overlap": 757,
+      "actual": 3620,
+      "ideal": 760,
+      "precision": 0.20911602209944752,
+      "recall": 0.9960526315789474,
+      "f1": 0.345662100456621,
+      "seconds": 0.07230737409554422
+    },
+    {
+      "name": "mozilla/buzzfeed-diet-pills",
+      "group": "mozilla",
+      "overlap": 268,
+      "actual": 268,
+      "ideal": 306,
+      "precision": 1.0,
+      "recall": 0.8758169934640523,
+      "f1": 0.9337979094076655,
+      "seconds": 0.03336796991061419
+    },
+    {
+      "name": "mozilla/citylab-article",
+      "group": "mozilla",
+      "overlap": 1547,
+      "actual": 1565,
+      "ideal": 1580,
+      "precision": 0.9884984025559106,
+      "recall": 0.9791139240506329,
+      "f1": 0.9837837837837838,
+      "seconds": 0.022520732949487865
+    },
+    {
+      "name": "mozilla/clean-links",
+      "group": "mozilla",
+      "overlap": 13873,
+      "actual": 13873,
+      "ideal": 14533,
+      "precision": 1.0,
+      "recall": 0.9545861143604211,
+      "f1": 0.9767654720833626,
+      "seconds": 0.10263803403358907
+    },
+    {
+      "name": "mozilla/cnet-facebook-acquisitions",
+      "group": "mozilla",
+      "overlap": 551,
+      "actual": 582,
+      "ideal": 631,
+      "precision": 0.9467353951890034,
+      "recall": 0.873217115689382,
+      "f1": 0.9084913437757626,
+      "seconds": 0.02997848391532898
+    },
+    {
+      "name": "mozilla/cnet-svg-classes",
+      "group": "mozilla",
+      "overlap": 0,
+      "actual": 0,
+      "ideal": 260,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "seconds": 0.013931401073932648
+    },
+    {
+      "name": "mozilla/cnn-birth-lottery",
+      "group": "mozilla",
+      "overlap": 108,
+      "actual": 108,
+      "ideal": 354,
+      "precision": 1.0,
+      "recall": 0.3050847457627119,
+      "f1": 0.4675324675324675,
+      "seconds": 0.020571821019984782
+    },
+    {
+      "name": "mozilla/comment-inside-script-parsing",
+      "group": "mozilla",
+      "overlap": 0,
+      "actual": 0,
+      "ideal": 127,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "seconds": 0.0012364820577204227
+    },
+    {
+      "name": "mozilla/daring-fireball-article",
+      "group": "mozilla",
+      "overlap": 125,
+      "actual": 125,
+      "ideal": 208,
+      "precision": 1.0,
+      "recall": 0.6009615384615384,
+      "f1": 0.7507507507507508,
+      "seconds": 0.003630077000707388
+    },
+    {
+      "name": "mozilla/data-url-image",
+      "group": "mozilla",
+      "overlap": 0,
+      "actual": 0,
+      "ideal": 400,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "seconds": 0.003102310001850128
+    },
+    {
+      "name": "mozilla/dev418",
+      "group": "mozilla",
+      "overlap": 0,
+      "actual": 0,
+      "ideal": 208,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "seconds": 0.00212550803553313
+    },
+    {
+      "name": "mozilla/dropbox-blog",
+      "group": "mozilla",
+      "overlap": 2737,
+      "actual": 2738,
+      "ideal": 2949,
+      "precision": 0.9996347699050402,
+      "recall": 0.9281112241437776,
+      "f1": 0.9625461579039916,
+      "seconds": 0.029389207949861884
+    },
+    {
+      "name": "mozilla/ebb-org",
+      "group": "mozilla",
+      "overlap": 1671,
+      "actual": 1679,
+      "ideal": 1850,
+      "precision": 0.9952352590827874,
+      "recall": 0.9032432432432432,
+      "f1": 0.9470104845565317,
+      "seconds": 0.01771726191509515
+    },
+    {
+      "name": "mozilla/ehow-2",
+      "group": "mozilla",
+      "overlap": 618,
+      "actual": 631,
+      "ideal": 638,
+      "precision": 0.9793977812995246,
+      "recall": 0.9686520376175548,
+      "f1": 0.9739952718676124,
+      "seconds": 0.015506042982451618
+    },
+    {
+      "name": "mozilla/ehow-terrarium",
+      "group": "mozilla",
+      "overlap": 369,
+      "actual": 372,
+      "ideal": 419,
+      "precision": 0.9919354838709677,
+      "recall": 0.8806682577565632,
+      "f1": 0.9329962073324906,
+      "seconds": 0.012580028967931867
+    },
+    {
+      "name": "mozilla/embedded-videos",
+      "group": "mozilla",
+      "overlap": 0,
+      "actual": 0,
+      "ideal": 137,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "seconds": 0.0018289780709892511
+    },
+    {
+      "name": "mozilla/engadget-xbox-one-x",
+      "group": "mozilla",
+      "overlap": 1837,
+      "actual": 1881,
+      "ideal": 1881,
+      "precision": 0.9766081871345029,
+      "recall": 0.9766081871345029,
+      "f1": 0.9766081871345029,
+      "seconds": 0.04543659009505063
+    },
+    {
+      "name": "mozilla/firefox-nightly-blog",
+      "group": "mozilla",
+      "overlap": 606,
+      "actual": 609,
+      "ideal": 1478,
+      "precision": 0.9950738916256158,
+      "recall": 0.4100135317997294,
+      "f1": 0.580737901293723,
+      "seconds": 0.024432534002698958
+    },
+    {
+      "name": "mozilla/folha-tite-libertadores",
+      "group": "mozilla",
+      "overlap": 0,
+      "actual": 0,
+      "ideal": 328,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "seconds": 0.037812022026628256
+    },
+    {
+      "name": "mozilla/gitlab-blog-article",
+      "group": "mozilla",
+      "overlap": 860,
+      "actual": 866,
+      "ideal": 878,
+      "precision": 0.9930715935334873,
+      "recall": 0.979498861047836,
+      "f1": 0.9862385321100917,
+      "seconds": 0.013461047085002065
+    },
+    {
+      "name": "mozilla/gmw",
+      "group": "mozilla",
+      "overlap": 0,
+      "actual": 0,
+      "ideal": 286,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "seconds": 0.013303603045642376
+    },
+    {
+      "name": "mozilla/google-sre-book",
+      "group": "mozilla",
+      "overlap": 4420,
+      "actual": 4470,
+      "ideal": 4547,
+      "precision": 0.9888143176733781,
+      "recall": 0.9720694963712337,
+      "f1": 0.9803704114450482,
+      "seconds": 0.03827801300212741
+    },
+    {
+      "name": "mozilla/guardian-1",
+      "group": "mozilla",
+      "overlap": 1192,
+      "actual": 1192,
+      "ideal": 1234,
+      "precision": 1.0,
+      "recall": 0.965964343598055,
+      "f1": 0.9826875515251443,
+      "seconds": 0.03435477404855192
+    },
+    {
+      "name": "mozilla/heise-1password",
+      "group": "mozilla",
+      "overlap": 0,
+      "actual": 0,
+      "ideal": 268,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "seconds": 0.014245672966353595
+    },
+    {
+      "name": "mozilla/herald-sun-article",
+      "group": "mozilla",
+      "overlap": 787,
+      "actual": 796,
+      "ideal": 795,
+      "precision": 0.9886934673366834,
+      "recall": 0.989937106918239,
+      "f1": 0.9893148962916405,
+      "seconds": 0.019181645940989256
+    },
+    {
+      "name": "mozilla/hidden-nodes",
+      "group": "mozilla",
+      "overlap": 0,
+      "actual": 0,
+      "ideal": 154,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "seconds": 0.003107185009866953
+    },
+    {
+      "name": "mozilla/hukumusume-greedy-dog",
+      "group": "mozilla",
+      "overlap": 0,
+      "actual": 0,
+      "ideal": 109,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "seconds": 0.005573590984568
+    },
+    {
+      "name": "mozilla/iab-1",
+      "group": "mozilla",
+      "overlap": 932,
+      "actual": 937,
+      "ideal": 960,
+      "precision": 0.9946638207043756,
+      "recall": 0.9708333333333333,
+      "f1": 0.9826041117554033,
+      "seconds": 0.02976551395840943
+    },
+    {
+      "name": "mozilla/ietf-remotestorage",
+      "group": "mozilla",
+      "overlap": 4207,
+      "actual": 4210,
+      "ideal": 5850,
+      "precision": 0.9992874109263657,
+      "recall": 0.7191452991452991,
+      "f1": 0.8363817097415506,
+      "seconds": 0.03479916008654982
+    },
+    {
+      "name": "mozilla/invalid-attributes",
+      "group": "mozilla",
+      "overlap": 0,
+      "actual": 0,
+      "ideal": 8,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "seconds": 0.0004271540092304349
+    },
+    {
+      "name": "mozilla/js-link-replacement",
+      "group": "mozilla",
+      "overlap": 0,
+      "actual": 0,
+      "ideal": 3,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "seconds": 0.0003755319630727172
+    },
+    {
+      "name": "mozilla/keep-images",
+      "group": "mozilla",
+      "overlap": 3218,
+      "actual": 3253,
+      "ideal": 3260,
+      "precision": 0.9892407008914847,
+      "recall": 0.9871165644171779,
+      "f1": 0.9881774911715031,
+      "seconds": 0.0304581728996709
+    },
+    {
+      "name": "mozilla/keep-tabular-data",
+      "group": "mozilla",
+      "overlap": 2341,
+      "actual": 2346,
+      "ideal": 2508,
+      "precision": 0.9978687127024722,
+      "recall": 0.9334130781499203,
+      "f1": 0.9645653069633292,
+      "seconds": 0.026560934958979487
+    },
+    {
+      "name": "mozilla/la-nacion-mapuche",
+      "group": "mozilla",
+      "overlap": 0,
+      "actual": 0,
+      "ideal": 1165,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "seconds": 0.017225694027729332
+    },
+    {
+      "name": "mozilla/lazy-image-1",
+      "group": "mozilla",
+      "overlap": 1592,
+      "actual": 1609,
+      "ideal": 1628,
+      "precision": 0.9894344313238036,
+      "recall": 0.9778869778869779,
+      "f1": 0.9836268149521162,
+      "seconds": 0.0287140830187127
+    },
+    {
+      "name": "mozilla/lazy-image-2",
+      "group": "mozilla",
+      "overlap": 7844,
+      "actual": 7905,
+      "ideal": 8106,
+      "precision": 0.9922833649588868,
+      "recall": 0.9676782630150506,
+      "f1": 0.9798263693710575,
+      "seconds": 0.10752832994330674
+    },
+    {
+      "name": "mozilla/lazy-image-3",
+      "group": "mozilla",
+      "overlap": 0,
+      "actual": 0,
+      "ideal": 6,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "seconds": 0.0005665530916303396
+    },
+    {
+      "name": "mozilla/lemonde-intelligence-law",
+      "group": "mozilla",
+      "overlap": 0,
+      "actual": 0,
+      "ideal": 1497,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "seconds": 0.02249218907672912
+    },
+    {
+      "name": "mozilla/liberation-nepal-earthquake",
+      "group": "mozilla",
+      "overlap": 0,
+      "actual": 0,
+      "ideal": 283,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "seconds": 0.0273180230287835
+    },
+    {
+      "name": "mozilla/lifehacker-article",
+      "group": "mozilla",
+      "overlap": 2643,
+      "actual": 2689,
+      "ideal": 2750,
+      "precision": 0.9828932688731871,
+      "recall": 0.9610909090909091,
+      "f1": 0.971869829012686,
+      "seconds": 0.03408579307142645
+    },
+    {
+      "name": "mozilla/lifehacker-post-comment-load",
+      "group": "mozilla",
+      "overlap": 2680,
+      "actual": 2933,
+      "ideal": 2750,
+      "precision": 0.9137401977497442,
+      "recall": 0.9745454545454545,
+      "f1": 0.9431638219250394,
+      "seconds": 0.06578804308082908
+    },
+    {
+      "name": "mozilla/links-in-tables",
+      "group": "mozilla",
+      "overlap": 885,
+      "actual": 892,
+      "ideal": 1022,
+      "precision": 0.992152466367713,
+      "recall": 0.8659491193737769,
+      "f1": 0.9247648902821316,
+      "seconds": 0.03604959696531296
+    },
+    {
+      "name": "mozilla/lwn-article",
+      "group": "mozilla",
+      "overlap": 4006,
+      "actual": 4007,
+      "ideal": 4215,
+      "precision": 0.9997504367357125,
+      "recall": 0.9504151838671412,
+      "f1": 0.9744587691559231,
+      "seconds": 0.047410873929038644
+    },
+    {
+      "name": "mozilla/mathjax",
+      "group": "mozilla",
+      "overlap": 0,
+      "actual": 0,
+      "ideal": 256,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "seconds": 0.016831516986712813
+    },
+    {
+      "name": "mozilla/medical-news-today-article",
+      "group": "mozilla",
+      "overlap": 955,
+      "actual": 1318,
+      "ideal": 955,
+      "precision": 0.7245827010622155,
+      "recall": 1.0,
+      "f1": 0.8402991641003079,
+      "seconds": 0.026401042938232422
+    },
+    {
+      "name": "mozilla/medium-2",
+      "group": "mozilla",
+      "overlap": 792,
+      "actual": 857,
+      "ideal": 792,
+      "precision": 0.9241540256709452,
+      "recall": 1.0,
+      "f1": 0.960582171012735,
+      "seconds": 0.010140483034774661
+    },
+    {
+      "name": "mozilla/medium-3",
+      "group": "mozilla",
+      "overlap": 4103,
+      "actual": 4105,
+      "ideal": 4625,
+      "precision": 0.9995127892813642,
+      "recall": 0.8871351351351351,
+      "f1": 0.9399770904925544,
+      "seconds": 0.052116760052740574
+    },
+    {
+      "name": "mozilla/medium-article",
+      "group": "mozilla",
+      "overlap": 2559,
+      "actual": 2592,
+      "ideal": 2617,
+      "precision": 0.9872685185185185,
+      "recall": 0.9778372181887658,
+      "f1": 0.9825302361297753,
+      "seconds": 0.025663526030257344
+    },
+    {
+      "name": "mozilla/mercurial",
+      "group": "mozilla",
+      "overlap": 2626,
+      "actual": 2768,
+      "ideal": 3902,
+      "precision": 0.9486994219653179,
+      "recall": 0.6729882111737571,
+      "f1": 0.7874062968515742,
+      "seconds": 0.03821466094814241
+    },
+    {
+      "name": "mozilla/metadata-content-missing",
+      "group": "mozilla",
+      "overlap": 0,
+      "actual": 0,
+      "ideal": 141,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "seconds": 0.0012773589696735144
+    },
+    {
+      "name": "mozilla/missing-paragraphs",
+      "group": "mozilla",
+      "overlap": 0,
+      "actual": 0,
+      "ideal": 454,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "seconds": 0.003036372014321387
+    },
+    {
+      "name": "mozilla/mozilla-1",
+      "group": "mozilla",
+      "overlap": 76,
+      "actual": 77,
+      "ideal": 197,
+      "precision": 0.987012987012987,
+      "recall": 0.38578680203045684,
+      "f1": 0.5547445255474452,
+      "seconds": 0.01625075493939221
+    },
+    {
+      "name": "mozilla/mozilla-2",
+      "group": "mozilla",
+      "overlap": 72,
+      "actual": 72,
+      "ideal": 282,
+      "precision": 1.0,
+      "recall": 0.2553191489361702,
+      "f1": 0.4067796610169491,
+      "seconds": 0.006123826955445111
+    },
+    {
+      "name": "mozilla/msn-super-mario-run",
+      "group": "mozilla",
+      "overlap": 220,
+      "actual": 220,
+      "ideal": 281,
+      "precision": 1.0,
+      "recall": 0.7829181494661922,
+      "f1": 0.8782435129740519,
+      "seconds": 0.031984639004804194
+    },
+    {
+      "name": "mozilla/normalize-spaces",
+      "group": "mozilla",
+      "overlap": 0,
+      "actual": 0,
+      "ideal": 130,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "seconds": 0.0012124829227104783
+    },
+    {
+      "name": "mozilla/nytimes-2",
+      "group": "mozilla",
+      "overlap": 1222,
+      "actual": 1232,
+      "ideal": 1243,
+      "precision": 0.9918831168831169,
+      "recall": 0.9831053901850362,
+      "f1": 0.9874747474747475,
+      "seconds": 0.054631668026559055
+    },
+    {
+      "name": "mozilla/nytimes-3",
+      "group": "mozilla",
+      "overlap": 1578,
+      "actual": 1585,
+      "ideal": 1629,
+      "precision": 0.9955835962145111,
+      "recall": 0.9686924493554327,
+      "f1": 0.9819539514623522,
+      "seconds": 0.029807352926582098
+    },
+    {
+      "name": "mozilla/nytimes-4",
+      "group": "mozilla",
+      "overlap": 1611,
+      "actual": 1975,
+      "ideal": 1663,
+      "precision": 0.8156962025316455,
+      "recall": 0.9687312086590499,
+      "f1": 0.88565145684442,
+      "seconds": 0.047343263984657824
+    },
+    {
+      "name": "mozilla/nytimes-5",
+      "group": "mozilla",
+      "overlap": 0,
+      "actual": 0,
+      "ideal": 439,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "seconds": 0.03296137694269419
+    },
+    {
+      "name": "mozilla/nytimes-sudan-sanctions",
+      "group": "mozilla",
+      "overlap": 725,
+      "actual": 755,
+      "ideal": 810,
+      "precision": 0.9602649006622517,
+      "recall": 0.8950617283950617,
+      "f1": 0.9265175718849841,
+      "seconds": 0.05203819996677339
+    },
+    {
+      "name": "mozilla/ol",
+      "group": "mozilla",
+      "overlap": 0,
+      "actual": 0,
+      "ideal": 16,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "seconds": 0.00047609000466763973
+    },
+    {
+      "name": "mozilla/parsely-metadata",
+      "group": "mozilla",
+      "overlap": 0,
+      "actual": 0,
+      "ideal": 141,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "seconds": 0.0012056210543960333
+    },
+    {
+      "name": "mozilla/pixnet-camping",
+      "group": "mozilla",
+      "overlap": 0,
+      "actual": 0,
+      "ideal": 256,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "seconds": 0.06461470306385309
+    },
+    {
+      "name": "mozilla/qq-news-article",
+      "group": "mozilla",
+      "overlap": 0,
+      "actual": 0,
+      "ideal": 63,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "seconds": 0.012269838945940137
+    },
+    {
+      "name": "mozilla/quanta-article",
+      "group": "mozilla",
+      "overlap": 3036,
+      "actual": 3093,
+      "ideal": 3108,
+      "precision": 0.9815712900096993,
+      "recall": 0.9768339768339769,
+      "f1": 0.9791969037252057,
+      "seconds": 0.04054018796887249
+    },
+    {
+      "name": "mozilla/remove-aria-hidden",
+      "group": "mozilla",
+      "overlap": 0,
+      "actual": 0,
+      "ideal": 36,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "seconds": 0.0009251890005543828
+    },
+    {
+      "name": "mozilla/remove-extra-brs",
+      "group": "mozilla",
+      "overlap": 0,
+      "actual": 0,
+      "ideal": 127,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "seconds": 0.001281070988625288
+    },
+    {
+      "name": "mozilla/remove-extra-paragraphs",
+      "group": "mozilla",
+      "overlap": 0,
+      "actual": 0,
+      "ideal": 127,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "seconds": 0.0012760150711983442
+    },
+    {
+      "name": "mozilla/remove-script-tags",
+      "group": "mozilla",
+      "overlap": 0,
+      "actual": 0,
+      "ideal": 127,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "seconds": 0.0012296190252527595
+    },
+    {
+      "name": "mozilla/reordering-paragraphs",
+      "group": "mozilla",
+      "overlap": 258,
+      "actual": 258,
+      "ideal": 258,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "seconds": 0.0017817600164562464
+    },
+    {
+      "name": "mozilla/replace-brs",
+      "group": "mozilla",
+      "overlap": 0,
+      "actual": 0,
+      "ideal": 127,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "seconds": 0.001417752937413752
+    },
+    {
+      "name": "mozilla/replace-font-tags",
+      "group": "mozilla",
+      "overlap": 0,
+      "actual": 0,
+      "ideal": 129,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "seconds": 0.0012457689736038446
+    },
+    {
+      "name": "mozilla/royal-road",
+      "group": "mozilla",
+      "overlap": 4662,
+      "actual": 4869,
+      "ideal": 4881,
+      "precision": 0.9574861367837338,
+      "recall": 0.9551321450522434,
+      "f1": 0.9563076923076923,
+      "seconds": 0.05778988706879318
+    },
+    {
+      "name": "mozilla/rtl-1",
+      "group": "mozilla",
+      "overlap": 0,
+      "actual": 0,
+      "ideal": 133,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "seconds": 0.0012879159767180681
+    },
+    {
+      "name": "mozilla/rtl-2",
+      "group": "mozilla",
+      "overlap": 0,
+      "actual": 0,
+      "ideal": 133,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "seconds": 0.001295752008445561
+    },
+    {
+      "name": "mozilla/rtl-3",
+      "group": "mozilla",
+      "overlap": 0,
+      "actual": 0,
+      "ideal": 133,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "seconds": 0.0014069320168346167
+    },
+    {
+      "name": "mozilla/rtl-4",
+      "group": "mozilla",
+      "overlap": 0,
+      "actual": 0,
+      "ideal": 133,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "seconds": 0.0012628339463844895
+    },
+    {
+      "name": "mozilla/salon-sharing-economy",
+      "group": "mozilla",
+      "overlap": 1840,
+      "actual": 2026,
+      "ideal": 1966,
+      "precision": 0.9081934846989141,
+      "recall": 0.9359104781281791,
+      "f1": 0.9218436873747495,
+      "seconds": 0.042300360975787044
+    },
+    {
+      "name": "mozilla/schema-org-context-object",
+      "group": "mozilla",
+      "overlap": 1077,
+      "actual": 1077,
+      "ideal": 1171,
+      "precision": 1.0,
+      "recall": 0.9197267292912041,
+      "f1": 0.958185053380783,
+      "seconds": 0.02645226998720318
+    },
+    {
+      "name": "mozilla/seattle-times-halibut",
+      "group": "mozilla",
+      "overlap": 1866,
+      "actual": 1874,
+      "ideal": 2115,
+      "precision": 0.9957310565635006,
+      "recall": 0.8822695035460993,
+      "f1": 0.9355728252694911,
+      "seconds": 0.0335937220370397
+    },
+    {
+      "name": "mozilla/simplyfound-1",
+      "group": "mozilla",
+      "overlap": 299,
+      "actual": 299,
+      "ideal": 315,
+      "precision": 1.0,
+      "recall": 0.9492063492063492,
+      "f1": 0.9739413680781759,
+      "seconds": 0.007189125055447221
+    },
+    {
+      "name": "mozilla/social-buttons",
+      "group": "mozilla",
+      "overlap": 0,
+      "actual": 0,
+      "ideal": 348,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "seconds": 0.002813767991028726
+    },
+    {
+      "name": "mozilla/spiceworks-vidyard",
+      "group": "mozilla",
+      "overlap": 722,
+      "actual": 780,
+      "ideal": 741,
+      "precision": 0.9256410256410257,
+      "recall": 0.9743589743589743,
+      "f1": 0.9493754109138725,
+      "seconds": 0.01744119101203978
+    },
+    {
+      "name": "mozilla/style-tags-removal",
+      "group": "mozilla",
+      "overlap": 0,
+      "actual": 0,
+      "ideal": 129,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "seconds": 0.0013387459330260754
+    },
+    {
+      "name": "mozilla/svg-parsing",
+      "group": "mozilla",
+      "overlap": 0,
+      "actual": 0,
+      "ideal": 345,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "seconds": 0.0027631609700620174
+    },
+    {
+      "name": "mozilla/table-style-attributes",
+      "group": "mozilla",
+      "overlap": 1503,
+      "actual": 1503,
+      "ideal": 1633,
+      "precision": 1.0,
+      "recall": 0.9203919167176975,
+      "f1": 0.9585459183673469,
+      "seconds": 0.01332360494416207
+    },
+    {
+      "name": "mozilla/telegraph-zimbabwe",
+      "group": "mozilla",
+      "overlap": 467,
+      "actual": 559,
+      "ideal": 498,
+      "precision": 0.8354203935599285,
+      "recall": 0.9377510040160643,
+      "f1": 0.8836329233680228,
+      "seconds": 0.028320687008090317
+    },
+    {
+      "name": "mozilla/the-verge-vision-pro",
+      "group": "mozilla",
+      "overlap": 719,
+      "actual": 803,
+      "ideal": 758,
+      "precision": 0.8953922789539228,
+      "recall": 0.9485488126649076,
+      "f1": 0.9212043561819347,
+      "seconds": 0.01707873702980578
+    },
+    {
+      "name": "mozilla/title-and-h1-discrepancy",
+      "group": "mozilla",
+      "overlap": 0,
+      "actual": 0,
+      "ideal": 151,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "seconds": 0.0012023160234093666
+    },
+    {
+      "name": "mozilla/title-en-dash",
+      "group": "mozilla",
+      "overlap": 0,
+      "actual": 0,
+      "ideal": 136,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "seconds": 0.0010875239968299866
+    },
+    {
+      "name": "mozilla/tmz-1",
+      "group": "mozilla",
+      "overlap": 149,
+      "actual": 194,
+      "ideal": 153,
+      "precision": 0.7680412371134021,
+      "recall": 0.9738562091503268,
+      "f1": 0.8587896253602305,
+      "seconds": 0.014463681960478425
+    },
+    {
+      "name": "mozilla/toc-missing",
+      "group": "mozilla",
+      "overlap": 1806,
+      "actual": 1811,
+      "ideal": 5466,
+      "precision": 0.9972390944229708,
+      "recall": 0.33040614709110866,
+      "f1": 0.49635838944620037,
+      "seconds": 0.05065732798539102
+    },
+    {
+      "name": "mozilla/topicseed-1",
+      "group": "mozilla",
+      "overlap": 1383,
+      "actual": 1423,
+      "ideal": 1450,
+      "precision": 0.971890372452565,
+      "recall": 0.9537931034482758,
+      "f1": 0.9627567003132614,
+      "seconds": 0.015049420995637774
+    },
+    {
+      "name": "mozilla/tumblr",
+      "group": "mozilla",
+      "overlap": 0,
+      "actual": 0,
+      "ideal": 445,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "seconds": 0.005670816986821592
+    },
+    {
+      "name": "mozilla/v8-blog",
+      "group": "mozilla",
+      "overlap": 2071,
+      "actual": 2077,
+      "ideal": 2464,
+      "precision": 0.9971112181030333,
+      "recall": 0.8405032467532467,
+      "f1": 0.9121338912133891,
+      "seconds": 0.021216862951405346
+    },
+    {
+      "name": "mozilla/videos-1",
+      "group": "mozilla",
+      "overlap": 2962,
+      "actual": 2984,
+      "ideal": 3415,
+      "precision": 0.9926273458445041,
+      "recall": 0.8673499267935578,
+      "f1": 0.9257696515080481,
+      "seconds": 0.04275109001901001
+    },
+    {
+      "name": "mozilla/videos-2",
+      "group": "mozilla",
+      "overlap": 0,
+      "actual": 0,
+      "ideal": 1484,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "seconds": 0.028729083016514778
+    },
+    {
+      "name": "mozilla/visibility-hidden",
+      "group": "mozilla",
+      "overlap": 0,
+      "actual": 0,
+      "ideal": 58,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "seconds": 0.0013845539651811123
+    },
+    {
+      "name": "mozilla/wapo-2",
+      "group": "mozilla",
+      "overlap": 1008,
+      "actual": 1097,
+      "ideal": 1034,
+      "precision": 0.918869644484959,
+      "recall": 0.9748549323017408,
+      "f1": 0.9460347254809948,
+      "seconds": 0.02529183600563556
+    },
+    {
+      "name": "mozilla/washington-post-tunisia",
+      "group": "mozilla",
+      "overlap": 1179,
+      "actual": 1351,
+      "ideal": 1232,
+      "precision": 0.8726868985936344,
+      "recall": 0.9569805194805194,
+      "f1": 0.9128919860627178,
+      "seconds": 0.03442555898800492
+    },
+    {
+      "name": "mozilla/webmd-2",
+      "group": "mozilla",
+      "overlap": 386,
+      "actual": 398,
+      "ideal": 386,
+      "precision": 0.9698492462311558,
+      "recall": 1.0,
+      "f1": 0.9846938775510203,
+      "seconds": 0.027600427973084152
+    },
+    {
+      "name": "mozilla/webmd-peanut-allergy",
+      "group": "mozilla",
+      "overlap": 387,
+      "actual": 395,
+      "ideal": 387,
+      "precision": 0.979746835443038,
+      "recall": 1.0,
+      "f1": 0.989769820971867,
+      "seconds": 0.02956224395893514
+    },
+    {
+      "name": "mozilla/wikia",
+      "group": "mozilla",
+      "overlap": 593,
+      "actual": 632,
+      "ideal": 612,
+      "precision": 0.9382911392405063,
+      "recall": 0.9689542483660131,
+      "f1": 0.9533762057877814,
+      "seconds": 0.032061574049293995
+    },
+    {
+      "name": "mozilla/wikipedia",
+      "group": "mozilla",
+      "overlap": 2394,
+      "actual": 2396,
+      "ideal": 4568,
+      "precision": 0.9991652754590985,
+      "recall": 0.5240805604203153,
+      "f1": 0.6875358989086732,
+      "seconds": 0.06973513099364936
+    },
+    {
+      "name": "mozilla/wikipedia-2",
+      "group": "mozilla",
+      "overlap": 6373,
+      "actual": 6389,
+      "ideal": 18321,
+      "precision": 0.9974956957270308,
+      "recall": 0.3478521914742645,
+      "f1": 0.5158235532173209,
+      "seconds": 0.2641890470404178
+    },
+    {
+      "name": "mozilla/wikipedia-3",
+      "group": "mozilla",
+      "overlap": 740,
+      "actual": 852,
+      "ideal": 1357,
+      "precision": 0.8685446009389671,
+      "recall": 0.5453205600589536,
+      "f1": 0.6699864191942055,
+      "seconds": 0.03997744503431022
+    },
+    {
+      "name": "mozilla/wikipedia-4",
+      "group": "mozilla",
+      "overlap": 1154,
+      "actual": 1155,
+      "ideal": 4073,
+      "precision": 0.9991341991341991,
+      "recall": 0.2833292413454456,
+      "f1": 0.44146901300688607,
+      "seconds": 0.060020242002792656
+    },
+    {
+      "name": "mozilla/wordpress",
+      "group": "mozilla",
+      "overlap": 581,
+      "actual": 1810,
+      "ideal": 581,
+      "precision": 0.32099447513812157,
+      "recall": 1.0,
+      "f1": 0.48598912588874954,
+      "seconds": 0.03226079000160098
+    },
+    {
+      "name": "mozilla/yahoo-1",
+      "group": "mozilla",
+      "overlap": 694,
+      "actual": 694,
+      "ideal": 823,
+      "precision": 1.0,
+      "recall": 0.8432563791008505,
+      "f1": 0.9149637442320369,
+      "seconds": 0.03594657208304852
+    },
+    {
+      "name": "mozilla/yahoo-2",
+      "group": "mozilla",
+      "overlap": 546,
+      "actual": 1618,
+      "ideal": 565,
+      "precision": 0.3374536464771323,
+      "recall": 0.9663716814159292,
+      "f1": 0.500229042601924,
+      "seconds": 0.09168014500755817
+    },
+    {
+      "name": "mozilla/yahoo-3",
+      "group": "mozilla",
+      "overlap": 479,
+      "actual": 1490,
+      "ideal": 502,
+      "precision": 0.3214765100671141,
+      "recall": 0.954183266932271,
+      "f1": 0.4809236947791165,
+      "seconds": 0.06397742801345885
+    },
+    {
+      "name": "mozilla/yahoo-4",
+      "group": "mozilla",
+      "overlap": 0,
+      "actual": 0,
+      "ideal": 103,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "seconds": 0.01723340409807861
+    },
+    {
+      "name": "mozilla/youth-two-sessions",
+      "group": "mozilla",
+      "overlap": 0,
+      "actual": 0,
+      "ideal": 166,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "seconds": 0.01792391506023705
+    },
+    {
+      "name": "user/closed-173-verge-import",
+      "group": "user",
+      "overlap": 481,
+      "actual": 496,
+      "ideal": 663,
+      "precision": 0.969758064516129,
+      "recall": 0.7254901960784313,
+      "f1": 0.8300258843830888,
+      "seconds": 0.033228236017748713
+    },
+    {
+      "name": "user/closed-30-macrumors-inline",
+      "group": "user",
+      "overlap": 212,
+      "actual": 469,
+      "ideal": 243,
+      "precision": 0.4520255863539446,
+      "recall": 0.8724279835390947,
+      "f1": 0.5955056179775281,
+      "seconds": 0.026418445981107652
+    },
+    {
+      "name": "user/closed-49-guardian-invalid-link",
+      "group": "user",
+      "overlap": 660,
+      "actual": 660,
+      "ideal": 800,
+      "precision": 1.0,
+      "recall": 0.825,
+      "f1": 0.9041095890410958,
+      "seconds": 0.02206375903915614
+    },
+    {
+      "name": "user/open-119-fiol-missing-sections",
+      "group": "user",
+      "overlap": 856,
+      "actual": 1006,
+      "ideal": 870,
+      "precision": 0.8508946322067594,
+      "recall": 0.9839080459770115,
+      "f1": 0.9125799573560768,
+      "seconds": 0.017417216091416776
+    },
+    {
+      "name": "user/open-170-blogger-inline",
+      "group": "user",
+      "overlap": 0,
+      "actual": 0,
+      "ideal": 1285,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "seconds": 0.023355284007266164
+    },
+    {
+      "name": "user/open-171-cyberwire-sections",
+      "group": "user",
+      "overlap": 2146,
+      "actual": 2171,
+      "ideal": 7013,
+      "precision": 0.9884845693228926,
+      "recall": 0.3060031370312277,
+      "f1": 0.46733449477351924,
+      "seconds": 0.05647046596277505
+    }
+  ],
+  "failures": [
+    {
+      "name": "base/africanews-ghana-repatriation",
+      "error": "ValueError('empty extraction')"
+    },
+    {
+      "name": "mozilla/003-metadata-preferred",
+      "error": "ValueError('empty extraction')"
+    },
+    {
+      "name": "mozilla/004-metadata-space-separated-properties",
+      "error": "ValueError('empty extraction')"
+    },
+    {
+      "name": "mozilla/005-unescape-html-entities",
+      "error": "ValueError('empty extraction')"
+    },
+    {
+      "name": "mozilla/aktualne-news",
+      "error": "ValueError('empty extraction')"
+    },
+    {
+      "name": "mozilla/base-url",
+      "error": "ValueError('empty extraction')"
+    },
+    {
+      "name": "mozilla/base-url-base-element",
+      "error": "ValueError('empty extraction')"
+    },
+    {
+      "name": "mozilla/base-url-base-element-relative",
+      "error": "ValueError('empty extraction')"
+    },
+    {
+      "name": "mozilla/basic-tags-cleaning",
+      "error": "ValueError('empty extraction')"
+    },
+    {
+      "name": "mozilla/cnet-svg-classes",
+      "error": "ValueError('empty extraction')"
+    },
+    {
+      "name": "mozilla/comment-inside-script-parsing",
+      "error": "ValueError('empty extraction')"
+    },
+    {
+      "name": "mozilla/data-url-image",
+      "error": "ValueError('empty extraction')"
+    },
+    {
+      "name": "mozilla/dev418",
+      "error": "ValueError('empty extraction')"
+    },
+    {
+      "name": "mozilla/embedded-videos",
+      "error": "ValueError('empty extraction')"
+    },
+    {
+      "name": "mozilla/folha-tite-libertadores",
+      "error": "ValueError('empty extraction')"
+    },
+    {
+      "name": "mozilla/gmw",
+      "error": "ValueError('empty extraction')"
+    },
+    {
+      "name": "mozilla/heise-1password",
+      "error": "ValueError('empty extraction')"
+    },
+    {
+      "name": "mozilla/hidden-nodes",
+      "error": "ValueError('empty extraction')"
+    },
+    {
+      "name": "mozilla/hukumusume-greedy-dog",
+      "error": "ValueError('empty extraction')"
+    },
+    {
+      "name": "mozilla/invalid-attributes",
+      "error": "ValueError('empty extraction')"
+    },
+    {
+      "name": "mozilla/js-link-replacement",
+      "error": "ValueError('empty extraction')"
+    },
+    {
+      "name": "mozilla/la-nacion-mapuche",
+      "error": "ValueError('empty extraction')"
+    },
+    {
+      "name": "mozilla/lazy-image-3",
+      "error": "ValueError('empty extraction')"
+    },
+    {
+      "name": "mozilla/lemonde-intelligence-law",
+      "error": "ValueError('empty extraction')"
+    },
+    {
+      "name": "mozilla/liberation-nepal-earthquake",
+      "error": "ValueError('empty extraction')"
+    },
+    {
+      "name": "mozilla/mathjax",
+      "error": "ValueError('empty extraction')"
+    },
+    {
+      "name": "mozilla/metadata-content-missing",
+      "error": "ValueError('empty extraction')"
+    },
+    {
+      "name": "mozilla/missing-paragraphs",
+      "error": "ValueError('empty extraction')"
+    },
+    {
+      "name": "mozilla/normalize-spaces",
+      "error": "ValueError('empty extraction')"
+    },
+    {
+      "name": "mozilla/nytimes-5",
+      "error": "ValueError('empty extraction')"
+    },
+    {
+      "name": "mozilla/ol",
+      "error": "ValueError('empty extraction')"
+    },
+    {
+      "name": "mozilla/parsely-metadata",
+      "error": "ValueError('empty extraction')"
+    },
+    {
+      "name": "mozilla/pixnet-camping",
+      "error": "ValueError('empty extraction')"
+    },
+    {
+      "name": "mozilla/qq-news-article",
+      "error": "ValueError('empty extraction')"
+    },
+    {
+      "name": "mozilla/remove-aria-hidden",
+      "error": "ValueError('empty extraction')"
+    },
+    {
+      "name": "mozilla/remove-extra-brs",
+      "error": "ValueError('empty extraction')"
+    },
+    {
+      "name": "mozilla/remove-extra-paragraphs",
+      "error": "ValueError('empty extraction')"
+    },
+    {
+      "name": "mozilla/remove-script-tags",
+      "error": "ValueError('empty extraction')"
+    },
+    {
+      "name": "mozilla/replace-brs",
+      "error": "ValueError('empty extraction')"
+    },
+    {
+      "name": "mozilla/replace-font-tags",
+      "error": "ValueError('empty extraction')"
+    },
+    {
+      "name": "mozilla/rtl-1",
+      "error": "ValueError('empty extraction')"
+    },
+    {
+      "name": "mozilla/rtl-2",
+      "error": "ValueError('empty extraction')"
+    },
+    {
+      "name": "mozilla/rtl-3",
+      "error": "ValueError('empty extraction')"
+    },
+    {
+      "name": "mozilla/rtl-4",
+      "error": "ValueError('empty extraction')"
+    },
+    {
+      "name": "mozilla/social-buttons",
+      "error": "ValueError('empty extraction')"
+    },
+    {
+      "name": "mozilla/style-tags-removal",
+      "error": "ValueError('empty extraction')"
+    },
+    {
+      "name": "mozilla/svg-parsing",
+      "error": "ValueError('empty extraction')"
+    },
+    {
+      "name": "mozilla/title-and-h1-discrepancy",
+      "error": "ValueError('empty extraction')"
+    },
+    {
+      "name": "mozilla/title-en-dash",
+      "error": "ValueError('empty extraction')"
+    },
+    {
+      "name": "mozilla/tumblr",
+      "error": "ValueError('empty extraction')"
+    },
+    {
+      "name": "mozilla/videos-2",
+      "error": "ValueError('empty extraction')"
+    },
+    {
+      "name": "mozilla/visibility-hidden",
+      "error": "ValueError('empty extraction')"
+    },
+    {
+      "name": "mozilla/yahoo-4",
+      "error": "ValueError('empty extraction')"
+    },
+    {
+      "name": "mozilla/youth-two-sessions",
+      "error": "ValueError('empty extraction')"
+    },
+    {
+      "name": "user/open-170-blogger-inline",
+      "error": "ValueError('empty extraction')"
+    }
+  ],
+  "groups": {
+    "base": {
+      "pages": 10,
+      "precision": 0.9712671509281678,
+      "recall": 0.8794212218649518,
+      "f1": 0.9230651223440975
+    },
+    "dragnet": {
+      "pages": 20,
+      "precision": 0.9263576398301256,
+      "recall": 0.8395708787159119,
+      "f1": 0.8808316865710114
+    },
+    "mozilla": {
+      "pages": 130,
+      "precision": 0.9309256271902987,
+      "recall": 0.7411331617260373,
+      "f1": 0.8252578892378436
+    },
+    "user": {
+      "pages": 6,
+      "precision": 0.9069137859225322,
+      "recall": 0.4004965973882656,
+      "f1": 0.5556264353151315
+    }
+  },
+  "totals": {
+    "pages": 166,
+    "overlap": 154506,
+    "actual": 165880,
+    "ideal": 210572,
+    "precision": 0.9314323607427055,
+    "recall": 0.7337442774917843,
+    "f1": 0.8208536546491982,
+    "median_seconds": 0.02164917200570926,
+    "total_seconds": 4.241810083040036
+  }
+}

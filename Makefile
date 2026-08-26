@@ -49,7 +49,7 @@ clean_all: clean
 
 .PHONY: lint
 lint: setup
-	$(PY) -m flake8 readability tests
+	$(PY) -m flake8 readability tests benchmarks
 
 .PHONY: check-version
 check-version:

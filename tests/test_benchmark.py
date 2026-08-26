@@ -62,7 +62,7 @@ class TestBenchmark(unittest.TestCase):
         pages = Path(__file__).parents[1] / "pages"
         fixtures = sorted(path.parent for path in pages.rglob("metadata.json"))
 
-        self.assertEqual(146, len(fixtures))
+        self.assertEqual(166, len(fixtures))
         for fixture in fixtures:
             metadata = json.loads((fixture / "metadata.json").read_text())
             summary = Document(
@@ -96,5 +96,59 @@ class TestBenchmark(unittest.TestCase):
         pages = Path(__file__).parents[1] / "pages"
 
         self.assertEqual(10, len(list((pages / "base").glob("*/metadata.json"))))
+        self.assertEqual(20, len(list((pages / "dragnet").glob("*/metadata.json"))))
         self.assertEqual(6, len(list((pages / "user").glob("*/metadata.json"))))
         self.assertEqual(130, len(list((pages / "mozilla").glob("*/metadata.json"))))
+
+    def test_dragnet_sample_has_fixed_provenance(self):
+        pages = Path(__file__).parents[1] / "pages" / "dragnet"
+        metadata = [
+            json.loads(path.read_text())
+            for path in pages.glob("*/metadata.json")
+        ]
+
+        self.assertEqual(20, len(metadata))
+        self.assertEqual({"CC-BY-4.0"}, {item["data_license"] for item in metadata})
+        self.assertEqual(
+            {"5d97da4c3c5cf775fa02794b84d31786b8d51d3a"},
+            {item["upstream_commit"] for item in metadata},
+        )
+
+    def test_jcharum_manual_ideal_and_regressions(self):
+        pages = Path(__file__).parents[1] / "pages" / "jcharum"
+        fixtures = sorted(path.parent for path in pages.glob("*/regression.json"))
+
+        self.assertEqual(15, len(fixtures))
+        for fixture in fixtures:
+            metadata = json.loads((fixture / "regression.json").read_text())
+            summary = Document(
+                (fixture / "page.html").read_bytes(),
+                url=metadata["url"],
+            ).summary()
+            self.assertTrue(metadata["quality_benchmark"])
+            self.assertEqual("2026-08-23", metadata["manual_reviewed"])
+            self.assertEqual(
+                "manually reviewed from saved page.html and engine outputs",
+                metadata["ideal_method"],
+            )
+            self.assertTrue(metadata["silver_reference"])
+            self.assertEqual(
+                "Mozilla Readability 0.6.0 with jsdom 26.1.0",
+                metadata["silver_method"],
+            )
+            self.assertTrue(
+                body_tokens(
+                    (fixture / metadata["silver_summary_file"]).read_text()
+                ),
+                fixture.name,
+            )
+            self.assertEqual(
+                "cec2d35c55cc8b94f0f6ff582cf700dab377af8a",
+                metadata["upstream_commit"],
+            )
+            self.assertTrue(body_tokens((fixture / "ideal.html").read_text()))
+            self.assertEqual(
+                body_tokens((fixture / "actual.html").read_text()),
+                body_tokens(summary),
+                fixture.name,
+            )
