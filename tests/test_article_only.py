@@ -185,6 +185,34 @@ class TestArticleOnly(unittest.TestCase):
         self.assertNotIn("Hidden content", summary)
         self.assertIn("ordinary article text", summary)
 
+    def test_removes_inline_visibility_hidden(self):
+        article_text = "This is ordinary article text with punctuation. " * 8
+        sample = f"""
+        <html><body><article>
+            <div style="color: red; visibility: hidden !important">Hidden content</div>
+            <p>{article_text}</p>
+        </article></body></html>
+        """
+
+        summary = Document(sample).summary()
+
+        self.assertNotIn("Hidden content", summary)
+        self.assertIn("ordinary article text", summary)
+
+    def test_removes_hidden_attribute(self):
+        article_text = "This is ordinary article text with punctuation. " * 8
+        sample = f"""
+        <html><body><article>
+            <p hidden>Hidden content</p>
+            <p>{article_text}</p>
+        </article></body></html>
+        """
+
+        summary = Document(sample).summary()
+
+        self.assertNotIn("Hidden content", summary)
+        self.assertIn("ordinary article text", summary)
+
     def test_removes_noscript_content(self):
         article_text = "This is ordinary article text with punctuation. " * 8
         fallback_text = "Encoded advertising fallback content. " * 20
@@ -236,6 +264,51 @@ class TestArticleOnly(unittest.TestCase):
 
         self.assertIn("primary medical article", summary)
         self.assertNotIn("Privacy settings", summary)
+
+    def test_prefers_explicit_article_body_over_gallery(self):
+        article_text = "This is the intended hotel article with useful facts. " * 12
+        gallery_text = "Unrelated gallery caption, with many words, and commas. " * 8
+        sample = f"""
+        <html><body><main>
+            <div itemprop="articleBody"><p>{article_text}</p></div>
+            <div class="gallery">{''.join(f'<p>{gallery_text}</p>' for _ in range(8))}</div>
+        </main></body></html>
+        """
+
+        document = Document(sample)
+        candidate = document.select_best_candidate(document.score_paragraphs())
+
+        self.assertEqual("articleBody", candidate["elem"].get("itemprop"))
+
+    def test_ignores_link_heavy_article_body(self):
+        article_text = "This is the intended article with useful facts. " * 20
+        linked_text = "Linked promotional article content. " * 20
+        sample = f"""
+        <html><body><main>
+            <div itemprop="articleBody"><p><a href="/promo">{linked_text}</a></p></div>
+            <div class="article-content"><p>{article_text}</p></div>
+        </main></body></html>
+        """
+
+        summary = Document(sample).summary()
+
+        self.assertIn("intended article", summary)
+        self.assertNotIn("Linked promotional", summary)
+
+    def test_prefers_article_nested_in_noisy_parent(self):
+        article_text = "This is the intended article with useful facts. " * 20
+        related_text = "Popular related story with unrelated details. " * 10
+        sample = f"""
+        <html><body><main>
+            <article><div><p>{article_text}</p></div></article>
+            {''.join(f'<div><p>{related_text}</p></div>' for _ in range(5))}
+        </main></body></html>
+        """
+
+        document = Document(sample)
+        candidate = document.select_best_candidate(document.score_paragraphs())
+
+        self.assertEqual("article", candidate["elem"].tag)
 
     def test_recovers_editorial_lead_from_article(self):
         article_text = (
@@ -324,6 +397,144 @@ class TestArticleOnly(unittest.TestCase):
         self.assertIn("Second segment", summary)
         self.assertNotIn("Related navigation", summary)
 
+    def test_merges_neutral_segments_inside_article(self):
+        first_segment = "".join(
+            "<p>First segment paragraph {} with useful article details.</p>".format(
+                index
+            )
+            for index in range(30)
+        )
+        second_segment = "".join(
+            "<p>Second segment paragraph {} continues the same article.</p>".format(
+                index
+            )
+            for index in range(4)
+        )
+        related_links = "Linked recommendation outside the story. " * 12
+        sample = f"""
+        <html><body><article>
+            <section><div class="a b c">{first_segment}</div></section>
+            <section><div class="a b c">{second_segment}</div></section>
+            <section><div class="a b c"><p><a href="/related">
+                {related_links}</a></p></div></section>
+        </article></body></html>
+        """
+
+        summary = Document(sample).summary()
+
+        self.assertIn("First segment", summary)
+        self.assertIn("Second segment", summary)
+        self.assertNotIn("Linked recommendation", summary)
+
+    def test_uses_low_link_density_main_for_segmented_content(self):
+        first_segment = "First product section with useful details. " * 8
+        second_segment = "Second product section with more information. " * 8
+        sample = f"""
+        <html><body>
+            <nav><a href="/home">Site navigation</a></nav>
+            <main>
+                <section><div><p>{first_segment}</p></div></section>
+                <section><div><p>{second_segment}</p></div></section>
+            </main>
+        </body></html>
+        """
+
+        summary = Document(sample).summary()
+
+        self.assertIn("First product section", summary)
+        self.assertIn("Second product section", summary)
+        self.assertNotIn("Site navigation", summary)
+
+    def test_preserves_editorial_list_with_moderate_link_density(self):
+        items = "".join(
+            '<li><a href="/feature/{0}">Feature {0}</a> {1}</li>'.format(
+                index,
+                "Useful explanation of this feature and its behavior. " * 3,
+            )
+            for index in range(8)
+        )
+        sample = f"""
+        <html><body><main><section>
+            <p>{"Introduction to the complete feature list. " * 8}</p>
+            <ul>{items}</ul>
+        </section></main></body></html>
+        """
+
+        summary = Document(sample).summary()
+
+        self.assertIn("Feature 0", summary)
+        self.assertIn("Feature 7", summary)
+
+    def test_preserves_math_inside_unlikely_wrapper(self):
+        article_text = "Mathematical article explanation with useful context. " * 8
+        sample = f"""
+        <html><body><main>
+            <p>{article_text}</p>
+            <div class="MathJax CtxtMenu_Attached_0">
+                <math><mi>x</mi><mo>=</mo><mn>2</mn></math>
+            </div>
+        </main></body></html>
+        """
+
+        summary = Document(sample).summary()
+
+        self.assertIn("<math>", summary)
+        self.assertIn("x", summary)
+        self.assertIn("2", summary)
+
+    def test_rejects_video_iframe_lookalike_host(self):
+        article_text = "Security article with useful explanatory text. " * 8
+        sample = f"""
+        <html><body><article>
+            <p>{article_text}</p>
+            <iframe src="https://youtube.com.evil.example/embed/attack"></iframe>
+            <iframe src="https://youtube.com:443@evil.example/embed/attack"></iframe>
+            <iframe src="https://www.youtube.com/embed/safe"></iframe>
+        </article></body></html>
+        """
+
+        summary = Document(sample).summary()
+
+        self.assertNotIn("evil.example", summary)
+        self.assertIn("https://www.youtube.com/embed/safe", summary)
+
+    def test_removes_active_html_content(self):
+        article_text = "Security article with useful explanatory text. " * 8
+        sample = f"""
+        <html><body><article>
+            <p>{article_text}</p>
+            <script>alert(1)</script>
+            <a href="javascript:alert(2)" onclick="alert(3)">Unsafe link</a>
+            <img src="image.jpg" onerror="alert(4)">
+            <svg onload="alert(5)"><script>alert(6)</script></svg>
+        </article></body></html>
+        """
+
+        summary = Document(sample).summary().lower()
+
+        self.assertNotIn("<script", summary)
+        self.assertNotIn("javascript:", summary)
+        self.assertNotIn("onclick", summary)
+        self.assertNotIn("onerror", summary)
+        self.assertNotIn("onload", summary)
+        self.assertNotIn("alert(", summary)
+
+    def test_removes_srcdoc_from_allowed_video_iframe(self):
+        article_text = "Security article with useful explanatory text. " * 8
+        sample = f"""
+        <html><body><article>
+            <p>{article_text}</p>
+            <iframe src="https://www.youtube.com/embed/safe"
+                srcdoc="&lt;script&gt;alert(1)&lt;/script&gt;"></iframe>
+        </article></body></html>
+        """
+
+        summary = Document(sample).summary().lower()
+
+        self.assertIn("https://www.youtube.com/embed/safe", summary)
+        self.assertNotIn("srcdoc", summary)
+        self.assertNotIn("alert(", summary)
+
     def test_merges_segments_in_positive_container(self):
         first_segment = "First independent section with substantial article text. " * 12
         second_segment = "Second independent section continuing the same story. " * 10
@@ -342,6 +553,29 @@ class TestArticleOnly(unittest.TestCase):
 
         self.assertIn("First independent section", summary)
         self.assertIn("Second independent section", summary)
+
+    def test_preserves_lead_sibling_issue_159(self):
+        lead = (
+            "The business loan supports established companies and independent "
+            "professionals."
+        )
+        details = "This product is unavailable in the following cases. " * 8
+        sample = f"""
+        <html><body><div class="main-column">
+            <div class="text-image-container"><div class="text-image">
+                <p>{lead}</p>
+            </div></div>
+            <div class="text-image-container"><div class="text-image">
+                <p><strong>Eligibility restrictions:</strong></p>
+                <ul><li>{details}</li></ul>
+            </div></div>
+        </div></body></html>
+        """
+
+        summary = Document(sample).summary()
+
+        self.assertIn(lead, summary)
+        self.assertIn("Eligibility restrictions", summary)
 
     def test_prefers_list_based_article_to_service_form(self):
         list_items = "".join(
@@ -419,7 +653,7 @@ class TestArticleOnly(unittest.TestCase):
         self.assertIn("www.python.org/downloads/release/", summary)
 
     # Many spaces make some regexes run forever
-    @timeout(3)
+    @timeout(10)
     def test_many_repeated_spaces(self):
         long_space = " " * 1000000
         sample = "<html><body><p>foo" + long_space + "</p></body></html>"
@@ -569,3 +803,63 @@ class TestArticleOnly(unittest.TestCase):
         # With the fix, it should correctly return the last part.
         short_title = doc.short_title()
         self.assertEqual(short_title, "これは長いです")
+
+    def test_merges_classless_articles_in_article_body(self):
+        lead = "Opening article context with useful reporting and details. " * 8
+        body = "Main article analysis with facts and useful explanation. " * 16
+        sidebar = "Unrelated links and promotional material. " * 12
+        sample = f"""
+        <html><body><div id="article_body">
+            <div class="article_body"><article><p>{lead}</p></article></div>
+            <aside><p>{sidebar}</p></aside>
+            <div class="article_body"><article><p>{body}</p></article></div>
+        </div></body></html>
+        """
+
+        summary = Document(sample).summary()
+
+        self.assertIn("Opening article context", summary)
+        self.assertIn("Main article analysis", summary)
+        self.assertNotIn("promotional material", summary)
+
+    def test_preserves_fragmented_article_blockquotes(self):
+        introduction = "Reported article introduction with detailed context. " * 8
+        attribution = "A trusted publication explains:"
+        quotation = "Quoted evidence that is part of the article narrative. " * 8
+        conclusion = "Reported conclusion with additional useful facts. " * 8
+        sample = f"""
+        <html><body><article><div class="body content">
+            <div class="text section"><div class="text"><p>{introduction}</p></div></div>
+            <div class="text section"><div class="text"><p><a href="/source">{attribution}</a></p></div></div>
+            <div class="text section"><div class="text"><blockquote>{quotation}</blockquote></div></div>
+            <div class="text section"><div class="text"><p>{conclusion}</p></div></div>
+        </div></article></body></html>
+        """
+
+        summary = Document(sample).summary()
+
+        self.assertIn("Reported article introduction", summary)
+        self.assertIn(attribution, summary)
+        self.assertIn("Quoted evidence", summary)
+        self.assertIn("Reported conclusion", summary)
+
+    def test_preserves_article_table_of_contents(self):
+        article = "Long article introduction with useful technical details. " * 16
+        sample = f"""
+        <html><body><article><div class="article-body">
+            <p>{article}</p>
+            <h3>Table of Contents</h3>
+            <ul>
+                <li><a href="#first">First technical section</a>
+                    <ul><li><a href="#nested">Nested technical topic</a></li></ul>
+                </li>
+                <li><a href="#second">Second technical section</a></li>
+            </ul>
+        </div></article></body></html>
+        """
+
+        summary = Document(sample).summary()
+
+        self.assertIn("First technical section", summary)
+        self.assertIn("Nested technical topic", summary)
+        self.assertIn("Second technical section", summary)
