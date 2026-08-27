@@ -56,9 +56,13 @@ make benchmark
 BENCHMARK_MIN_SCORE=0.97 make benchmark
 ```
 
-The corpus methodology, version reports, and ten-engine comparison are
-documented in
-[`docs/quality/`](https://github.com/buriy/python-readability/blob/master/docs/quality/README.md).
+In a reproducible comparison of ten extraction engines on 181 saved pages,
+Readability 0.9 ranks second overall with F1 `0.975` and first on the 51 pages
+outside Mozilla Readability's own fixture corpus with F1 `0.975`. Mozilla
+Readability ranks first overall (F1 `0.986`), but 130 of the 181 fixtures come
+from its test suite. The [quality evaluation](https://github.com/buriy/python-readability/tree/master/docs/quality)
+includes the corpus, methodology, complete results, failures, and per-page
+measurements.
 
 ## Security
 
@@ -87,7 +91,7 @@ allowlist sanitizer and an appropriate Content Security Policy.
   - Updated development and release targets for portable module execution, PEP 517 builds, version synchronization, isolated artifact checks, and current-version uploads.
   - Improved the 166-page benchmark from precision 0.971, recall 0.884, and F1 0.926 in 0.8.4.1 to precision 0.991, recall 0.956, and F1 0.973.
   - Corrected the README usage examples.
-  - Fixes GitHub issues [#14](https://github.com/buriy/python-readability/issues/14), [#108](https://github.com/buriy/python-readability/issues/108), [#119](https://github.com/buriy/python-readability/issues/119), [#130](https://github.com/buriy/python-readability/issues/130), [#143](https://github.com/buriy/python-readability/issues/143), [#146](https://github.com/buriy/python-readability/issues/146), [#153](https://github.com/buriy/python-readability/issues/153), [#158](https://github.com/buriy/python-readability/issues/158), [#159](https://github.com/buriy/python-readability/issues/159), [#163](https://github.com/buriy/python-readability/issues/163), [#170](https://github.com/buriy/python-readability/issues/170), [#176](https://github.com/buriy/python-readability/issues/176), [#182](https://github.com/buriy/python-readability/issues/182), and [#194](https://github.com/buriy/python-readability/issues/194). Release tracking issue [#196](https://github.com/buriy/python-readability/issues/196) can be closed after 0.9 is published to PyPI.
+  - Fixes GitHub issues [#14](https://github.com/buriy/python-readability/issues/14), [#108](https://github.com/buriy/python-readability/issues/108), [#119](https://github.com/buriy/python-readability/issues/119), [#130](https://github.com/buriy/python-readability/issues/130), [#143](https://github.com/buriy/python-readability/issues/143), [#146](https://github.com/buriy/python-readability/issues/146), [#153](https://github.com/buriy/python-readability/issues/153), [#158](https://github.com/buriy/python-readability/issues/158), [#159](https://github.com/buriy/python-readability/issues/159), [#163](https://github.com/buriy/python-readability/issues/163), [#170](https://github.com/buriy/python-readability/issues/170), [#176](https://github.com/buriy/python-readability/issues/176), [#182](https://github.com/buriy/python-readability/issues/182), [#194](https://github.com/buriy/python-readability/issues/194), and [#196](https://github.com/buriy/python-readability/issues/196).
 - 0.8.4 Better CJK support, thanks @cdhigh
 - 0.8.3.1 Support for python 3.8 - 3.13
 - 0.8.3 We can now save all images via keep_all_images=True (default is to save 1 main image), thanks @botlabsDev
