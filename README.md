@@ -49,6 +49,13 @@ The command-line interface accepts a local HTML file or a URL:
 python -m readability -u https://example.com
 ```
 
+Installing the package also provides the `readability-lxml` command with the same
+options. You can run it without a separate installation using `uvx`:
+
+```bash
+uvx readability-lxml article.html
+```
+
 Run the real-page extraction benchmark with the default minimum F1 of 0.95:
 
 ```bash

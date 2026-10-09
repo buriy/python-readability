@@ -42,6 +42,9 @@ setup(
     license="Apache License 2.0",
     url="http://github.com/buriy/python-readability",
     packages=["readability"],
+    entry_points={
+        "console_scripts": ["readability-lxml=readability.readability:main"],
+    },
     python_requires=">=3.8.2,<3.15",
     install_requires=[
         "chardet",
