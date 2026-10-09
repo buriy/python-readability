@@ -12,6 +12,9 @@ include = [
     { path = "NOTICE", format = ["sdist", "wheel"] },
 ]
 
+[tool.poetry.scripts]
+readability-lxml = "readability.readability:main"
+
 [tool.poetry.dependencies]
 python = ">=3.8.2,<3.15"
 chardet = "^5.2.0"
