@@ -191,10 +191,27 @@ class Document:
             self.encoding = 'utf-8'
         else:
             doc, self.encoding = build_doc(input)
+
+        def hide_root(root):
+            for child in list(root):
+                if child.tag != "head":
+                    child.drop_tree()
+            # Fragment roots can contain hidden text outside child elements.
+            if root.tag != "html" and root.text and not root.text.isspace():
+                root.text = None
+            root.attrib.pop("hidden", None)
+            root.attrib.pop("style", None)
+
         for elem in doc.xpath("//*[@hidden]"):
+            if elem is doc or elem.getparent() is None:
+                hide_root(elem)
+                continue
             elem.drop_tree()
         for elem in doc.xpath("//*[@style]"):
             if REGEXES["displayNoneRe"].search(elem.get("style")):
+                if elem is doc or elem.getparent() is None:
+                    hide_root(elem)
+                    continue
                 elem.drop_tree()
         doc = html_cleaner.clean_html(doc)
         base_href = self.url

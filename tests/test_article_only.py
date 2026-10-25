@@ -2,6 +2,9 @@ import os
 import time
 import unittest
 
+import pytest
+from lxml.html import document_fromstring, fromstring
+
 from readability import Document
 from functools import wraps
 
@@ -38,6 +41,103 @@ def load_sample(filename):
     with open(os.path.join(SAMPLES, filename)) as f:
         html = f.read()
     return html
+
+
+@pytest.mark.parametrize("attribute", [
+    "hidden",
+    'style="display:none"',
+    'style="visibility:hidden"',
+    'hidden style="display:none"',
+])
+@pytest.mark.parametrize("method", ["content", "summary", "title"])
+@pytest.mark.parametrize("make_input", [str, str.encode, document_fromstring],
+                         ids=["text", "bytes", "element"])
+@pytest.mark.parametrize("hidden_descendants", [False, True])
+@pytest.mark.parametrize("head, expected_title", [
+    ("", "[no-title]"),
+    ("<head><title>T</title></head>", "T"),
+    ('<head><title>T</title><title hidden>Hidden title</title>'
+     '<title style="display:none">Hidden styled title</title></head>', "T"),
+], ids=["without-head", "with-title", "with-hidden-head-nodes"])
+@pytest.mark.parametrize("formatted", [False, True])
+def test_hidden_root_matches_hidden_body(
+    attribute, method, make_input, hidden_descendants, head, expected_title,
+    formatted
+):
+    newline = "\n" if formatted else ""
+    descendants = ' hidden style="display:none"' if hidden_descendants else ""
+    root_hidden = (
+        f"<html {attribute}>{newline}{head}{newline}<body{descendants}>"
+        f"{newline}<p{descendants}>Hidden content</p>{newline}"
+        f"</body>{newline}</html>"
+    )
+    body_hidden = (
+        f"<html>{newline}{head}{newline}<body {attribute}>"
+        f"{newline}<p>Hidden content</p>{newline}</body>{newline}</html>"
+    )
+
+    try:
+        expected = getattr(Document(make_input(body_hidden)), method)()
+    except IndexError as error:
+        # lxml 5.4 raises IndexError when accessing .body on an empty document.
+        # Preserve the existing content() behavior for a hidden body.
+        assert method == "content"
+        assert str(error) == "list index out of range"
+        with pytest.raises(IndexError, match="list index out of range"):
+            getattr(Document(make_input(root_hidden)), method)()
+    else:
+        result = getattr(Document(make_input(root_hidden)), method)()
+        assert result == expected
+        assert "Hidden" not in result
+        if method == "title":
+            assert result == expected_title
+
+
+@pytest.mark.parametrize("attribute", [
+    "hidden",
+    'style="display:none"',
+    'style="visibility:hidden"',
+    'hidden style="display:none"',
+])
+@pytest.mark.parametrize("method", ["content", "summary", "title"])
+@pytest.mark.parametrize("direct_text", ["", "Hidden text"])
+def test_hidden_fragment_root(attribute, method, direct_text):
+    sample = fromstring(
+        f'<div {attribute}>{direct_text}<p hidden>Hidden child</p>'
+        "Hidden tail</div>"
+    )
+    control = fromstring("<div></div>")
+
+    try:
+        expected = getattr(Document(control), method)()
+    except IndexError as error:
+        assert method == "content"
+        assert str(error) == "list index out of range"
+        with pytest.raises(IndexError, match="list index out of range"):
+            getattr(Document(sample), method)()
+    else:
+        result = getattr(Document(sample), method)()
+        assert result == expected
+        assert "Hidden" not in result
+
+
+@pytest.mark.parametrize("attribute", [
+    "hidden",
+    'style="display:none"',
+    'style="visibility:hidden"',
+    'hidden style="display:none"',
+])
+@pytest.mark.parametrize("method", ["content", "summary"])
+def test_hidden_child_preserves_visible_text_and_tail(attribute, method):
+    sample = (
+        f"<html><body><p>Visible before<span {attribute}>Hidden content</span>"
+        " visible after.</p></body></html>"
+    )
+
+    result = getattr(Document(sample), method)()
+
+    assert "Hidden content" not in result
+    assert "Visible before visible after." in result
 
 
 class TestArticleOnly(unittest.TestCase):
