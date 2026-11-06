@@ -276,6 +276,17 @@ class Document:
                     )
 
                 if best_candidate:
+                    # Moving a form descendant into the article would bypass
+                    # form removal in sanitize().
+                    if best_candidate["elem"].xpath("ancestor-or-self::form"):
+                        outside_form = {
+                            elem: candidate
+                            for elem, candidate in candidates.items()
+                            if not elem.xpath("ancestor-or-self::form")
+                        }
+                        if outside_form:
+                            candidates = outside_form
+                            best_candidate = self.select_best_candidate(candidates)
                     article = self.get_article(
                         candidates, best_candidate, html_partial=html_partial
                     )

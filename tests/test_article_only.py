@@ -577,6 +577,28 @@ class TestArticleOnly(unittest.TestCase):
         self.assertIn(lead, summary)
         self.assertIn("Eligibility restrictions", summary)
 
+    def test_prefers_article_text_to_feedback_form(self):
+        lead = "The privacy rules explain how public agencies must handle personal information."
+        details = "People can request access to their records and ask an agency to correct an error."
+        feedback = "Tell us about your visit, your rating, your questions, your suggestions."
+        sample = f"""
+        <html><body>
+            <div class="article-content"><p>{lead}</p><p>{details}</p></div>
+            <form><div class="panel"><div class="panel-content">
+                <p>{feedback}</p>
+                <p>Did you find the guidance, examples, references, or links you needed?</p>
+                <p>Please describe any trouble with navigation, search, layout, or readability.</p>
+                <textarea name="feedback"></textarea>
+            </div></div></form>
+        </body></html>
+        """
+
+        summary = Document(sample).summary()
+
+        self.assertIn(lead, summary)
+        self.assertIn(details, summary)
+        self.assertNotIn(feedback, summary)
+
     def test_prefers_list_based_article_to_service_form(self):
         list_items = "".join(
             "<li>Article release note number {} with substantial useful "
