@@ -9,7 +9,7 @@ packages = [
     { include = "readability" },
 ]
 include = [
-    { path = "NOTICE", format = ["sdist", "wheel"] },
+    { path = "NOTICE", format = ["sdist"] },
 ]
 
 [tool.poetry.dependencies]
